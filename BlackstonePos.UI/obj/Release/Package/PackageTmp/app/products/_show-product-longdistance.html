@@ -1,0 +1,212 @@
+<!-- show-product.html -->
+<div class="container" id="showProductView">
+	<div class="sub-nav">
+		<div class="row">
+			<div class="col-xs-2 col-sm-1 col-md-1">
+				<a class="btn btn-default pull-left" id="" href="#" ng-click='back()' title="Go Back" target="_self"><i class="fa fa-arrow-left"></i></a>
+			</div>
+
+			<div class="col-xs-8 col-sm-10 col-md-10">
+				<h3 class="category">{{item.typeField | capitalize}}</h3>
+				<p class="caption">Select Amount</p>
+			</div>
+
+			<div class="col-xs-2 col-sm-1 col-md-1">
+				<a class="btn btn-default pull-right" id="" href="#/pos/products/{{item.MainCategory}}" title="View all {{item.typeField}} products" target="_self"><i class="fa fa-th"></i> View All</a>
+			</div>
+		</div>
+
+		<hr/>
+	</div>
+	<!-- {{item | json}} -->
+
+	<div class="alert alert-info alert-dismissable hidden">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	</div>
+
+	<div>
+		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+	</div>
+
+	<div class="row content" id="{{item.codeField}}" ng-show="!showReceipt">
+		<div class="col-xs-12 col-sm-3 col-md-3">
+			<div class="side-nav">
+				<div class="view-modal text-mute" ng-show="item.rates">
+					<a class="btn btn-default" ng-click="open(item.rates)" id="" title=" " target="_self"><i class="fa fa-plus-circle"></i> View Rates</a>
+				</div>
+
+				<div class="view-modal text-mute" ng-show="item.accessPhonesField">
+					<a class="btn btn-default" ng-click="open(item.accessPhonesField)" id="" title=" " target="_self"><i class="fa fa-plus-circle"></i> Access Numbers</a></div>
+
+				<div class="view-modal text-mute" ng-show="item.TermsAndConditions">
+					<a class="btn btn-default" ng-click="open([{'TermsAndConditions':item.TermsAndConditions},{'':''}])" id="" title=" " target="_self"><i class="fa fa-plus-circle"></i> Terms of Use</a></div>
+					<!-- {{item | json}} -->
+			</div>
+		</div> <!-- .col- -->
+
+		<div class="col-xs-12 col-sm-5 col-md-5 item">
+			<div class="row product-sumary" id="">
+				<div class="col-xs-12 col-sm-6 col-md-6 item">
+					<div class="">
+						<img class="img-responsive media-object thumbnail" ng-if="item.ImageUrl" ng-src="{{item.ImageUrl}}" alt="{{item.CarrierName}}"/>
+					</div>
+				</div>
+
+				<div lass="col-xs-12 col-sm-4 col-md-4 item">
+					<div class="name" id="">
+						<p class="" for="">Name: </p>
+						<h5 class="" ng-if="item.Name">{{item.Name}}</h5>
+					</div>
+
+					<div class="country" id="">
+						<p class="" for="">Country: </p>
+						<h5 class="" ng-if="item.CountryName">{{item.CountryName}}</h5>
+					</div>
+
+					<div class="carrier" id="">
+						<p class="" for="">Carrier: </p>
+						<h5 class="" ng-if="item.CountryName">{{item.CarrierName}}</h5>
+					</div>
+				</div>
+			</div>
+
+			<br/>
+
+			<form name="productForm" ng-submit="submitForm(userForm.$valid)" role="form" id="" novalidate>
+
+				<div class="" id="amountsFixed"
+					ng-if="item.useFixedDenominationsField"
+					ng-class="{'has-error' : submitted && productForm.amount.$error.required}"
+					>
+					<!-- submitted && !productForm.$parent.amount.$error.required -->
+					<label class="label-control" for="">Select Amount</label>
+					<span class="label label-danger" data-ng-show="submitted && productForm.amount.$error.required">Required!</span>
+					<div class="form-group" id="amounts" ng-class="{'has-error' : submitted && productForm.amount.$error.required}">
+						<label class="btn btn-secundary" ng-repeat="value in item.denominationsField">
+							<input type="radio" class="" name="amount"
+								ng-value="value"
+								ng-model="$parent.amount"
+								ng-required="!$parent.amount">{{value | currency}}
+						</label>
+					</div>
+					<span class="error" ng-show="sampleForm.amount.$error.required">
+				</div>
+
+				<div class="" id="amountVariable" ng-if="!item.useFixedDenominationsField">
+					<div class="form-group" ng-class="{'has-error' : submitted && productForm.phone.$error.required}">
+						<label for="" class="control-label">Phone Number</label>
+						<span class="label label-danger" data-ng-show="submitted && productForm.phone.$error.required">Required!</span>
+						<input class="form-control" type="text" name="phone" placeholder="Enter phone number" id=""
+							ng-model="phone"
+							ng-click="editItem(phone)"
+							ng-blur="blur=true;focus=false;"
+							data-ng-keypad-input="numeric"
+							data-ng-keypad-restrict="^[0-9]{0,3}$"
+							ng-minlength="9"
+							ng-maxlength="12"
+							ng-required="true"
+							required >
+						<p class="help-block"></p>
+						<span class="error" ng-show="sampleForm.phone.$error.required">
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && productForm.amount.$error.required}">
+						<label for="" class="control-label">Amount</label>
+						<span class="label label-danger" data-ng-show="submitted && productForm.amount.$error.required">Required!</span>
+						<span class="label label-danger" data-ng-show="submitted && productForm.amount.$error.numberFormat">formats must be: ##, ##.# or ##.##</span>
+						<input class="form-control" type="text" name="amount" placeholder="Enter amount" id=""
+							ng-model="amount"
+							ng-click="editItem(amount)"
+							ng-blur="blur=true;focus=false;"
+							data-ng-keypad-input="numeric"
+							data-ng-keypad-restrict="^[0-9]{0,3}$"
+							number-format-validator
+							ng-minlength="1"
+							ng-maxlength="2"
+							ng-required="true"
+							required >
+						<p class="help-block"></p>
+						<span class="error" ng-show="sampleForm.amount.$error.required">
+					</div>
+				</div>
+
+				<a class="btn btn-danger" id="" title="Submit" data-ng-click="submit(productForm)">Submit</a>
+			</form>
+
+				<!-- <button data-ng-disabled="progress.active()" data-ng-click="submit(sampleForm)" class="btn btn-primary btn-block">Log In</button> -->
+		</div> <!-- .col- -->
+
+		<div class="col-xs-12 col-sm-4 col-md-4">
+			<div class="numpad" ng-if="!item.useFixedDenominationsField">
+				<div ng-include="" src="'app/products/_keypad.html'"></div>
+			</div>
+		</div>
+	</div> <!-- .row -->
+
+	<div class="row content" id="receipt" ng-show="showReceipt">
+		<div class="col-xs-12 col-sm-4 col-md-4">
+			<div class="">
+				<img class="img-responsive media-object thumbnail" ng-src="{{item.imageUrlField}}" alt="{{item.nameField}}"/>
+			</div>
+
+			<div class="view-modal text-mute" ng-show="item.accessPhonesField">
+				<a class="btn btn-default" ng-click="open(item.accessPhonesField)" id="" title=" " target="_self"><i class="fa fa-plus-circle"></i> Access Numbers</a>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-8 col-md-8">
+			<table class="table"><tbody>
+				<tr ng-if="receipt.PhoneNumber">
+					<td>Phone Number:</td>
+					<td>{{receipt.PhoneNumber}}</td>
+				</tr>
+
+				<tr ng-if="receipt.Country">
+					<td>Phone Number:</td>
+					<td>{{receipt.Country}}</td>
+				</tr>
+
+				<tr ng-if="receipt.Carrier">
+					<td>Carrier:</td>
+					<td>{{receipt.Carrier}}</td>
+				</tr>
+
+				<tr ng-if="receipt.Plan">
+					<td>Country:</td>
+					<td>{{receipt.Plan}}</td>
+				</tr>
+
+				<tr ng-if="receipt.OrderNumber">
+					<td>Country:</td>
+					<td>{{receipt.OrderNumber}}</td>
+				</tr>
+
+				<tr ng-if="receipt.PinNumber">
+					<td>Country:</td>
+					<td>receipt.PinNumber</td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><div class="divider"></div></td>
+				</tr>
+
+				<tr ng-if="receipt.Amount">
+					<td>Country:</td>
+					<td>receipt.Amount</td>
+				</tr>
+
+				<tr ng-if="receipt.Fee">
+					<td>Country:</td>
+					<td>receipt.Fee</td>
+				</tr>
+
+				<tr ng-if="receipt.Total">
+					<td>Country:</td>
+					<td>receipt.Total</td>
+				</tr>
+			</tbody></table>
+
+			<a type="submit" class="btn btn-print" id="printReceiptBtn"  href="@Url.Action("PrintReceipt","Receipt", Model)"><span class="glyphicon glyphicon-print"></span> Print Receipt</a>
+		</div>
+	</div>
+</div> <!-- .panel -->

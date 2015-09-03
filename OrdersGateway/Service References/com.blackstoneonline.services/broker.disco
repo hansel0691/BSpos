@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://services.blackstoneonline.com/transactionbroker/broker.asmx?wsdl" docRef="https://services.blackstoneonline.com/transactionbroker/broker.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://services.blackstoneonline.com/transactionbroker/broker.asmx" xmlns:q1="https://services.blackstoneonline.com/TransactionBroker/Broker" binding="q1:BrokerSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://services.blackstoneonline.com/transactionbroker/broker.asmx" xmlns:q2="https://services.blackstoneonline.com/TransactionBroker/Broker" binding="q2:BrokerSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

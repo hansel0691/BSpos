@@ -1,0 +1,27 @@
+<!-- custom directive sales-details.html -->
+<div class="" id="salesDetails">
+	<table class="table table-condensed">
+		<tbody>
+			<tr class="today">
+				<td class="title">Today's Sales:</td>
+				<td class="amount"><span class="sales pull">{{merchant.salesDetails.todaySales | currency}}</span></td>
+			</tr>
+			<tr class="daily-credit">
+				<td class="title">Daily Credit Limits:</td>
+				<td class="amount"><span class="currency">{{merchant.salesDetails.dailyCreditLimit | currency}}</span></td>
+			</tr>
+			<tr class="daily-balance spot-bg">
+				<td class="title">Available:</td>
+				<td class="amount"><span class="currency">{{merchant.salesDetails.daylyBalance | currency}}</span></td>
+			</tr>
+			<tr class="weekly-credit">
+				<td>Weekly Credit Limit:</td>
+				<td class="amount"><span class="currency">{{merchant.salesDetails.weeklyCreditLimit | currency}}</span></td>
+			</tr>
+			<tr class="weekly-balance spot-bg">
+				<td class="title">Weekly Credit Limit:</td>
+				<td class="amount"><span class="currency">{{merchant.salesDetails.weeklyBalance | currency}}</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

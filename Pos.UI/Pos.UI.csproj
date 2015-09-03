@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8FFBA138-2EA1-45E7-9937-9ADA007AD29A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pos.UI</RootNamespace>
+    <AssemblyName>Pos.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\flags\basic.scss" />
+    <Content Include="Content\flags\flags32.scss" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS-CONDENSEDLIGHT.eot" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS-CONDENSEDLIGHT.otf" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS-CONDENSEDLIGHT.TTF" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS-CONDENSEDLIGHT.woff" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS.eot" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS.otf" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS.TTF" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS.woff" />
+    <Content Include="Content\sass\base\_animations.scss" />
+    <Content Include="Content\sass\base\_buttons.scss" />
+    <Content Include="Content\sass\base\_carousel.scss" />
+    <Content Include="Content\sass\base\_colors.scss" />
+    <Content Include="Content\sass\base\_custom.scss" />
+    <Content Include="Content\sass\base\_errors.scss" />
+    <Content Include="Content\sass\base\_footer.scss" />
+    <Content Include="Content\sass\base\_forms.scss" />
+    <Content Include="Content\sass\base\_general.scss" />
+    <Content Include="Content\sass\base\_header.scss" />
+    <Content Include="Content\sass\base\_icons.scss" />
+    <Content Include="Content\sass\base\_keypad-numeric.scss" />
+    <Content Include="Content\sass\base\_loading-spin.scss" />
+    <Content Include="Content\sass\base\_mixins.scss" />
+    <Content Include="Content\sass\base\_modals.scss" />
+    <Content Include="Content\sass\base\_navbar.scss" />
+    <Content Include="Content\sass\base\_panels.scss" />
+    <Content Include="Content\sass\base\_sidebar.scss" />
+    <Content Include="Content\sass\base\_typography.scss" />
+    <Content Include="Content\sass\base\_variables.scss" />
+    <Content Include="Content\sass\_datepicker.scss" />
+    <Content Include="Content\sass\_font-awesome.scss" />
+    <Content Include="Content\sass\_kendo-custom.scss" />
+    <Content Include="Content\sass\_loading-spin.scss" />
+    <Content Include="Content\styles.scss" />
+    <Content Include="Images\flags\flags32.psd" />
+    <Content Include="packages-ui\angular-animate\.bower.json" />
+    <Content Include="packages-ui\angular-animate\angular-animate.min.js.map" />
+    <Content Include="packages-ui\angular-bootstrap\.bower.json" />
+    <Content Include="packages-ui\angular-busy\.bower.json" />
+    <Content Include="packages-ui\angular-busy\LICENSE" />
+    <Content Include="packages-ui\angular-local-storage\.bower.json" />
+    <Content Include="packages-ui\angular-local-storage\.gitattributes" />
+    <Content Include="packages-ui\angular-local-storage\.travis.yml" />
+    <Content Include="packages-ui\angular-local-storage\LICENSE" />
+    <Content Include="packages-ui\angular-promise-tracker\.bower.json" />
+    <Content Include="packages-ui\angular-promise-tracker\.editorconfig" />
+    <Content Include="packages-ui\angular-promise-tracker\.travis.yml" />
+    <Content Include="packages-ui\angular-resource\.bower.json" />
+    <Content Include="packages-ui\angular-resource\angular-resource.min.js.map" />
+    <Content Include="packages-ui\angular-route\.bower.json" />
+    <Content Include="packages-ui\angular-route\angular-route.min.js.map" />
+    <Content Include="packages-ui\angular-sanitize\.bower.json" />
+    <Content Include="packages-ui\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="packages-ui\angular-snap\.bower.json" />
+    <Content Include="packages-ui\angular-snap\bower.json" />
+    <Content Include="packages-ui\angular-snap\LICENSE-MIT" />
+    <Content Include="packages-ui\angular-ui-utils\.bower.json" />
+    <Content Include="packages-ui\angular-ui-utils\.travis.yml" />
+    <Content Include="packages-ui\angular\.bower.json" />
+    <Content Include="packages-ui\angular\angular.min.js.gzip" />
+    <Content Include="packages-ui\angular\angular.min.js.map" />
+    <Content Include="packages-ui\bootstrap-sass\.bower.json" />
+    <Content Include="packages-ui\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="packages-ui\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages-ui\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="packages-ui\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_alerts.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_buttons.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_center-block.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_forms.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_gradients.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_grid.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_image.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_labels.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_list-group.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_opacity.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_pagination.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_panels.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_resize.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_size.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_table-row.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_alerts.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_badges.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_breadcrumbs.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_button-groups.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_buttons.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_carousel.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_close.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_code.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_component-animations.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_dropdowns.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_forms.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_glyphicons.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_grid.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_input-groups.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_jumbotron.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_labels.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_list-group.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_media.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_mixins.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_modals.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_navbar.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_navs.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_normalize.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_pager.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_pagination.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_panels.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_popovers.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_print.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_progress-bars.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_responsive-embed.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_responsive-utilities.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_scaffolding.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_tables.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_theme.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_thumbnails.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_tooltip.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_type.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_utilities.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_variables.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\bootstrap\_wells.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\_bootstrap-compass.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\_bootstrap-mincer.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\_bootstrap-sprockets.scss" />
+    <Content Include="packages-ui\bootstrap-sass\assets\stylesheets\_bootstrap.scss" />
+    <Content Include="packages-ui\bootstrap-sass\composer.json" />
+    <Content Include="packages-ui\bootstrap-sass\LICENSE" />
+    <Content Include="packages-ui\bootstrap-sass\sache.json" />
+    <Content Include="packages-ui\font-awesome\.bower.json" />
+    <Content Include="packages-ui\font-awesome\.npmignore" />
+    <Content Include="packages-ui\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="packages-ui\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="packages-ui\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="packages-ui\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="packages-ui\font-awesome\less\bordered-pulled.less" />
+    <Content Include="packages-ui\font-awesome\less\core.less" />
+    <Content Include="packages-ui\font-awesome\less\extras.less" />
+    <Content Include="packages-ui\font-awesome\less\fixed-width.less" />
+    <Content Include="packages-ui\font-awesome\less\font-awesome.less" />
+    <Content Include="packages-ui\font-awesome\less\icons.less" />
+    <Content Include="packages-ui\font-awesome\less\larger.less" />
+    <Content Include="packages-ui\font-awesome\less\list.less" />
+    <Content Include="packages-ui\font-awesome\less\mixins.less" />
+    <Content Include="packages-ui\font-awesome\less\path.less" />
+    <Content Include="packages-ui\font-awesome\less\rotated-flipped.less" />
+    <Content Include="packages-ui\font-awesome\less\spinning.less" />
+    <Content Include="packages-ui\font-awesome\less\stacked.less" />
+    <Content Include="packages-ui\font-awesome\less\variables.less" />
+    <Content Include="packages-ui\font-awesome\scss\font-awesome.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_core.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_extras.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_icons.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_larger.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_list.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_mixins.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_path.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_spinning.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_stacked.scss" />
+    <Content Include="packages-ui\font-awesome\scss\_variables.scss" />
+    <Content Include="packages-ui\jquery\.bower.json" />
+    <Content Include="packages-ui\jquery\dist\jquery.min.map" />
+    <Content Include="packages-ui\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="packages-ui\snapjs\.bower.json" />
+    <Content Include="packages-ui\snapjs\component.json" />
+    <Content Include="Scripts\scripts.min.js.map">
+      <DependentUpon>scripts.min.js</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\admin\adminCtrl.js" />
+    <Content Include="app\admin\_admin.html" />
+    <Content Include="app\admin\_modal-account-tpl.html" />
+    <Content Include="app\app.js" />
+    <Content Include="app\billpayment\billPaymentServices.js" />
+    <Content Include="app\billpayment\IndexByCategoryBillPaymentCtrl.js" />
+    <Content Include="app\billpayment\indexByPopularBillPaymentCtrl.js" />
+    <Content Include="app\billpayment\indexCategoriesBillPaymentCtrl.js" />
+    <Content Include="app\billpayment\showBillPaymentCtrl.js" />
+    <Content Include="app\billpayment\_index-billers.html" />
+    <Content Include="app\billpayment\_index-categories.html" />
+    <Content Include="app\billpayment\_show-biller.html" />
+    <Content Include="app\directtv\directTvCtrl.js" />
+    <Content Include="app\directtv\directTvServices.js" />
+    <Content Include="app\directtv\_index-categories-dtv.html" />
+    <Content Include="app\directtv\_index-dtv.html" />
+    <Content Include="app\directtv\_show-dtv.html" />
+    <Content Include="app\home\homeCtrl.js" />
+    <Content Include="app\home\_home.html" />
+    <Content Include="app\login\loginCtrl.js" />
+    <Content Include="app\login\loginServices.js" />
+    <Content Include="app\login\_login.html" />
+    <Content Include="app\login\_modal-demo-tpl.html" />
+    <Content Include="app\others\othersCtrl.js" />
+    <Content Include="app\others\_index-others.html" />
+    <Content Include="app\products\IndexByCategoryByCarrierCtrl.js" />
+    <Content Include="app\products\IndexByCategoryByCountryCtrl.js" />
+    <Content Include="app\products\indexByCategoryCtrl.js" />
+    <Content Include="app\products\indexCountriesByCategoryCtrl.js" />
+    <Content Include="app\products\indexWirelessCarriersCtrl.js" />
+    <Content Include="app\products\productsServices.js" />
+    <Content Include="app\products\showProductCtrl.js" />
+    <Content Include="app\products\showTermsCtrl.js" />
+    <Content Include="app\products\_index-carriers.html" />
+    <Content Include="app\products\_index-countries.html" />
+    <Content Include="app\products\_index-products.html" />
+    <Content Include="app\products\_modal-product-tpl.html" />
+    <Content Include="app\products\_show-product.html" />
+    <Content Include="app\products\_show-terms.html" />
+    <Content Include="app\promotions\promosCtrl.js" />
+    <Content Include="app\promotions\promosServices.js" />
+    <Content Include="app\promotions\_index-promos.html" />
+    <Content Include="app\shared\sharedCtrl.js" />
+    <Content Include="app\shared\sharedDirectives.js" />
+    <Content Include="app\shared\sharedFilters.js" />
+    <Content Include="app\shared\sharedFunctions.js" />
+    <Content Include="app\shared\sharedServices.js" />
+    <Content Include="app\shared\_admin-login.html" />
+    <Content Include="app\shared\_angular-busy-spin-tpl.html" />
+    <Content Include="app\shared\_balance-details.html" />
+    <Content Include="app\shared\_cashiers-grid.html" />
+    <Content Include="app\shared\_header-info-tpl.html" />
+    <Content Include="app\shared\_inner-nav.html" />
+    <Content Include="app\shared\_keypad-numeric.html" />
+    <Content Include="app\shared\_make-Payments.html" />
+    <Content Include="app\shared\_merchant-payments.html" />
+    <Content Include="app\shared\_merchant-settings.html" />
+    <Content Include="app\shared\_modal.html" />
+    <Content Include="app\shared\_orders-grid.html" />
+    <Content Include="app\shared\_product-caption-tpl.html" />
+    <Content Include="app\shared\_sales-details.html" />
+    <Content Include="app\shared\_work-in-progress.html" />
+    <Content Include="app\sunpass\sunpassCtrl.js" />
+    <Content Include="app\sunpass\sunpassServices.js" />
+    <Content Include="app\sunpass\_documents-sunpass.html" />
+    <Content Include="app\sunpass\_index-sunpass.html" />
+    <Content Include="app\sunpass\_replenish-sunpass.html" />
+    <Content Include="Content\flags\flags16.css" />
+    <Content Include="Content\flags\flags24.css" />
+    <Content Include="Content\flags\flags48.css" />
+    <Content Include="Content\flags\flags64.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS-CONDENSEDLIGHT.svg" />
+    <Content Include="Content\fonts\Open-Sans\OPENSANS.svg" />
+    <Content Include="Content\img\aero%402x.png" />
+    <Content Include="Content\img\aero.png" />
+    <Content Include="Content\img\blue%402x.png" />
+    <Content Include="Content\img\blue.png" />
+    <Content Include="Content\img\green%402x.png" />
+    <Content Include="Content\img\green.png" />
+    <Content Include="Content\img\grey%402x.png" />
+    <Content Include="Content\img\grey.png" />
+    <Content Include="Content\img\orange%402x.png" />
+    <Content Include="Content\img\orange.png" />
+    <Content Include="Content\img\pink%402x.png" />
+    <Content Include="Content\img\pink.png" />
+    <Content Include="Content\img\purple%402x.png" />
+    <Content Include="Content\img\purple.png" />
+    <Content Include="Content\img\red%402x.png" />
+    <Content Include="Content\img\red.png" />
+    <Content Include="Content\img\square%402x.png" />
+    <Content Include="Content\img\square.png" />
+    <Content Include="Content\img\yellow%402x.png" />
+    <Content Include="Content\img\yellow.png" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\styles.min.css" />
+    <Content Include="Images\flags\flags16.png" />
+    <Content Include="Images\flags\flags16_semi.png" />
+    <Content Include="Images\flags\flags24.png" />
+    <Content Include="Images\flags\flags24_semi.png" />
+    <Content Include="Images\flags\flags32.png" />
+    <Content Include="Images\flags\flags32_semi.png" />
+    <Content Include="Images\flags\flags48.png" />
+    <Content Include="Images\flags\flags48_semi.png" />
+    <Content Include="Images\flags\flags64.png" />
+    <Content Include="Images\flags\flags64_semi.png" />
+    <Content Include="Images\landing\01-bkt-POS-landing.png" />
+    <Content Include="Images\landing\01a-bkt-POS-landing.png" />
+    <Content Include="Images\landing\01b-bkt-POS-landing.png" />
+    <Content Include="Images\landing\02-bkt-POS-landing.png" />
+    <Content Include="Images\landing\02a-bkt-POS-landing.png" />
+    <Content Include="Images\landing\02b-bkt-POS-landing.png" />
+    <Content Include="Images\landing\03-bkt-POS-landing.png" />
+    <Content Include="Images\landing\03a-bkt-POS-landing.png" />
+    <Content Include="Images\landing\03b-bkt-POS-landing.png" />
+    <Content Include="Images\landing\04-bkt-POS-landing.png" />
+    <Content Include="Images\landing\04a-bkt-POS-landing.png" />
+    <Content Include="Images\landing\04b-bkt-POS-landing.png" />
+    <Content Include="Images\landing\pinless.png" />
+    <Content Include="Images\src\billpay.svg" />
+    <Content Include="Images\src\directtv\combo-1.svg" />
+    <Content Include="Images\src\directtv\combo-2.svg" />
+    <Content Include="Images\src\directtv\instalation.svg" />
+    <Content Include="Images\src\directtv\payper-view.svg" />
+    <Content Include="Images\src\directtv\prepaid-card.svg" />
+    <Content Include="Images\src\directtv\recharge-direct-tv.svg" />
+    <Content Include="Images\src\en-US.svg" />
+    <Content Include="Images\src\es-ES.svg" />
+    <Content Include="Images\src\financial.svg" />
+    <Content Include="Images\src\home.svg" />
+    <Content Include="Images\src\logo-blackstone.svg" />
+    <Content Include="Images\src\logout.svg" />
+    <Content Include="Images\src\other.svg" />
+    <Content Include="Images\src\password.svg" />
+    <Content Include="Images\src\phones.svg" />
+    <Content Include="Images\src\pinless.svg" />
+    <Content Include="Images\src\tv.svg" />
+    <Content Include="Images\src\user.svg" />
+    <Content Include="Images\src\utilities.svg" />
+    <Content Include="Images\src\wireless.svg" />
+    <Content Include="index.html" />
+    <Content Include="packages-ui\angular-animate\angular-animate.js" />
+    <Content Include="packages-ui\angular-animate\angular-animate.min.js" />
+    <Content Include="packages-ui\angular-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="packages-ui\angular-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="packages-ui\angular-bootstrap\ui-bootstrap.js" />
+    <Content Include="packages-ui\angular-bootstrap\ui-bootstrap.min.js" />
+    <Content Include="packages-ui\angular-busy\angular-busy.css" />
+    <Content Include="packages-ui\angular-busy\angular-busy.html" />
+    <Content Include="packages-ui\angular-busy\angular-busy.js" />
+    <Content Include="packages-ui\angular-busy\dist\angular-busy.css" />
+    <Content Include="packages-ui\angular-busy\dist\angular-busy.js" />
+    <Content Include="packages-ui\angular-busy\dist\angular-busy.min.css" />
+    <Content Include="packages-ui\angular-busy\dist\angular-busy.min.js" />
+    <Content Include="packages-ui\angular-local-storage\demo\demo-app.js" />
+    <Content Include="packages-ui\angular-local-storage\demo\demo-style.css" />
+    <Content Include="packages-ui\angular-local-storage\demo\demo.html" />
+    <Content Include="packages-ui\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="packages-ui\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="packages-ui\angular-promise-tracker\promise-tracker-http-interceptor.js" />
+    <Content Include="packages-ui\angular-promise-tracker\promise-tracker.js" />
+    <Content Include="packages-ui\angular-resource\angular-resource.js" />
+    <Content Include="packages-ui\angular-resource\angular-resource.min.js" />
+    <Content Include="packages-ui\angular-route\angular-route.js" />
+    <Content Include="packages-ui\angular-route\angular-route.min.js" />
+    <Content Include="packages-ui\angular-sanitize\angular-sanitize.js" />
+    <Content Include="packages-ui\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="packages-ui\angular-snap\angular-snap-only.css" />
+    <Content Include="packages-ui\angular-snap\angular-snap-only.min.css" />
+    <Content Include="packages-ui\angular-snap\angular-snap.css" />
+    <Content Include="packages-ui\angular-snap\angular-snap.js" />
+    <Content Include="packages-ui\angular-snap\angular-snap.min.css" />
+    <Content Include="packages-ui\angular-snap\angular-snap.min.js" />
+    <Content Include="packages-ui\angular-ui-utils\ui-utils-ieshiv.js" />
+    <Content Include="packages-ui\angular-ui-utils\ui-utils-ieshiv.min.js" />
+    <Content Include="packages-ui\angular-ui-utils\ui-utils.js" />
+    <Content Include="packages-ui\angular-ui-utils\ui-utils.min.js" />
+    <Content Include="packages-ui\angular\angular-csp.css" />
+    <Content Include="packages-ui\angular\angular.js" />
+    <Content Include="packages-ui\angular\angular.min.js" />
+    <Content Include="packages-ui\angular\index.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap-sprockets.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap.min.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\affix.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\alert.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\button.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\carousel.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\collapse.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\dropdown.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\modal.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\popover.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\scrollspy.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\tab.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\tooltip.js" />
+    <Content Include="packages-ui\bootstrap-sass\assets\javascripts\bootstrap\transition.js" />
+    <Content Include="packages-ui\font-awesome\css\font-awesome.css" />
+    <Content Include="packages-ui\font-awesome\css\font-awesome.min.css" />
+    <Content Include="packages-ui\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="packages-ui\jquery\dist\jquery.js" />
+    <Content Include="packages-ui\jquery\dist\jquery.min.js" />
+    <Content Include="packages-ui\jquery\MIT-LICENSE.txt" />
+    <Content Include="packages-ui\jquery\src\ajax.js" />
+    <Content Include="packages-ui\jquery\src\ajax\jsonp.js" />
+    <Content Include="packages-ui\jquery\src\ajax\load.js" />
+    <Content Include="packages-ui\jquery\src\ajax\parseJSON.js" />
+    <Content Include="packages-ui\jquery\src\ajax\parseXML.js" />
+    <Content Include="packages-ui\jquery\src\ajax\script.js" />
+    <Content Include="packages-ui\jquery\src\ajax\var\nonce.js" />
+    <Content Include="packages-ui\jquery\src\ajax\var\rquery.js" />
+    <Content Include="packages-ui\jquery\src\ajax\xhr.js" />
+    <Content Include="packages-ui\jquery\src\attributes.js" />
+    <Content Include="packages-ui\jquery\src\attributes\attr.js" />
+    <Content Include="packages-ui\jquery\src\attributes\classes.js" />
+    <Content Include="packages-ui\jquery\src\attributes\prop.js" />
+    <Content Include="packages-ui\jquery\src\attributes\support.js" />
+    <Content Include="packages-ui\jquery\src\attributes\val.js" />
+    <Content Include="packages-ui\jquery\src\callbacks.js" />
+    <Content Include="packages-ui\jquery\src\core.js" />
+    <Content Include="packages-ui\jquery\src\core\access.js" />
+    <Content Include="packages-ui\jquery\src\core\init.js" />
+    <Content Include="packages-ui\jquery\src\core\parseHTML.js" />
+    <Content Include="packages-ui\jquery\src\core\ready.js" />
+    <Content Include="packages-ui\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="packages-ui\jquery\src\css.js" />
+    <Content Include="packages-ui\jquery\src\css\addGetHookIf.js" />
+    <Content Include="packages-ui\jquery\src\css\curCSS.js" />
+    <Content Include="packages-ui\jquery\src\css\defaultDisplay.js" />
+    <Content Include="packages-ui\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="packages-ui\jquery\src\css\support.js" />
+    <Content Include="packages-ui\jquery\src\css\swap.js" />
+    <Content Include="packages-ui\jquery\src\css\var\cssExpand.js" />
+    <Content Include="packages-ui\jquery\src\css\var\getStyles.js" />
+    <Content Include="packages-ui\jquery\src\css\var\isHidden.js" />
+    <Content Include="packages-ui\jquery\src\css\var\rmargin.js" />
+    <Content Include="packages-ui\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="packages-ui\jquery\src\data.js" />
+    <Content Include="packages-ui\jquery\src\data\accepts.js" />
+    <Content Include="packages-ui\jquery\src\data\Data.js" />
+    <Content Include="packages-ui\jquery\src\data\var\data_priv.js" />
+    <Content Include="packages-ui\jquery\src\data\var\data_user.js" />
+    <Content Include="packages-ui\jquery\src\deferred.js" />
+    <Content Include="packages-ui\jquery\src\deprecated.js" />
+    <Content Include="packages-ui\jquery\src\dimensions.js" />
+    <Content Include="packages-ui\jquery\src\effects.js" />
+    <Content Include="packages-ui\jquery\src\effects\animatedSelector.js" />
+    <Content Include="packages-ui\jquery\src\effects\Tween.js" />
+    <Content Include="packages-ui\jquery\src\event.js" />
+    <Content Include="packages-ui\jquery\src\event\ajax.js" />
+    <Content Include="packages-ui\jquery\src\event\alias.js" />
+    <Content Include="packages-ui\jquery\src\event\support.js" />
+    <Content Include="packages-ui\jquery\src\exports\amd.js" />
+    <Content Include="packages-ui\jquery\src\exports\global.js" />
+    <Content Include="packages-ui\jquery\src\intro.js" />
+    <Content Include="packages-ui\jquery\src\jquery.js" />
+    <Content Include="packages-ui\jquery\src\manipulation.js" />
+    <Content Include="packages-ui\jquery\src\manipulation\support.js" />
+    <Content Include="packages-ui\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="packages-ui\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="packages-ui\jquery\src\offset.js" />
+    <Content Include="packages-ui\jquery\src\outro.js" />
+    <Content Include="packages-ui\jquery\src\queue.js" />
+    <Content Include="packages-ui\jquery\src\queue\delay.js" />
+    <Content Include="packages-ui\jquery\src\selector-native.js" />
+    <Content Include="packages-ui\jquery\src\selector-sizzle.js" />
+    <Content Include="packages-ui\jquery\src\selector.js" />
+    <Content Include="packages-ui\jquery\src\serialize.js" />
+    <Content Include="packages-ui\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="packages-ui\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="packages-ui\jquery\src\traversing.js" />
+    <Content Include="packages-ui\jquery\src\traversing\findFilter.js" />
+    <Content Include="packages-ui\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="packages-ui\jquery\src\var\arr.js" />
+    <Content Include="packages-ui\jquery\src\var\class2type.js" />
+    <Content Include="packages-ui\jquery\src\var\concat.js" />
+    <Content Include="packages-ui\jquery\src\var\hasOwn.js" />
+    <Content Include="packages-ui\jquery\src\var\indexOf.js" />
+    <Content Include="packages-ui\jquery\src\var\pnum.js" />
+    <Content Include="packages-ui\jquery\src\var\push.js" />
+    <Content Include="packages-ui\jquery\src\var\rnotwhite.js" />
+    <Content Include="packages-ui\jquery\src\var\slice.js" />
+    <Content Include="packages-ui\jquery\src\var\strundefined.js" />
+    <Content Include="packages-ui\jquery\src\var\support.js" />
+    <Content Include="packages-ui\jquery\src\var\toString.js" />
+    <Content Include="packages-ui\jquery\src\wrap.js" />
+    <Content Include="packages-ui\snapjs\demo\apps\classNames.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\default.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\dragElement.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\expand.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\hyperextend.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\noDrag.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\ratchet\ratchet.css" />
+    <Content Include="packages-ui\snapjs\demo\apps\ratchet\ratchet.js" />
+    <Content Include="packages-ui\snapjs\demo\apps\ratchet\template.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\rightDisabled.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\settings.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\skinnyThreshold.html" />
+    <Content Include="packages-ui\snapjs\demo\apps\toggles.html" />
+    <Content Include="packages-ui\snapjs\demo\assets\demo.css" />
+    <Content Include="packages-ui\snapjs\demo\assets\demo.js" />
+    <Content Include="packages-ui\snapjs\demo\assets\drag.png" />
+    <Content Include="packages-ui\snapjs\demo\assets\graph.png" />
+    <Content Include="packages-ui\snapjs\demo\assets\open.png" />
+    <Content Include="packages-ui\snapjs\demo\index.html" />
+    <Content Include="packages-ui\snapjs\snap.css" />
+    <Content Include="packages-ui\snapjs\snap.js" />
+    <Content Include="packages-ui\snapjs\snap.min.js" />
+    <Content Include="Scripts\libs.js" />
+    <Content Include="Scripts\libs.min.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\scripts.min.js" />
+    <Content Include="terms.html" />
+    <Content Include="test.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="packages-ui\angular-bootstrap-custom\" />
+    <Folder Include="packages-ui\bootstrap-sass-official\assets\fonts\bootstrap\" />
+    <Folder Include="packages-ui\bootstrap-sass-official\assets\javascripts\bootstrap\" />
+    <Folder Include="packages-ui\bootstrap-sass-official\assets\stylesheets\bootstrap\mixins\" />
+    <Folder Include="packages-ui\highlightjs\styles\" />
+    <Folder Include="packages-ui\ngprogress\build\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6985</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6985/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

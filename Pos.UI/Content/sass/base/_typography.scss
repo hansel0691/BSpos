@@ -1,0 +1,38 @@
+// TIPOGRAPHY
+// -------------------------
+@font-face {
+	font-family: 'OpenSans';
+	src: url('fonts/Open-Sans/OPENSANS.eot');
+	src: url('fonts/Open-Sans/OPENSANS.eot?#iefix') format('embedded-opentype'),
+	url('fonts/Open-Sans/OPENSANS.woff') format('woff'),
+	url('fonts/Open-Sans/OPENSANS.TTF') format('truetype'),
+	url('fonts/Open-Sans/OPENSANS.svg#OpenSans') format('svg');
+	font-style: normal;
+}
+
+.list-icon{
+	padding: 1px 5px;
+	// @include button-size($padding-base-vertical * 0.8, $padding-base-horizontal 0.8, $font-size-base, $line-height-base, 1);
+}
+.mime-pdf{
+	color: $brand-danger;
+
+	&:hover, &:link, &:focus, &:visited{
+		color: darken($brand-danger, 20%);
+
+		.fa-file-pdf-o{
+			color: darken($brand-danger, 20%);
+		}
+	}
+}
+.text-secundary{
+	color: $brand-secundary;
+}
+label{
+	font-size: $font-size-base * 1;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+.h3, .h4{
+	color: $brand-secundary;
+}

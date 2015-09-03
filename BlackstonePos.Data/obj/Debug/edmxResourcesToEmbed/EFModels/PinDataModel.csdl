@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pin_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="PosmerchantHeader">
+    <Key>
+      <PropertyRef Name="merchant_pk" />
+    </Key>
+    <Property Name="PosCustomerType_fk" Type="Int32" />
+    <Property Name="merchant_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="custno_fk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="eCommerceFlag" Type="Boolean" />
+    <Property Name="PosdispenserFlag" Type="Boolean" />
+    <Property Name="mer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mer_AppDate" Type="DateTime" Precision="3" />
+    <Property Name="mer_ProcessingCo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="mer_LeasingCo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="mer_TID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="mer_MID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="mer_MIDBank" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="mer_LeaseAccount" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="mer_InfoIsComplete" Type="Boolean" />
+    <Property Name="mer_zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="mer_telno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mer_crlimit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mer_Notes" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="mer_status" Type="Int32" />
+    <Property Name="mer_mxtrans" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="mer_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mer_timestamp" Type="DateTime" Precision="3" />
+    <Property Name="mer_useradder" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="mer_dateadded" Type="DateTime" Precision="3" />
+    <Property Name="mer_usereditor" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="mer_dateeditor" Type="DateTime" Precision="3" />
+    <Property Name="mer_processed" Type="DateTime" Precision="3" />
+    <Property Name="mer_gelapproved" Type="Boolean" />
+    <Property Name="mer_usbapproved" Type="Boolean" />
+    <Property Name="mer_posdelivery" Type="Boolean" />
+    <Property Name="mer_callingcard" Type="Boolean" />
+    <Property Name="mer_creditcard" Type="Boolean" />
+    <Property Name="mer_SaleActive" Type="Boolean" />
+    <Property Name="mer_CreditSales" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="mer_apptype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="mer_creditScore" Type="Int32" />
+    <Property Name="mer_paymentCleared" Type="Boolean" />
+    <Property Name="mer_funded" Type="Boolean" />
+    <Property Name="posdeals_fk" Type="Int32" />
+    <Property Name="agentId" Type="Int32" />
+    <Property Name="distributorId" Type="Int32" />
+    <Property Name="mdistributorid" Type="Int32" />
+    <Property Name="merchantProfId" Type="Int32" />
+    <Property Name="AgentProfId" Type="Int32" />
+    <Property Name="distributorProfId" Type="Int32" />
+    <Property Name="mdistributorProfId" Type="Int32" />
+    <Property Name="placementAgentId" Type="Int32" />
+    <Property Name="placementAgentProfId" Type="Int32" />
+    <Property Name="datefunded" Type="DateTime" Precision="3" />
+    <Property Name="datedeployed" Type="DateTime" Precision="3" />
+    <Property Name="datecleared" Type="DateTime" Precision="3" />
+    <Property Name="executiveid" Type="Int32" />
+    <Property Name="executiveprofid" Type="Int32" />
+    <Property Name="buybackamt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="leasepayoff" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="processingrate" Type="Single" />
+    <Property Name="transactionfee" Type="Single" />
+    <Property Name="dateclosed" Type="DateTime" Precision="3" />
+    <Property Name="creditType" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="suspended" Type="Boolean" Nullable="false" />
+    <Property Name="suspended_date" Type="DateTime" Precision="3" />
+    <Property Name="suspended_reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="posnotes" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="repcommission_fk" Type="Int32" />
+    <Property Name="commission" Type="Boolean" />
+    <Property Name="payplacement" Type="Boolean" />
+    <Property Name="ach" Type="Boolean" />
+    <Property Name="billday" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ach_monthlyFeeDate" Type="DateTime" Precision="3" />
+    <Property Name="LeaseCreditType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LeaseCredit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dateapproved" Type="DateTime" Precision="3" />
+    <Property Name="dateinstalled" Type="DateTime" Precision="3" />
+    <Property Name="creditFactor" Type="Single" />
+    <Property Name="achmonthlyfee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="achfrequency" Type="Int32" />
+    <Property Name="AgencyNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProducerNo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="OtherMid" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="AgencyId" Type="Int32" />
+    <Property Name="AgencyProfId" Type="Int32" />
+    <Property Name="DateVerified" Type="DateTime" Precision="3" />
+    <Property Name="CreditLimit" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="InstallerId" Type="Int32" />
+    <Property Name="AchRentalFee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ach_RentalFeeDate" Type="DateTime" Precision="3" />
+    <Property Name="ach_immediately" Type="Boolean" />
+    <Property Name="datescanned" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nocostmerchant" Type="Boolean" Nullable="false" />
+    <Property Name="DailyLimit" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="usbcontrolno" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LastBillDate" Type="DateTime" Precision="3" />
+    <Property Name="CloseType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="pcs_fk" Type="Int32" />
+    <Property Name="repname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="achStop" Type="Boolean" />
+    <Property Name="achChangeDate" Type="DateTime" Precision="3" />
+    <Property Name="achChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="achChangeNotes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="achOperationDate" Type="DateTime" Precision="3" />
+    <Property Name="achLastOpe" Type="Int32" />
+    <Property Name="CreditLimitBck" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FactoryRepId" Type="Int32" />
+    <Property Name="leadsourceid" Type="Int16" />
+    <Property Name="achMaxDebtAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="achMinDebtAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BillingSetup" Type="Boolean" />
+    <Property Name="BillingSetupDate" Type="DateTime" Precision="3" />
+    <Property Name="BillingEditedDate" Type="DateTime" Precision="3" />
+    <Property Name="ApplyAmountsRules" Type="Boolean" />
+    <Property Name="BeginACHDate" Type="DateTime" Precision="3" />
+    <Property Name="dateappointment" Type="DateTime" Precision="3" />
+    <Property Name="trialperiod" Type="Byte" Nullable="false" />
+    <Property Name="PremiumReplacementFee" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PremiumReplacementFeeDate" Type="DateTime" Precision="3" />
+    <Property Name="LastBillDateBak" Type="DateTime" Precision="3" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="DeploymentTrackingNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LeaseNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateTransferred" Type="DateTime" Precision="3" />
+    <Property Name="TransferredTo" Type="Int32" />
+    <Property Name="TransferredFrom" Type="Int32" />
+    <Property Name="suspendcreditcardprocessing" Type="Boolean" />
+    <Property Name="FirstLastPmtUponInstall" Type="Boolean" Nullable="false" />
+    <Property Name="FirstLastPaymentWaived" Type="Boolean" Nullable="false" />
+    <Property Name="SendStatement" Type="Int32" />
+    <Property Name="TeleMarketerId" Type="Int32" Nullable="false" />
+    <Property Name="TeleMarketerProfId" Type="Int32" Nullable="false" />
+    <Property Name="GiftCardProcessing" Type="Boolean" Nullable="false" />
+    <Property Name="ACHcomp" Type="Int32" />
+    <Property Name="TotalCheckProcessing" Type="Boolean" Nullable="false" />
+    <Property Name="IgnoreBillingRules" Type="Boolean" Nullable="false" />
+    <Property Name="Compliance" Type="Boolean" />
+    <Property Name="Demo" Type="Boolean" Nullable="false" />
+    <Property Name="PaymentType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ProcessingType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="OtherInfo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bucket_fk" Type="Int32" Nullable="false" />
+    <Property Name="UsbStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="VSAgreement" Type="Boolean" Nullable="false" />
+    <Property Name="VSAgreementDate" Type="DateTime" Precision="3" />
+    <Property Name="VSSubAgreement" Type="Boolean" Nullable="false" />
+    <Property Name="VSSubAgreementDate" Type="DateTime" Precision="3" />
+    <Property Name="MasterDealerType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SubDealerType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AppSentDate" Type="DateTime" Precision="3" />
+    <Property Name="VsSent" Type="DateTime" Precision="3" />
+    <Property Name="VsOk" Type="DateTime" Precision="3" />
+    <Property Name="refusedate" Type="DateTime" Precision="3" />
+    <Property Name="refusereason" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="MissingTotal" Type="Int64" Nullable="false" />
+    <Property Name="PenMer_fk" Type="Int32" Nullable="false" />
+    <Property Name="MonthlyServiceFee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ClubNameSave" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceRepId" Type="Int32" />
+    <Property Name="AppReceivedDate" Type="DateTime" Precision="3" />
+    <Property Name="StateTaxCertification" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AccountStatus" Type="Int32" Nullable="false" />
+    <Property Name="PrepaidBalance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PrepaidMerchant" Type="Boolean" />
+    <Property Name="Language_fk" Type="Byte" Nullable="false" />
+    <Property Name="AccountOpener" Type="Int32" Nullable="false" />
+    <Property Name="LeaseVerificationNo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DatePackageReceived" Type="DateTime" Precision="3" />
+    <Property Name="ReferralNo" Type="Int32" />
+    <Property Name="GoldPackage" Type="Boolean" Nullable="false" />
+    <Property Name="ComAdj" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ComAdjUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoldCom" Type="Boolean" Nullable="false" />
+    <Property Name="HoldComUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ComDrawDet_fk" Type="Int32" Nullable="false" />
+    <Property Name="CurrentBalance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GoldPackageFee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="LeaseFileProcessed" Type="DateTime" Precision="3" />
+    <Property Name="Vending" Type="Boolean" />
+    <Property Name="BSRating" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GoldPackageFeeDate" Type="DateTime" Precision="3" />
+    <Property Name="mer_size" Type="Int32" />
+    <Property Name="MonthlyServiceFeeDate" Type="DateTime" Precision="3" />
+    <Property Name="donotvisit" Type="Boolean" Nullable="false" />
+    <Property Name="equipmentPickedUp" Type="Boolean" Nullable="false" />
+    <Property Name="bckprepaidbalance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SuperChargeID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="VendingType" Type="Int32" />
+    <Property Name="VendingStatus" Type="Int32" />
+    <Property Name="DisplayDate" Type="DateTime" Precision="3" />
+    <Property Name="DateLastUSBRequest" Type="DateTime" Precision="3" />
+    <Property Name="IsAtrial" Type="Int32" />
+    <Property Name="TrialDate" Type="DateTime" Precision="3" />
+    <Property Name="AchToDist" Type="Int32" />
+    <Property Name="WeeklyACHValue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="WeeklyACHDate" Type="DateTime" Precision="3" />
+    <Property Name="IsGold" Type="Int32" />
+    <Property Name="MonthlyInstallments" Type="Int32" />
+    <Property Name="MonthlyinstallmentsAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AmountInstalled" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PaidTelesalesLease" Type="Int32" />
+    <Property Name="PaidAELease" Type="Int32" />
+    <Property Name="PaidTelesalesPurchase" Type="Int32" />
+    <Property Name="PaidAEPurchase" Type="Int32" />
+    <Property Name="PaidTelesalesRep" Type="Int32" />
+    <Property Name="PaidAERep" Type="Int32" />
+    <Property Name="PaidTeleSalesInst" Type="Int32" />
+    <Property Name="PaidAEInst" Type="Int32" />
+    <Property Name="PaidReferal" Type="Int32" />
+    <Property Name="PendingNextCicleDate" Type="DateTime" Precision="3" />
+    <Property Name="ReferalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferalId" Type="Int32" />
+    <Property Name="catalogTemp_fk" Type="Int32" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="whatis" Type="Int32" />
+    <Property Name="formerPOS" Type="Boolean" />
+    <Property Name="CP_AccountID" Type="Int32" />
+    <Property Name="PaidMonthlyRep" Type="Int32" />
+    <Property Name="paidWeeklyRep" Type="Int32" />
+    <Property Name="mer_MIDBankBck" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="paiddealerlease" Type="Int32" />
+    <Property Name="paiddealerpurchase" Type="Int32" />
+    <Property Name="nopaymentdealer" Type="Int32" />
+    <Property Name="pendingdealernext" Type="DateTime" Precision="3" />
+    <Property Name="userremovedT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dateremovedT" Type="DateTime" Precision="3" />
+    <Property Name="Blocked" Type="Boolean" />
+    <Property Name="ProcessorTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PendingRepIn" Type="Int32" />
+    <Property Name="PendingRepOut" Type="Int32" />
+    <Property Name="IsIpp" Type="Int32" />
+    <Property Name="IppTerminal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="autoAdjustCreditLimit" Type="Int32" />
+    <Property Name="Lpd" Type="Int32" />
+    <Property Name="PaymentsDue" Type="Int32" />
+    <Property Name="AmountLPD" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="RejectedDate" Type="DateTime" Precision="3" />
+    <Property Name="ReasonLpd" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectedCBack" Type="DateTime" Precision="3" />
+    <Property Name="noprinter" Type="Int32" />
+    <Property Name="PaidRental" Type="Int32" />
+    <Property Name="jobcompliancedb" Type="Int32" />
+    <Property Name="IPPPaid" Type="Int32" />
+    <Property Name="financeId1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId1_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId1_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId2_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId2_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId3_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeId3_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeid4_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeid4_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeid5_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="financeid5_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="visit_freq" Type="Int32" />
+    <Property Name="Last_visit" Type="DateTime" Precision="3" />
+    <Property Name="Next_visit" Type="DateTime" Precision="3" />
+    <Property Name="IsADealerMerchant" Type="Int32" />
+    <Property Name="IsPlanC" Type="Int32" />
+    <Property Name="IsSplit" Type="Int32" />
+    <Property Name="usbStatusUpdated" Type="DateTime" Precision="3" />
+    <Property Name="mer_intercompany" Type="Int32" />
+    <Property Name="recplan" Type="Int32" />
+    <Property Name="recplanpercent" Type="Double" />
+    <Property Name="mer_couldbemarket" Type="Boolean" />
+    <Property Name="mer_isCorporate" Type="Boolean" />
+    <Property Name="mer_isServiceFeeOnly" Type="Boolean" />
+    <Property Name="mer_CorporateDiscount" Type="Int32" />
+    <Property Name="PRTid" Type="Int32" />
+    <Property Name="BalanceMC" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreditLimitMC" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BlueProgram" Type="Int32" />
+    <Property Name="IprepayID" Type="Int32" />
+    <Property Name="liability" Type="Int32" />
+    <Property Name="MS_ID" Type="Int32" />
+    <Property Name="freqfee" Type="Int32" />
+    <Property Name="byPassMid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="closedate" Type="DateTime" Precision="3" />
+    <Property Name="ACECenter" Type="Int32" />
+    <Property Name="mer_overwriteCost" Type="Int32" />
+    <Property Name="mspercent" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="check_product_profile_on_sale" Type="Boolean" />
+    <Property Name="isOR" Type="Int32" />
+    <Property Name="isFuji" Type="Int32" />
+    <Property Name="Fuji_RollCounter" Type="Int32" />
+    <Property Name="Fuji_LastRollStatus" Type="Int32" />
+    <Property Name="Fuji_RollsBox" Type="Int32" />
+    <Property Name="Fuji_paperBox" Type="Int32" />
+    <Property Name="mer_promotion" Type="Boolean" />
+    <Property Name="noreconreport" Type="Int32" />
+    <Property Name="tnbcom_sales_tax" Type="Double" />
+    <Property Name="IsPrepaidDist" Type="Int32" />
+    <Property Name="ipphost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MserviceRef2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MserviceRef2Per" Type="Double" />
+    <Property Name="MserviceRef2" Type="Int32" />
+    <Property Name="creditsOnReport" Type="Boolean" />
+    <Property Name="IsDtvPP" Type="Int32" />
+    <Property Name="PRMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AchPrflag" Type="Int32" />
+    <Property Name="IppTrial" Type="Int32" />
+    <Property Name="SunPassAgentId" Type="Int32" />
+    <Property Name="SunPassAgent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsSpg" Type="Int32" />
+    <Property Name="SpgTerminal" Type="Int32" />
+    <Property Name="MonitorForFraud" Type="Boolean" />
+    <Property Name="Iphone" Type="Int32" />
+    <Property Name="isEzPassType" Type="Int32" />
+    <Property Name="SpgDate" Type="DateTime" Precision="3" />
+    <Property Name="ReceiptType" Type="Int32" />
+    <Property Name="isMeteleUSA" Type="Int32" />
+    <Property Name="MservicePlatform" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MserviceRisk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TmAgentId" Type="Int32" />
+    <Property Name="PaidTm" Type="Int32" />
+    <Property Name="isEcommerce" Type="Int32" />
+    <Property Name="TmAgentTBid" Type="Int32" />
+    <Property Name="TmAgentBPid" Type="Int32" />
+    <Property Name="PaidTmBP" Type="Int32" />
+    <Property Name="merchantBalance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="isFastTrack" Type="Int32" />
+    <Property Name="onlineMerchant" Type="Boolean" />
+    <Property Name="onlineVerified" Type="Boolean" />
+    <Property Name="onlineVerifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="onlineVerifiedBy" Type="Int32" />
+    <Property Name="checkserial" Type="Int32" />
+    <Property Name="OnePointDisposition" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="OnePointDispositionDate" Type="DateTime" Precision="3" />
+    <Property Name="OnePointAmexSEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="onBsGateway" Type="Int32" />
+    <Property Name="isTaxable" Type="Int32" />
+    <Property Name="isTCA" Type="Int32" />
+    <Property Name="IsMobileMerchant" Type="Int32" />
+    <Property Name="fromUnlimitedPINs" Type="Boolean" />
+    <Property Name="tnb_tax" Type="Double" />
+    <Property Name="isNextCala360" Type="Int32" />
+    <Property Name="GatewayType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OtherMobileMerchants" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paidMeteleSpiff" Type="Int32" />
+    <Property Name="paidMeteleBonus" Type="Int32" />
+    <Property Name="excludeFromBoosting" Type="Int32" />
+    <Property Name="wasFuji" Type="Int32" />
+    <Property Name="catalogVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isKaching" Type="Int32" />
+    <Property Name="isMassDOT" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="pin_dataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PosmerchantHeaders" EntityType="Self.PosmerchantHeader" />
+    <EntitySet Name="posinvoicedetails" EntityType="pin_dataModel.posinvoicedetail" />
+    <EntitySet Name="posinvoiceheaders" EntityType="pin_dataModel.posinvoiceheader" />
+    <EntitySet Name="Posterminals" EntityType="pin_dataModel.Posterminal" />
+    <FunctionImport Name="SerialVerificationDisactivation">
+      <Parameter Name="merchantId" Mode="In" Type="Int32" />
+      <Parameter Name="terminalId" Mode="In" Type="Int32" />
+      <Parameter Name="serialNumber" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="posinvoicedetail">
+    <Key>
+      <PropertyRef Name="det_id" />
+    </Key>
+    <Property Name="det_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="inv_id" Type="Int32" Nullable="false" />
+    <Property Name="inv_carrier_fk" Type="Int32" />
+    <Property Name="inv_car_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="inv_pin_fk" Type="Int32" />
+    <Property Name="inv_pin_controlno" Type="Double" />
+    <Property Name="inv_det_date" Type="DateTime" Precision="3" />
+    <Property Name="product_sbt" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="item_fk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pro_description" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="terminal_fk" Type="Int32" />
+    <Property Name="trn_quantity" Type="Int32" />
+    <Property Name="pro_denomination" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inv_Discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inv_subtotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inv_transaction_fk" Type="Int32" />
+    <Property Name="inv_Product_Isforeign" Type="Int32" />
+    <Property Name="inv_TransactionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="inv_Cashier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountingId" Type="Int32" />
+    <Property Name="ProductCost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AgentCommission" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MDistCommission" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DistCommission" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AgentId" Type="Int32" />
+    <Property Name="MDistId" Type="Int32" />
+    <Property Name="DistId" Type="Int32" />
+    <Property Name="CommissionPaidDate" Type="DateTime" Precision="3" />
+    <Property Name="ProcessedInDirectBilling" Type="Boolean" />
+    <Property Name="PaymentMethod" Type="Int32" />
+    <Property Name="PaymentFee" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inv_OpenCreditID" Type="Int32" />
+    <Property Name="SalesTaxPerc" Type="Double" />
+    <Property Name="SalesTaxAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="void_amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CCardAuthCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CCardRefNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CCardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Profit" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Iscomm" Type="Int32" />
+    <Property Name="WasPaidComm" Type="Int32" />
+    <Property Name="paidcommdate" Type="DateTime" Precision="3" />
+    <Property Name="paidcommuser" Type="Int32" />
+    <Property Name="BartellTransFeeBilled" Type="Boolean" />
+    <Property Name="CCardExpDate" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="DistCommission2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ReturnedTax" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ReversalPaid" Type="Boolean" />
+    <Property Name="freedescriptionCost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="gl_id_tnb" Type="Int32" />
+    <Property Name="gl_id_cost_tnb" Type="Int32" />
+    <Property Name="Original_Discount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Original_Subtotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="det_timestamp" Type="DateTime" Precision="3" />
+    <Property Name="det_calculatedfrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="previousCost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ITC_Billing_Status" Type="Int32" />
+    <Property Name="ITC_id" Type="Int32" />
+    <Property Name="ITC_PoId" Type="Int32" />
+    <Property Name="topup_loaded_amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="new_product_discount" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="posinvoiceheader">
+    <Key>
+      <PropertyRef Name="inv_id" />
+    </Key>
+    <Property Name="inv_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="inv_date" Type="DateTime" Precision="3" />
+    <Property Name="merchant_fk" Type="Int32" />
+    <Property Name="merchant_StoreNo" Type="Int32" />
+    <Property Name="merchant_businessname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_busphone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_busaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_addressCityID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_addressStateID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_addressZIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_addressCountryID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ach_status" Type="Int32" />
+    <Property Name="ach_sentdate" Type="DateTime" Precision="3" />
+    <Property Name="ach_id" Type="Int32" />
+    <Property Name="RepCommission_fk" Type="Int32" />
+    <Property Name="Posted" Type="Boolean" />
+    <Property Name="Posted_date" Type="DateTime" Precision="3" />
+    <Property Name="Printed" Type="Int32" />
+    <Property Name="PrintedMonth" Type="Int32" />
+    <Property Name="PrintedYear" Type="Int32" />
+    <Property Name="PrintedDate" Type="DateTime" Precision="3" />
+    <Property Name="PaidDate" Type="DateTime" Precision="3" />
+    <Property Name="HoldNotesId" Type="Int32" />
+    <Property Name="Hold" Type="Boolean" />
+    <Property Name="Inv_Related" Type="Int32" />
+    <Property Name="approx_PaidDate" Type="DateTime" Precision="3" />
+    <Property Name="GroupPrinted" Type="Boolean" />
+    <Property Name="GroupPrintedDate" Type="DateTime" Precision="3" />
+    <Property Name="ComInvoice_fk" Type="Int32" Nullable="false" />
+    <Property Name="ConfirmPaid" Type="Int32" />
+    <Property Name="ConfirmPaidDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentStatus" Type="Int32" />
+    <Property Name="Payments" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UserPaid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DownInvoice" Type="Int32" />
+    <Property Name="ClubId" Type="Int32" />
+    <Property Name="SpecialDate" Type="DateTime" Precision="3" />
+    <Property Name="SpecialBilling" Type="Int32" />
+    <Property Name="SpecialActBilling" Type="Int32" />
+    <Property Name="inv_type" Type="Int32" />
+    <Property Name="inv_TermsId" Type="Int32" />
+    <Property Name="inv_void" Type="Boolean" />
+    <Property Name="waswriteoff" Type="Int32" />
+    <Property Name="amountwriteoff" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inv_comments" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="inv_createdby" Type="Int32" Nullable="false" />
+    <Property Name="merchant_shipto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_shipaddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_shipaddress2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_shipcity" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_shipstate" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_shipzip" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="merchant_shipcountry" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="POSARInvoiceID" Type="Int32" />
+    <Property Name="PortalAPInvoiceID" Type="Int32" />
+    <Property Name="inv_voiddate" Type="DateTime" Precision="3" />
+    <Property Name="inv_voidedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="glID" Type="Int32" />
+    <Property Name="paymentscc" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="paymentscash" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inv_noSplit" Type="Boolean" />
+    <Property Name="flagcommCCDateI" Type="DateTime" Precision="3" />
+    <Property Name="flagcommCCDateF" Type="DateTime" Precision="3" />
+    <Property Name="PinServeARInvID" Type="Int32" />
+    <Property Name="CompanyAPInvID" Type="Int32" />
+    <Property Name="formerPOS" Type="Boolean" />
+    <Property Name="AgentId" Type="Int32" />
+    <Property Name="DistId" Type="Int32" />
+    <Property Name="MDistId" Type="Int32" />
+    <Property Name="inv_timeStamp" Type="DateTime" Precision="3" />
+    <Property Name="inv_tnb_llc" Type="Int32" />
+    <Property Name="VoidedBalance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Voidedpayment" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="InvoiceAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BillingType" Type="Int32" />
+    <Property Name="SRPTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DiscountTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IsManualInv" Type="Int32" />
+    <Property Name="ValueRecPlan" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Original_InvoiceAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="RecPlanDone" Type="Int32" />
+    <Property Name="percentdiscount" Type="Int32" />
+    <Property Name="mastercard" Type="Int32" />
+    <Property Name="giftcard" Type="Int32" />
+    <Property Name="isPlanC" Type="Int32" />
+    <Property Name="prepay_statement_sent" Type="Boolean" />
+    <Property Name="IsBadDebt" Type="Int32" />
+    <Property Name="midbaddebt" Type="Int32" />
+    <Property Name="IsDtvPP" Type="Boolean" />
+    <Property Name="original_merchant_fk" Type="Int32" />
+    <Property Name="original_inv_id" Type="Int32" />
+    <Property Name="atlantic_billed" Type="Int32" />
+    <Property Name="atlantic_billed_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Posterminal">
+    <Key>
+      <PropertyRef Name="terminal_pk" />
+    </Key>
+    <Property Name="terminal_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="merchant_fk" Type="Int32" />
+    <Property Name="merchant_StoreNo" Type="Int32" />
+    <Property Name="custno_fk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="terminal_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ter_location" Type="String" MaxLength="115" FixedLength="false" Unicode="false" />
+    <Property Name="ter_datein" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ter_dateout" Type="DateTime" Precision="3" />
+    <Property Name="ter_timestamp" Type="DateTime" Precision="3" />
+    <Property Name="ter_useradder" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ter_dateadded" Type="DateTime" Precision="3" />
+    <Property Name="ter_usereditor" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ter_dateeditor" Type="DateTime" Precision="3" />
+    <Property Name="EPICNETZ_status" Type="Int16" Nullable="false" />
+    <Property Name="EPICNETZ_date" Type="DateTime" Precision="3" />
+    <Property Name="USBSettleTime" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Programload" Type="Boolean" Nullable="false" />
+    <Property Name="ReInit" Type="Boolean" Nullable="false" />
+    <Property Name="ReloadTime" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="LastEvent" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LastEventDate" Type="DateTime" Precision="3" />
+    <Property Name="SerialNo" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Stran" Type="Int32" Nullable="false" />
+    <Property Name="Alert" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="AlertDate" Type="DateTime" Precision="3" />
+    <Property Name="serial_verified" Type="Boolean" />
+    <Property Name="serial_verified_date" Type="DateTime" Precision="3" />
+    <Property Name="deployed" Type="Boolean" />
+    <Property Name="ANI" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="DEMO" Type="Boolean" />
+    <Property Name="TAX" Type="Single" />
+    <Property Name="ReInitType" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="AdditionalTableCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="cashierId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cashierStatus" Type="Int16" />
+    <Property Name="closing" Type="Boolean" />
+    <Property Name="closingTimeout" Type="DateTime" Precision="3" />
+    <Property Name="closedate" Type="DateTime" Precision="3" />
+    <Property Name="closeoutActive" Type="Boolean" />
+    <Property Name="changeSerialNo" Type="Boolean" />
+  </EntityType>
+</Schema>

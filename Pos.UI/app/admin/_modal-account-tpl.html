@@ -1,0 +1,125 @@
+<!-- _modal-account-tpl -->
+<div class="modal-header">
+	<ul class="nav nav-pills">
+		<li role="presentation" class="">
+			<button class="btn btn-default" ng-click="openAdmin()"><i class="fa fa-cog"></i> Admin</button>
+		</li>
+
+		<li class="logout">
+			<button class="btn btn-default" ng-click="logout()">Log Off <i class="fa fa-sign-out"></i></button>
+		</li>
+
+		<li class="pull-right">
+			<button class="btn btn-default" ng-click="cancel()">Close <i class="fa fa-close"></i></button>
+		</li>
+	</ul>
+</div>
+
+<div class="modal-body" id="merchantDetails">
+	<!-- {{merchant.userInfo | json}} -->
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6" id="">
+			<h3 class="heading">
+				Merchant Info
+			</h3>
+
+			<table class="table">
+				<tbody>
+					<tr class="details">
+						<td class="merchant" ng-show="merchant.userInfo.BusinessName">
+							<!-- <i class="fa fa-star"></i> -->
+							<strong>Business:</strong> {{(merchant.userInfo.BusinessName | uppercase | limitTo : 25).trim()}}
+						</td>
+					</tr>
+				    <tr class="details">
+				        <td class="merchant" ng-show="merchant.userInfo.Name">
+				            <strong>Cashier:</strong> {{merchant.userInfo.Name | capitalize}}
+				        </td>
+				    </tr>
+                    <tr>
+                        <td >
+                            <strong>Customer Service:</strong> {{merchant.userInfo.CustomerService}}
+                        </td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-6" id="">
+			<div class="ng-cloak" ng-cloak>
+				<h3 class="heading">
+					Sales
+				</h3>
+
+				<div class="" id="salesDetails">
+					<table class="table">
+						<tbody>
+							<tr class="today">
+								<td class="title">Today's Sales:</td>
+								<td class="amount"><span class="sales pull">{{merchant.salesDetails.todaySales | currency}}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h3 class="heading">
+					Credit Limits
+				</h3>
+
+				<div class="" id="salesDetails">
+					<table class="table">
+						<tbody>
+							<tr class="daily-credit">
+								<td class="title">Daily:</td>
+								<td class="amount"><span class="currency">{{merchant.salesDetails.dailyCreditLimit | currency}}</span></td>
+							</tr>
+							<tr class="daily-balance">
+								<td class="title">Available:</td>
+								<td class="amount"><span class="currency">{{merchant.salesDetails.daylyBalance | currency}}</span></td>
+							</tr>
+
+							<tr class=""><td colspan="2" class="divider"></td></tr>
+
+							<tr class="weekly-credit">
+								<td>Weekly:</td>
+								<td class="amount"><span class="currency">{{merchant.salesDetails.weeklyCreditLimit | currency}}</span></td>
+							</tr>
+							<tr class="weekly-balance">
+								<td class="title">Available:</td>
+								<td class="amount"><span class="currency">{{merchant.salesDetails.weeklyBalance | currency}}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h3 class="heading">
+					Balance Details
+				</h3>
+				<!--<div balance-details> </div>-->
+				<div class="" id="balanceDetails">
+					<table class="table table-condensed">
+						<tbody>
+							<tr>
+								<td class="title">Current:</td>
+								<td class="amount"><span class="currency">{{merchant.balanceDetails.current }}</span></td>
+							</tr>
+							<tr>
+								<td class="title">Next ACH:</td>
+								<td class="amount"><span class="currency">{{merchant.balanceDetails.current }}</span></td>
+							</tr>
+							<tr>
+								<td class="title">Next ACH Date:</td>
+								<td class="amount"><span class="currency">{{merchant.balanceDetails.nextAchDate | date}}</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer" >
+</div>
+

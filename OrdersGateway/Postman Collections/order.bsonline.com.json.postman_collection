@@ -1,0 +1,28 @@
+{
+	"id": "273a2204-0a74-2b70-885a-ac36607a943e",
+	"name": "order.bsonline.com",
+	"order": [
+		"78648339-a92a-e380-e2aa-47d8600b8533"
+	],
+	"timestamp": 1404827942439,
+	"synced": false,
+	"requests": [
+		{
+			"id": "78648339-a92a-e380-e2aa-47d8600b8533",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": " http://orders.blackstoneonline.com/api/sales/getpaxterminalsales",
+			"pathVariables": {},
+			"method": "POST",
+			"data": "merchantid=79252&terminalid=10061704&serialnumber=0000000000000000&startdate=06/20/2014&enddate=07/02/2014",
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "var data = JSON.parse(responseBody);\ntests[\"Hello pass\"] = data.response == 200\n\n\n\n",
+			"time": 1404828853912,
+			"name": "Report",
+			"description": "",
+			"collectionId": "273a2204-0a74-2b70-885a-ac36607a943e",
+			"responses": [],
+			"synced": false
+		}
+	]
+}

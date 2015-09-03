@@ -1,0 +1,13 @@
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\bin\AutoMapper.Net4.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\BlackstonePos.UITests.dll.config
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\BlackstonePos.UITests.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\BlackstonePos.UITests.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\BlackstonePos.UI.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\System.Web.Http.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\System.Web.Http.WebHost.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\System.Net.Http.Formatting.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\Newtonsoft.Json.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\bin\Release\BlackstonePos.UI.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\obj\Release\BlackstonePos.UITests.csprojResolveAssemblyReference.cache
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\obj\Release\BlackstonePos.UITests.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UITests\obj\Release\BlackstonePos.UITests.pdb

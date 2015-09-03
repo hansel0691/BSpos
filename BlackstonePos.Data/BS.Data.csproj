@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0E602E5F-6AD4-4695-B2EA-EB8DCFEE0F6E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlackstonePos.Data</RootNamespace>
+    <AssemblyName>BlackstonePos.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Metele.common">
+      <HintPath>..\..\MeteleUSA(SourceTree)\Metele.common\bin\Debug\Metele.common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFModels\AchPayment.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\AchTransaction.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Applicant.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\AppLogoUrl.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\BsPosModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BsPosModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\BsPosModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\BsPosModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BsPosModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Cashier.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\cashiers_backup.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\FullCargaSmsTemplate.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\getPromotios_Result.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Guest.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Log.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Order.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\PaxPosOrderRequest.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\PaxPosOrderResult.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\PaxPosPendingOrder.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\PinDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PinDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\PinDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PinDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\PinDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PinDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\posinvoicedetail.cs">
+      <DependentUpon>PinDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\posinvoiceheader.cs">
+      <DependentUpon>PinDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\PosmerchantHeader.cs">
+      <DependentUpon>PinDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Posterminal.cs">
+      <DependentUpon>PinDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\pos_mainproducts.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Product_ActionMapping.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\Setting.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModels\view_cashiers.cs">
+      <DependentUpon>BsPosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Helper.cs" />
+    <Compile Include="Repositories\AchTransactionRepository.cs" />
+    <Compile Include="Repositories\AchPaymentRespository.cs" />
+    <Compile Include="Repositories\ApplicantRepository.cs" />
+    <Compile Include="Repositories\AppLogoRepository.cs" />
+    <Compile Include="Repositories\CashierRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\FullCargaSmsTemplatesRepository.cs" />
+    <Compile Include="Repositories\GuestRepository.cs" />
+    <Compile Include="Repositories\LogRepository.cs" />
+    <Compile Include="Repositories\MerchantsRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\BsPromotionsRepository.cs" />
+    <Compile Include="Repositories\PaxTerminalPosRepository.cs" />
+    <Compile Include="Repositories\SettingsRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="EFModels\PinDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PinDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="EFModels\BsPosModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BsPosModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EFModels\BsPosModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BsPosModel.edmx</DependentUpon>
+      <LastGenOutput>BsPosModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="EFModels\BsPosModel.edmx.diagram">
+      <DependentUpon>BsPosModel.edmx</DependentUpon>
+    </None>
+    <None Include="EFModels\BsPosModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BsPosModel.edmx</DependentUpon>
+      <LastGenOutput>BsPosModel.cs</LastGenOutput>
+    </None>
+    <None Include="EFModels\PinDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PinDataModel.edmx</DependentUpon>
+      <LastGenOutput>PinDataModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="EFModels\PinDataModel.edmx.diagram">
+      <DependentUpon>PinDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="EFModels\PinDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PinDataModel.edmx</DependentUpon>
+      <LastGenOutput>PinDataModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlackstonePos.Domain\BS.Domain.csproj">
+      <Project>{1f6aafdd-dd5e-43b5-a2d7-30256ed5dff0}</Project>
+      <Name>BS.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.0\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

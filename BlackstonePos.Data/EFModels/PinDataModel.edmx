@@ -1,0 +1,1751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="pin_dataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="posinvoicedetail">
+          <Key>
+            <PropertyRef Name="det_id" />
+          </Key>
+          <Property Name="det_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inv_id" Type="int" Nullable="false" />
+          <Property Name="inv_carrier_fk" Type="int" />
+          <Property Name="inv_car_name" Type="varchar" MaxLength="50" />
+          <Property Name="inv_pin_fk" Type="int" />
+          <Property Name="inv_pin_controlno" Type="float" />
+          <Property Name="inv_det_date" Type="datetime" />
+          <Property Name="product_sbt" Type="char" MaxLength="6" />
+          <Property Name="item_fk" Type="varchar" MaxLength="50" />
+          <Property Name="pro_description" Type="varchar" MaxLength="512" />
+          <Property Name="terminal_fk" Type="int" />
+          <Property Name="trn_quantity" Type="int" />
+          <Property Name="pro_denomination" Type="money" />
+          <Property Name="inv_Discount" Type="money" />
+          <Property Name="inv_subtotal" Type="money" />
+          <Property Name="inv_transaction_fk" Type="int" />
+          <Property Name="inv_Product_Isforeign" Type="int" />
+          <Property Name="inv_TransactionType" Type="varchar" MaxLength="50" />
+          <Property Name="inv_Cashier" Type="varchar" MaxLength="50" />
+          <Property Name="AccountingId" Type="int" />
+          <Property Name="ProductCost" Type="money" />
+          <Property Name="AgentCommission" Type="money" />
+          <Property Name="MDistCommission" Type="money" />
+          <Property Name="DistCommission" Type="money" />
+          <Property Name="AgentId" Type="int" />
+          <Property Name="MDistId" Type="int" />
+          <Property Name="DistId" Type="int" />
+          <Property Name="CommissionPaidDate" Type="datetime" />
+          <Property Name="ProcessedInDirectBilling" Type="bit" />
+          <Property Name="PaymentMethod" Type="int" />
+          <Property Name="PaymentFee" Type="money" />
+          <Property Name="inv_OpenCreditID" Type="int" />
+          <Property Name="SalesTaxPerc" Type="float" />
+          <Property Name="SalesTaxAmt" Type="money" />
+          <Property Name="void_amount" Type="money" />
+          <Property Name="CCardAuthCode" Type="varchar" MaxLength="20" />
+          <Property Name="CCardRefNumber" Type="varchar" MaxLength="20" />
+          <Property Name="CCardNumber" Type="varchar" MaxLength="20" />
+          <Property Name="Profit" Type="money" />
+          <Property Name="Iscomm" Type="int" />
+          <Property Name="WasPaidComm" Type="int" />
+          <Property Name="paidcommdate" Type="datetime" />
+          <Property Name="paidcommuser" Type="int" />
+          <Property Name="BartellTransFeeBilled" Type="bit" />
+          <Property Name="CCardExpDate" Type="varchar" MaxLength="5" />
+          <Property Name="DistCommission2" Type="money" />
+          <Property Name="ReturnedTax" Type="money" />
+          <Property Name="ReversalPaid" Type="bit" />
+          <Property Name="freedescriptionCost" Type="money" />
+          <Property Name="gl_id_tnb" Type="int" />
+          <Property Name="gl_id_cost_tnb" Type="int" />
+          <Property Name="Original_Discount" Type="money" />
+          <Property Name="Original_Subtotal" Type="money" />
+          <Property Name="det_timestamp" Type="datetime" />
+          <Property Name="det_calculatedfrom" Type="varchar" MaxLength="20" />
+          <Property Name="previousCost" Type="money" />
+          <Property Name="phone_number" Type="varchar" MaxLength="50" />
+          <Property Name="ITC_Billing_Status" Type="int" />
+          <Property Name="ITC_id" Type="int" />
+          <Property Name="ITC_PoId" Type="int" />
+          <Property Name="topup_loaded_amount" Type="money" />
+          <Property Name="new_product_discount" Type="money" />
+        </EntityType>
+        <EntityType Name="posinvoiceheader">
+          <Key>
+            <PropertyRef Name="inv_id" />
+          </Key>
+          <Property Name="inv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inv_date" Type="datetime" />
+          <Property Name="merchant_fk" Type="int" />
+          <Property Name="merchant_StoreNo" Type="int" />
+          <Property Name="merchant_businessname" Type="varchar" MaxLength="50" />
+          <Property Name="merchant_busphone" Type="varchar" MaxLength="25" />
+          <Property Name="merchant_busaddress" Type="varchar" MaxLength="50" />
+          <Property Name="merchant_addressCityID" Type="varchar" MaxLength="25" />
+          <Property Name="merchant_addressStateID" Type="varchar" MaxLength="25" />
+          <Property Name="merchant_addressZIP" Type="varchar" MaxLength="15" />
+          <Property Name="merchant_addressCountryID" Type="varchar" MaxLength="25" />
+          <Property Name="ach_status" Type="int" />
+          <Property Name="ach_sentdate" Type="datetime" />
+          <Property Name="ach_id" Type="int" />
+          <Property Name="RepCommission_fk" Type="int" />
+          <Property Name="Posted" Type="bit" />
+          <Property Name="Posted_date" Type="datetime" />
+          <Property Name="Printed" Type="int" />
+          <Property Name="PrintedMonth" Type="int" />
+          <Property Name="PrintedYear" Type="int" />
+          <Property Name="PrintedDate" Type="datetime" />
+          <Property Name="PaidDate" Type="datetime" />
+          <Property Name="HoldNotesId" Type="int" />
+          <Property Name="Hold" Type="bit" />
+          <Property Name="Inv_Related" Type="int" />
+          <Property Name="approx_PaidDate" Type="datetime" />
+          <Property Name="GroupPrinted" Type="bit" />
+          <Property Name="GroupPrintedDate" Type="datetime" />
+          <Property Name="ComInvoice_fk" Type="int" Nullable="false" />
+          <Property Name="ConfirmPaid" Type="int" />
+          <Property Name="ConfirmPaidDate" Type="datetime" />
+          <Property Name="PaymentStatus" Type="int" />
+          <Property Name="Payments" Type="money" />
+          <Property Name="UserPaid" Type="varchar" MaxLength="50" />
+          <Property Name="DownInvoice" Type="int" />
+          <Property Name="ClubId" Type="int" />
+          <Property Name="SpecialDate" Type="datetime" />
+          <Property Name="SpecialBilling" Type="int" />
+          <Property Name="SpecialActBilling" Type="int" />
+          <Property Name="inv_type" Type="int" />
+          <Property Name="inv_TermsId" Type="int" />
+          <Property Name="inv_void" Type="bit" />
+          <Property Name="waswriteoff" Type="int" />
+          <Property Name="amountwriteoff" Type="money" />
+          <Property Name="inv_comments" Type="varchar" MaxLength="5000" />
+          <Property Name="inv_createdby" Type="int" Nullable="false" />
+          <Property Name="merchant_shipto" Type="varchar" MaxLength="50" />
+          <Property Name="merchant_shipaddress1" Type="varchar" MaxLength="50" />
+          <Property Name="merchant_shipaddress2" Type="varchar" MaxLength="25" />
+          <Property Name="merchant_shipcity" Type="varchar" MaxLength="25" />
+          <Property Name="merchant_shipstate" Type="varchar" MaxLength="2" />
+          <Property Name="merchant_shipzip" Type="varchar" MaxLength="6" />
+          <Property Name="merchant_shipcountry" Type="varchar" MaxLength="40" />
+          <Property Name="POSARInvoiceID" Type="int" />
+          <Property Name="PortalAPInvoiceID" Type="int" />
+          <Property Name="inv_voiddate" Type="datetime" />
+          <Property Name="inv_voidedby" Type="varchar" MaxLength="20" />
+          <Property Name="glID" Type="int" />
+          <Property Name="paymentscc" Type="money" />
+          <Property Name="paymentscash" Type="money" />
+          <Property Name="inv_noSplit" Type="bit" />
+          <Property Name="flagcommCCDateI" Type="datetime" />
+          <Property Name="flagcommCCDateF" Type="datetime" />
+          <Property Name="PinServeARInvID" Type="int" />
+          <Property Name="CompanyAPInvID" Type="int" />
+          <Property Name="formerPOS" Type="bit" />
+          <Property Name="AgentId" Type="int" />
+          <Property Name="DistId" Type="int" />
+          <Property Name="MDistId" Type="int" />
+          <Property Name="inv_timeStamp" Type="datetime" />
+          <Property Name="inv_tnb_llc" Type="int" />
+          <Property Name="VoidedBalance" Type="money" />
+          <Property Name="Voidedpayment" Type="money" />
+          <Property Name="InvoiceAmount" Type="money" />
+          <Property Name="BillingType" Type="int" />
+          <Property Name="SRPTotal" Type="money" />
+          <Property Name="DiscountTotal" Type="money" />
+          <Property Name="TaxTotal" Type="money" />
+          <Property Name="IsManualInv" Type="int" />
+          <Property Name="ValueRecPlan" Type="money" />
+          <Property Name="Original_InvoiceAmount" Type="money" />
+          <Property Name="RecPlanDone" Type="int" />
+          <Property Name="percentdiscount" Type="int" />
+          <Property Name="mastercard" Type="int" />
+          <Property Name="giftcard" Type="int" />
+          <Property Name="isPlanC" Type="int" />
+          <Property Name="prepay_statement_sent" Type="bit" />
+          <Property Name="IsBadDebt" Type="int" />
+          <Property Name="midbaddebt" Type="int" />
+          <Property Name="IsDtvPP" Type="bit" />
+          <Property Name="original_merchant_fk" Type="int" />
+          <Property Name="original_inv_id" Type="int" />
+          <Property Name="atlantic_billed" Type="int" />
+          <Property Name="atlantic_billed_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PosmerchantHeader">
+          <Key>
+            <PropertyRef Name="merchant_pk" />
+          </Key>
+          <Property Name="PosCustomerType_fk" Type="int" />
+          <Property Name="merchant_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="custno_fk" Type="varchar" MaxLength="20" />
+          <Property Name="eCommerceFlag" Type="bit" />
+          <Property Name="PosdispenserFlag" Type="bit" />
+          <Property Name="mer_name" Type="varchar" MaxLength="50" />
+          <Property Name="mer_AppDate" Type="datetime" />
+          <Property Name="mer_ProcessingCo" Type="varchar" MaxLength="30" />
+          <Property Name="mer_LeasingCo" Type="varchar" MaxLength="30" />
+          <Property Name="mer_TID" Type="varchar" MaxLength="8" />
+          <Property Name="mer_MID" Type="varchar" MaxLength="15" />
+          <Property Name="mer_MIDBank" Type="varchar" MaxLength="16" />
+          <Property Name="mer_LeaseAccount" Type="varchar" MaxLength="25" />
+          <Property Name="mer_InfoIsComplete" Type="bit" />
+          <Property Name="mer_zip" Type="varchar" MaxLength="10" />
+          <Property Name="mer_telno" Type="varchar" MaxLength="20" />
+          <Property Name="mer_crlimit" Type="varchar" MaxLength="20" />
+          <Property Name="mer_Notes" Type="varchar" MaxLength="4096" />
+          <Property Name="mer_status" Type="int" />
+          <Property Name="mer_mxtrans" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="mer_password" Type="varchar" MaxLength="20" />
+          <Property Name="mer_timestamp" Type="datetime" />
+          <Property Name="mer_useradder" Type="varchar" MaxLength="4" />
+          <Property Name="mer_dateadded" Type="datetime" />
+          <Property Name="mer_usereditor" Type="varchar" MaxLength="4" />
+          <Property Name="mer_dateeditor" Type="datetime" />
+          <Property Name="mer_processed" Type="datetime" />
+          <Property Name="mer_gelapproved" Type="bit" />
+          <Property Name="mer_usbapproved" Type="bit" />
+          <Property Name="mer_posdelivery" Type="bit" />
+          <Property Name="mer_callingcard" Type="bit" />
+          <Property Name="mer_creditcard" Type="bit" />
+          <Property Name="mer_SaleActive" Type="bit" />
+          <Property Name="mer_CreditSales" Type="money" />
+          <Property Name="mer_apptype" Type="char" MaxLength="1" />
+          <Property Name="mer_creditScore" Type="int" />
+          <Property Name="mer_paymentCleared" Type="bit" />
+          <Property Name="mer_funded" Type="bit" />
+          <Property Name="posdeals_fk" Type="int" />
+          <Property Name="agentId" Type="int" />
+          <Property Name="distributorId" Type="int" />
+          <Property Name="mdistributorid" Type="int" />
+          <Property Name="merchantProfId" Type="int" />
+          <Property Name="AgentProfId" Type="int" />
+          <Property Name="distributorProfId" Type="int" />
+          <Property Name="mdistributorProfId" Type="int" />
+          <Property Name="placementAgentId" Type="int" />
+          <Property Name="placementAgentProfId" Type="int" />
+          <Property Name="datefunded" Type="datetime" />
+          <Property Name="datedeployed" Type="datetime" />
+          <Property Name="datecleared" Type="datetime" />
+          <Property Name="executiveid" Type="int" />
+          <Property Name="executiveprofid" Type="int" />
+          <Property Name="buybackamt" Type="money" />
+          <Property Name="leasepayoff" Type="money" />
+          <Property Name="processingrate" Type="real" />
+          <Property Name="transactionfee" Type="real" />
+          <Property Name="dateclosed" Type="datetime" />
+          <Property Name="creditType" Type="varchar" MaxLength="12" />
+          <Property Name="suspended" Type="bit" Nullable="false" />
+          <Property Name="suspended_date" Type="datetime" />
+          <Property Name="suspended_reason" Type="varchar" MaxLength="100" />
+          <Property Name="posnotes" Type="varchar" MaxLength="600" />
+          <Property Name="repcommission_fk" Type="int" />
+          <Property Name="commission" Type="bit" />
+          <Property Name="payplacement" Type="bit" />
+          <Property Name="ach" Type="bit" />
+          <Property Name="billday" Type="char" MaxLength="1" />
+          <Property Name="ach_monthlyFeeDate" Type="datetime" />
+          <Property Name="LeaseCreditType" Type="char" MaxLength="1" />
+          <Property Name="LeaseCredit" Type="char" MaxLength="1" />
+          <Property Name="dateapproved" Type="datetime" />
+          <Property Name="dateinstalled" Type="datetime" />
+          <Property Name="creditFactor" Type="real" />
+          <Property Name="achmonthlyfee" Type="money" Nullable="false" />
+          <Property Name="achfrequency" Type="int" />
+          <Property Name="AgencyNo" Type="varchar" MaxLength="50" />
+          <Property Name="ProducerNo" Type="varchar" MaxLength="8" />
+          <Property Name="OtherMid" Type="varchar" MaxLength="16" />
+          <Property Name="AgencyId" Type="int" />
+          <Property Name="AgencyProfId" Type="int" />
+          <Property Name="DateVerified" Type="datetime" />
+          <Property Name="CreditLimit" Type="money" Nullable="false" />
+          <Property Name="InstallerId" Type="int" />
+          <Property Name="AchRentalFee" Type="money" Nullable="false" />
+          <Property Name="ach_RentalFeeDate" Type="datetime" />
+          <Property Name="ach_immediately" Type="bit" />
+          <Property Name="datescanned" Type="datetime" Nullable="false" />
+          <Property Name="nocostmerchant" Type="bit" Nullable="false" />
+          <Property Name="DailyLimit" Type="money" />
+          <Property Name="usbcontrolno" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="LastBillDate" Type="datetime" />
+          <Property Name="CloseType" Type="varchar" MaxLength="40" />
+          <Property Name="pcs_fk" Type="int" />
+          <Property Name="repname" Type="varchar" MaxLength="50" />
+          <Property Name="achStop" Type="bit" />
+          <Property Name="achChangeDate" Type="datetime" />
+          <Property Name="achChangeUser" Type="varchar" MaxLength="50" />
+          <Property Name="achChangeNotes" Type="varchar" MaxLength="200" />
+          <Property Name="achOperationDate" Type="datetime" />
+          <Property Name="achLastOpe" Type="int" />
+          <Property Name="CreditLimitBck" Type="money" />
+          <Property Name="FactoryRepId" Type="int" />
+          <Property Name="leadsourceid" Type="smallint" />
+          <Property Name="achMaxDebtAmount" Type="money" />
+          <Property Name="achMinDebtAmount" Type="money" />
+          <Property Name="BillingSetup" Type="bit" />
+          <Property Name="BillingSetupDate" Type="datetime" />
+          <Property Name="BillingEditedDate" Type="datetime" />
+          <Property Name="ApplyAmountsRules" Type="bit" />
+          <Property Name="BeginACHDate" Type="datetime" />
+          <Property Name="dateappointment" Type="datetime" />
+          <Property Name="trialperiod" Type="tinyint" Nullable="false" />
+          <Property Name="PremiumReplacementFee" Type="money" />
+          <Property Name="PremiumReplacementFeeDate" Type="datetime" />
+          <Property Name="LastBillDateBak" Type="datetime" />
+          <Property Name="active" Type="bit" />
+          <Property Name="DeploymentTrackingNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="LeaseNo" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="DateTransferred" Type="datetime" />
+          <Property Name="TransferredTo" Type="int" />
+          <Property Name="TransferredFrom" Type="int" />
+          <Property Name="suspendcreditcardprocessing" Type="bit" />
+          <Property Name="FirstLastPmtUponInstall" Type="bit" Nullable="false" />
+          <Property Name="FirstLastPaymentWaived" Type="bit" Nullable="false" />
+          <Property Name="SendStatement" Type="int" />
+          <Property Name="TeleMarketerId" Type="int" Nullable="false" />
+          <Property Name="TeleMarketerProfId" Type="int" Nullable="false" />
+          <Property Name="GiftCardProcessing" Type="bit" Nullable="false" />
+          <Property Name="ACHcomp" Type="int" />
+          <Property Name="TotalCheckProcessing" Type="bit" Nullable="false" />
+          <Property Name="IgnoreBillingRules" Type="bit" Nullable="false" />
+          <Property Name="Compliance" Type="bit" />
+          <Property Name="Demo" Type="bit" Nullable="false" />
+          <Property Name="PaymentType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ProcessingType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="OtherInfo" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Bucket_fk" Type="int" Nullable="false" />
+          <Property Name="UsbStatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="VSAgreement" Type="bit" Nullable="false" />
+          <Property Name="VSAgreementDate" Type="datetime" />
+          <Property Name="VSSubAgreement" Type="bit" Nullable="false" />
+          <Property Name="VSSubAgreementDate" Type="datetime" />
+          <Property Name="MasterDealerType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="SubDealerType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AppSentDate" Type="datetime" />
+          <Property Name="VsSent" Type="datetime" />
+          <Property Name="VsOk" Type="datetime" />
+          <Property Name="refusedate" Type="datetime" />
+          <Property Name="refusereason" Type="varchar" MaxLength="40" />
+          <Property Name="MissingTotal" Type="bigint" Nullable="false" />
+          <Property Name="PenMer_fk" Type="int" Nullable="false" />
+          <Property Name="MonthlyServiceFee" Type="money" Nullable="false" />
+          <Property Name="ClubNameSave" Type="varchar" MaxLength="25" />
+          <Property Name="ServiceRepId" Type="int" />
+          <Property Name="AppReceivedDate" Type="datetime" />
+          <Property Name="StateTaxCertification" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AccountStatus" Type="int" Nullable="false" />
+          <Property Name="PrepaidBalance" Type="money" />
+          <Property Name="PrepaidMerchant" Type="bit" />
+          <Property Name="Language_fk" Type="tinyint" Nullable="false" />
+          <Property Name="AccountOpener" Type="int" Nullable="false" />
+          <Property Name="LeaseVerificationNo" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="DatePackageReceived" Type="datetime" />
+          <Property Name="ReferralNo" Type="int" />
+          <Property Name="GoldPackage" Type="bit" Nullable="false" />
+          <Property Name="ComAdj" Type="money" Nullable="false" />
+          <Property Name="ComAdjUser" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="HoldCom" Type="bit" Nullable="false" />
+          <Property Name="HoldComUser" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ComDrawDet_fk" Type="int" Nullable="false" />
+          <Property Name="CurrentBalance" Type="money" />
+          <Property Name="GoldPackageFee" Type="money" Nullable="false" />
+          <Property Name="LeaseFileProcessed" Type="datetime" />
+          <Property Name="Vending" Type="bit" />
+          <Property Name="BSRating" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="GoldPackageFeeDate" Type="datetime" />
+          <Property Name="mer_size" Type="int" />
+          <Property Name="MonthlyServiceFeeDate" Type="datetime" />
+          <Property Name="donotvisit" Type="bit" Nullable="false" />
+          <Property Name="equipmentPickedUp" Type="bit" Nullable="false" />
+          <Property Name="bckprepaidbalance" Type="money" />
+          <Property Name="SuperChargeID" Type="varchar" MaxLength="3" />
+          <Property Name="VendingType" Type="int" />
+          <Property Name="VendingStatus" Type="int" />
+          <Property Name="DisplayDate" Type="datetime" />
+          <Property Name="DateLastUSBRequest" Type="datetime" />
+          <Property Name="IsAtrial" Type="int" />
+          <Property Name="TrialDate" Type="datetime" />
+          <Property Name="AchToDist" Type="int" />
+          <Property Name="WeeklyACHValue" Type="money" />
+          <Property Name="WeeklyACHDate" Type="datetime" />
+          <Property Name="IsGold" Type="int" />
+          <Property Name="MonthlyInstallments" Type="int" />
+          <Property Name="MonthlyinstallmentsAmount" Type="money" />
+          <Property Name="AmountInstalled" Type="money" />
+          <Property Name="PaidTelesalesLease" Type="int" />
+          <Property Name="PaidAELease" Type="int" />
+          <Property Name="PaidTelesalesPurchase" Type="int" />
+          <Property Name="PaidAEPurchase" Type="int" />
+          <Property Name="PaidTelesalesRep" Type="int" />
+          <Property Name="PaidAERep" Type="int" />
+          <Property Name="PaidTeleSalesInst" Type="int" />
+          <Property Name="PaidAEInst" Type="int" />
+          <Property Name="PaidReferal" Type="int" />
+          <Property Name="PendingNextCicleDate" Type="datetime" />
+          <Property Name="ReferalName" Type="varchar" MaxLength="50" />
+          <Property Name="ReferalId" Type="int" />
+          <Property Name="catalogTemp_fk" Type="int" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="whatis" Type="int" />
+          <Property Name="formerPOS" Type="bit" />
+          <Property Name="CP_AccountID" Type="int" />
+          <Property Name="PaidMonthlyRep" Type="int" />
+          <Property Name="paidWeeklyRep" Type="int" />
+          <Property Name="mer_MIDBankBck" Type="varchar" MaxLength="16" />
+          <Property Name="paiddealerlease" Type="int" />
+          <Property Name="paiddealerpurchase" Type="int" />
+          <Property Name="nopaymentdealer" Type="int" />
+          <Property Name="pendingdealernext" Type="datetime" />
+          <Property Name="userremovedT" Type="varchar" MaxLength="50" />
+          <Property Name="dateremovedT" Type="datetime" />
+          <Property Name="Blocked" Type="bit" />
+          <Property Name="ProcessorTID" Type="varchar" MaxLength="50" />
+          <Property Name="PendingRepIn" Type="int" />
+          <Property Name="PendingRepOut" Type="int" />
+          <Property Name="IsIpp" Type="int" />
+          <Property Name="IppTerminal" Type="varchar" MaxLength="10" />
+          <Property Name="autoAdjustCreditLimit" Type="int" />
+          <Property Name="Lpd" Type="int" />
+          <Property Name="PaymentsDue" Type="int" />
+          <Property Name="AmountLPD" Type="money" />
+          <Property Name="RejectedDate" Type="datetime" />
+          <Property Name="ReasonLpd" Type="varchar" MaxLength="200" />
+          <Property Name="ProjectedCBack" Type="datetime" />
+          <Property Name="noprinter" Type="int" />
+          <Property Name="PaidRental" Type="int" />
+          <Property Name="jobcompliancedb" Type="int" />
+          <Property Name="IPPPaid" Type="int" />
+          <Property Name="financeId1" Type="varchar" MaxLength="20" />
+          <Property Name="financeId2" Type="varchar" MaxLength="20" />
+          <Property Name="financeId3" Type="varchar" MaxLength="20" />
+          <Property Name="financeId4" Type="varchar" MaxLength="20" />
+          <Property Name="financeId5" Type="varchar" MaxLength="20" />
+          <Property Name="financeId1_user" Type="varchar" MaxLength="20" />
+          <Property Name="financeId1_password" Type="varchar" MaxLength="20" />
+          <Property Name="financeId2_user" Type="varchar" MaxLength="20" />
+          <Property Name="financeId2_password" Type="varchar" MaxLength="20" />
+          <Property Name="financeId3_user" Type="varchar" MaxLength="20" />
+          <Property Name="financeId3_password" Type="varchar" MaxLength="20" />
+          <Property Name="financeid4_user" Type="varchar" MaxLength="20" />
+          <Property Name="financeid4_password" Type="varchar" MaxLength="20" />
+          <Property Name="financeid5_user" Type="varchar" MaxLength="20" />
+          <Property Name="financeid5_password" Type="varchar" MaxLength="20" />
+          <Property Name="visit_freq" Type="int" />
+          <Property Name="Last_visit" Type="datetime" />
+          <Property Name="Next_visit" Type="datetime" />
+          <Property Name="IsADealerMerchant" Type="int" />
+          <Property Name="IsPlanC" Type="int" />
+          <Property Name="IsSplit" Type="int" />
+          <Property Name="usbStatusUpdated" Type="datetime" />
+          <Property Name="mer_intercompany" Type="int" />
+          <Property Name="recplan" Type="int" />
+          <Property Name="recplanpercent" Type="float" />
+          <Property Name="mer_couldbemarket" Type="bit" />
+          <Property Name="mer_isCorporate" Type="bit" />
+          <Property Name="mer_isServiceFeeOnly" Type="bit" />
+          <Property Name="mer_CorporateDiscount" Type="int" />
+          <Property Name="PRTid" Type="int" />
+          <Property Name="BalanceMC" Type="money" />
+          <Property Name="CreditLimitMC" Type="money" />
+          <Property Name="BlueProgram" Type="int" />
+          <Property Name="IprepayID" Type="int" />
+          <Property Name="liability" Type="int" />
+          <Property Name="MS_ID" Type="int" />
+          <Property Name="freqfee" Type="int" />
+          <Property Name="byPassMid" Type="varchar" MaxLength="50" />
+          <Property Name="closedate" Type="datetime" />
+          <Property Name="ACECenter" Type="int" />
+          <Property Name="mer_overwriteCost" Type="int" />
+          <Property Name="mspercent" Type="money" />
+          <Property Name="check_product_profile_on_sale" Type="bit" />
+          <Property Name="isOR" Type="int" />
+          <Property Name="isFuji" Type="int" />
+          <Property Name="Fuji_RollCounter" Type="int" />
+          <Property Name="Fuji_LastRollStatus" Type="int" />
+          <Property Name="Fuji_RollsBox" Type="int" />
+          <Property Name="Fuji_paperBox" Type="int" />
+          <Property Name="mer_promotion" Type="bit" />
+          <Property Name="noreconreport" Type="int" />
+          <Property Name="tnbcom_sales_tax" Type="float" />
+          <Property Name="IsPrepaidDist" Type="int" />
+          <Property Name="ipphost" Type="varchar" MaxLength="50" />
+          <Property Name="MserviceRef2Name" Type="varchar" MaxLength="50" />
+          <Property Name="MserviceRef2Per" Type="float" />
+          <Property Name="MserviceRef2" Type="int" />
+          <Property Name="creditsOnReport" Type="bit" />
+          <Property Name="IsDtvPP" Type="int" />
+          <Property Name="PRMethod" Type="varchar" MaxLength="50" />
+          <Property Name="AchPrflag" Type="int" />
+          <Property Name="IppTrial" Type="int" />
+          <Property Name="SunPassAgentId" Type="int" />
+          <Property Name="SunPassAgent" Type="varchar" MaxLength="50" />
+          <Property Name="IsSpg" Type="int" />
+          <Property Name="SpgTerminal" Type="int" />
+          <Property Name="MonitorForFraud" Type="bit" />
+          <Property Name="Iphone" Type="int" />
+          <Property Name="isEzPassType" Type="int" />
+          <Property Name="SpgDate" Type="datetime" />
+          <Property Name="ReceiptType" Type="int" />
+          <Property Name="isMeteleUSA" Type="int" />
+          <Property Name="MservicePlatform" Type="varchar" MaxLength="20" />
+          <Property Name="MserviceRisk" Type="varchar" MaxLength="20" />
+          <Property Name="TmAgentId" Type="int" />
+          <Property Name="PaidTm" Type="int" />
+          <Property Name="isEcommerce" Type="int" />
+          <Property Name="TmAgentTBid" Type="int" />
+          <Property Name="TmAgentBPid" Type="int" />
+          <Property Name="PaidTmBP" Type="int" />
+          <Property Name="merchantBalance" Type="money" />
+          <Property Name="isFastTrack" Type="int" />
+          <Property Name="onlineMerchant" Type="bit" />
+          <Property Name="onlineVerified" Type="bit" />
+          <Property Name="onlineVerifiedDate" Type="datetime" />
+          <Property Name="onlineVerifiedBy" Type="int" />
+          <Property Name="checkserial" Type="int" />
+          <Property Name="OnePointDisposition" Type="varchar" MaxLength="2" />
+          <Property Name="OnePointDispositionDate" Type="datetime" />
+          <Property Name="OnePointAmexSEN" Type="varchar" MaxLength="10" />
+          <Property Name="onBsGateway" Type="int" />
+          <Property Name="isTaxable" Type="int" />
+          <Property Name="isTCA" Type="int" />
+          <Property Name="IsMobileMerchant" Type="int" />
+          <Property Name="fromUnlimitedPINs" Type="bit" />
+          <Property Name="tnb_tax" Type="float" />
+          <Property Name="isNextCala360" Type="int" />
+          <Property Name="GatewayType" Type="varchar" MaxLength="50" />
+          <Property Name="OtherMobileMerchants" Type="varchar" MaxLength="50" />
+          <Property Name="paidMeteleSpiff" Type="int" />
+          <Property Name="paidMeteleBonus" Type="int" />
+          <Property Name="excludeFromBoosting" Type="int" />
+          <Property Name="wasFuji" Type="int" />
+          <Property Name="catalogVersion" Type="varchar" MaxLength="50" />
+          <Property Name="isKaching" Type="int" />
+          <Property Name="isMassDOT" Type="int" />
+        </EntityType>
+        <EntityType Name="Posterminal">
+          <Key>
+            <PropertyRef Name="terminal_pk" />
+          </Key>
+          <Property Name="terminal_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="merchant_fk" Type="int" />
+          <Property Name="merchant_StoreNo" Type="int" />
+          <Property Name="custno_fk" Type="varchar" MaxLength="20" />
+          <Property Name="terminal_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ter_location" Type="varchar" MaxLength="115" />
+          <Property Name="ter_datein" Type="varchar" MaxLength="100" />
+          <Property Name="ter_dateout" Type="datetime" />
+          <Property Name="ter_timestamp" Type="datetime" />
+          <Property Name="ter_useradder" Type="varchar" MaxLength="4" />
+          <Property Name="ter_dateadded" Type="datetime" />
+          <Property Name="ter_usereditor" Type="varchar" MaxLength="4" />
+          <Property Name="ter_dateeditor" Type="datetime" />
+          <Property Name="EPICNETZ_status" Type="smallint" Nullable="false" />
+          <Property Name="EPICNETZ_date" Type="datetime" />
+          <Property Name="USBSettleTime" Type="varchar" MaxLength="4" />
+          <Property Name="Programload" Type="bit" Nullable="false" />
+          <Property Name="ReInit" Type="bit" Nullable="false" />
+          <Property Name="ReloadTime" Type="char" MaxLength="12" />
+          <Property Name="LastEvent" Type="char" MaxLength="1" />
+          <Property Name="LastEventDate" Type="datetime" />
+          <Property Name="SerialNo" Type="varchar" MaxLength="16" />
+          <Property Name="Stran" Type="int" Nullable="false" />
+          <Property Name="Alert" Type="varchar" MaxLength="200" />
+          <Property Name="AlertDate" Type="datetime" />
+          <Property Name="serial_verified" Type="bit" />
+          <Property Name="serial_verified_date" Type="datetime" />
+          <Property Name="deployed" Type="bit" />
+          <Property Name="ANI" Type="varchar" MaxLength="16" />
+          <Property Name="DEMO" Type="bit" />
+          <Property Name="TAX" Type="real" />
+          <Property Name="ReInitType" Type="char" MaxLength="2" />
+          <Property Name="AdditionalTableCode" Type="varchar" MaxLength="2" />
+          <Property Name="cashierId" Type="varchar" MaxLength="10" />
+          <Property Name="cashierStatus" Type="smallint" />
+          <Property Name="closing" Type="bit" />
+          <Property Name="closingTimeout" Type="datetime" />
+          <Property Name="closedate" Type="datetime" />
+          <Property Name="closeoutActive" Type="bit" />
+          <Property Name="changeSerialNo" Type="bit" />
+        </EntityType>
+        <Function Name="SerialVerificationDisactivation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="merchantId" Type="int" Mode="In" />
+          <Parameter Name="terminalId" Type="int" Mode="In" />
+          <Parameter Name="serialNumber" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="pin_dataModelStoreContainer">
+          <EntitySet Name="posinvoicedetail" EntityType="Self.posinvoicedetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="posinvoiceheader" EntityType="Self.posinvoiceheader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosmerchantHeader" EntityType="Self.PosmerchantHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posterminal" EntityType="Self.Posterminal" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pin_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="PosmerchantHeader">
+          <Key>
+            <PropertyRef Name="merchant_pk" />
+          </Key>
+          <Property Name="PosCustomerType_fk" Type="Int32" />
+          <Property Name="merchant_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="custno_fk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="eCommerceFlag" Type="Boolean" />
+          <Property Name="PosdispenserFlag" Type="Boolean" />
+          <Property Name="mer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mer_AppDate" Type="DateTime" Precision="3" />
+          <Property Name="mer_ProcessingCo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mer_LeasingCo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mer_TID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="mer_MID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="mer_MIDBank" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="mer_LeaseAccount" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="mer_InfoIsComplete" Type="Boolean" />
+          <Property Name="mer_zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="mer_telno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mer_crlimit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mer_Notes" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+          <Property Name="mer_status" Type="Int32" />
+          <Property Name="mer_mxtrans" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="mer_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mer_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="mer_useradder" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="mer_dateadded" Type="DateTime" Precision="3" />
+          <Property Name="mer_usereditor" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="mer_dateeditor" Type="DateTime" Precision="3" />
+          <Property Name="mer_processed" Type="DateTime" Precision="3" />
+          <Property Name="mer_gelapproved" Type="Boolean" />
+          <Property Name="mer_usbapproved" Type="Boolean" />
+          <Property Name="mer_posdelivery" Type="Boolean" />
+          <Property Name="mer_callingcard" Type="Boolean" />
+          <Property Name="mer_creditcard" Type="Boolean" />
+          <Property Name="mer_SaleActive" Type="Boolean" />
+          <Property Name="mer_CreditSales" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="mer_apptype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="mer_creditScore" Type="Int32" />
+          <Property Name="mer_paymentCleared" Type="Boolean" />
+          <Property Name="mer_funded" Type="Boolean" />
+          <Property Name="posdeals_fk" Type="Int32" />
+          <Property Name="agentId" Type="Int32" />
+          <Property Name="distributorId" Type="Int32" />
+          <Property Name="mdistributorid" Type="Int32" />
+          <Property Name="merchantProfId" Type="Int32" />
+          <Property Name="AgentProfId" Type="Int32" />
+          <Property Name="distributorProfId" Type="Int32" />
+          <Property Name="mdistributorProfId" Type="Int32" />
+          <Property Name="placementAgentId" Type="Int32" />
+          <Property Name="placementAgentProfId" Type="Int32" />
+          <Property Name="datefunded" Type="DateTime" Precision="3" />
+          <Property Name="datedeployed" Type="DateTime" Precision="3" />
+          <Property Name="datecleared" Type="DateTime" Precision="3" />
+          <Property Name="executiveid" Type="Int32" />
+          <Property Name="executiveprofid" Type="Int32" />
+          <Property Name="buybackamt" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="leasepayoff" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="processingrate" Type="Single" />
+          <Property Name="transactionfee" Type="Single" />
+          <Property Name="dateclosed" Type="DateTime" Precision="3" />
+          <Property Name="creditType" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="suspended" Type="Boolean" Nullable="false" />
+          <Property Name="suspended_date" Type="DateTime" Precision="3" />
+          <Property Name="suspended_reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="posnotes" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="repcommission_fk" Type="Int32" />
+          <Property Name="commission" Type="Boolean" />
+          <Property Name="payplacement" Type="Boolean" />
+          <Property Name="ach" Type="Boolean" />
+          <Property Name="billday" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ach_monthlyFeeDate" Type="DateTime" Precision="3" />
+          <Property Name="LeaseCreditType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LeaseCredit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="dateapproved" Type="DateTime" Precision="3" />
+          <Property Name="dateinstalled" Type="DateTime" Precision="3" />
+          <Property Name="creditFactor" Type="Single" />
+          <Property Name="achmonthlyfee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="achfrequency" Type="Int32" />
+          <Property Name="AgencyNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProducerNo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="OtherMid" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="AgencyId" Type="Int32" />
+          <Property Name="AgencyProfId" Type="Int32" />
+          <Property Name="DateVerified" Type="DateTime" Precision="3" />
+          <Property Name="CreditLimit" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="InstallerId" Type="Int32" />
+          <Property Name="AchRentalFee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ach_RentalFeeDate" Type="DateTime" Precision="3" />
+          <Property Name="ach_immediately" Type="Boolean" />
+          <Property Name="datescanned" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="nocostmerchant" Type="Boolean" Nullable="false" />
+          <Property Name="DailyLimit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="usbcontrolno" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LastBillDate" Type="DateTime" Precision="3" />
+          <Property Name="CloseType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="pcs_fk" Type="Int32" />
+          <Property Name="repname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="achStop" Type="Boolean" />
+          <Property Name="achChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="achChangeUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="achChangeNotes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="achOperationDate" Type="DateTime" Precision="3" />
+          <Property Name="achLastOpe" Type="Int32" />
+          <Property Name="CreditLimitBck" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FactoryRepId" Type="Int32" />
+          <Property Name="leadsourceid" Type="Int16" />
+          <Property Name="achMaxDebtAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="achMinDebtAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BillingSetup" Type="Boolean" />
+          <Property Name="BillingSetupDate" Type="DateTime" Precision="3" />
+          <Property Name="BillingEditedDate" Type="DateTime" Precision="3" />
+          <Property Name="ApplyAmountsRules" Type="Boolean" />
+          <Property Name="BeginACHDate" Type="DateTime" Precision="3" />
+          <Property Name="dateappointment" Type="DateTime" Precision="3" />
+          <Property Name="trialperiod" Type="Byte" Nullable="false" />
+          <Property Name="PremiumReplacementFee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PremiumReplacementFeeDate" Type="DateTime" Precision="3" />
+          <Property Name="LastBillDateBak" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="DeploymentTrackingNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LeaseNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateTransferred" Type="DateTime" Precision="3" />
+          <Property Name="TransferredTo" Type="Int32" />
+          <Property Name="TransferredFrom" Type="Int32" />
+          <Property Name="suspendcreditcardprocessing" Type="Boolean" />
+          <Property Name="FirstLastPmtUponInstall" Type="Boolean" Nullable="false" />
+          <Property Name="FirstLastPaymentWaived" Type="Boolean" Nullable="false" />
+          <Property Name="SendStatement" Type="Int32" />
+          <Property Name="TeleMarketerId" Type="Int32" Nullable="false" />
+          <Property Name="TeleMarketerProfId" Type="Int32" Nullable="false" />
+          <Property Name="GiftCardProcessing" Type="Boolean" Nullable="false" />
+          <Property Name="ACHcomp" Type="Int32" />
+          <Property Name="TotalCheckProcessing" Type="Boolean" Nullable="false" />
+          <Property Name="IgnoreBillingRules" Type="Boolean" Nullable="false" />
+          <Property Name="Compliance" Type="Boolean" />
+          <Property Name="Demo" Type="Boolean" Nullable="false" />
+          <Property Name="PaymentType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ProcessingType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="OtherInfo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bucket_fk" Type="Int32" Nullable="false" />
+          <Property Name="UsbStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="VSAgreement" Type="Boolean" Nullable="false" />
+          <Property Name="VSAgreementDate" Type="DateTime" Precision="3" />
+          <Property Name="VSSubAgreement" Type="Boolean" Nullable="false" />
+          <Property Name="VSSubAgreementDate" Type="DateTime" Precision="3" />
+          <Property Name="MasterDealerType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SubDealerType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AppSentDate" Type="DateTime" Precision="3" />
+          <Property Name="VsSent" Type="DateTime" Precision="3" />
+          <Property Name="VsOk" Type="DateTime" Precision="3" />
+          <Property Name="refusedate" Type="DateTime" Precision="3" />
+          <Property Name="refusereason" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="MissingTotal" Type="Int64" Nullable="false" />
+          <Property Name="PenMer_fk" Type="Int32" Nullable="false" />
+          <Property Name="MonthlyServiceFee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ClubNameSave" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceRepId" Type="Int32" />
+          <Property Name="AppReceivedDate" Type="DateTime" Precision="3" />
+          <Property Name="StateTaxCertification" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountStatus" Type="Int32" Nullable="false" />
+          <Property Name="PrepaidBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PrepaidMerchant" Type="Boolean" />
+          <Property Name="Language_fk" Type="Byte" Nullable="false" />
+          <Property Name="AccountOpener" Type="Int32" Nullable="false" />
+          <Property Name="LeaseVerificationNo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DatePackageReceived" Type="DateTime" Precision="3" />
+          <Property Name="ReferralNo" Type="Int32" />
+          <Property Name="GoldPackage" Type="Boolean" Nullable="false" />
+          <Property Name="ComAdj" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ComAdjUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoldCom" Type="Boolean" Nullable="false" />
+          <Property Name="HoldComUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ComDrawDet_fk" Type="Int32" Nullable="false" />
+          <Property Name="CurrentBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GoldPackageFee" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="LeaseFileProcessed" Type="DateTime" Precision="3" />
+          <Property Name="Vending" Type="Boolean" />
+          <Property Name="BSRating" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GoldPackageFeeDate" Type="DateTime" Precision="3" />
+          <Property Name="mer_size" Type="Int32" />
+          <Property Name="MonthlyServiceFeeDate" Type="DateTime" Precision="3" />
+          <Property Name="donotvisit" Type="Boolean" Nullable="false" />
+          <Property Name="equipmentPickedUp" Type="Boolean" Nullable="false" />
+          <Property Name="bckprepaidbalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SuperChargeID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="VendingType" Type="Int32" />
+          <Property Name="VendingStatus" Type="Int32" />
+          <Property Name="DisplayDate" Type="DateTime" Precision="3" />
+          <Property Name="DateLastUSBRequest" Type="DateTime" Precision="3" />
+          <Property Name="IsAtrial" Type="Int32" />
+          <Property Name="TrialDate" Type="DateTime" Precision="3" />
+          <Property Name="AchToDist" Type="Int32" />
+          <Property Name="WeeklyACHValue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WeeklyACHDate" Type="DateTime" Precision="3" />
+          <Property Name="IsGold" Type="Int32" />
+          <Property Name="MonthlyInstallments" Type="Int32" />
+          <Property Name="MonthlyinstallmentsAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AmountInstalled" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PaidTelesalesLease" Type="Int32" />
+          <Property Name="PaidAELease" Type="Int32" />
+          <Property Name="PaidTelesalesPurchase" Type="Int32" />
+          <Property Name="PaidAEPurchase" Type="Int32" />
+          <Property Name="PaidTelesalesRep" Type="Int32" />
+          <Property Name="PaidAERep" Type="Int32" />
+          <Property Name="PaidTeleSalesInst" Type="Int32" />
+          <Property Name="PaidAEInst" Type="Int32" />
+          <Property Name="PaidReferal" Type="Int32" />
+          <Property Name="PendingNextCicleDate" Type="DateTime" Precision="3" />
+          <Property Name="ReferalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReferalId" Type="Int32" />
+          <Property Name="catalogTemp_fk" Type="Int32" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="whatis" Type="Int32" />
+          <Property Name="formerPOS" Type="Boolean" />
+          <Property Name="CP_AccountID" Type="Int32" />
+          <Property Name="PaidMonthlyRep" Type="Int32" />
+          <Property Name="paidWeeklyRep" Type="Int32" />
+          <Property Name="mer_MIDBankBck" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="paiddealerlease" Type="Int32" />
+          <Property Name="paiddealerpurchase" Type="Int32" />
+          <Property Name="nopaymentdealer" Type="Int32" />
+          <Property Name="pendingdealernext" Type="DateTime" Precision="3" />
+          <Property Name="userremovedT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateremovedT" Type="DateTime" Precision="3" />
+          <Property Name="Blocked" Type="Boolean" />
+          <Property Name="ProcessorTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PendingRepIn" Type="Int32" />
+          <Property Name="PendingRepOut" Type="Int32" />
+          <Property Name="IsIpp" Type="Int32" />
+          <Property Name="IppTerminal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="autoAdjustCreditLimit" Type="Int32" />
+          <Property Name="Lpd" Type="Int32" />
+          <Property Name="PaymentsDue" Type="Int32" />
+          <Property Name="AmountLPD" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RejectedDate" Type="DateTime" Precision="3" />
+          <Property Name="ReasonLpd" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectedCBack" Type="DateTime" Precision="3" />
+          <Property Name="noprinter" Type="Int32" />
+          <Property Name="PaidRental" Type="Int32" />
+          <Property Name="jobcompliancedb" Type="Int32" />
+          <Property Name="IPPPaid" Type="Int32" />
+          <Property Name="financeId1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId5" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId1_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId1_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId2_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId2_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId3_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeId3_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeid4_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeid4_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeid5_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="financeid5_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="visit_freq" Type="Int32" />
+          <Property Name="Last_visit" Type="DateTime" Precision="3" />
+          <Property Name="Next_visit" Type="DateTime" Precision="3" />
+          <Property Name="IsADealerMerchant" Type="Int32" />
+          <Property Name="IsPlanC" Type="Int32" />
+          <Property Name="IsSplit" Type="Int32" />
+          <Property Name="usbStatusUpdated" Type="DateTime" Precision="3" />
+          <Property Name="mer_intercompany" Type="Int32" />
+          <Property Name="recplan" Type="Int32" />
+          <Property Name="recplanpercent" Type="Double" />
+          <Property Name="mer_couldbemarket" Type="Boolean" />
+          <Property Name="mer_isCorporate" Type="Boolean" />
+          <Property Name="mer_isServiceFeeOnly" Type="Boolean" />
+          <Property Name="mer_CorporateDiscount" Type="Int32" />
+          <Property Name="PRTid" Type="Int32" />
+          <Property Name="BalanceMC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreditLimitMC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BlueProgram" Type="Int32" />
+          <Property Name="IprepayID" Type="Int32" />
+          <Property Name="liability" Type="Int32" />
+          <Property Name="MS_ID" Type="Int32" />
+          <Property Name="freqfee" Type="Int32" />
+          <Property Name="byPassMid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="closedate" Type="DateTime" Precision="3" />
+          <Property Name="ACECenter" Type="Int32" />
+          <Property Name="mer_overwriteCost" Type="Int32" />
+          <Property Name="mspercent" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="check_product_profile_on_sale" Type="Boolean" />
+          <Property Name="isOR" Type="Int32" />
+          <Property Name="isFuji" Type="Int32" />
+          <Property Name="Fuji_RollCounter" Type="Int32" />
+          <Property Name="Fuji_LastRollStatus" Type="Int32" />
+          <Property Name="Fuji_RollsBox" Type="Int32" />
+          <Property Name="Fuji_paperBox" Type="Int32" />
+          <Property Name="mer_promotion" Type="Boolean" />
+          <Property Name="noreconreport" Type="Int32" />
+          <Property Name="tnbcom_sales_tax" Type="Double" />
+          <Property Name="IsPrepaidDist" Type="Int32" />
+          <Property Name="ipphost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MserviceRef2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MserviceRef2Per" Type="Double" />
+          <Property Name="MserviceRef2" Type="Int32" />
+          <Property Name="creditsOnReport" Type="Boolean" />
+          <Property Name="IsDtvPP" Type="Int32" />
+          <Property Name="PRMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AchPrflag" Type="Int32" />
+          <Property Name="IppTrial" Type="Int32" />
+          <Property Name="SunPassAgentId" Type="Int32" />
+          <Property Name="SunPassAgent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSpg" Type="Int32" />
+          <Property Name="SpgTerminal" Type="Int32" />
+          <Property Name="MonitorForFraud" Type="Boolean" />
+          <Property Name="Iphone" Type="Int32" />
+          <Property Name="isEzPassType" Type="Int32" />
+          <Property Name="SpgDate" Type="DateTime" Precision="3" />
+          <Property Name="ReceiptType" Type="Int32" />
+          <Property Name="isMeteleUSA" Type="Int32" />
+          <Property Name="MservicePlatform" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MserviceRisk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TmAgentId" Type="Int32" />
+          <Property Name="PaidTm" Type="Int32" />
+          <Property Name="isEcommerce" Type="Int32" />
+          <Property Name="TmAgentTBid" Type="Int32" />
+          <Property Name="TmAgentBPid" Type="Int32" />
+          <Property Name="PaidTmBP" Type="Int32" />
+          <Property Name="merchantBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="isFastTrack" Type="Int32" />
+          <Property Name="onlineMerchant" Type="Boolean" />
+          <Property Name="onlineVerified" Type="Boolean" />
+          <Property Name="onlineVerifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="onlineVerifiedBy" Type="Int32" />
+          <Property Name="checkserial" Type="Int32" />
+          <Property Name="OnePointDisposition" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OnePointDispositionDate" Type="DateTime" Precision="3" />
+          <Property Name="OnePointAmexSEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="onBsGateway" Type="Int32" />
+          <Property Name="isTaxable" Type="Int32" />
+          <Property Name="isTCA" Type="Int32" />
+          <Property Name="IsMobileMerchant" Type="Int32" />
+          <Property Name="fromUnlimitedPINs" Type="Boolean" />
+          <Property Name="tnb_tax" Type="Double" />
+          <Property Name="isNextCala360" Type="Int32" />
+          <Property Name="GatewayType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherMobileMerchants" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="paidMeteleSpiff" Type="Int32" />
+          <Property Name="paidMeteleBonus" Type="Int32" />
+          <Property Name="excludeFromBoosting" Type="Int32" />
+          <Property Name="wasFuji" Type="Int32" />
+          <Property Name="catalogVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isKaching" Type="Int32" />
+          <Property Name="isMassDOT" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="pin_dataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PosmerchantHeaders" EntityType="Self.PosmerchantHeader" />
+          <EntitySet Name="posinvoicedetails" EntityType="pin_dataModel.posinvoicedetail" />
+          <EntitySet Name="posinvoiceheaders" EntityType="pin_dataModel.posinvoiceheader" />
+          <EntitySet Name="Posterminals" EntityType="pin_dataModel.Posterminal" />
+          <FunctionImport Name="SerialVerificationDisactivation">
+            <Parameter Name="merchantId" Mode="In" Type="Int32" />
+            <Parameter Name="terminalId" Mode="In" Type="Int32" />
+            <Parameter Name="serialNumber" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="posinvoicedetail">
+          <Key>
+            <PropertyRef Name="det_id" />
+          </Key>
+          <Property Name="det_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inv_id" Type="Int32" Nullable="false" />
+          <Property Name="inv_carrier_fk" Type="Int32" />
+          <Property Name="inv_car_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="inv_pin_fk" Type="Int32" />
+          <Property Name="inv_pin_controlno" Type="Double" />
+          <Property Name="inv_det_date" Type="DateTime" Precision="3" />
+          <Property Name="product_sbt" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="item_fk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pro_description" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="terminal_fk" Type="Int32" />
+          <Property Name="trn_quantity" Type="Int32" />
+          <Property Name="pro_denomination" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="inv_Discount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="inv_subtotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="inv_transaction_fk" Type="Int32" />
+          <Property Name="inv_Product_Isforeign" Type="Int32" />
+          <Property Name="inv_TransactionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="inv_Cashier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountingId" Type="Int32" />
+          <Property Name="ProductCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AgentCommission" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MDistCommission" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DistCommission" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AgentId" Type="Int32" />
+          <Property Name="MDistId" Type="Int32" />
+          <Property Name="DistId" Type="Int32" />
+          <Property Name="CommissionPaidDate" Type="DateTime" Precision="3" />
+          <Property Name="ProcessedInDirectBilling" Type="Boolean" />
+          <Property Name="PaymentMethod" Type="Int32" />
+          <Property Name="PaymentFee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="inv_OpenCreditID" Type="Int32" />
+          <Property Name="SalesTaxPerc" Type="Double" />
+          <Property Name="SalesTaxAmt" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="void_amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CCardAuthCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CCardRefNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CCardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Profit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Iscomm" Type="Int32" />
+          <Property Name="WasPaidComm" Type="Int32" />
+          <Property Name="paidcommdate" Type="DateTime" Precision="3" />
+          <Property Name="paidcommuser" Type="Int32" />
+          <Property Name="BartellTransFeeBilled" Type="Boolean" />
+          <Property Name="CCardExpDate" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DistCommission2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ReturnedTax" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ReversalPaid" Type="Boolean" />
+          <Property Name="freedescriptionCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="gl_id_tnb" Type="Int32" />
+          <Property Name="gl_id_cost_tnb" Type="Int32" />
+          <Property Name="Original_Discount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Original_Subtotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="det_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="det_calculatedfrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="previousCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ITC_Billing_Status" Type="Int32" />
+          <Property Name="ITC_id" Type="Int32" />
+          <Property Name="ITC_PoId" Type="Int32" />
+          <Property Name="topup_loaded_amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="new_product_discount" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="posinvoiceheader">
+          <Key>
+            <PropertyRef Name="inv_id" />
+          </Key>
+          <Property Name="inv_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inv_date" Type="DateTime" Precision="3" />
+          <Property Name="merchant_fk" Type="Int32" />
+          <Property Name="merchant_StoreNo" Type="Int32" />
+          <Property Name="merchant_businessname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_busphone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_busaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_addressCityID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_addressStateID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_addressZIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_addressCountryID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ach_status" Type="Int32" />
+          <Property Name="ach_sentdate" Type="DateTime" Precision="3" />
+          <Property Name="ach_id" Type="Int32" />
+          <Property Name="RepCommission_fk" Type="Int32" />
+          <Property Name="Posted" Type="Boolean" />
+          <Property Name="Posted_date" Type="DateTime" Precision="3" />
+          <Property Name="Printed" Type="Int32" />
+          <Property Name="PrintedMonth" Type="Int32" />
+          <Property Name="PrintedYear" Type="Int32" />
+          <Property Name="PrintedDate" Type="DateTime" Precision="3" />
+          <Property Name="PaidDate" Type="DateTime" Precision="3" />
+          <Property Name="HoldNotesId" Type="Int32" />
+          <Property Name="Hold" Type="Boolean" />
+          <Property Name="Inv_Related" Type="Int32" />
+          <Property Name="approx_PaidDate" Type="DateTime" Precision="3" />
+          <Property Name="GroupPrinted" Type="Boolean" />
+          <Property Name="GroupPrintedDate" Type="DateTime" Precision="3" />
+          <Property Name="ComInvoice_fk" Type="Int32" Nullable="false" />
+          <Property Name="ConfirmPaid" Type="Int32" />
+          <Property Name="ConfirmPaidDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentStatus" Type="Int32" />
+          <Property Name="Payments" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UserPaid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DownInvoice" Type="Int32" />
+          <Property Name="ClubId" Type="Int32" />
+          <Property Name="SpecialDate" Type="DateTime" Precision="3" />
+          <Property Name="SpecialBilling" Type="Int32" />
+          <Property Name="SpecialActBilling" Type="Int32" />
+          <Property Name="inv_type" Type="Int32" />
+          <Property Name="inv_TermsId" Type="Int32" />
+          <Property Name="inv_void" Type="Boolean" />
+          <Property Name="waswriteoff" Type="Int32" />
+          <Property Name="amountwriteoff" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="inv_comments" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="inv_createdby" Type="Int32" Nullable="false" />
+          <Property Name="merchant_shipto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_shipaddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_shipaddress2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_shipcity" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_shipstate" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_shipzip" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="merchant_shipcountry" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="POSARInvoiceID" Type="Int32" />
+          <Property Name="PortalAPInvoiceID" Type="Int32" />
+          <Property Name="inv_voiddate" Type="DateTime" Precision="3" />
+          <Property Name="inv_voidedby" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="glID" Type="Int32" />
+          <Property Name="paymentscc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="paymentscash" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="inv_noSplit" Type="Boolean" />
+          <Property Name="flagcommCCDateI" Type="DateTime" Precision="3" />
+          <Property Name="flagcommCCDateF" Type="DateTime" Precision="3" />
+          <Property Name="PinServeARInvID" Type="Int32" />
+          <Property Name="CompanyAPInvID" Type="Int32" />
+          <Property Name="formerPOS" Type="Boolean" />
+          <Property Name="AgentId" Type="Int32" />
+          <Property Name="DistId" Type="Int32" />
+          <Property Name="MDistId" Type="Int32" />
+          <Property Name="inv_timeStamp" Type="DateTime" Precision="3" />
+          <Property Name="inv_tnb_llc" Type="Int32" />
+          <Property Name="VoidedBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Voidedpayment" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="InvoiceAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BillingType" Type="Int32" />
+          <Property Name="SRPTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DiscountTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TaxTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IsManualInv" Type="Int32" />
+          <Property Name="ValueRecPlan" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Original_InvoiceAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RecPlanDone" Type="Int32" />
+          <Property Name="percentdiscount" Type="Int32" />
+          <Property Name="mastercard" Type="Int32" />
+          <Property Name="giftcard" Type="Int32" />
+          <Property Name="isPlanC" Type="Int32" />
+          <Property Name="prepay_statement_sent" Type="Boolean" />
+          <Property Name="IsBadDebt" Type="Int32" />
+          <Property Name="midbaddebt" Type="Int32" />
+          <Property Name="IsDtvPP" Type="Boolean" />
+          <Property Name="original_merchant_fk" Type="Int32" />
+          <Property Name="original_inv_id" Type="Int32" />
+          <Property Name="atlantic_billed" Type="Int32" />
+          <Property Name="atlantic_billed_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Posterminal">
+          <Key>
+            <PropertyRef Name="terminal_pk" />
+          </Key>
+          <Property Name="terminal_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="merchant_fk" Type="Int32" />
+          <Property Name="merchant_StoreNo" Type="Int32" />
+          <Property Name="custno_fk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="terminal_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ter_location" Type="String" MaxLength="115" FixedLength="false" Unicode="false" />
+          <Property Name="ter_datein" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ter_dateout" Type="DateTime" Precision="3" />
+          <Property Name="ter_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="ter_useradder" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ter_dateadded" Type="DateTime" Precision="3" />
+          <Property Name="ter_usereditor" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ter_dateeditor" Type="DateTime" Precision="3" />
+          <Property Name="EPICNETZ_status" Type="Int16" Nullable="false" />
+          <Property Name="EPICNETZ_date" Type="DateTime" Precision="3" />
+          <Property Name="USBSettleTime" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Programload" Type="Boolean" Nullable="false" />
+          <Property Name="ReInit" Type="Boolean" Nullable="false" />
+          <Property Name="ReloadTime" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="LastEvent" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LastEventDate" Type="DateTime" Precision="3" />
+          <Property Name="SerialNo" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Stran" Type="Int32" Nullable="false" />
+          <Property Name="Alert" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AlertDate" Type="DateTime" Precision="3" />
+          <Property Name="serial_verified" Type="Boolean" />
+          <Property Name="serial_verified_date" Type="DateTime" Precision="3" />
+          <Property Name="deployed" Type="Boolean" />
+          <Property Name="ANI" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="DEMO" Type="Boolean" />
+          <Property Name="TAX" Type="Single" />
+          <Property Name="ReInitType" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="AdditionalTableCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cashierId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="cashierStatus" Type="Int16" />
+          <Property Name="closing" Type="Boolean" />
+          <Property Name="closingTimeout" Type="DateTime" Precision="3" />
+          <Property Name="closedate" Type="DateTime" Precision="3" />
+          <Property Name="closeoutActive" Type="Boolean" />
+          <Property Name="changeSerialNo" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pin_dataModelStoreContainer" CdmEntityContainer="pin_dataEntities">
+          <EntitySetMapping Name="PosmerchantHeaders">
+            <EntityTypeMapping TypeName="pin_dataModel.PosmerchantHeader">
+              <MappingFragment StoreEntitySet="PosmerchantHeader">
+                <ScalarProperty Name="PosCustomerType_fk" ColumnName="PosCustomerType_fk" />
+                <ScalarProperty Name="merchant_pk" ColumnName="merchant_pk" />
+                <ScalarProperty Name="custno_fk" ColumnName="custno_fk" />
+                <ScalarProperty Name="eCommerceFlag" ColumnName="eCommerceFlag" />
+                <ScalarProperty Name="PosdispenserFlag" ColumnName="PosdispenserFlag" />
+                <ScalarProperty Name="mer_name" ColumnName="mer_name" />
+                <ScalarProperty Name="mer_AppDate" ColumnName="mer_AppDate" />
+                <ScalarProperty Name="mer_ProcessingCo" ColumnName="mer_ProcessingCo" />
+                <ScalarProperty Name="mer_LeasingCo" ColumnName="mer_LeasingCo" />
+                <ScalarProperty Name="mer_TID" ColumnName="mer_TID" />
+                <ScalarProperty Name="mer_MID" ColumnName="mer_MID" />
+                <ScalarProperty Name="mer_MIDBank" ColumnName="mer_MIDBank" />
+                <ScalarProperty Name="mer_LeaseAccount" ColumnName="mer_LeaseAccount" />
+                <ScalarProperty Name="mer_InfoIsComplete" ColumnName="mer_InfoIsComplete" />
+                <ScalarProperty Name="mer_zip" ColumnName="mer_zip" />
+                <ScalarProperty Name="mer_telno" ColumnName="mer_telno" />
+                <ScalarProperty Name="mer_crlimit" ColumnName="mer_crlimit" />
+                <ScalarProperty Name="mer_Notes" ColumnName="mer_Notes" />
+                <ScalarProperty Name="mer_status" ColumnName="mer_status" />
+                <ScalarProperty Name="mer_mxtrans" ColumnName="mer_mxtrans" />
+                <ScalarProperty Name="mer_password" ColumnName="mer_password" />
+                <ScalarProperty Name="mer_timestamp" ColumnName="mer_timestamp" />
+                <ScalarProperty Name="mer_useradder" ColumnName="mer_useradder" />
+                <ScalarProperty Name="mer_dateadded" ColumnName="mer_dateadded" />
+                <ScalarProperty Name="mer_usereditor" ColumnName="mer_usereditor" />
+                <ScalarProperty Name="mer_dateeditor" ColumnName="mer_dateeditor" />
+                <ScalarProperty Name="mer_processed" ColumnName="mer_processed" />
+                <ScalarProperty Name="mer_gelapproved" ColumnName="mer_gelapproved" />
+                <ScalarProperty Name="mer_usbapproved" ColumnName="mer_usbapproved" />
+                <ScalarProperty Name="mer_posdelivery" ColumnName="mer_posdelivery" />
+                <ScalarProperty Name="mer_callingcard" ColumnName="mer_callingcard" />
+                <ScalarProperty Name="mer_creditcard" ColumnName="mer_creditcard" />
+                <ScalarProperty Name="mer_SaleActive" ColumnName="mer_SaleActive" />
+                <ScalarProperty Name="mer_CreditSales" ColumnName="mer_CreditSales" />
+                <ScalarProperty Name="mer_apptype" ColumnName="mer_apptype" />
+                <ScalarProperty Name="mer_creditScore" ColumnName="mer_creditScore" />
+                <ScalarProperty Name="mer_paymentCleared" ColumnName="mer_paymentCleared" />
+                <ScalarProperty Name="mer_funded" ColumnName="mer_funded" />
+                <ScalarProperty Name="posdeals_fk" ColumnName="posdeals_fk" />
+                <ScalarProperty Name="agentId" ColumnName="agentId" />
+                <ScalarProperty Name="distributorId" ColumnName="distributorId" />
+                <ScalarProperty Name="mdistributorid" ColumnName="mdistributorid" />
+                <ScalarProperty Name="merchantProfId" ColumnName="merchantProfId" />
+                <ScalarProperty Name="AgentProfId" ColumnName="AgentProfId" />
+                <ScalarProperty Name="distributorProfId" ColumnName="distributorProfId" />
+                <ScalarProperty Name="mdistributorProfId" ColumnName="mdistributorProfId" />
+                <ScalarProperty Name="placementAgentId" ColumnName="placementAgentId" />
+                <ScalarProperty Name="placementAgentProfId" ColumnName="placementAgentProfId" />
+                <ScalarProperty Name="datefunded" ColumnName="datefunded" />
+                <ScalarProperty Name="datedeployed" ColumnName="datedeployed" />
+                <ScalarProperty Name="datecleared" ColumnName="datecleared" />
+                <ScalarProperty Name="executiveid" ColumnName="executiveid" />
+                <ScalarProperty Name="executiveprofid" ColumnName="executiveprofid" />
+                <ScalarProperty Name="buybackamt" ColumnName="buybackamt" />
+                <ScalarProperty Name="leasepayoff" ColumnName="leasepayoff" />
+                <ScalarProperty Name="processingrate" ColumnName="processingrate" />
+                <ScalarProperty Name="transactionfee" ColumnName="transactionfee" />
+                <ScalarProperty Name="dateclosed" ColumnName="dateclosed" />
+                <ScalarProperty Name="creditType" ColumnName="creditType" />
+                <ScalarProperty Name="suspended" ColumnName="suspended" />
+                <ScalarProperty Name="suspended_date" ColumnName="suspended_date" />
+                <ScalarProperty Name="suspended_reason" ColumnName="suspended_reason" />
+                <ScalarProperty Name="posnotes" ColumnName="posnotes" />
+                <ScalarProperty Name="repcommission_fk" ColumnName="repcommission_fk" />
+                <ScalarProperty Name="commission" ColumnName="commission" />
+                <ScalarProperty Name="payplacement" ColumnName="payplacement" />
+                <ScalarProperty Name="ach" ColumnName="ach" />
+                <ScalarProperty Name="billday" ColumnName="billday" />
+                <ScalarProperty Name="ach_monthlyFeeDate" ColumnName="ach_monthlyFeeDate" />
+                <ScalarProperty Name="LeaseCreditType" ColumnName="LeaseCreditType" />
+                <ScalarProperty Name="LeaseCredit" ColumnName="LeaseCredit" />
+                <ScalarProperty Name="dateapproved" ColumnName="dateapproved" />
+                <ScalarProperty Name="dateinstalled" ColumnName="dateinstalled" />
+                <ScalarProperty Name="creditFactor" ColumnName="creditFactor" />
+                <ScalarProperty Name="achmonthlyfee" ColumnName="achmonthlyfee" />
+                <ScalarProperty Name="achfrequency" ColumnName="achfrequency" />
+                <ScalarProperty Name="AgencyNo" ColumnName="AgencyNo" />
+                <ScalarProperty Name="ProducerNo" ColumnName="ProducerNo" />
+                <ScalarProperty Name="OtherMid" ColumnName="OtherMid" />
+                <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+                <ScalarProperty Name="AgencyProfId" ColumnName="AgencyProfId" />
+                <ScalarProperty Name="DateVerified" ColumnName="DateVerified" />
+                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+                <ScalarProperty Name="InstallerId" ColumnName="InstallerId" />
+                <ScalarProperty Name="AchRentalFee" ColumnName="AchRentalFee" />
+                <ScalarProperty Name="ach_RentalFeeDate" ColumnName="ach_RentalFeeDate" />
+                <ScalarProperty Name="ach_immediately" ColumnName="ach_immediately" />
+                <ScalarProperty Name="datescanned" ColumnName="datescanned" />
+                <ScalarProperty Name="nocostmerchant" ColumnName="nocostmerchant" />
+                <ScalarProperty Name="DailyLimit" ColumnName="DailyLimit" />
+                <ScalarProperty Name="usbcontrolno" ColumnName="usbcontrolno" />
+                <ScalarProperty Name="LastBillDate" ColumnName="LastBillDate" />
+                <ScalarProperty Name="CloseType" ColumnName="CloseType" />
+                <ScalarProperty Name="pcs_fk" ColumnName="pcs_fk" />
+                <ScalarProperty Name="repname" ColumnName="repname" />
+                <ScalarProperty Name="achStop" ColumnName="achStop" />
+                <ScalarProperty Name="achChangeDate" ColumnName="achChangeDate" />
+                <ScalarProperty Name="achChangeUser" ColumnName="achChangeUser" />
+                <ScalarProperty Name="achChangeNotes" ColumnName="achChangeNotes" />
+                <ScalarProperty Name="achOperationDate" ColumnName="achOperationDate" />
+                <ScalarProperty Name="achLastOpe" ColumnName="achLastOpe" />
+                <ScalarProperty Name="CreditLimitBck" ColumnName="CreditLimitBck" />
+                <ScalarProperty Name="FactoryRepId" ColumnName="FactoryRepId" />
+                <ScalarProperty Name="leadsourceid" ColumnName="leadsourceid" />
+                <ScalarProperty Name="achMaxDebtAmount" ColumnName="achMaxDebtAmount" />
+                <ScalarProperty Name="achMinDebtAmount" ColumnName="achMinDebtAmount" />
+                <ScalarProperty Name="BillingSetup" ColumnName="BillingSetup" />
+                <ScalarProperty Name="BillingSetupDate" ColumnName="BillingSetupDate" />
+                <ScalarProperty Name="BillingEditedDate" ColumnName="BillingEditedDate" />
+                <ScalarProperty Name="ApplyAmountsRules" ColumnName="ApplyAmountsRules" />
+                <ScalarProperty Name="BeginACHDate" ColumnName="BeginACHDate" />
+                <ScalarProperty Name="dateappointment" ColumnName="dateappointment" />
+                <ScalarProperty Name="trialperiod" ColumnName="trialperiod" />
+                <ScalarProperty Name="PremiumReplacementFee" ColumnName="PremiumReplacementFee" />
+                <ScalarProperty Name="PremiumReplacementFeeDate" ColumnName="PremiumReplacementFeeDate" />
+                <ScalarProperty Name="LastBillDateBak" ColumnName="LastBillDateBak" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="DeploymentTrackingNo" ColumnName="DeploymentTrackingNo" />
+                <ScalarProperty Name="LeaseNo" ColumnName="LeaseNo" />
+                <ScalarProperty Name="DateTransferred" ColumnName="DateTransferred" />
+                <ScalarProperty Name="TransferredTo" ColumnName="TransferredTo" />
+                <ScalarProperty Name="TransferredFrom" ColumnName="TransferredFrom" />
+                <ScalarProperty Name="suspendcreditcardprocessing" ColumnName="suspendcreditcardprocessing" />
+                <ScalarProperty Name="FirstLastPmtUponInstall" ColumnName="FirstLastPmtUponInstall" />
+                <ScalarProperty Name="FirstLastPaymentWaived" ColumnName="FirstLastPaymentWaived" />
+                <ScalarProperty Name="SendStatement" ColumnName="SendStatement" />
+                <ScalarProperty Name="TeleMarketerId" ColumnName="TeleMarketerId" />
+                <ScalarProperty Name="TeleMarketerProfId" ColumnName="TeleMarketerProfId" />
+                <ScalarProperty Name="GiftCardProcessing" ColumnName="GiftCardProcessing" />
+                <ScalarProperty Name="ACHcomp" ColumnName="ACHcomp" />
+                <ScalarProperty Name="TotalCheckProcessing" ColumnName="TotalCheckProcessing" />
+                <ScalarProperty Name="IgnoreBillingRules" ColumnName="IgnoreBillingRules" />
+                <ScalarProperty Name="Compliance" ColumnName="Compliance" />
+                <ScalarProperty Name="Demo" ColumnName="Demo" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="ProcessingType" ColumnName="ProcessingType" />
+                <ScalarProperty Name="OtherInfo" ColumnName="OtherInfo" />
+                <ScalarProperty Name="Bucket_fk" ColumnName="Bucket_fk" />
+                <ScalarProperty Name="UsbStatus" ColumnName="UsbStatus" />
+                <ScalarProperty Name="VSAgreement" ColumnName="VSAgreement" />
+                <ScalarProperty Name="VSAgreementDate" ColumnName="VSAgreementDate" />
+                <ScalarProperty Name="VSSubAgreement" ColumnName="VSSubAgreement" />
+                <ScalarProperty Name="VSSubAgreementDate" ColumnName="VSSubAgreementDate" />
+                <ScalarProperty Name="MasterDealerType" ColumnName="MasterDealerType" />
+                <ScalarProperty Name="SubDealerType" ColumnName="SubDealerType" />
+                <ScalarProperty Name="AppSentDate" ColumnName="AppSentDate" />
+                <ScalarProperty Name="VsSent" ColumnName="VsSent" />
+                <ScalarProperty Name="VsOk" ColumnName="VsOk" />
+                <ScalarProperty Name="refusedate" ColumnName="refusedate" />
+                <ScalarProperty Name="refusereason" ColumnName="refusereason" />
+                <ScalarProperty Name="MissingTotal" ColumnName="MissingTotal" />
+                <ScalarProperty Name="PenMer_fk" ColumnName="PenMer_fk" />
+                <ScalarProperty Name="MonthlyServiceFee" ColumnName="MonthlyServiceFee" />
+                <ScalarProperty Name="ClubNameSave" ColumnName="ClubNameSave" />
+                <ScalarProperty Name="ServiceRepId" ColumnName="ServiceRepId" />
+                <ScalarProperty Name="AppReceivedDate" ColumnName="AppReceivedDate" />
+                <ScalarProperty Name="StateTaxCertification" ColumnName="StateTaxCertification" />
+                <ScalarProperty Name="AccountStatus" ColumnName="AccountStatus" />
+                <ScalarProperty Name="PrepaidBalance" ColumnName="PrepaidBalance" />
+                <ScalarProperty Name="PrepaidMerchant" ColumnName="PrepaidMerchant" />
+                <ScalarProperty Name="Language_fk" ColumnName="Language_fk" />
+                <ScalarProperty Name="AccountOpener" ColumnName="AccountOpener" />
+                <ScalarProperty Name="LeaseVerificationNo" ColumnName="LeaseVerificationNo" />
+                <ScalarProperty Name="DatePackageReceived" ColumnName="DatePackageReceived" />
+                <ScalarProperty Name="ReferralNo" ColumnName="ReferralNo" />
+                <ScalarProperty Name="GoldPackage" ColumnName="GoldPackage" />
+                <ScalarProperty Name="ComAdj" ColumnName="ComAdj" />
+                <ScalarProperty Name="ComAdjUser" ColumnName="ComAdjUser" />
+                <ScalarProperty Name="HoldCom" ColumnName="HoldCom" />
+                <ScalarProperty Name="HoldComUser" ColumnName="HoldComUser" />
+                <ScalarProperty Name="ComDrawDet_fk" ColumnName="ComDrawDet_fk" />
+                <ScalarProperty Name="CurrentBalance" ColumnName="CurrentBalance" />
+                <ScalarProperty Name="GoldPackageFee" ColumnName="GoldPackageFee" />
+                <ScalarProperty Name="LeaseFileProcessed" ColumnName="LeaseFileProcessed" />
+                <ScalarProperty Name="Vending" ColumnName="Vending" />
+                <ScalarProperty Name="BSRating" ColumnName="BSRating" />
+                <ScalarProperty Name="GoldPackageFeeDate" ColumnName="GoldPackageFeeDate" />
+                <ScalarProperty Name="mer_size" ColumnName="mer_size" />
+                <ScalarProperty Name="MonthlyServiceFeeDate" ColumnName="MonthlyServiceFeeDate" />
+                <ScalarProperty Name="donotvisit" ColumnName="donotvisit" />
+                <ScalarProperty Name="equipmentPickedUp" ColumnName="equipmentPickedUp" />
+                <ScalarProperty Name="bckprepaidbalance" ColumnName="bckprepaidbalance" />
+                <ScalarProperty Name="SuperChargeID" ColumnName="SuperChargeID" />
+                <ScalarProperty Name="VendingType" ColumnName="VendingType" />
+                <ScalarProperty Name="VendingStatus" ColumnName="VendingStatus" />
+                <ScalarProperty Name="DisplayDate" ColumnName="DisplayDate" />
+                <ScalarProperty Name="DateLastUSBRequest" ColumnName="DateLastUSBRequest" />
+                <ScalarProperty Name="IsAtrial" ColumnName="IsAtrial" />
+                <ScalarProperty Name="TrialDate" ColumnName="TrialDate" />
+                <ScalarProperty Name="AchToDist" ColumnName="AchToDist" />
+                <ScalarProperty Name="WeeklyACHValue" ColumnName="WeeklyACHValue" />
+                <ScalarProperty Name="WeeklyACHDate" ColumnName="WeeklyACHDate" />
+                <ScalarProperty Name="IsGold" ColumnName="IsGold" />
+                <ScalarProperty Name="MonthlyInstallments" ColumnName="MonthlyInstallments" />
+                <ScalarProperty Name="MonthlyinstallmentsAmount" ColumnName="MonthlyinstallmentsAmount" />
+                <ScalarProperty Name="AmountInstalled" ColumnName="AmountInstalled" />
+                <ScalarProperty Name="PaidTelesalesLease" ColumnName="PaidTelesalesLease" />
+                <ScalarProperty Name="PaidAELease" ColumnName="PaidAELease" />
+                <ScalarProperty Name="PaidTelesalesPurchase" ColumnName="PaidTelesalesPurchase" />
+                <ScalarProperty Name="PaidAEPurchase" ColumnName="PaidAEPurchase" />
+                <ScalarProperty Name="PaidTelesalesRep" ColumnName="PaidTelesalesRep" />
+                <ScalarProperty Name="PaidAERep" ColumnName="PaidAERep" />
+                <ScalarProperty Name="PaidTeleSalesInst" ColumnName="PaidTeleSalesInst" />
+                <ScalarProperty Name="PaidAEInst" ColumnName="PaidAEInst" />
+                <ScalarProperty Name="PaidReferal" ColumnName="PaidReferal" />
+                <ScalarProperty Name="PendingNextCicleDate" ColumnName="PendingNextCicleDate" />
+                <ScalarProperty Name="ReferalName" ColumnName="ReferalName" />
+                <ScalarProperty Name="ReferalId" ColumnName="ReferalId" />
+                <ScalarProperty Name="catalogTemp_fk" ColumnName="catalogTemp_fk" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="whatis" ColumnName="whatis" />
+                <ScalarProperty Name="formerPOS" ColumnName="formerPOS" />
+                <ScalarProperty Name="CP_AccountID" ColumnName="CP_AccountID" />
+                <ScalarProperty Name="PaidMonthlyRep" ColumnName="PaidMonthlyRep" />
+                <ScalarProperty Name="paidWeeklyRep" ColumnName="paidWeeklyRep" />
+                <ScalarProperty Name="mer_MIDBankBck" ColumnName="mer_MIDBankBck" />
+                <ScalarProperty Name="paiddealerlease" ColumnName="paiddealerlease" />
+                <ScalarProperty Name="paiddealerpurchase" ColumnName="paiddealerpurchase" />
+                <ScalarProperty Name="nopaymentdealer" ColumnName="nopaymentdealer" />
+                <ScalarProperty Name="pendingdealernext" ColumnName="pendingdealernext" />
+                <ScalarProperty Name="userremovedT" ColumnName="userremovedT" />
+                <ScalarProperty Name="dateremovedT" ColumnName="dateremovedT" />
+                <ScalarProperty Name="Blocked" ColumnName="Blocked" />
+                <ScalarProperty Name="ProcessorTID" ColumnName="ProcessorTID" />
+                <ScalarProperty Name="PendingRepIn" ColumnName="PendingRepIn" />
+                <ScalarProperty Name="PendingRepOut" ColumnName="PendingRepOut" />
+                <ScalarProperty Name="IsIpp" ColumnName="IsIpp" />
+                <ScalarProperty Name="IppTerminal" ColumnName="IppTerminal" />
+                <ScalarProperty Name="autoAdjustCreditLimit" ColumnName="autoAdjustCreditLimit" />
+                <ScalarProperty Name="Lpd" ColumnName="Lpd" />
+                <ScalarProperty Name="PaymentsDue" ColumnName="PaymentsDue" />
+                <ScalarProperty Name="AmountLPD" ColumnName="AmountLPD" />
+                <ScalarProperty Name="RejectedDate" ColumnName="RejectedDate" />
+                <ScalarProperty Name="ReasonLpd" ColumnName="ReasonLpd" />
+                <ScalarProperty Name="ProjectedCBack" ColumnName="ProjectedCBack" />
+                <ScalarProperty Name="noprinter" ColumnName="noprinter" />
+                <ScalarProperty Name="PaidRental" ColumnName="PaidRental" />
+                <ScalarProperty Name="jobcompliancedb" ColumnName="jobcompliancedb" />
+                <ScalarProperty Name="IPPPaid" ColumnName="IPPPaid" />
+                <ScalarProperty Name="financeId1" ColumnName="financeId1" />
+                <ScalarProperty Name="financeId2" ColumnName="financeId2" />
+                <ScalarProperty Name="financeId3" ColumnName="financeId3" />
+                <ScalarProperty Name="financeId4" ColumnName="financeId4" />
+                <ScalarProperty Name="financeId5" ColumnName="financeId5" />
+                <ScalarProperty Name="financeId1_user" ColumnName="financeId1_user" />
+                <ScalarProperty Name="financeId1_password" ColumnName="financeId1_password" />
+                <ScalarProperty Name="financeId2_user" ColumnName="financeId2_user" />
+                <ScalarProperty Name="financeId2_password" ColumnName="financeId2_password" />
+                <ScalarProperty Name="financeId3_user" ColumnName="financeId3_user" />
+                <ScalarProperty Name="financeId3_password" ColumnName="financeId3_password" />
+                <ScalarProperty Name="financeid4_user" ColumnName="financeid4_user" />
+                <ScalarProperty Name="financeid4_password" ColumnName="financeid4_password" />
+                <ScalarProperty Name="financeid5_user" ColumnName="financeid5_user" />
+                <ScalarProperty Name="financeid5_password" ColumnName="financeid5_password" />
+                <ScalarProperty Name="visit_freq" ColumnName="visit_freq" />
+                <ScalarProperty Name="Last_visit" ColumnName="Last_visit" />
+                <ScalarProperty Name="Next_visit" ColumnName="Next_visit" />
+                <ScalarProperty Name="IsADealerMerchant" ColumnName="IsADealerMerchant" />
+                <ScalarProperty Name="IsPlanC" ColumnName="IsPlanC" />
+                <ScalarProperty Name="IsSplit" ColumnName="IsSplit" />
+                <ScalarProperty Name="usbStatusUpdated" ColumnName="usbStatusUpdated" />
+                <ScalarProperty Name="mer_intercompany" ColumnName="mer_intercompany" />
+                <ScalarProperty Name="recplan" ColumnName="recplan" />
+                <ScalarProperty Name="recplanpercent" ColumnName="recplanpercent" />
+                <ScalarProperty Name="mer_couldbemarket" ColumnName="mer_couldbemarket" />
+                <ScalarProperty Name="mer_isCorporate" ColumnName="mer_isCorporate" />
+                <ScalarProperty Name="mer_isServiceFeeOnly" ColumnName="mer_isServiceFeeOnly" />
+                <ScalarProperty Name="mer_CorporateDiscount" ColumnName="mer_CorporateDiscount" />
+                <ScalarProperty Name="PRTid" ColumnName="PRTid" />
+                <ScalarProperty Name="BalanceMC" ColumnName="BalanceMC" />
+                <ScalarProperty Name="CreditLimitMC" ColumnName="CreditLimitMC" />
+                <ScalarProperty Name="BlueProgram" ColumnName="BlueProgram" />
+                <ScalarProperty Name="IprepayID" ColumnName="IprepayID" />
+                <ScalarProperty Name="liability" ColumnName="liability" />
+                <ScalarProperty Name="MS_ID" ColumnName="MS_ID" />
+                <ScalarProperty Name="freqfee" ColumnName="freqfee" />
+                <ScalarProperty Name="byPassMid" ColumnName="byPassMid" />
+                <ScalarProperty Name="closedate" ColumnName="closedate" />
+                <ScalarProperty Name="ACECenter" ColumnName="ACECenter" />
+                <ScalarProperty Name="mer_overwriteCost" ColumnName="mer_overwriteCost" />
+                <ScalarProperty Name="mspercent" ColumnName="mspercent" />
+                <ScalarProperty Name="check_product_profile_on_sale" ColumnName="check_product_profile_on_sale" />
+                <ScalarProperty Name="isOR" ColumnName="isOR" />
+                <ScalarProperty Name="isFuji" ColumnName="isFuji" />
+                <ScalarProperty Name="Fuji_RollCounter" ColumnName="Fuji_RollCounter" />
+                <ScalarProperty Name="Fuji_LastRollStatus" ColumnName="Fuji_LastRollStatus" />
+                <ScalarProperty Name="Fuji_RollsBox" ColumnName="Fuji_RollsBox" />
+                <ScalarProperty Name="Fuji_paperBox" ColumnName="Fuji_paperBox" />
+                <ScalarProperty Name="mer_promotion" ColumnName="mer_promotion" />
+                <ScalarProperty Name="noreconreport" ColumnName="noreconreport" />
+                <ScalarProperty Name="tnbcom_sales_tax" ColumnName="tnbcom_sales_tax" />
+                <ScalarProperty Name="IsPrepaidDist" ColumnName="IsPrepaidDist" />
+                <ScalarProperty Name="ipphost" ColumnName="ipphost" />
+                <ScalarProperty Name="MserviceRef2Name" ColumnName="MserviceRef2Name" />
+                <ScalarProperty Name="MserviceRef2Per" ColumnName="MserviceRef2Per" />
+                <ScalarProperty Name="MserviceRef2" ColumnName="MserviceRef2" />
+                <ScalarProperty Name="creditsOnReport" ColumnName="creditsOnReport" />
+                <ScalarProperty Name="IsDtvPP" ColumnName="IsDtvPP" />
+                <ScalarProperty Name="PRMethod" ColumnName="PRMethod" />
+                <ScalarProperty Name="AchPrflag" ColumnName="AchPrflag" />
+                <ScalarProperty Name="IppTrial" ColumnName="IppTrial" />
+                <ScalarProperty Name="SunPassAgentId" ColumnName="SunPassAgentId" />
+                <ScalarProperty Name="SunPassAgent" ColumnName="SunPassAgent" />
+                <ScalarProperty Name="IsSpg" ColumnName="IsSpg" />
+                <ScalarProperty Name="SpgTerminal" ColumnName="SpgTerminal" />
+                <ScalarProperty Name="MonitorForFraud" ColumnName="MonitorForFraud" />
+                <ScalarProperty Name="Iphone" ColumnName="Iphone" />
+                <ScalarProperty Name="isEzPassType" ColumnName="isEzPassType" />
+                <ScalarProperty Name="SpgDate" ColumnName="SpgDate" />
+                <ScalarProperty Name="ReceiptType" ColumnName="ReceiptType" />
+                <ScalarProperty Name="isMeteleUSA" ColumnName="isMeteleUSA" />
+                <ScalarProperty Name="MservicePlatform" ColumnName="MservicePlatform" />
+                <ScalarProperty Name="MserviceRisk" ColumnName="MserviceRisk" />
+                <ScalarProperty Name="TmAgentId" ColumnName="TmAgentId" />
+                <ScalarProperty Name="PaidTm" ColumnName="PaidTm" />
+                <ScalarProperty Name="isEcommerce" ColumnName="isEcommerce" />
+                <ScalarProperty Name="TmAgentTBid" ColumnName="TmAgentTBid" />
+                <ScalarProperty Name="TmAgentBPid" ColumnName="TmAgentBPid" />
+                <ScalarProperty Name="PaidTmBP" ColumnName="PaidTmBP" />
+                <ScalarProperty Name="merchantBalance" ColumnName="merchantBalance" />
+                <ScalarProperty Name="isFastTrack" ColumnName="isFastTrack" />
+                <ScalarProperty Name="onlineMerchant" ColumnName="onlineMerchant" />
+                <ScalarProperty Name="onlineVerified" ColumnName="onlineVerified" />
+                <ScalarProperty Name="onlineVerifiedDate" ColumnName="onlineVerifiedDate" />
+                <ScalarProperty Name="onlineVerifiedBy" ColumnName="onlineVerifiedBy" />
+                <ScalarProperty Name="checkserial" ColumnName="checkserial" />
+                <ScalarProperty Name="OnePointDisposition" ColumnName="OnePointDisposition" />
+                <ScalarProperty Name="OnePointDispositionDate" ColumnName="OnePointDispositionDate" />
+                <ScalarProperty Name="OnePointAmexSEN" ColumnName="OnePointAmexSEN" />
+                <ScalarProperty Name="onBsGateway" ColumnName="onBsGateway" />
+                <ScalarProperty Name="isTaxable" ColumnName="isTaxable" />
+                <ScalarProperty Name="isTCA" ColumnName="isTCA" />
+                <ScalarProperty Name="IsMobileMerchant" ColumnName="IsMobileMerchant" />
+                <ScalarProperty Name="fromUnlimitedPINs" ColumnName="fromUnlimitedPINs" />
+                <ScalarProperty Name="tnb_tax" ColumnName="tnb_tax" />
+                <ScalarProperty Name="isNextCala360" ColumnName="isNextCala360" />
+                <ScalarProperty Name="GatewayType" ColumnName="GatewayType" />
+                <ScalarProperty Name="OtherMobileMerchants" ColumnName="OtherMobileMerchants" />
+                <ScalarProperty Name="paidMeteleSpiff" ColumnName="paidMeteleSpiff" />
+                <ScalarProperty Name="paidMeteleBonus" ColumnName="paidMeteleBonus" />
+                <ScalarProperty Name="excludeFromBoosting" ColumnName="excludeFromBoosting" />
+                <ScalarProperty Name="wasFuji" ColumnName="wasFuji" />
+                <ScalarProperty Name="catalogVersion" ColumnName="catalogVersion" />
+                <ScalarProperty Name="isKaching" ColumnName="isKaching" />
+                <ScalarProperty Name="isMassDOT" ColumnName="isMassDOT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posinvoicedetails">
+            <EntityTypeMapping TypeName="pin_dataModel.posinvoicedetail">
+              <MappingFragment StoreEntitySet="posinvoicedetail">
+                <ScalarProperty Name="new_product_discount" ColumnName="new_product_discount" />
+                <ScalarProperty Name="topup_loaded_amount" ColumnName="topup_loaded_amount" />
+                <ScalarProperty Name="ITC_PoId" ColumnName="ITC_PoId" />
+                <ScalarProperty Name="ITC_id" ColumnName="ITC_id" />
+                <ScalarProperty Name="ITC_Billing_Status" ColumnName="ITC_Billing_Status" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="previousCost" ColumnName="previousCost" />
+                <ScalarProperty Name="det_calculatedfrom" ColumnName="det_calculatedfrom" />
+                <ScalarProperty Name="det_timestamp" ColumnName="det_timestamp" />
+                <ScalarProperty Name="Original_Subtotal" ColumnName="Original_Subtotal" />
+                <ScalarProperty Name="Original_Discount" ColumnName="Original_Discount" />
+                <ScalarProperty Name="gl_id_cost_tnb" ColumnName="gl_id_cost_tnb" />
+                <ScalarProperty Name="gl_id_tnb" ColumnName="gl_id_tnb" />
+                <ScalarProperty Name="freedescriptionCost" ColumnName="freedescriptionCost" />
+                <ScalarProperty Name="ReversalPaid" ColumnName="ReversalPaid" />
+                <ScalarProperty Name="ReturnedTax" ColumnName="ReturnedTax" />
+                <ScalarProperty Name="DistCommission2" ColumnName="DistCommission2" />
+                <ScalarProperty Name="CCardExpDate" ColumnName="CCardExpDate" />
+                <ScalarProperty Name="BartellTransFeeBilled" ColumnName="BartellTransFeeBilled" />
+                <ScalarProperty Name="paidcommuser" ColumnName="paidcommuser" />
+                <ScalarProperty Name="paidcommdate" ColumnName="paidcommdate" />
+                <ScalarProperty Name="WasPaidComm" ColumnName="WasPaidComm" />
+                <ScalarProperty Name="Iscomm" ColumnName="Iscomm" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+                <ScalarProperty Name="CCardNumber" ColumnName="CCardNumber" />
+                <ScalarProperty Name="CCardRefNumber" ColumnName="CCardRefNumber" />
+                <ScalarProperty Name="CCardAuthCode" ColumnName="CCardAuthCode" />
+                <ScalarProperty Name="void_amount" ColumnName="void_amount" />
+                <ScalarProperty Name="SalesTaxAmt" ColumnName="SalesTaxAmt" />
+                <ScalarProperty Name="SalesTaxPerc" ColumnName="SalesTaxPerc" />
+                <ScalarProperty Name="inv_OpenCreditID" ColumnName="inv_OpenCreditID" />
+                <ScalarProperty Name="PaymentFee" ColumnName="PaymentFee" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="ProcessedInDirectBilling" ColumnName="ProcessedInDirectBilling" />
+                <ScalarProperty Name="CommissionPaidDate" ColumnName="CommissionPaidDate" />
+                <ScalarProperty Name="DistId" ColumnName="DistId" />
+                <ScalarProperty Name="MDistId" ColumnName="MDistId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="DistCommission" ColumnName="DistCommission" />
+                <ScalarProperty Name="MDistCommission" ColumnName="MDistCommission" />
+                <ScalarProperty Name="AgentCommission" ColumnName="AgentCommission" />
+                <ScalarProperty Name="ProductCost" ColumnName="ProductCost" />
+                <ScalarProperty Name="AccountingId" ColumnName="AccountingId" />
+                <ScalarProperty Name="inv_Cashier" ColumnName="inv_Cashier" />
+                <ScalarProperty Name="inv_TransactionType" ColumnName="inv_TransactionType" />
+                <ScalarProperty Name="inv_Product_Isforeign" ColumnName="inv_Product_Isforeign" />
+                <ScalarProperty Name="inv_transaction_fk" ColumnName="inv_transaction_fk" />
+                <ScalarProperty Name="inv_subtotal" ColumnName="inv_subtotal" />
+                <ScalarProperty Name="inv_Discount" ColumnName="inv_Discount" />
+                <ScalarProperty Name="pro_denomination" ColumnName="pro_denomination" />
+                <ScalarProperty Name="trn_quantity" ColumnName="trn_quantity" />
+                <ScalarProperty Name="terminal_fk" ColumnName="terminal_fk" />
+                <ScalarProperty Name="pro_description" ColumnName="pro_description" />
+                <ScalarProperty Name="item_fk" ColumnName="item_fk" />
+                <ScalarProperty Name="product_sbt" ColumnName="product_sbt" />
+                <ScalarProperty Name="inv_det_date" ColumnName="inv_det_date" />
+                <ScalarProperty Name="inv_pin_controlno" ColumnName="inv_pin_controlno" />
+                <ScalarProperty Name="inv_pin_fk" ColumnName="inv_pin_fk" />
+                <ScalarProperty Name="inv_car_name" ColumnName="inv_car_name" />
+                <ScalarProperty Name="inv_carrier_fk" ColumnName="inv_carrier_fk" />
+                <ScalarProperty Name="inv_id" ColumnName="inv_id" />
+                <ScalarProperty Name="det_id" ColumnName="det_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posinvoiceheaders">
+            <EntityTypeMapping TypeName="pin_dataModel.posinvoiceheader">
+              <MappingFragment StoreEntitySet="posinvoiceheader">
+                <ScalarProperty Name="atlantic_billed_date" ColumnName="atlantic_billed_date" />
+                <ScalarProperty Name="atlantic_billed" ColumnName="atlantic_billed" />
+                <ScalarProperty Name="original_inv_id" ColumnName="original_inv_id" />
+                <ScalarProperty Name="original_merchant_fk" ColumnName="original_merchant_fk" />
+                <ScalarProperty Name="IsDtvPP" ColumnName="IsDtvPP" />
+                <ScalarProperty Name="midbaddebt" ColumnName="midbaddebt" />
+                <ScalarProperty Name="IsBadDebt" ColumnName="IsBadDebt" />
+                <ScalarProperty Name="prepay_statement_sent" ColumnName="prepay_statement_sent" />
+                <ScalarProperty Name="isPlanC" ColumnName="isPlanC" />
+                <ScalarProperty Name="giftcard" ColumnName="giftcard" />
+                <ScalarProperty Name="mastercard" ColumnName="mastercard" />
+                <ScalarProperty Name="percentdiscount" ColumnName="percentdiscount" />
+                <ScalarProperty Name="RecPlanDone" ColumnName="RecPlanDone" />
+                <ScalarProperty Name="Original_InvoiceAmount" ColumnName="Original_InvoiceAmount" />
+                <ScalarProperty Name="ValueRecPlan" ColumnName="ValueRecPlan" />
+                <ScalarProperty Name="IsManualInv" ColumnName="IsManualInv" />
+                <ScalarProperty Name="TaxTotal" ColumnName="TaxTotal" />
+                <ScalarProperty Name="DiscountTotal" ColumnName="DiscountTotal" />
+                <ScalarProperty Name="SRPTotal" ColumnName="SRPTotal" />
+                <ScalarProperty Name="BillingType" ColumnName="BillingType" />
+                <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+                <ScalarProperty Name="Voidedpayment" ColumnName="Voidedpayment" />
+                <ScalarProperty Name="VoidedBalance" ColumnName="VoidedBalance" />
+                <ScalarProperty Name="inv_tnb_llc" ColumnName="inv_tnb_llc" />
+                <ScalarProperty Name="inv_timeStamp" ColumnName="inv_timeStamp" />
+                <ScalarProperty Name="MDistId" ColumnName="MDistId" />
+                <ScalarProperty Name="DistId" ColumnName="DistId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="formerPOS" ColumnName="formerPOS" />
+                <ScalarProperty Name="CompanyAPInvID" ColumnName="CompanyAPInvID" />
+                <ScalarProperty Name="PinServeARInvID" ColumnName="PinServeARInvID" />
+                <ScalarProperty Name="flagcommCCDateF" ColumnName="flagcommCCDateF" />
+                <ScalarProperty Name="flagcommCCDateI" ColumnName="flagcommCCDateI" />
+                <ScalarProperty Name="inv_noSplit" ColumnName="inv_noSplit" />
+                <ScalarProperty Name="paymentscash" ColumnName="paymentscash" />
+                <ScalarProperty Name="paymentscc" ColumnName="paymentscc" />
+                <ScalarProperty Name="glID" ColumnName="glID" />
+                <ScalarProperty Name="inv_voidedby" ColumnName="inv_voidedby" />
+                <ScalarProperty Name="inv_voiddate" ColumnName="inv_voiddate" />
+                <ScalarProperty Name="PortalAPInvoiceID" ColumnName="PortalAPInvoiceID" />
+                <ScalarProperty Name="POSARInvoiceID" ColumnName="POSARInvoiceID" />
+                <ScalarProperty Name="merchant_shipcountry" ColumnName="merchant_shipcountry" />
+                <ScalarProperty Name="merchant_shipzip" ColumnName="merchant_shipzip" />
+                <ScalarProperty Name="merchant_shipstate" ColumnName="merchant_shipstate" />
+                <ScalarProperty Name="merchant_shipcity" ColumnName="merchant_shipcity" />
+                <ScalarProperty Name="merchant_shipaddress2" ColumnName="merchant_shipaddress2" />
+                <ScalarProperty Name="merchant_shipaddress1" ColumnName="merchant_shipaddress1" />
+                <ScalarProperty Name="merchant_shipto" ColumnName="merchant_shipto" />
+                <ScalarProperty Name="inv_createdby" ColumnName="inv_createdby" />
+                <ScalarProperty Name="inv_comments" ColumnName="inv_comments" />
+                <ScalarProperty Name="amountwriteoff" ColumnName="amountwriteoff" />
+                <ScalarProperty Name="waswriteoff" ColumnName="waswriteoff" />
+                <ScalarProperty Name="inv_void" ColumnName="inv_void" />
+                <ScalarProperty Name="inv_TermsId" ColumnName="inv_TermsId" />
+                <ScalarProperty Name="inv_type" ColumnName="inv_type" />
+                <ScalarProperty Name="SpecialActBilling" ColumnName="SpecialActBilling" />
+                <ScalarProperty Name="SpecialBilling" ColumnName="SpecialBilling" />
+                <ScalarProperty Name="SpecialDate" ColumnName="SpecialDate" />
+                <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+                <ScalarProperty Name="DownInvoice" ColumnName="DownInvoice" />
+                <ScalarProperty Name="UserPaid" ColumnName="UserPaid" />
+                <ScalarProperty Name="Payments" ColumnName="Payments" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="ConfirmPaidDate" ColumnName="ConfirmPaidDate" />
+                <ScalarProperty Name="ConfirmPaid" ColumnName="ConfirmPaid" />
+                <ScalarProperty Name="ComInvoice_fk" ColumnName="ComInvoice_fk" />
+                <ScalarProperty Name="GroupPrintedDate" ColumnName="GroupPrintedDate" />
+                <ScalarProperty Name="GroupPrinted" ColumnName="GroupPrinted" />
+                <ScalarProperty Name="approx_PaidDate" ColumnName="approx_PaidDate" />
+                <ScalarProperty Name="Inv_Related" ColumnName="Inv_Related" />
+                <ScalarProperty Name="Hold" ColumnName="Hold" />
+                <ScalarProperty Name="HoldNotesId" ColumnName="HoldNotesId" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+                <ScalarProperty Name="PrintedDate" ColumnName="PrintedDate" />
+                <ScalarProperty Name="PrintedYear" ColumnName="PrintedYear" />
+                <ScalarProperty Name="PrintedMonth" ColumnName="PrintedMonth" />
+                <ScalarProperty Name="Printed" ColumnName="Printed" />
+                <ScalarProperty Name="Posted_date" ColumnName="Posted_date" />
+                <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="RepCommission_fk" ColumnName="RepCommission_fk" />
+                <ScalarProperty Name="ach_id" ColumnName="ach_id" />
+                <ScalarProperty Name="ach_sentdate" ColumnName="ach_sentdate" />
+                <ScalarProperty Name="ach_status" ColumnName="ach_status" />
+                <ScalarProperty Name="merchant_addressCountryID" ColumnName="merchant_addressCountryID" />
+                <ScalarProperty Name="merchant_addressZIP" ColumnName="merchant_addressZIP" />
+                <ScalarProperty Name="merchant_addressStateID" ColumnName="merchant_addressStateID" />
+                <ScalarProperty Name="merchant_addressCityID" ColumnName="merchant_addressCityID" />
+                <ScalarProperty Name="merchant_busaddress" ColumnName="merchant_busaddress" />
+                <ScalarProperty Name="merchant_busphone" ColumnName="merchant_busphone" />
+                <ScalarProperty Name="merchant_businessname" ColumnName="merchant_businessname" />
+                <ScalarProperty Name="merchant_StoreNo" ColumnName="merchant_StoreNo" />
+                <ScalarProperty Name="merchant_fk" ColumnName="merchant_fk" />
+                <ScalarProperty Name="inv_date" ColumnName="inv_date" />
+                <ScalarProperty Name="inv_id" ColumnName="inv_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posterminals">
+            <EntityTypeMapping TypeName="pin_dataModel.Posterminal">
+              <MappingFragment StoreEntitySet="Posterminal">
+                <ScalarProperty Name="changeSerialNo" ColumnName="changeSerialNo" />
+                <ScalarProperty Name="closeoutActive" ColumnName="closeoutActive" />
+                <ScalarProperty Name="closedate" ColumnName="closedate" />
+                <ScalarProperty Name="closingTimeout" ColumnName="closingTimeout" />
+                <ScalarProperty Name="closing" ColumnName="closing" />
+                <ScalarProperty Name="cashierStatus" ColumnName="cashierStatus" />
+                <ScalarProperty Name="cashierId" ColumnName="cashierId" />
+                <ScalarProperty Name="AdditionalTableCode" ColumnName="AdditionalTableCode" />
+                <ScalarProperty Name="ReInitType" ColumnName="ReInitType" />
+                <ScalarProperty Name="TAX" ColumnName="TAX" />
+                <ScalarProperty Name="DEMO" ColumnName="DEMO" />
+                <ScalarProperty Name="ANI" ColumnName="ANI" />
+                <ScalarProperty Name="deployed" ColumnName="deployed" />
+                <ScalarProperty Name="serial_verified_date" ColumnName="serial_verified_date" />
+                <ScalarProperty Name="serial_verified" ColumnName="serial_verified" />
+                <ScalarProperty Name="AlertDate" ColumnName="AlertDate" />
+                <ScalarProperty Name="Alert" ColumnName="Alert" />
+                <ScalarProperty Name="Stran" ColumnName="Stran" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="LastEventDate" ColumnName="LastEventDate" />
+                <ScalarProperty Name="LastEvent" ColumnName="LastEvent" />
+                <ScalarProperty Name="ReloadTime" ColumnName="ReloadTime" />
+                <ScalarProperty Name="ReInit" ColumnName="ReInit" />
+                <ScalarProperty Name="Programload" ColumnName="Programload" />
+                <ScalarProperty Name="USBSettleTime" ColumnName="USBSettleTime" />
+                <ScalarProperty Name="EPICNETZ_date" ColumnName="EPICNETZ_date" />
+                <ScalarProperty Name="EPICNETZ_status" ColumnName="EPICNETZ_status" />
+                <ScalarProperty Name="ter_dateeditor" ColumnName="ter_dateeditor" />
+                <ScalarProperty Name="ter_usereditor" ColumnName="ter_usereditor" />
+                <ScalarProperty Name="ter_dateadded" ColumnName="ter_dateadded" />
+                <ScalarProperty Name="ter_useradder" ColumnName="ter_useradder" />
+                <ScalarProperty Name="ter_timestamp" ColumnName="ter_timestamp" />
+                <ScalarProperty Name="ter_dateout" ColumnName="ter_dateout" />
+                <ScalarProperty Name="ter_datein" ColumnName="ter_datein" />
+                <ScalarProperty Name="ter_location" ColumnName="ter_location" />
+                <ScalarProperty Name="terminal_id" ColumnName="terminal_id" />
+                <ScalarProperty Name="custno_fk" ColumnName="custno_fk" />
+                <ScalarProperty Name="merchant_StoreNo" ColumnName="merchant_StoreNo" />
+                <ScalarProperty Name="merchant_fk" ColumnName="merchant_fk" />
+                <ScalarProperty Name="terminal_pk" ColumnName="terminal_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SerialVerificationDisactivation" FunctionName="pin_dataModel.Store.SerialVerificationDisactivation" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

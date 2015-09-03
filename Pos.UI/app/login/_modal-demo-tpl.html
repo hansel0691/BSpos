@@ -1,0 +1,61 @@
+<!-- modal -->
+<!-- <div class="modal-header" pull-right>
+	<h3>{{modalOptions.headerText}}</h3>
+</div> -->
+
+<div class="modal-body">
+	<div class="" id="login">
+		<div class="panel-heading text-primary">
+			<h3>Test Drive</h3>
+		</div>
+		<div class="panel-body">
+			<p class="small"> Please complete the information below to test our full demo version.</p class="small">
+
+			<div>
+				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+			</div>
+
+			<form name="sampleForm" role="form" id="form" novalidate>
+				<div class="form-group" ng-class="{'has-error' : submitted && demoForm.user.$error.required}">
+					<label for="user">Full Name</label>
+					<span class="label label-danger" data-ng-show="submitted && demoForm.user.$error.required">Required!</span>
+					<input type="text" class="form-control" id="userField" name="user" placeholder="Your Name"
+						ng-model="demoForm.name"
+						ng-required="true"
+						required >
+				</div>
+
+				<div class="form-group" ng-class="{'has-error' : submitted && demoForm.email.$error.required}">
+					<label for="email">Email</label>
+					<span class="label label-danger" data-ng-show="submitted && demoForm.email.$error.required">Required!</span>
+					<input type="email" class="form-control" id="emailField" name="email" placeholder="Your Email"
+						ng-model="demoForm.email"
+						ng-required="true"
+						required >
+				</div>
+				<p></p>
+				<div class="clearfix"></div>
+				<!-- <div class="form-group" ng-class="{'has-error' : submitted && demoForm.terms.$error.required}">
+					<span class="label label-danger" data-ng-show="submitted && demoForm.terms.$error.required">Required!</span>
+					<div class="clearfix"></div>
+					<label>
+						<input type="checkbox" name="terms"
+							ng-required="true"
+							ng-model="demoForm.terms"
+							required> Check me out
+					</label>
+				</div> -->
+
+				<button type="submit" data-ng-disabled="demoForm.$invalid" data-ng-click="guestSubmit(sampleForm)" class="btn btn-primary"></i> Log In</button>
+				<button class="btn btn-default"data-ng-click="close();"><i class="fa fa-times"></i> {{modalOptions.closeButtonText}} </button>
+			</form>
+			<!-- {{demoForm | json}} -->
+		</div>
+	</div>
+
+
+</div>
+
+<!-- <div class="modal-footer" >
+
+</div> -->

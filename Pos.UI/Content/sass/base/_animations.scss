@@ -1,0 +1,51 @@
+// SIDEBAR
+// -------------------------------------------------------
+
+// Refresh button animation
+.icon-refresh-animate {
+	-webkit-animation: rotation 1s infinite linear;
+	animation: rotation 1s infinite linear;
+}
+
+$animated-classes: "alpha" "show-info" "show-home" "content" "nav-icon";
+
+@each $class in $animated-classes{
+	.#{$class} {
+		@include transition-property(all);
+		@include transition-duration(0.2s);
+		@include transition-timing-function(easy);
+	}
+	.#{$class}.ng-hide {
+		opacity:0;
+	}
+}
+
+// We're using CSS transitions for when the enter and move events are triggered
+// for the element that has the .repeated-item class
+$repeated-elm-animated: "repeated-item" "view-animation" "content";
+
+@each $class in $repeated-elm-animated{
+	.#{$class}.ng-enter, .#{$class}.ng-move {
+		@include transition-property(all);
+		@include transition-duration(0.3s);
+		@include transition-timing-function(easy);
+		opacity:0;
+	}
+	// The ng-enter-active and ng-move-active are where the transition destination properties
+	// are set so that the animation knows what to animate.
+	.#{$class}.ng-enter.ng-enter-active {
+		opacity:1;
+	}
+	// We're using CSS keyframe animations for when the leave event
+	// is triggered for the element that has the .repeated-item class
+	.#{$class}.ng-leave {
+		@include animation-duration(0.3s);
+		@include animation-name(my_animation);
+		@include animation-timing-function(easy);
+	}
+}
+// animation
+@keyframes my_animation {
+	from { opacity:1; }
+	to { opacity:0; }
+}

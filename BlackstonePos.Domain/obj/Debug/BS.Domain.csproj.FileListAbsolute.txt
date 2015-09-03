@@ -1,0 +1,13 @@
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\BlackstonePos.Domain.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\BlackstonePos.Domain.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Metele.common.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Ninject.Extensions.Logging.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Ninject.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Metele.common.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Ninject.Extensions.Logging.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Ninject.Extensions.Logging.xml
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Ninject.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Ninject.xml
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\obj\Debug\BS.Domain.csprojResolveAssemblyReference.cache
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\obj\Debug\BlackstonePos.Domain.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\obj\Debug\BlackstonePos.Domain.pdb

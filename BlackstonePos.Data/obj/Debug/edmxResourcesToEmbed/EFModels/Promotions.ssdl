@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PromotionsPortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Promotions">
+    <Key>
+      <PropertyRef Name="PromoId" />
+    </Key>
+    <Property Name="PromoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="nvarchar(max)" />
+    <Property Name="Bonus" Type="nvarchar(max)" />
+    <Property Name="BonusSpanish" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+    <Property Name="CreationTimeStamp" Type="datetime2" Precision="7" />
+    <Property Name="ValidRange" Type="nvarchar" MaxLength="50" />
+    <Property Name="ValidRangeSpanish" Type="nvarchar" MaxLength="50" />
+    <Property Name="TermsConditions" Type="nvarchar(max)" />
+    <Property Name="TermsConditionsSpanish" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="PromoType" Type="int" />
+    <Property Name="LastModifiedTimeStamp" Type="datetime" />
+    <Property Name="RemovedTimeStamp" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="LastModifiedBy" Type="nvarchar(max)" />
+    <Property Name="RemovedBy" Type="nvarchar(max)" />
+    <Property Name="CarrierImage" Type="nvarchar(max)" />
+    <Property Name="Trash" Type="int" />
+    <Property Name="ProductName" Type="nvarchar(max)" />
+    <Property Name="Carrier" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PromoWebSites">
+    <Key>
+      <PropertyRef Name="PromoId" />
+      <PropertyRef Name="WebSiteId" />
+    </Key>
+    <Property Name="PromoId" Type="int" Nullable="false" />
+    <Property Name="WebSiteId" Type="int" Nullable="false" />
+    <Property Name="WebSiteActionLink" Type="nvarchar(max)" />
+    <Property Name="tblTimeStamp" Type="datetime" />
+    <Property Name="MainImage" Type="nvarchar(max)" />
+    <Property Name="SmallImage" Type="nvarchar(max)" />
+    <Property Name="MainImageText" Type="nvarchar(max)" />
+    <Property Name="SmallImageText" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_PromoWebSites_Promotions">
+    <End Role="Promotions" Type="Self.Promotions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PromoWebSites" Type="Self.PromoWebSites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promotions">
+        <PropertyRef Name="PromoId" />
+      </Principal>
+      <Dependent Role="PromoWebSites">
+        <PropertyRef Name="PromoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PromotionsPortalModelStoreContainer">
+    <EntitySet Name="Promotions" EntityType="Self.Promotions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PromoWebSites" EntityType="Self.PromoWebSites" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PromoWebSites_Promotions" Association="Self.FK_PromoWebSites_Promotions">
+      <End Role="Promotions" EntitySet="Promotions" />
+      <End Role="PromoWebSites" EntitySet="PromoWebSites" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

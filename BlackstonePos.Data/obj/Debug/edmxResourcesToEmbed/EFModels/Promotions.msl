@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PromotionsPortalModelStoreContainer" CdmEntityContainer="PromotionsPortalEntities">
+    <EntitySetMapping Name="Promotions">
+      <EntityTypeMapping TypeName="PromotionsPortalModel.Promotion">
+        <MappingFragment StoreEntitySet="Promotions">
+          <ScalarProperty Name="PromoId" ColumnName="PromoId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="BonusSpanish" ColumnName="BonusSpanish" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="CreationTimeStamp" ColumnName="CreationTimeStamp" />
+          <ScalarProperty Name="ValidRange" ColumnName="ValidRange" />
+          <ScalarProperty Name="ValidRangeSpanish" ColumnName="ValidRangeSpanish" />
+          <ScalarProperty Name="TermsConditions" ColumnName="TermsConditions" />
+          <ScalarProperty Name="TermsConditionsSpanish" ColumnName="TermsConditionsSpanish" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PromoType" ColumnName="PromoType" />
+          <ScalarProperty Name="LastModifiedTimeStamp" ColumnName="LastModifiedTimeStamp" />
+          <ScalarProperty Name="RemovedTimeStamp" ColumnName="RemovedTimeStamp" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="RemovedBy" ColumnName="RemovedBy" />
+          <ScalarProperty Name="CarrierImage" ColumnName="CarrierImage" />
+          <ScalarProperty Name="Trash" ColumnName="Trash" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromoWebSites">
+      <EntityTypeMapping TypeName="PromotionsPortalModel.PromoWebSite">
+        <MappingFragment StoreEntitySet="PromoWebSites">
+          <ScalarProperty Name="PromoId" ColumnName="PromoId" />
+          <ScalarProperty Name="WebSiteId" ColumnName="WebSiteId" />
+          <ScalarProperty Name="WebSiteActionLink" ColumnName="WebSiteActionLink" />
+          <ScalarProperty Name="tblTimeStamp" ColumnName="tblTimeStamp" />
+          <ScalarProperty Name="MainImage" ColumnName="MainImage" />
+          <ScalarProperty Name="SmallImage" ColumnName="SmallImage" />
+          <ScalarProperty Name="MainImageText" ColumnName="MainImageText" />
+          <ScalarProperty Name="SmallImageText" ColumnName="SmallImageText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

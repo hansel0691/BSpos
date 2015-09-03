@@ -1,0 +1,171 @@
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-push-8">
+	<div class="" id="login">
+		<div class="heading">
+			<span ng-hide="isApplying == true">Login</span>
+			<span ng-show="isApplying == true">Apply</span>
+		</div>
+
+		<div class="body">
+			<div>
+				<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+			</div>
+
+
+			<!-- login form -->
+			<form name="sampleForm" ng-submit="submitForm(userForm.$valid)" role="form" id="form" novalidate ng-hide="isApplying == true">
+				<div class="form-group" ng-class="{'has-error' : submitted && sampleForm.password.$error.required}">
+					<label for="user">User ID</label>
+					<span class="label label-danger" data-ng-show="submitted && sampleForm.user.$error.required">Required!</span>
+					<input type="text" class="form-control" id="userField" name="user" placeholder="User ID"
+						ng-model="name"
+						ng-required="true"
+						required >
+				</div>
+
+				<div class="form-group" ng-class="{'has-error' : submitted && sampleForm.password.$error.required}">
+					<label for="exampleInputPassword1">Password</label>
+					<span class="label label-danger" data-ng-show="submitted && sampleForm.password.$error.required">Required!</span>
+					<input type="password" class="form-control" id="passField" name="password" placeholder="Password"
+						ng-model="password"
+						ng-minlength="3"
+						ng-maxlength="8"
+						ng-required="true"
+						required >
+				</div>
+				<button data-ng-disabled="progress.active()" data-ng-click="submit(sampleForm)" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log In</button>
+			</form>
+
+
+			<!-- Application form -->
+			<form name="applicationForm" ng-submit="submitForm(applicationForm.$valid)" role="form" id="form" novalidate ng-show="isApplying">
+
+				<div class="form-group">
+					<strong><p class="form-control-static">Start selling products and services that will take your business to another level</p></strong>
+					<p class="">Please complete the information below</p>
+				</div>
+
+				<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.password.$error.required}">
+					<label for="user">User Name</label>
+					<span class="label label-danger" data-ng-show="submitted && applicationForm.user.$error.required">Required!</span>
+					<input type="text" class="form-control" id="userField" name="user" placeholder="Your Full Name"
+						ng-model="newuser.name"
+						ng-required="true"
+						required >
+				</div>
+
+				<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.phone.$error.required}">
+					<label for="phone">Telephone</label>
+					<span class="label label-danger" data-ng-show="submitted && applicationForm.phone.$error.required">Required!</span>
+					<input type="phone" class="form-control" id="phone" name="phone" placeholder="Your Phone Number"
+						ng-model="newuser.phone"
+						ng-required="true"
+						required >
+				</div>
+
+				<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.email.$error.required}">
+					<label for="email">Email</label>
+					<span class="label label-danger" data-ng-show="submitted && applicationForm.email.$error.required">Required!</span>
+					<input type="email" class="form-control" id="email" name="email" placeholder="Your Email"
+						ng-model="newuser.email"
+						ng-required="true"
+						required >
+				</div>
+
+				<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.address.$error.required}">
+					<label for="address">Address</label>
+					<span class="label label-danger" data-ng-show="submitted && applicationForm.address.$error.required">Required!</span>
+					<input type="address" class="form-control" id="address" name="address" placeholder="Your Address"
+						ng-model="newuser.address"
+						ng-required="true"
+						required >
+				</div>
+
+				<div class="form-horizontal">
+					<div class="col-sm-6">
+						<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.state.$error.required}">
+							<label for="state" class="">State</label>
+							<span class="label label-danger" data-ng-show="submitted && applicationForm.state.$error.required">Required!</span>
+							<input type="state" class="form-control" id="state" name="state" placeholder="Your State"
+								ng-model="newuser.state"
+								ng-required="true"
+								required >
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.zip.$error.required}">
+							<label for="zip" class="">Zip Code</label>
+							<span class="label label-danger" data-ng-show="submitted && applicationForm.zip.$error.required">Required!</span>
+							<input type="zip" class="form-control" id="zip" name="zip" placeholder="Your Zip Code"
+								ng-model="newuser.zip"
+								ng-required="true"
+								required >
+						</div>
+					</div>
+				</div>
+
+                <button data-ng-disabled="progress.active()" data-ng-click="applicantSubmit(applicationForm)" class="btn btn-primary"><i class="fa fa-paper-plane-o"></i> Apply Now </button>
+
+				<p class="form-control-static">All fields are required.</p>
+			</form>
+
+		</div> <!-- .body -->
+	</div> <!-- #login -->
+</div> <!-- .col- -->
+
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-pull-4">
+	<br>
+
+	<span class="h1">Become a Retailer!</span>
+	<button class="btn btn-primary pull-right" href="" title="APPLY TODAY" ng-click="toggleApplication()">
+		<span ng-show="isApplying == true">LOGIN</span>
+		<span ng-hide="isApplying == true">APPLY TODAY</span>
+	</button>
+
+	<br><br>
+
+	<h5 class="text-center"><strong>Interractive touch-screen kiosk that sells a variety of prepaid products.</strong></h5>
+
+	<p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus elementum semper nisi. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus.
+
+	Curabitur suscipit suscipit tellus. In ut quam vitae odio lacinia tincidunt. Nullam quis ante.. Praesent egestas neque eu enim.
+
+	Donec mollis hendrerit risus. Pellentesque posuere. Sed aliquam ultrices mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Sed hendrerit.
+
+	Phasellus accumsan cursus velit. Pellentesque ut neque. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Vivamus laoreet. Vivamus consectetuer hendrerit lacus.
+
+	Aenean massa. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Cras dapibus. Phasellus tempus. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla.</p>
+
+	<br>
+
+	<div class="text-center">
+		<img src="http://www.blackstoneonline.com/bsnewsflash/2014-campaigns/141028-bms/build/img/pay-wallet.jpg">
+	</div>
+
+	<br>
+
+	<div class="">
+		<h5 class="text-center"><strong>Blackstone POS System with Cutting Edge Design:</strong></h5>
+
+		<ul>
+			<li>Aliquam erat volutpat. Donec id justo. Praesent congue erat at massa. Sed aliquam ultrices mauris. Aenean massa.</li>
+			<li>Pellentesque auctor neque nec urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Morbi mattis ullamcorper velit. Nullam accumsan lorem in dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.</li>
+			<li>Fusce convallis metus id felis luctus adipiscing. Quisque malesuada placerat nisl. Morbi vestibulum volutpat enim. Nunc nulla. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo.</li>
+			<li>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Nam pretium turpis et arcu. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur turpis. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl.</li>
+			<li>In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Fusce vulputate eleifend sapien. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Donec vitae sapien ut libero venenatis faucibus.</li>
+		</ul>
+	</div>
+		<!-- <div class="col-xs-12 col-sm-12 col-md-8">
+			<carousel interval="myInterval">
+				<slide ng-repeat="slide in slides" active="slide.active">
+					<img ng-src="{{slide.image}}" style="margin:auto;" class="hidden-xs">
+					<div class="carousel-caption">
+						<h4>Slide {{$index}}</h4>
+						<p>Slide {{$index}} - {{slide.text}}</p>
+					</div>
+				</slide>
+			</carousel>
+		</div> --> <!-- .col -->
+	</div> <!-- .row -->
+</div> <!-- .col- -->

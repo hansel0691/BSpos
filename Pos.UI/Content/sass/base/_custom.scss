@@ -1,0 +1,801 @@
+/*
+ * All your custom CSS should go into this file
+ */
+
+body {
+	padding-top: 0;
+}
+a.expand{
+	text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6{
+	color: $brand-secundary;
+}
+.tab-container{
+	margin-top: 15px;
+}
+.divider{
+	border-top: 1px solid lighten($gray, 40%);
+	min-height: 1px;
+}
+.well, .well-lg.well-w{
+	padding: 5px 24px;
+
+	table {
+		font-size: $font-size-large * 0.7;
+		margin-bottom: 5px;
+
+		tr td, th td{
+			padding: 4px;
+			border: none;
+		}
+	}
+}
+.well-ps{
+	padding: 8px 10px;
+}
+.margin-t-10{
+	margin-top: 10px;
+}
+.light{
+	border-top: 3px solid $white;
+}
+.pagination{
+	font-size: $font-size-large;
+}
+
+
+// General Overrride
+// -------------------------
+
+// Alert
+.alert{
+	margin-bottom: 7px;
+}
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.well{
+	.h4, .h5{
+		color: $gray;
+	}
+}
+.help-block{
+	font-size: $font-size-base * 1;
+}
+hr{
+	margin: 10px 0;
+}
+@include breakpoint(ps) {
+	hr{
+		margin: 10px 0 3px 0;
+	}
+}
+
+// LOGIN
+// -------------------------
+
+.apply-today{
+	text-align: left;
+	display: inline-block;
+
+	@include breakpoint(xs) {
+		display: block;
+		margin: 10px 0 0 0;
+		.title{
+			display: block;
+			margin: 0;
+		}
+		text-align: center;
+	}
+}
+.demo-access{
+	min-height: 230px;
+	.title{
+		position: absolute;
+		top: 120px;
+		left: 25px;
+		font-size: $font-size-base;
+		color: $brand-danger;
+	}
+	.caption{
+		position: relative;
+	}
+}
+
+// INNER NAV
+// -------------------------
+
+.inner-nav{
+	padding: 10px 0 10px 0;
+
+	.list-inline{
+		margin-bottom: 0;
+		// display: inline-block;
+
+		li:last-child{
+			padding-right: 0;
+		}
+	}
+	@include breakpoint(xs) {
+		font-size: $font-size-base;
+		padding: 5px 0 5px 0;
+	}
+
+	.btn{
+		@include breakpoint(xs) {
+			font-size: $font-size-base;
+		}
+	}
+}
+
+// MERCHANT
+// -------------------------
+
+#merchantDetails{
+	ul{
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	h3 {
+		margin-top: 0;
+		margin-bottom: 0;
+		// color: $brand-primary;
+
+		@include breakpoint(xs) {
+			font-size: $font-size-base + 1;
+		}
+	}
+
+	.details{
+		padding-bottom: 10px;
+		.merchant{
+			font-size: $font-size-base - 2;
+		}
+	}
+
+	table {
+		margin-bottom: 0;
+		tr{
+			td{
+				border: 0;
+				border-bottom: 1px solid lighten($gray-lighter, 2%);
+				vertical-align: middle;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			.amount{
+				text-align: right;
+			}
+		}
+	}
+
+	.today{
+		font-size: $font-size-base * 0.9;
+	}
+
+	table{
+		margin-bottom: 10px;
+		.divider{
+			padding: 0;
+			div{
+				border: 1px solid $gray-light;
+			}
+		}
+	}
+
+	.today > td {
+		// font-weight: 700;
+	}
+}
+
+// GRID, INDEX CATEGORY
+// -------------------------
+
+.alpha{
+	margin-bottom: 7px ;
+	.btn{
+		border-width: 0;
+		margin: 0;
+	}
+	hr{
+		margin: 2px;
+	}
+}
+
+.grid-view, .list-view, .view-modal{
+	a{
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
+.grid-view{
+	margin-top: 5px;
+
+	.country-name{
+		position: absolute;
+		bottom: 25px;
+		// margin: 0 0 0 1px;
+		left: 20px;
+		padding: 0px 3px 0px 3px;
+		color: $black;
+		background-color: $white;
+		font-size: $font-size-small * 0.6;
+		border-radius: 3px;
+		// box-shadow: 1px 1px 3px $gray;
+		border: 1px solid $gray-light;
+	}
+	hr{
+		border-width: 1px;
+	}
+	.content{
+		margin-top: 20px;
+	}
+	a{
+		@include breakpoint(xs) {
+			min-width: 100%;
+			min-height: 100px;
+		}
+	}
+	figure{
+		text-align: center;
+		a{
+			display: inline-block;
+			img.thumbnail{
+				max-width: 150px;
+				// border: 4px solid $white;
+				margin-bottom: 7px;
+			}
+		}
+	}
+	.category-icon{
+		padding-top: 10px;
+	}
+}
+
+.thumbnail{
+	vertical-align: middle;
+	text-align: center;
+	border-color: $brand-primary;
+	background-color: $white;
+	border-width: 3px;
+
+	@include breakpoint(ps) {
+		border-width: 1px;
+		border-radius: 6px;
+	}
+	@include breakpoint(xs) {
+		min-height: 100px;
+	}
+
+	margin-bottom: 10px;
+
+
+	.title{
+		font-size: $font-size-large * 1.3;
+		text-transform: uppercase;
+
+		@include breakpoint(xs) {
+			position: relative;
+			top: 18px;
+			font-size: $font-size-large * 1.2;
+			line-height: $line-height-base - 0.4;
+		}
+	}
+	.fa{
+		color: $brand-secundary;
+	}
+}
+@include breakpoint(ps) {
+	.thumbnail{
+		.title{
+			font-size: $font-size-large * 1.2;
+		}
+	}
+}
+.fc{
+	a{
+		color: $brand-secundary;
+	}
+	a.btn-default{
+		color: $brand-secundary;
+		&:hover{
+			color: darken($brand-secundary, 10%);
+		}
+	}
+	a.btn-default.active{
+		color: $white;
+	}
+	a.btn-primary{
+		color: $white;
+	}
+	a.btn-danger{
+		color: $white;
+	}
+	.inner-nav{
+		a{
+			color: $gray;
+		}
+	}
+	.thumbnail{
+		border-color: $brand-secundary;
+		color: $brand-secundary;
+		&:hover{
+			background-color: $gray-lighter;
+		}
+	}
+}
+
+// HOME VIEW
+// -------------------------
+
+#home{
+	margin-top: 30px;
+	.thumbnail{
+		padding: 5px;
+		min-height: 125px;
+	}
+}
+@include breakpoint(ps) {
+	#home{
+		margin-top: 10px;
+	}
+}
+// SHOW PRODUCT TEMPLATE
+
+#showProductView{
+	margin-top: 30px;
+	@include breakpoint(xs) {
+		margin-top: 0;
+	}
+
+	.product-sumary{
+		label{
+			margin-bottom: 0;
+			// color: $gray-light;
+			line-height: $line-height-base * 0.8;
+		}
+		h5, h6{
+			margin: 0;
+		}
+		.name, .country, .carrier{
+			margin-bottom: 4px;
+		}
+		.country, .carrier{
+			h6{
+				color: $dark;
+			}
+		}
+	}
+	#amounts{
+		label.active{
+			background-color: $blue;
+			color: $white;
+		}
+	}
+	#viewModals{
+		@include breakpoint(xs) {
+			font-size: $font-size-base;
+			.nav-pills{
+				border-bottom: 1px solid $gray-light;
+			}
+		}
+		margin-bottom: 7px;
+		a{
+			color: $gray;
+		}
+	}
+}
+#details{
+	vertical-align: middle;
+	padding-top: 10px;
+	.title{
+		// font-size: $font-size-base * 1.1;
+		// color: $brand-primary;
+		// margin-top: 5px;
+		display: inline-block;
+		text-transform: uppercase;
+		vertical-align: top;
+	}
+}
+.view-modal{
+	font-size: $font-size-base * 0.8;
+	vertical-align: middle;
+	a{
+		color: $gray;
+		text-align: left;
+		display: block;
+		width: 100%;
+		&.btn{
+			border: 0;
+		}
+		i{
+			color: $gray-light;
+		}
+	}
+}
+#aceptTerms{
+	margin-left: 15px;
+}
+
+// INDEX COUNTRIES
+// -------------------------
+
+#indexCountries{
+
+}
+
+// INDEX CARRIERS
+// -------------------------
+
+#indexCarriers{
+	.item a{
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.btn{
+		.carrier{
+			img{
+			}
+			.text{
+				vertical-align: middle;
+				margin-left: 10px;
+				// font-size: $font-size-base;
+			}
+		}
+	}
+}
+
+// SUNPASS
+// -------------------------
+
+.sunpass{
+	margin-top: 30px;
+}
+
+#indexSunpass{
+	.thumbnail{
+		background-color: $white;
+		div{
+			min-height: 115px;
+			display: inline-table;
+			.title{
+				display: table-cell;
+				vertical-align: middle;
+				// display: inline-block;
+				line-height: 35px;
+				margin: 0 auto;
+			 //  top: 50%;
+			 //  transform: translateY(-50%);
+			}
+		}
+	}
+}
+
+// ADMIN
+// // SETTINGS
+// -------------------------
+
+// ADMIN
+// -------------------------
+
+#merchantSettings{
+	.form-control{
+		width: auto;
+	}
+}
+.tab-content{
+	// background-color: lighten($brand-primary-lighter, 7%);
+}
+.form-area{
+	padding: 10px;
+	background-color: lighten($brand-secundary, 55%);
+	border-style: solid;
+	border-width: 0 1px 1px 1px;
+	border-color: lighten($brand-secundary, 50%);
+}
+#ordersGrid{
+	.table{
+		font-size: $font-size-base * 0.7;
+	}
+}
+#save{
+	margin-right: 10px;
+	margin-left: 3px;
+}
+.overflow-box{
+	max-height: 300px;
+	overflow: auto;
+	.table{
+		// margin-top: 10px;
+	}
+}
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td{
+	@include breakpoint(sm) { padding: 5px 2px; }
+	vertical-align: middle;
+}
+.element-item{
+	font-size: $font-size-base - 2;
+	line-height: $line-height-base * 0.97;
+	figure {
+		margin: 0;
+		position: relative;
+		img {
+			max-width: 100%;
+			display: block;
+			position: relative;
+		}
+	}
+	figcaption {
+		position: absolute;
+		border-radius: $border-radius-large;
+		top: 0;
+		left: 0;
+		padding: 5px;
+		background: $white;
+		border: 1px solid $gray-light;
+		color: $gray;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		text-transform: lowercase;
+		/* backface-visibility: hidden; */
+		transition: transform 0.3s, opacity 0.3s;
+		.title {
+			margin: 0;
+			padding: 0;
+			color: $brand-primary;
+			text-align: center;
+			font-weight: bold;
+			border-bottom: 1px solid $gray-lighter;
+			margin-bottom: 3px;
+		}
+		.text{
+			text-transform: uppercase;
+			// font-weight: 700;
+		}
+		&:hover{
+			opacity: 1;
+			transform: translate(15px, 15px);
+		}
+	}
+}
+.input-img{
+	position: absolute;
+	margin-top: -33px;
+	margin-left: 4px;
+}
+.with-img{
+	padding-left: 40px;
+}
+#adminTabs{
+	.tab-pane{
+		padding: 8px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.tab-content{
+		background-color: $white;
+	}
+	@include breakpoint(sm) {
+		.table{
+			font-size: $font-size-base * 0.8;
+		}
+	}
+
+}
+// COMMON
+// -------------------------
+
+#receipt{
+	table{
+		tr{
+			td:first-child{
+				font-weight: bold;
+			}
+		}
+	}
+}
+.item-details{
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: 3px;
+}
+
+// FORMS
+
+input.ng-invalid.ng-dirty {
+	background-color: lighten($brand-danger, 35%);
+}
+input.ng-valid.ng-dirty {
+	background-color: lighten($brand-success, 35%);
+}
+input[disabled].ng-invalid.ng-dirty {
+	background-color: $gray-lighter;
+	// @include opacity(0.35);
+}
+input[disabled].ng-valid.ng-dirty {
+	background-color: $gray-lighter;
+	// @include opacity(0.35);
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+// PAGINATION
+// -------------------------
+
+.pagination{
+	margin: 0;
+}
+
+// BILL PAYMENT
+// -------------------------
+
+#billpaymentCategories{
+	.thumbnail{
+		color: $white;
+		border: 0px;
+	}
+}
+
+// INDEX BILLERS
+// -------------------------
+
+#indexBillers{
+	a{
+		text-decoration: none;
+	}
+}
+#showBiller{
+	#details{
+		font-size: $font-size-base * 1.2;
+	}
+}
+.fin{
+	background-color: $brand-1;
+	border: 3px solid $brand-1;
+}
+.ot{
+	background-color: $brand-2;
+	border: 3px solid $brand-2;
+}
+.hom{
+	background-color: $brand-3;
+	border: 3px solid $brand-3;
+}
+.tv{
+	background-color: $brand-4;
+	border: 3px solid $brand-4;
+}
+.pow{
+	background-color: $brand-5;
+	border: 3px solid $brand-5;
+}
+.wir{
+	background-color: $brand-6;
+	border: 3px solid $brand-6;
+}
+.pre{
+	background-color: $brand-7;
+	border: 3px solid $brand-7;
+}
+.cb{
+	background-color: $brand-8;
+	border: 3px solid $brand-8;
+}
+
+
+// INDEX DIRECT TV
+// -------------------------
+
+#indexDirectTvCategories{
+	.thumbnail{
+		text-decoration: none;
+		color: $white;
+		min-height: 198px;
+		background-color: $brand-primary;
+		margin-bottom: 30px;
+	}
+}
+.direct-recharge{
+	background-color: $brand-1;
+	border: 3px solid $brand-1;
+}
+.pay-per-view-recharge{
+	background-color: $brand-2;
+	border: 3px solid $brand-2;
+}
+.installation{
+	background-color: $brand-3;
+	border: 3px solid $brand-3;
+}
+.direct-tv-combo{
+	background-color: $brand-4;
+	border: 3px solid $brand-4;
+}
+.kit-with-installation{
+	background-color: $brand-5;
+	border: 3px solid $brand-5;
+}
+.label-promo{
+	@include label-variant($gray-lighter);
+}
+
+
+// Errors
+// -------------------------
+
+.has-error{
+	color: $brand-danger;
+	margin-top: 3px;
+}
+.alert-error{
+	@include alert-variant($alert-error-bg, $alert-error-border, $alert-error-text);
+}
+
+
+// Footer
+// -------------------------
+
+footer{
+	margin-top: 10px;
+	border-top: 1px solid $gray-lighter;
+	padding-top: 5px;
+	font-size: $font-size-base - 2;
+	ul > li{
+		padding-right: 15px;
+	}
+	/* Small devices (tablets, 768px and up) */
+	@media (min-width: $screen-sm-min) {
+		.copyright{
+			text-align: right;
+		}
+	}
+}
+.legal_terms{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#socialMedia{
+	a{
+		float: right;
+		margin-left: 5px;
+	}
+}
+
+
+// Header
+// -------------------------
+
+
+// @each $social in facebook, gplus, instagram {
+// 	.#{$social}-background {
+// 		background: url("../img/social-#{$social}-icon.png") no-repeat;
+// 	}
+// }
+
+
+
+// Extra small devices (phones, less than 320px)
+@include breakpoint(ps) { }
+// No media query ( $screen-xs-min ) since this is the default in Bootstrap
+// Small devices (tablets, 768px and up)
+@include breakpoint(sm) { }
+// Medium devices (desktops, 992px and up)
+@include breakpoint(md) { }
+// Large devices (large desktops, 1200px and up)
+@include breakpoint(lg) { }
+
+

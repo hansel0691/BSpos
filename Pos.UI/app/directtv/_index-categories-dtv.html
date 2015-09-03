@@ -1,0 +1,22 @@
+<!-- _index-billers.html -->
+<div class="" id="indexDirectTvCategories">
+
+	<div class="inner-nav" ng-show="!loadingTracker.active()">
+		<div inner-nav-filters></div>
+	</div>
+
+	<div>
+		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+	</div>
+
+	<!-- {{items|json}} -->
+
+	<div class="row grid-view" id="indexDirectTvCategories">
+		<div ng-repeat="item in items" class="col-xs-4 col-sm-4 col-md-4 repeated-item">
+			<a href="#/directtv/category/{{item.CategoryValue | lowercase}}" class="thumbnail {{item.CategoryName}}" id="{{item.CategoryName}}">
+				<div class="category-icon"><span class="icon icon80 icon-{{item.CategoryName}}">&nbsp;</span></div>
+				<span class="title text-center">{{item.CategoryName | ordinal}}</span>
+			</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<!-- _index-products.html -->
+<div class="inner-nav">
+	<ul class="nav nav-pills">
+		<li role="presentation" class="" ng-class="isMostPopular ? '' : 'disabled'">
+			<a href="#/pos/category/{{items[0].MainCategory}}">Most Popular</a>
+		</li>
+		<li role="presentation" class="pull-right">
+			<ul class="nav nav-pills">
+				<li role="presentation" class="" ng-if="details" id="details">
+					<div class="f32">
+						<img class="" ng-if="details.ImageUrl" ng-src="{{details.ImageUrl}}" alt="details.Name" width="55">
+						<span class="flag" ng-if="details.CountryCode" ng-class="details.CountryCode" title="details.Name"></span>
+						<img class="" ng-if="details.ImageUrl" ng-src="{{details.ImageUrl}}" alt="details.Name" width="55">
+						<span class="title">{{details.Name}}</span>
+					</div>
+				</li>
+				<li role="presentation" class="" ng-show="useConfig">
+					<a id="" href="#/pos/category/{{items[0].MainCategory}}/{{viewsearch}}" title="Go Back" target="_self">Select {{viewsearch | capitalize}}</a>
+				</li>
+				<li role="presentation" ng-if="useAcronymFilter">
+					<a class="" id="" title="Go Back" target="_self" ng-click="showFilter()">Search</a></li>
+				</li>
+				<!-- <li role="presentation" ng-class="isMostPopular ? '' : 'disabled'">
+					<a class="" href="#/pos/category/{{items[0].MainCategory}}/amount/all"><i class="fa fa-list"></i> View All</a></li> -->
+			</ul>
+		</li>
+	</ul>
+</div>
+{{items | json}}
+<div class="text-center alpha" ng-show="showAcronymFilter">
+	<hr/>
+	<div class="">
+		<a class="btn btn-default" ng-repeat="(index, value) in alpha | orderBy:value" class="" ng-click="setFilter(value)" ng-class="activeClass(value)">{{value | capitalize}}</a>
+		<!-- <a class="btn btn-primary" ng-click="setFilter('')" ng-class="activeClass('')"><i class="fa fa-times"></i></a> -->
+		<input class="" id="" ng-model="letter" type="hidden">
+	</div>
+	<hr/>
+</div>
+
+<div>
+	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+</div>
+
+<div class="row grid-view" id="indexCategory">
+	<div ng-repeat="item in items" class="col-xs-4 col-sm-2 col-md-2 col">
+	<!-- | firstLetter:letter -->
+	<!-- | limitTo: items.limit | orderBy: orderItems -->
+		<a href="#/pos/category/{{item.MainCategory}}/product/{{ item.Code }}" class="thumbnail">
+			<!-- <img class="img-responsive thumbnail" ng-src="{{item.ImageUrl}}" alt="{{item.Name}}"/> -->
+			<span class="title text-center">{{item.descriptionField}}</span>
+		</a>
+	</div>
+</div> <!-- .row -->

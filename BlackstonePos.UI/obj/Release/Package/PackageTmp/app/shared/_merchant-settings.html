@@ -1,0 +1,58 @@
+<!-- _merchant.settings.html -->
+<div id='merchantSettings'>
+	<div>
+	<alert ng-repeat="alert in settingsAlerts" type="{{alert.type}}" close="closeSettingsAlerts()">{{ alert.msg }}</alert>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading"> Printer </div>
+		<div class="panel-body">
+			<!--printer settings message-->
+			<div class="settingsMessage"></div>
+
+			<form class="padd" role="form">
+				<label>
+					<input type="checkbox" name="smallReceiptCheck" ng-model="settings.SmallReceipt">
+					Small receipt
+				</label>
+			</form>
+		</div>
+	</div>
+
+	<!--merchant tax settings-->
+	<div class="panel panel-default">
+		<div class="panel-heading"> Merchant Tax </div>
+
+		<div class="panel-body">
+			<!--merchant tax settings message-->
+			<div class="merchantTaxSettingsMessage"></div>
+
+			<form class="padd" role="form">
+				<div class="form-group">
+					<label for="taxAmount">Sales Tax</label>
+						 <input type="text" class="form-control" id="taxAmount" name="taxAmount" placeholder="Enter tax amount" ng-model="settings.Tax">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!--confirm telephone number settings-->
+	<div class="panel panel-default">
+		<div class="panel-heading"> Confirm Telephone Number </div>
+
+		<div class="panel-body">
+			<div class="confirmTelSettingsMessage"></div>
+
+			<form class="padd" role="form">
+				<label>
+					<input type="checkbox" name="confirmTelCheck" ng-model="settings.ConfirmPhone">
+					Confirm telephone
+				</label>
+			</form>
+		</div>
+	</div>
+
+
+	<button type="button" class="btn btn-primary" ng-click="updateSettings()">
+		Save Settings
+	</button>
+</div>
