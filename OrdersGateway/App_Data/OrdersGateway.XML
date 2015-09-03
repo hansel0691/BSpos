@@ -1,0 +1,3179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OrdersGateway</name>
+    </assembly>
+    <members>
+        <member name="M:OrdersGateway.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,OrdersGateway.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,OrdersGateway.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create one using <see cref="T:OrdersGateway.Areas.HelpPage.ObjectGenerator"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},OrdersGateway.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:OrdersGateway.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.#ctor(OrdersGateway.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:OrdersGateway.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,OrdersGateway.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:OrdersGateway.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:OrdersGateway.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrdersGateway.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:OrdersGateway.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:OrdersGateway.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrdersGateway.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="M:OrdersGateway.Infrastructure.MapperHelper.UIMapTo``2(``0)">
+            Created By: Carlos Raul (02262014)
+             <summary>
+             Extension Method to perform a mapping between to objects with a previous well-defined Mapping
+             </summary>
+             <typeparam name="T"></typeparam>
+            <typeparam name="TK"></typeparam>
+            <param name="aEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OrdersGateway.Infrastructure.MapperHelper.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            Created By: Carlos Raul (03102014)
+             <summary>
+             Extension Method to determine if a IEnumerable is Empty
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="ienumerable"></param>
+             <returns></returns>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Broker">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePIN(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePINAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePINAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePINSerial(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePINSerialAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePINSerialAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePIN(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePINAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePINAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePINLite(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePINLiteAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePINLiteAsync(System.String,System.String,System.String,System.String,System.String,System.Decimal,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.VoidOrder(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.VoidOrderAsync(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.VoidOrderAsync(System.String,System.String,System.String,System.String,System.Int32,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUp(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFee(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Double)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFeeAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Double)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFeeAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Double,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFeeSerial(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Double,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFeeSerialAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Double,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFeeSerialAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Double,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliation(System.String,System.String,System.String,System.String,System.DateTime,System.Boolean,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationAsync(System.String,System.String,System.String,System.String,System.DateTime,System.Boolean,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationAsync(System.String,System.String,System.String,System.String,System.DateTime,System.Boolean,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentment(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPayment(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetBillerCategories(System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetBillerCategoriesAsync(System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetBillerCategoriesAsync(System.String,System.String,System.String,System.String,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategory(System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategoryAsync(System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategoryAsync(System.String,System.String,System.String,System.String,System.String,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptions(System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptionsAsync(System.String,System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptionsAsync(System.String,System.String,System.String,System.String,System.String,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetBillersCategoriesOld(System.Int32,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetBillersCategoriesOldAsync(System.Int32,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetBillersCategoriesOldAsync(System.Int32,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategoryOld(System.Int32,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategoryOldAsync(System.Int32,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategoryOldAsync(System.Int32,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptionsOld(System.Int32,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptionsOldAsync(System.Int32,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptionsOldAsync(System.Int32,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSunPassBalance(System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSunPassBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetSunPassBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishment(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishmentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishmentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishmentByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishmentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishmentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiry(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiryByStore(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPayment(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.String,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.Document[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.String,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.Document[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.String,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.Document[],System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPaymentByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.String,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.Document[],System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.String,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.Document[],System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.String,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.Document[],System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductList(System.String,System.String,System.String,System.String,System.Int64)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListAsync(System.String,System.String,System.String,System.String,System.Int64)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListAsync(System.String,System.String,System.String,System.String,System.Int64,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListByProductSbt(System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListByProductSbtAsync(System.String,System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListByProductSbtAsync(System.String,System.String,System.String,System.String,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListVersionNumber(System.String,System.String,System.String,System.String,System.Int64)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListVersionNumberAsync(System.String,System.String,System.String,System.String,System.Int64)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListVersionNumberAsync(System.String,System.String,System.String,System.String,System.Int64,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductRates(System.String,System.String,System.String,System.String,System.String,System.Int64)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductRatesAsync(System.String,System.String,System.String,System.String,System.String,System.Int64)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductRatesAsync(System.String,System.String,System.String,System.String,System.String,System.Int64,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOld(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOldAsync(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOldAsync(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOldSerial(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOldSerialAsync(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOldSerialAsync(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOld(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOldAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOldAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOldSerial(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOldSerialAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOldSerialAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOld(System.Int32,System.String,System.String,System.String,System.String,System.Boolean,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOldAsync(System.Int32,System.String,System.String,System.String,System.String,System.Boolean,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOldAsync(System.Int32,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOldSerial(System.Int32,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOldSerialAsync(System.Int32,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOldSerialAsync(System.Int32,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetTCATollsBalance(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetTCATollsBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetTCATollsBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishment(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishmentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishmentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishmentByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishmentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishmentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiry(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiryByStore(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPayment(System.Int32,System.String,System.String,System.String,System.Int64,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.TCADocument[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.TCADocument[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.TCADocument[],System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPaymentByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.TCADocument[],System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.TCADocument[],System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.Double,System.Double,System.String,OrdersGateway.com.blackstoneonline.services.TCADocument[],System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetAccountBalance(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetAccountBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetAccountBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccount(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccountAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccountAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccountByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccountByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccountByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetLicensePlateAccountBalance(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetLicensePlateAccountBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetLicensePlateAccountBalanceAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccount(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccountAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccountAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccountByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccountByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccountByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiry(System.Int32,System.String,System.String,System.String,System.String,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPayment(System.Int32,System.String,System.String,System.String,System.Int64,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.Double,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.Double,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.Double,System.Double,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiryByStore(System.Int32,System.String,System.String,System.String,System.String,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPaymentByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.Double,System.Double,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.Double,System.Double,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,OrdersGateway.com.blackstoneonline.services.DocumentType,System.Double,System.Double,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiry(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiryAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPayment(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPaymentAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiryByStore(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiryByStoreAsync(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPaymentByStore(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPaymentByStoreAsync(System.Int32,System.String,System.String,System.String,System.Int64,System.String,System.Double,System.Double,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMerchantBalance(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMerchantBalanceAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetMerchantBalanceAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.MetelePinlessVoidLastLoad(System.String,System.String,System.String,System.String,System.String,System.Double,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.MetelePinlessVoidLastLoadAsync(System.String,System.String,System.String,System.String,System.String,System.Double,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.MetelePinlessVoidLastLoadAsync(System.String,System.String,System.String,System.String,System.String,System.Double,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessVoidLastLoad(System.String,System.String,System.String,System.String,System.String,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessVoidLastLoadAsync(System.String,System.String,System.String,System.String,System.String,System.Double,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessVoidLastLoadAsync(System.String,System.String,System.String,System.String,System.String,System.Double,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessAddPhoneNumber(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessAddPhoneNumberAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessAddPhoneNumberAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessBalance(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessBalanceAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessBalanceAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessDeletePhoneNumber(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessDeletePhoneNumberAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessDeletePhoneNumberAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessEditPhone(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessEditPhoneAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessEditPhoneAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessFindAccount(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessFindAccountAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessFindAccountAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCallHistory(System.String,System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCallHistoryAsync(System.String,System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCallHistoryAsync(System.String,System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCreditReasons(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCreditReasonsAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCreditReasonsAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReport(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReportAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReportAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReportDetailed(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReportDetailedAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReportDetailedAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoPinCredit(System.String,System.String,System.String,System.String,System.Int32,System.String,System.Decimal,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoPinCreditAsync(System.String,System.String,System.String,System.String,System.Int32,System.String,System.Decimal,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.DoPinCreditAsync(System.String,System.String,System.String,System.String,System.Int32,System.String,System.Decimal,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductsCatalog(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductsCatalogAsync(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductsCatalogAsync(System.String,System.String,System.String,System.String,System.Int32,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductProfiles(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductProfilesAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetProductProfilesAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetAllDestinations(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetAllDestinationsAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetAllDestinationsAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetLegalInformation(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetLegalInformationAsync(System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.GetLegalInformationAsync(System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:OrdersGateway.com.blackstoneonline.services.Broker.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePINCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetSinglePINSerialCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePINCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetMultiplePINLiteCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.VoidOrderCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFeeCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTopUpFeeSerialCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetBillerCategoriesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategoryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptionsCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetBillersCategoriesOldCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillersByCategoryOldCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetMasterBillerPaymentOptionsOldCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetSunPassBalanceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishmentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassReplenishmentByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentInquiryByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPaymentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoSunPassDocumentPaymentByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListByProductSbtCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetProductListVersionNumberCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetProductRatesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOldCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPaymentOldSerialCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOldCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoBillPresentmentOldSerialCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOldCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoDailyReconciliationOldSerialCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetTCATollsBalanceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishmentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsReplenishmentByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentInquiryByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPaymentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoTCATollsDocumentPaymentByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetAccountBalanceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccountCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishAccountByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackGetLicensePlateAccountBalanceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccountCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackReplenishLicensePlateAccountByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPaymentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentInquiryByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackDocumentPaymentByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPaymentCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollInquiryByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.FastTrackOneTimeTollPaymentByStoreCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetMerchantBalanceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.MetelePinlessVoidLastLoadCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessVoidLastLoadCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessAddPhoneNumberCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessBalanceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessDeletePhoneNumberCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessEditPhoneCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessFindAccountCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCallHistoryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetCreditReasonsCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReportCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.OKPinlessGetPhoneReportDetailedCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.DoPinCreditCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetProductsCatalogCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetProductProfilesCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetAllDestinationsCompleted">
+            <remarks/>
+        </member>
+        <member name="E:OrdersGateway.com.blackstoneonline.services.Broker.GetLegalInformationCompleted">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.PIN">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ErrorCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ErrorMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.TransactionID">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.PinID">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ProductMainCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ProductDenomination">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.PinNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ControlNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.Language">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ProductSBT">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.Conn800English">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.CustomerServiceEnglish">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.LocalAccessPhones">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ItemFK">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.TransactionMode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ProductDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.Batch">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ExpirationDate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ProductType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.Barcode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.Instructions">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.PrinterDisclaimer">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ToppedUpNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.AccountNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.LegalInfo">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ForeignAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ForeignMoneyLeft">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.AuthorizationCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PIN.CurrencyCode">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Response1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Response1.Timestamp">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Response1.ResponseCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Response1.ResponseDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Response1.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DocumentPaymentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DocumentPaymentResponse.PaidDocumentList">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DocumentPaymentResponse.UpdatedBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Document">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Document.DocumentId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Document.DocumentPaymentAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DocumentInquiryResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DocumentInquiryResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DocumentInquiryResponse.RequestedDocument">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DocumentInquiryResponse.UnpaidDocumentList">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DocumentInquiryResponse.UnpaidDocumentListAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DocumentInquiryResponse.ResponseMessage">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ReplenishmentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReplenishmentResponse.UpdatedBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.BalanceResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BalanceResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BalanceResponse.CurrentBalance">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BalanceResponse.MinimumReplenishmentAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTResponse.Timestamp">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTResponse.ResponseCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTResponse.ResponseDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTResponse.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollInquiryResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollInquiryResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollInquiryResponse.AmountToBeCharged">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollPaymentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollPaymentResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollPaymentResponse.ProcessedDateTime">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollPaymentResponse.RequestDateTime">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTOneTimeTollPaymentResponse.ReceivedAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTReplenishmentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTReplenishmentResponse.UpdatedBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse1.PaidDocumentList">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse1.UpdatedBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTDocument">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocument.DocumentId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocument.DocumentPaymentAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse1.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse1.RequestedDocument">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse1.UnpaidDocumentList">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse1.UnpaidDocumentListAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse1.ResponseMessage">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.CurrentBalance">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.MinimumReplenishmentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.FirstName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.MiddleName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.LastName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.AddressLine1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.AddressLine2">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.City">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.State">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.Country">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTBalanceResponse.Zip">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.PinCreditResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PinCreditResponse.ErrorCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PinCreditResponse.ErrorMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PinCreditResponse.CreditStatus">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PinCreditResponse.CreditStatusDescription">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.CreditResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CreditResponse.ResponseCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CreditResponse.ResponseDescription">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.MerchantBalance">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MerchantBalance.ErrorCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MerchantBalance.ErrorMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MerchantBalance.Balance">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MerchantBalance.RunningAchBalance">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MerchantBalance.NextAchDate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MerchantBalance.AdditionalInfo">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse.Timestamp">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse.ResponseCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse.ResponseDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentPaymentResponse.UpdatedBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse.Timestamp">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse.ResponseCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse.ResponseDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FTDocumentInquiryResponse.UnpaidAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.PaymentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.resultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.resultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.VendorId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.PaymentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.FeeAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.AccountNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.AltAccountNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.AdditAccountNumber1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.AdditAccountNumber2">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.CustomerFirstName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.CustomerLastName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.TrackingNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.BatchNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.BillerLoadUpdateFlag">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.AuthorizationCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.ReturnMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.PresentmentMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.PostingDateMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentResponse.ReceiptMessage">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ProductRate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductRate.Country">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductRate.LocalRate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductRate.TollFreeRate">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ProductRatesResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductRatesResponse.ResultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductRatesResponse.ResultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductRatesResponse.Rates">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ProductListVersionResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListVersionResponse.ResultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListVersionResponse.ResultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListVersionResponse.ProductListVersion">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ProductFlags">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductFlags.ShowRates">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductFlags.ShowTermsAndConditions">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductFlags.ShowInstructions">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductFlags.ShowAccessPhones">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ProductAccessPhone">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductAccessPhone.State">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductAccessPhone.City">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductAccessPhone.Language">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductAccessPhone.PhoneNumber">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ProductListItem">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.Code">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.Name">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.UseFixedDenominations">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.MinDenomination">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.MaxDenomination">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.FeeAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.CarrierName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.CountryCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.CountryName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.Type">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.ImageUrl">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.DialCountryCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.TermsAndConditions">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.Instructions">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.Denominations">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.AccessPhones">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.Flags">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.MerchantBuyingFrequency">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListItem.ZipCodeBuyingFrequency">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ProductListResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListResponse.ResultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListResponse.ResultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListResponse.ProductListVersion">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ProductListResponse.Products">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.PaymentOption">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentOption.PaymentType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentOption.FeeAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.MasterBillerPaymentOptionsResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBillerPaymentOptionsResponse.ResultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBillerPaymentOptionsResponse.ResultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBillerPaymentOptionsResponse.BillerData">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBillerPaymentOptionsResponse.PaymentOptions">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.VendorID">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.VendorName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.VendorAccountLengthMin">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.VendorAccountLengthMax">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.VendorTranAmtMin">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.VendorTranAmtMax">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.CustNameRequired">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.SenderNameRequired">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.SenderRequiredAmtMin">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.MaskAcctOnReceipt">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.PostingTimeDesc">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.PostingTimeCutoff">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.VendorRemitTiming">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.PresentmentFlag">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.FormFlag">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadRecord.FormDetails">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AltLookupLabel">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AltLookupVisibleLen">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AltLookupMaxLen">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoLabel1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoReqFlag1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoVisibleLen1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoMaxLen1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoLabel2">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoReqFlag2">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoVisibleLen2">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerLoadFormDetails.AddInfoMaxLen2">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.PaymentOptionOld">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentOptionOld.PaymentType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.PaymentOptionOld.FeeAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.MasterBiller">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBiller.Id">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBiller.Description">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.MasterBillersByCategoryResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBillersByCategoryResponse.ResultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBillersByCategoryResponse.ResultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MasterBillersByCategoryResponse.MasterBillers">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Category">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Category.Id">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Category.Description">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.BillerCategoriesResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerCategoriesResponse.ResultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerCategoriesResponse.ResultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillerCategoriesResponse.Categories">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.resultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.resultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.VendorId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.PaymentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.FeeAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.AccountNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.AltAccountNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.AdditAccountNumber1">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.AdditAccountNumber2">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.CustomerFirstName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.CustomerLastName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.TrackingNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.BatchNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.AuthorizationCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.ReturnMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.PresentmentMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.PostingDateMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentResponse.ReceiptMessage">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationDetailItem">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationDetailItem.TrackingNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationDetailItem.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationDetailItem.PaymentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationDetailItem.FeeShare">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.ResultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.ResultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.BatchDate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.BatchNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.TotalRecords">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.TotalPaymentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.TotalFeeAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.TerminalNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.BillPaymentReconciliationResponse.ReconciliationDetail">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.AccessPhone">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.AccessPhone.State">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.AccessPhone.City">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.AccessPhone.Phone">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.AccessPhone.AccessLanguage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.AccessPhone.AccessType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.AccessPhone.AreaCode">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.resultId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.resultDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.TerminalNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.BatchDate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.BatchNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.TotalRecords">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.TotalPaymentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.TotalFeeAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.RecordsInDetail">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationResponse.ReconciliationDetail">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ReconciliationDetail">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationDetail.TrackingNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationDetail.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationDetail.PaymentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReconciliationDetail.FeeShare">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.TCAResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCAResponse.Timestamp">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCAResponse.ResponseCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCAResponse.ResponseDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCAResponse.ReferenceNumber">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.TCABalanceResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCABalanceResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCABalanceResponse.AccountId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCABalanceResponse.CurrentBalance">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCABalanceResponse.MinimumReplenishmentAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.TCAReplenishmentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCAReplenishmentResponse.UpdatedBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.TCADocumentInquiryResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocumentInquiryResponse.PurchaseId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocumentInquiryResponse.RequestedDocument">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocumentInquiryResponse.UnpaidDocumentList">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocumentInquiryResponse.UnpaidDocumentListAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocumentInquiryResponse.ResponseMessage">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.TCADocument">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocument.DocumentId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocument.DocumentDate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocument.DocumentDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocument.DocumentPaymentAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocument.DocumentPaymentDate">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.TCADocumentPaymentResponse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocumentPaymentResponse.PaidDocumentList">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.TCADocumentPaymentResponse.UpdatedBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Response">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Response.Status">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Response.ResponseDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Response.Balance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.enStatus">
+            <remarks/>
+        </member>
+        <member name="F:OrdersGateway.com.blackstoneonline.services.enStatus.Success">
+            <remarks/>
+        </member>
+        <member name="F:OrdersGateway.com.blackstoneonline.services.enStatus.Fail">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.CallDetail">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.Phone">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.AnswerTime">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.CallRecId">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.CldNum">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.ClgNum">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.ConnectTime">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.DialedNum">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.DisconnectTime">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.CallDetail.Destination">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DebitReason">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DebitReason.name">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DebitReason.reasonId">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Report">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Report.EndDate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Report.StartDate">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Report.TotalPhones">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Report.TotalBalance">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.ReportDetail">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReportDetail.Phone">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReportDetail.Balance">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.ReportDetail.CreationDate">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Catalog">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ErrorCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ErrorMessage">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProfileID">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProfileName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProfileDescription">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProfileRegion">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProfileState">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProfileType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProfileTypeDesc">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Catalog.ProductList">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Denomination">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Denomination.DenominationID">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Denomination.DenominationCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Denomination.DenominationValue">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Denomination.DenominationBarcode">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Product">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.CardID">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.ProductMaincode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.AvailableDenominations">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.Denominations">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.ProductName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.ProductType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.ProductTypeDesc">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.Disclaimer">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.DisclaimerSpanish">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.Carrier">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.RecommendedUse">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.Searchable">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.AccessType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.AccessTypeDesc">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.Instructions">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.PrinterDisclaimer">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.ProductBarcode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.TargetCountry">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.CountryCode">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.TopUpMinAmount">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Product.TopUpMaxAmount">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Destination">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.DestinationID">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.CountryName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.CityName">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.CountrySpanish">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.CitySpanish">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.DestinationType">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.DestinationTypeDesc">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Destination.DestinationTypeOrder">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.Legal">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Legal.Version">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Legal.Copyright">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Legal.Disclaimer">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Legal.PrivacyURL">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Legal.TermsAndConditions">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.Legal.ContactPhone">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DocumentType">
+            <remarks/>
+        </member>
+        <member name="F:OrdersGateway.com.blackstoneonline.services.DocumentType.Invoice">
+            <remarks/>
+        </member>
+        <member name="F:OrdersGateway.com.blackstoneonline.services.DocumentType.Violation">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetSinglePINCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetSinglePINCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetSinglePINCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetSinglePINSerialCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetSinglePINSerialCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetSinglePINSerialCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMultiplePINCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMultiplePINCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetMultiplePINCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMultiplePINLiteCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMultiplePINLiteCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetMultiplePINLiteCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.VoidOrderCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.VoidOrderCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.VoidOrderCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTopUpCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTopUpCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTopUpCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTopUpFeeCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTopUpFeeCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTopUpFeeCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTopUpFeeSerialCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTopUpFeeSerialCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTopUpFeeSerialCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPaymentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPaymentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoBillPaymentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetBillerCategoriesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetBillerCategoriesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetBillerCategoriesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillersByCategoryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillersByCategoryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetMasterBillersByCategoryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillerPaymentOptionsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillerPaymentOptionsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetMasterBillerPaymentOptionsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetBillersCategoriesOldCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetBillersCategoriesOldCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetBillersCategoriesOldCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillersByCategoryOldCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillersByCategoryOldCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetMasterBillersByCategoryOldCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillerPaymentOptionsOldCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMasterBillerPaymentOptionsOldCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetMasterBillerPaymentOptionsOldCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetSunPassBalanceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetSunPassBalanceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetSunPassBalanceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassReplenishmentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassReplenishmentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoSunPassReplenishmentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassReplenishmentByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassReplenishmentByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoSunPassReplenishmentByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentInquiryByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentInquiryByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentInquiryByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentPaymentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentPaymentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentPaymentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentPaymentByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentPaymentByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoSunPassDocumentPaymentByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetProductListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductListByProductSbtCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductListByProductSbtCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetProductListByProductSbtCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductListVersionNumberCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductListVersionNumberCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetProductListVersionNumberCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductRatesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductRatesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetProductRatesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPaymentOldCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPaymentOldCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoBillPaymentOldCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPaymentOldSerialCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPaymentOldSerialCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoBillPaymentOldSerialCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentOldCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentOldCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentOldCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentOldSerialCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentOldSerialCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoBillPresentmentOldSerialCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationOldCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationOldCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationOldCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationOldSerialCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationOldSerialCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoDailyReconciliationOldSerialCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetTCATollsBalanceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetTCATollsBalanceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetTCATollsBalanceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsReplenishmentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsReplenishmentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTCATollsReplenishmentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsReplenishmentByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsReplenishmentByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTCATollsReplenishmentByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentInquiryByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentInquiryByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentInquiryByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentPaymentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentPaymentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentPaymentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentPaymentByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentPaymentByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoTCATollsDocumentPaymentByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackGetAccountBalanceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackGetAccountBalanceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackGetAccountBalanceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishAccountCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishAccountCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishAccountCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishAccountByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishAccountByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishAccountByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackGetLicensePlateAccountBalanceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackGetLicensePlateAccountBalanceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackGetLicensePlateAccountBalanceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishLicensePlateAccountCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishLicensePlateAccountCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishLicensePlateAccountCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishLicensePlateAccountByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishLicensePlateAccountByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackReplenishLicensePlateAccountByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentPaymentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentPaymentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentPaymentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentInquiryByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentInquiryByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentInquiryByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentPaymentByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentPaymentByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackDocumentPaymentByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollPaymentCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollPaymentCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollPaymentCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollInquiryByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollInquiryByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollInquiryByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollPaymentByStoreCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollPaymentByStoreCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.FastTrackOneTimeTollPaymentByStoreCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMerchantBalanceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetMerchantBalanceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetMerchantBalanceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.MetelePinlessVoidLastLoadCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.MetelePinlessVoidLastLoadCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.MetelePinlessVoidLastLoadCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessVoidLastLoadCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessVoidLastLoadCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessVoidLastLoadCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessAddPhoneNumberCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessAddPhoneNumberCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessAddPhoneNumberCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessBalanceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessBalanceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessBalanceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessDeletePhoneNumberCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessDeletePhoneNumberCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessDeletePhoneNumberCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessEditPhoneCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessEditPhoneCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessEditPhoneCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessFindAccountCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessFindAccountCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessFindAccountCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetCallHistoryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetCallHistoryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessGetCallHistoryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetCreditReasonsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetCreditReasonsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessGetCreditReasonsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetPhoneReportCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetPhoneReportCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessGetPhoneReportCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetPhoneReportDetailedCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.OKPinlessGetPhoneReportDetailedCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.OKPinlessGetPhoneReportDetailedCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoPinCreditCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.DoPinCreditCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.DoPinCreditCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductsCatalogCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductsCatalogCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetProductsCatalogCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductProfilesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetProductProfilesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetProductProfilesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetAllDestinationsCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetAllDestinationsCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetAllDestinationsCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetLegalInformationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:OrdersGateway.com.blackstoneonline.services.GetLegalInformationCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:OrdersGateway.com.blackstoneonline.services.GetLegalInformationCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+    </members>
+</doc>

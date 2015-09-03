@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Projects\Magaya\CustomerPaymentWeb</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="app/app.js">
+      <publishTime>12/17/2014 17:09:50</publishTime>
+    </File>
+    <File Include="app/billpayment/billPaymentCategoriesCtrl.js">
+      <publishTime>12/09/2014 10:08:55</publishTime>
+    </File>
+    <File Include="app/billpayment/billPaymentServices.js">
+      <publishTime>12/09/2014 10:08:55</publishTime>
+    </File>
+    <File Include="app/billpayment/_index-billpayment.html">
+      <publishTime>12/09/2014 10:08:55</publishTime>
+    </File>
+    <File Include="app/home/homeCtrl.js">
+      <publishTime>12/12/2014 11:13:03</publishTime>
+    </File>
+    <File Include="app/home/_home.html">
+      <publishTime>12/17/2014 14:54:56</publishTime>
+    </File>
+    <File Include="app/login/loginCtrl.js">
+      <publishTime>12/17/2014 17:07:58</publishTime>
+    </File>
+    <File Include="app/login/loginServices.js">
+      <publishTime>12/15/2014 09:51:07</publishTime>
+    </File>
+    <File Include="app/login/_login.html">
+      <publishTime>12/17/2014 17:09:06</publishTime>
+    </File>
+    <File Include="app/products/IndexByCategoryByCarrierCtrl.js">
+      <publishTime>12/03/2014 13:44:44</publishTime>
+    </File>
+    <File Include="app/products/IndexByCategoryByCountryCtrl.js">
+      <publishTime>12/16/2014 17:52:12</publishTime>
+    </File>
+    <File Include="app/products/indexByCategoryCtrl.js">
+      <publishTime>12/17/2014 14:54:56</publishTime>
+    </File>
+    <File Include="app/products/indexWirelessCarriersCtrl.js">
+      <publishTime>12/16/2014 17:52:13</publishTime>
+    </File>
+    <File Include="app/products/productsServices.js">
+      <publishTime>12/16/2014 17:52:13</publishTime>
+    </File>
+    <File Include="app/products/showProductCtrl.js">
+      <publishTime>12/17/2014 10:32:56</publishTime>
+    </File>
+    <File Include="app/products/_index-carriers.html">
+      <publishTime>12/17/2014 14:54:56</publishTime>
+    </File>
+    <File Include="app/products/_index-countries.html">
+      <publishTime>12/17/2014 14:54:56</publishTime>
+    </File>
+    <File Include="app/products/_index-products-by-category.html">
+      <publishTime>12/17/2014 14:54:56</publishTime>
+    </File>
+    <File Include="app/products/_index-products.html">
+      <publishTime>12/17/2014 14:54:56</publishTime>
+    </File>
+    <File Include="app/products/_keypad.html">
+      <publishTime>11/28/2014 17:26:54</publishTime>
+    </File>
+    <File Include="app/products/_modal-product-tpl.html">
+      <publishTime>12/16/2014 17:52:12</publishTime>
+    </File>
+    <File Include="app/products/_show-product-longdistance.html">
+      <publishTime>11/21/2014 15:32:48</publishTime>
+    </File>
+    <File Include="app/products/_show-product.html">
+      <publishTime>12/16/2014 17:52:12</publishTime>
+    </File>
+    <File Include="app/shared/sharedCtrl.js">
+      <publishTime>12/16/2014 17:52:13</publishTime>
+    </File>
+    <File Include="app/shared/sharedDirectives.js">
+      <publishTime>12/15/2014 17:12:49</publishTime>
+    </File>
+    <File Include="app/shared/sharedFilters.js">
+      <publishTime>12/03/2014 13:44:44</publishTime>
+    </File>
+    <File Include="app/shared/sharedFunctions.js">
+      <publishTime>12/16/2014 17:52:13</publishTime>
+    </File>
+    <File Include="app/shared/sharedServices.js">
+      <publishTime>12/10/2014 11:25:45</publishTime>
+    </File>
+    <File Include="app/shared/_admin-login.html">
+      <publishTime>12/09/2014 10:08:55</publishTime>
+    </File>
+    <File Include="app/shared/_balance-details.html">
+      <publishTime>11/21/2014 16:50:58</publishTime>
+    </File>
+    <File Include="app/shared/_cashiers-grid.html">
+      <publishTime>11/28/2014 11:40:33</publishTime>
+    </File>
+    <File Include="app/shared/_home-item.html">
+      <publishTime>12/03/2014 13:44:44</publishTime>
+    </File>
+    <File Include="app/shared/_make-Payments.html">
+      <publishTime>11/26/2014 10:28:27</publishTime>
+    </File>
+    <File Include="app/shared/_merchant-payments.html">
+      <publishTime>11/26/2014 09:31:39</publishTime>
+    </File>
+    <File Include="app/shared/_merchant-settings.html">
+      <publishTime>12/09/2014 10:08:55</publishTime>
+    </File>
+    <File Include="app/shared/_modal.html">
+      <publishTime>11/25/2014 13:06:47</publishTime>
+    </File>
+    <File Include="app/shared/_orders-grid.html">
+      <publishTime>12/09/2014 10:08:55</publishTime>
+    </File>
+    <File Include="app/shared/_product-caption-tpl.html">
+      <publishTime>09/15/2014 14:52:19</publishTime>
+    </File>
+    <File Include="app/shared/_sales-details.html">
+      <publishTime>12/10/2014 12:01:22</publishTime>
+    </File>
+    <File Include="app/sunpass/sunPassCtrl.js">
+      <publishTime>12/09/2014 10:08:55</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

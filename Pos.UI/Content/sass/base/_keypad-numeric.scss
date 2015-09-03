@@ -1,0 +1,37 @@
+.numpad {
+	font-weight: bold;
+	position: relative;
+	// width: 215px;
+	z-index: 999;
+	background: $white;
+	max-width: 330px;
+	margin: 0 auto;
+
+	.button-wrapper {
+		width: 275px;
+		margin: 0 auto;
+		overflow: auto;
+		// padding: 5px;
+
+		button{
+			margin: 0 10px 14px 0;
+			@include breakpoint(screen-xs) {
+				margin: 0 5px 5px 0;
+			}
+			min-width: 78px;
+			text-align: center;
+		}
+
+		.smaller {
+			font-size: 14px;
+		}
+
+		.button-wide {
+			width: 82px;
+		}
+	}
+}
+
+.numpad[disabled] button {
+	opacity: .5;
+}

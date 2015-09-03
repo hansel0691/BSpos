@@ -1,0 +1,19 @@
+// PANELS OVERRIDES
+// -------------------------
+// Panels
+.panel-group{
+	margin-bottom: 0px;
+}
+.panel-body{
+	padding: 6px;
+}
+// secundary
+.panel-secundary {
+	@include panel-variant($panel-secundary-border, $panel-secundary-text, $panel-secundary-heading-bg, $panel-secundary-border);
+}
+.panel-secundary > .panel-heading{
+	text-transform: uppercase;
+}
+.panel-heading{
+	font-size: $font-size-base;
+}

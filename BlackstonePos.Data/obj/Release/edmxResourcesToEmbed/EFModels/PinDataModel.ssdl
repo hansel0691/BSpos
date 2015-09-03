@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pin_dataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="posinvoicedetail">
+    <Key>
+      <PropertyRef Name="det_id" />
+    </Key>
+    <Property Name="det_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="inv_id" Type="int" Nullable="false" />
+    <Property Name="inv_carrier_fk" Type="int" />
+    <Property Name="inv_car_name" Type="varchar" MaxLength="50" />
+    <Property Name="inv_pin_fk" Type="int" />
+    <Property Name="inv_pin_controlno" Type="float" />
+    <Property Name="inv_det_date" Type="datetime" />
+    <Property Name="product_sbt" Type="char" MaxLength="6" />
+    <Property Name="item_fk" Type="varchar" MaxLength="50" />
+    <Property Name="pro_description" Type="varchar" MaxLength="512" />
+    <Property Name="terminal_fk" Type="int" />
+    <Property Name="trn_quantity" Type="int" />
+    <Property Name="pro_denomination" Type="money" />
+    <Property Name="inv_Discount" Type="money" />
+    <Property Name="inv_subtotal" Type="money" />
+    <Property Name="inv_transaction_fk" Type="int" />
+    <Property Name="inv_Product_Isforeign" Type="int" />
+    <Property Name="inv_TransactionType" Type="varchar" MaxLength="50" />
+    <Property Name="inv_Cashier" Type="varchar" MaxLength="50" />
+    <Property Name="AccountingId" Type="int" />
+    <Property Name="ProductCost" Type="money" />
+    <Property Name="AgentCommission" Type="money" />
+    <Property Name="MDistCommission" Type="money" />
+    <Property Name="DistCommission" Type="money" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="MDistId" Type="int" />
+    <Property Name="DistId" Type="int" />
+    <Property Name="CommissionPaidDate" Type="datetime" />
+    <Property Name="ProcessedInDirectBilling" Type="bit" />
+    <Property Name="PaymentMethod" Type="int" />
+    <Property Name="PaymentFee" Type="money" />
+    <Property Name="inv_OpenCreditID" Type="int" />
+    <Property Name="SalesTaxPerc" Type="float" />
+    <Property Name="SalesTaxAmt" Type="money" />
+    <Property Name="void_amount" Type="money" />
+    <Property Name="CCardAuthCode" Type="varchar" MaxLength="20" />
+    <Property Name="CCardRefNumber" Type="varchar" MaxLength="20" />
+    <Property Name="CCardNumber" Type="varchar" MaxLength="20" />
+    <Property Name="Profit" Type="money" />
+    <Property Name="Iscomm" Type="int" />
+    <Property Name="WasPaidComm" Type="int" />
+    <Property Name="paidcommdate" Type="datetime" />
+    <Property Name="paidcommuser" Type="int" />
+    <Property Name="BartellTransFeeBilled" Type="bit" />
+    <Property Name="CCardExpDate" Type="varchar" MaxLength="5" />
+    <Property Name="DistCommission2" Type="money" />
+    <Property Name="ReturnedTax" Type="money" />
+    <Property Name="ReversalPaid" Type="bit" />
+    <Property Name="freedescriptionCost" Type="money" />
+    <Property Name="gl_id_tnb" Type="int" />
+    <Property Name="gl_id_cost_tnb" Type="int" />
+    <Property Name="Original_Discount" Type="money" />
+    <Property Name="Original_Subtotal" Type="money" />
+    <Property Name="det_timestamp" Type="datetime" />
+    <Property Name="det_calculatedfrom" Type="varchar" MaxLength="20" />
+    <Property Name="previousCost" Type="money" />
+    <Property Name="phone_number" Type="varchar" MaxLength="50" />
+    <Property Name="ITC_Billing_Status" Type="int" />
+    <Property Name="ITC_id" Type="int" />
+    <Property Name="ITC_PoId" Type="int" />
+    <Property Name="topup_loaded_amount" Type="money" />
+    <Property Name="new_product_discount" Type="money" />
+  </EntityType>
+  <EntityType Name="posinvoiceheader">
+    <Key>
+      <PropertyRef Name="inv_id" />
+    </Key>
+    <Property Name="inv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="inv_date" Type="datetime" />
+    <Property Name="merchant_fk" Type="int" />
+    <Property Name="merchant_StoreNo" Type="int" />
+    <Property Name="merchant_businessname" Type="varchar" MaxLength="50" />
+    <Property Name="merchant_busphone" Type="varchar" MaxLength="25" />
+    <Property Name="merchant_busaddress" Type="varchar" MaxLength="50" />
+    <Property Name="merchant_addressCityID" Type="varchar" MaxLength="25" />
+    <Property Name="merchant_addressStateID" Type="varchar" MaxLength="25" />
+    <Property Name="merchant_addressZIP" Type="varchar" MaxLength="15" />
+    <Property Name="merchant_addressCountryID" Type="varchar" MaxLength="25" />
+    <Property Name="ach_status" Type="int" />
+    <Property Name="ach_sentdate" Type="datetime" />
+    <Property Name="ach_id" Type="int" />
+    <Property Name="RepCommission_fk" Type="int" />
+    <Property Name="Posted" Type="bit" />
+    <Property Name="Posted_date" Type="datetime" />
+    <Property Name="Printed" Type="int" />
+    <Property Name="PrintedMonth" Type="int" />
+    <Property Name="PrintedYear" Type="int" />
+    <Property Name="PrintedDate" Type="datetime" />
+    <Property Name="PaidDate" Type="datetime" />
+    <Property Name="HoldNotesId" Type="int" />
+    <Property Name="Hold" Type="bit" />
+    <Property Name="Inv_Related" Type="int" />
+    <Property Name="approx_PaidDate" Type="datetime" />
+    <Property Name="GroupPrinted" Type="bit" />
+    <Property Name="GroupPrintedDate" Type="datetime" />
+    <Property Name="ComInvoice_fk" Type="int" Nullable="false" />
+    <Property Name="ConfirmPaid" Type="int" />
+    <Property Name="ConfirmPaidDate" Type="datetime" />
+    <Property Name="PaymentStatus" Type="int" />
+    <Property Name="Payments" Type="money" />
+    <Property Name="UserPaid" Type="varchar" MaxLength="50" />
+    <Property Name="DownInvoice" Type="int" />
+    <Property Name="ClubId" Type="int" />
+    <Property Name="SpecialDate" Type="datetime" />
+    <Property Name="SpecialBilling" Type="int" />
+    <Property Name="SpecialActBilling" Type="int" />
+    <Property Name="inv_type" Type="int" />
+    <Property Name="inv_TermsId" Type="int" />
+    <Property Name="inv_void" Type="bit" />
+    <Property Name="waswriteoff" Type="int" />
+    <Property Name="amountwriteoff" Type="money" />
+    <Property Name="inv_comments" Type="varchar" MaxLength="5000" />
+    <Property Name="inv_createdby" Type="int" Nullable="false" />
+    <Property Name="merchant_shipto" Type="varchar" MaxLength="50" />
+    <Property Name="merchant_shipaddress1" Type="varchar" MaxLength="50" />
+    <Property Name="merchant_shipaddress2" Type="varchar" MaxLength="25" />
+    <Property Name="merchant_shipcity" Type="varchar" MaxLength="25" />
+    <Property Name="merchant_shipstate" Type="varchar" MaxLength="2" />
+    <Property Name="merchant_shipzip" Type="varchar" MaxLength="6" />
+    <Property Name="merchant_shipcountry" Type="varchar" MaxLength="40" />
+    <Property Name="POSARInvoiceID" Type="int" />
+    <Property Name="PortalAPInvoiceID" Type="int" />
+    <Property Name="inv_voiddate" Type="datetime" />
+    <Property Name="inv_voidedby" Type="varchar" MaxLength="20" />
+    <Property Name="glID" Type="int" />
+    <Property Name="paymentscc" Type="money" />
+    <Property Name="paymentscash" Type="money" />
+    <Property Name="inv_noSplit" Type="bit" />
+    <Property Name="flagcommCCDateI" Type="datetime" />
+    <Property Name="flagcommCCDateF" Type="datetime" />
+    <Property Name="PinServeARInvID" Type="int" />
+    <Property Name="CompanyAPInvID" Type="int" />
+    <Property Name="formerPOS" Type="bit" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="DistId" Type="int" />
+    <Property Name="MDistId" Type="int" />
+    <Property Name="inv_timeStamp" Type="datetime" />
+    <Property Name="inv_tnb_llc" Type="int" />
+    <Property Name="VoidedBalance" Type="money" />
+    <Property Name="Voidedpayment" Type="money" />
+    <Property Name="InvoiceAmount" Type="money" />
+    <Property Name="BillingType" Type="int" />
+    <Property Name="SRPTotal" Type="money" />
+    <Property Name="DiscountTotal" Type="money" />
+    <Property Name="TaxTotal" Type="money" />
+    <Property Name="IsManualInv" Type="int" />
+    <Property Name="ValueRecPlan" Type="money" />
+    <Property Name="Original_InvoiceAmount" Type="money" />
+    <Property Name="RecPlanDone" Type="int" />
+    <Property Name="percentdiscount" Type="int" />
+    <Property Name="mastercard" Type="int" />
+    <Property Name="giftcard" Type="int" />
+    <Property Name="isPlanC" Type="int" />
+    <Property Name="prepay_statement_sent" Type="bit" />
+    <Property Name="IsBadDebt" Type="int" />
+    <Property Name="midbaddebt" Type="int" />
+    <Property Name="IsDtvPP" Type="bit" />
+    <Property Name="original_merchant_fk" Type="int" />
+    <Property Name="original_inv_id" Type="int" />
+    <Property Name="atlantic_billed" Type="int" />
+    <Property Name="atlantic_billed_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PosmerchantHeader">
+    <Key>
+      <PropertyRef Name="merchant_pk" />
+    </Key>
+    <Property Name="PosCustomerType_fk" Type="int" />
+    <Property Name="merchant_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="custno_fk" Type="varchar" MaxLength="20" />
+    <Property Name="eCommerceFlag" Type="bit" />
+    <Property Name="PosdispenserFlag" Type="bit" />
+    <Property Name="mer_name" Type="varchar" MaxLength="50" />
+    <Property Name="mer_AppDate" Type="datetime" />
+    <Property Name="mer_ProcessingCo" Type="varchar" MaxLength="30" />
+    <Property Name="mer_LeasingCo" Type="varchar" MaxLength="30" />
+    <Property Name="mer_TID" Type="varchar" MaxLength="8" />
+    <Property Name="mer_MID" Type="varchar" MaxLength="15" />
+    <Property Name="mer_MIDBank" Type="varchar" MaxLength="16" />
+    <Property Name="mer_LeaseAccount" Type="varchar" MaxLength="25" />
+    <Property Name="mer_InfoIsComplete" Type="bit" />
+    <Property Name="mer_zip" Type="varchar" MaxLength="10" />
+    <Property Name="mer_telno" Type="varchar" MaxLength="20" />
+    <Property Name="mer_crlimit" Type="varchar" MaxLength="20" />
+    <Property Name="mer_Notes" Type="varchar" MaxLength="4096" />
+    <Property Name="mer_status" Type="int" />
+    <Property Name="mer_mxtrans" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="mer_password" Type="varchar" MaxLength="20" />
+    <Property Name="mer_timestamp" Type="datetime" />
+    <Property Name="mer_useradder" Type="varchar" MaxLength="4" />
+    <Property Name="mer_dateadded" Type="datetime" />
+    <Property Name="mer_usereditor" Type="varchar" MaxLength="4" />
+    <Property Name="mer_dateeditor" Type="datetime" />
+    <Property Name="mer_processed" Type="datetime" />
+    <Property Name="mer_gelapproved" Type="bit" />
+    <Property Name="mer_usbapproved" Type="bit" />
+    <Property Name="mer_posdelivery" Type="bit" />
+    <Property Name="mer_callingcard" Type="bit" />
+    <Property Name="mer_creditcard" Type="bit" />
+    <Property Name="mer_SaleActive" Type="bit" />
+    <Property Name="mer_CreditSales" Type="money" />
+    <Property Name="mer_apptype" Type="char" MaxLength="1" />
+    <Property Name="mer_creditScore" Type="int" />
+    <Property Name="mer_paymentCleared" Type="bit" />
+    <Property Name="mer_funded" Type="bit" />
+    <Property Name="posdeals_fk" Type="int" />
+    <Property Name="agentId" Type="int" />
+    <Property Name="distributorId" Type="int" />
+    <Property Name="mdistributorid" Type="int" />
+    <Property Name="merchantProfId" Type="int" />
+    <Property Name="AgentProfId" Type="int" />
+    <Property Name="distributorProfId" Type="int" />
+    <Property Name="mdistributorProfId" Type="int" />
+    <Property Name="placementAgentId" Type="int" />
+    <Property Name="placementAgentProfId" Type="int" />
+    <Property Name="datefunded" Type="datetime" />
+    <Property Name="datedeployed" Type="datetime" />
+    <Property Name="datecleared" Type="datetime" />
+    <Property Name="executiveid" Type="int" />
+    <Property Name="executiveprofid" Type="int" />
+    <Property Name="buybackamt" Type="money" />
+    <Property Name="leasepayoff" Type="money" />
+    <Property Name="processingrate" Type="real" />
+    <Property Name="transactionfee" Type="real" />
+    <Property Name="dateclosed" Type="datetime" />
+    <Property Name="creditType" Type="varchar" MaxLength="12" />
+    <Property Name="suspended" Type="bit" Nullable="false" />
+    <Property Name="suspended_date" Type="datetime" />
+    <Property Name="suspended_reason" Type="varchar" MaxLength="100" />
+    <Property Name="posnotes" Type="varchar" MaxLength="600" />
+    <Property Name="repcommission_fk" Type="int" />
+    <Property Name="commission" Type="bit" />
+    <Property Name="payplacement" Type="bit" />
+    <Property Name="ach" Type="bit" />
+    <Property Name="billday" Type="char" MaxLength="1" />
+    <Property Name="ach_monthlyFeeDate" Type="datetime" />
+    <Property Name="LeaseCreditType" Type="char" MaxLength="1" />
+    <Property Name="LeaseCredit" Type="char" MaxLength="1" />
+    <Property Name="dateapproved" Type="datetime" />
+    <Property Name="dateinstalled" Type="datetime" />
+    <Property Name="creditFactor" Type="real" />
+    <Property Name="achmonthlyfee" Type="money" Nullable="false" />
+    <Property Name="achfrequency" Type="int" />
+    <Property Name="AgencyNo" Type="varchar" MaxLength="50" />
+    <Property Name="ProducerNo" Type="varchar" MaxLength="8" />
+    <Property Name="OtherMid" Type="varchar" MaxLength="16" />
+    <Property Name="AgencyId" Type="int" />
+    <Property Name="AgencyProfId" Type="int" />
+    <Property Name="DateVerified" Type="datetime" />
+    <Property Name="CreditLimit" Type="money" Nullable="false" />
+    <Property Name="InstallerId" Type="int" />
+    <Property Name="AchRentalFee" Type="money" Nullable="false" />
+    <Property Name="ach_RentalFeeDate" Type="datetime" />
+    <Property Name="ach_immediately" Type="bit" />
+    <Property Name="datescanned" Type="datetime" Nullable="false" />
+    <Property Name="nocostmerchant" Type="bit" Nullable="false" />
+    <Property Name="DailyLimit" Type="money" />
+    <Property Name="usbcontrolno" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="LastBillDate" Type="datetime" />
+    <Property Name="CloseType" Type="varchar" MaxLength="40" />
+    <Property Name="pcs_fk" Type="int" />
+    <Property Name="repname" Type="varchar" MaxLength="50" />
+    <Property Name="achStop" Type="bit" />
+    <Property Name="achChangeDate" Type="datetime" />
+    <Property Name="achChangeUser" Type="varchar" MaxLength="50" />
+    <Property Name="achChangeNotes" Type="varchar" MaxLength="200" />
+    <Property Name="achOperationDate" Type="datetime" />
+    <Property Name="achLastOpe" Type="int" />
+    <Property Name="CreditLimitBck" Type="money" />
+    <Property Name="FactoryRepId" Type="int" />
+    <Property Name="leadsourceid" Type="smallint" />
+    <Property Name="achMaxDebtAmount" Type="money" />
+    <Property Name="achMinDebtAmount" Type="money" />
+    <Property Name="BillingSetup" Type="bit" />
+    <Property Name="BillingSetupDate" Type="datetime" />
+    <Property Name="BillingEditedDate" Type="datetime" />
+    <Property Name="ApplyAmountsRules" Type="bit" />
+    <Property Name="BeginACHDate" Type="datetime" />
+    <Property Name="dateappointment" Type="datetime" />
+    <Property Name="trialperiod" Type="tinyint" Nullable="false" />
+    <Property Name="PremiumReplacementFee" Type="money" />
+    <Property Name="PremiumReplacementFeeDate" Type="datetime" />
+    <Property Name="LastBillDateBak" Type="datetime" />
+    <Property Name="active" Type="bit" />
+    <Property Name="DeploymentTrackingNo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="LeaseNo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DateTransferred" Type="datetime" />
+    <Property Name="TransferredTo" Type="int" />
+    <Property Name="TransferredFrom" Type="int" />
+    <Property Name="suspendcreditcardprocessing" Type="bit" />
+    <Property Name="FirstLastPmtUponInstall" Type="bit" Nullable="false" />
+    <Property Name="FirstLastPaymentWaived" Type="bit" Nullable="false" />
+    <Property Name="SendStatement" Type="int" />
+    <Property Name="TeleMarketerId" Type="int" Nullable="false" />
+    <Property Name="TeleMarketerProfId" Type="int" Nullable="false" />
+    <Property Name="GiftCardProcessing" Type="bit" Nullable="false" />
+    <Property Name="ACHcomp" Type="int" />
+    <Property Name="TotalCheckProcessing" Type="bit" Nullable="false" />
+    <Property Name="IgnoreBillingRules" Type="bit" Nullable="false" />
+    <Property Name="Compliance" Type="bit" />
+    <Property Name="Demo" Type="bit" Nullable="false" />
+    <Property Name="PaymentType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ProcessingType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="OtherInfo" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Bucket_fk" Type="int" Nullable="false" />
+    <Property Name="UsbStatus" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="VSAgreement" Type="bit" Nullable="false" />
+    <Property Name="VSAgreementDate" Type="datetime" />
+    <Property Name="VSSubAgreement" Type="bit" Nullable="false" />
+    <Property Name="VSSubAgreementDate" Type="datetime" />
+    <Property Name="MasterDealerType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SubDealerType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="AppSentDate" Type="datetime" />
+    <Property Name="VsSent" Type="datetime" />
+    <Property Name="VsOk" Type="datetime" />
+    <Property Name="refusedate" Type="datetime" />
+    <Property Name="refusereason" Type="varchar" MaxLength="40" />
+    <Property Name="MissingTotal" Type="bigint" Nullable="false" />
+    <Property Name="PenMer_fk" Type="int" Nullable="false" />
+    <Property Name="MonthlyServiceFee" Type="money" Nullable="false" />
+    <Property Name="ClubNameSave" Type="varchar" MaxLength="25" />
+    <Property Name="ServiceRepId" Type="int" />
+    <Property Name="AppReceivedDate" Type="datetime" />
+    <Property Name="StateTaxCertification" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AccountStatus" Type="int" Nullable="false" />
+    <Property Name="PrepaidBalance" Type="money" />
+    <Property Name="PrepaidMerchant" Type="bit" />
+    <Property Name="Language_fk" Type="tinyint" Nullable="false" />
+    <Property Name="AccountOpener" Type="int" Nullable="false" />
+    <Property Name="LeaseVerificationNo" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="DatePackageReceived" Type="datetime" />
+    <Property Name="ReferralNo" Type="int" />
+    <Property Name="GoldPackage" Type="bit" Nullable="false" />
+    <Property Name="ComAdj" Type="money" Nullable="false" />
+    <Property Name="ComAdjUser" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="HoldCom" Type="bit" Nullable="false" />
+    <Property Name="HoldComUser" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ComDrawDet_fk" Type="int" Nullable="false" />
+    <Property Name="CurrentBalance" Type="money" />
+    <Property Name="GoldPackageFee" Type="money" Nullable="false" />
+    <Property Name="LeaseFileProcessed" Type="datetime" />
+    <Property Name="Vending" Type="bit" />
+    <Property Name="BSRating" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="GoldPackageFeeDate" Type="datetime" />
+    <Property Name="mer_size" Type="int" />
+    <Property Name="MonthlyServiceFeeDate" Type="datetime" />
+    <Property Name="donotvisit" Type="bit" Nullable="false" />
+    <Property Name="equipmentPickedUp" Type="bit" Nullable="false" />
+    <Property Name="bckprepaidbalance" Type="money" />
+    <Property Name="SuperChargeID" Type="varchar" MaxLength="3" />
+    <Property Name="VendingType" Type="int" />
+    <Property Name="VendingStatus" Type="int" />
+    <Property Name="DisplayDate" Type="datetime" />
+    <Property Name="DateLastUSBRequest" Type="datetime" />
+    <Property Name="IsAtrial" Type="int" />
+    <Property Name="TrialDate" Type="datetime" />
+    <Property Name="AchToDist" Type="int" />
+    <Property Name="WeeklyACHValue" Type="money" />
+    <Property Name="WeeklyACHDate" Type="datetime" />
+    <Property Name="IsGold" Type="int" />
+    <Property Name="MonthlyInstallments" Type="int" />
+    <Property Name="MonthlyinstallmentsAmount" Type="money" />
+    <Property Name="AmountInstalled" Type="money" />
+    <Property Name="PaidTelesalesLease" Type="int" />
+    <Property Name="PaidAELease" Type="int" />
+    <Property Name="PaidTelesalesPurchase" Type="int" />
+    <Property Name="PaidAEPurchase" Type="int" />
+    <Property Name="PaidTelesalesRep" Type="int" />
+    <Property Name="PaidAERep" Type="int" />
+    <Property Name="PaidTeleSalesInst" Type="int" />
+    <Property Name="PaidAEInst" Type="int" />
+    <Property Name="PaidReferal" Type="int" />
+    <Property Name="PendingNextCicleDate" Type="datetime" />
+    <Property Name="ReferalName" Type="varchar" MaxLength="50" />
+    <Property Name="ReferalId" Type="int" />
+    <Property Name="catalogTemp_fk" Type="int" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="whatis" Type="int" />
+    <Property Name="formerPOS" Type="bit" />
+    <Property Name="CP_AccountID" Type="int" />
+    <Property Name="PaidMonthlyRep" Type="int" />
+    <Property Name="paidWeeklyRep" Type="int" />
+    <Property Name="mer_MIDBankBck" Type="varchar" MaxLength="16" />
+    <Property Name="paiddealerlease" Type="int" />
+    <Property Name="paiddealerpurchase" Type="int" />
+    <Property Name="nopaymentdealer" Type="int" />
+    <Property Name="pendingdealernext" Type="datetime" />
+    <Property Name="userremovedT" Type="varchar" MaxLength="50" />
+    <Property Name="dateremovedT" Type="datetime" />
+    <Property Name="Blocked" Type="bit" />
+    <Property Name="ProcessorTID" Type="varchar" MaxLength="50" />
+    <Property Name="PendingRepIn" Type="int" />
+    <Property Name="PendingRepOut" Type="int" />
+    <Property Name="IsIpp" Type="int" />
+    <Property Name="IppTerminal" Type="varchar" MaxLength="10" />
+    <Property Name="autoAdjustCreditLimit" Type="int" />
+    <Property Name="Lpd" Type="int" />
+    <Property Name="PaymentsDue" Type="int" />
+    <Property Name="AmountLPD" Type="money" />
+    <Property Name="RejectedDate" Type="datetime" />
+    <Property Name="ReasonLpd" Type="varchar" MaxLength="200" />
+    <Property Name="ProjectedCBack" Type="datetime" />
+    <Property Name="noprinter" Type="int" />
+    <Property Name="PaidRental" Type="int" />
+    <Property Name="jobcompliancedb" Type="int" />
+    <Property Name="IPPPaid" Type="int" />
+    <Property Name="financeId1" Type="varchar" MaxLength="20" />
+    <Property Name="financeId2" Type="varchar" MaxLength="20" />
+    <Property Name="financeId3" Type="varchar" MaxLength="20" />
+    <Property Name="financeId4" Type="varchar" MaxLength="20" />
+    <Property Name="financeId5" Type="varchar" MaxLength="20" />
+    <Property Name="financeId1_user" Type="varchar" MaxLength="20" />
+    <Property Name="financeId1_password" Type="varchar" MaxLength="20" />
+    <Property Name="financeId2_user" Type="varchar" MaxLength="20" />
+    <Property Name="financeId2_password" Type="varchar" MaxLength="20" />
+    <Property Name="financeId3_user" Type="varchar" MaxLength="20" />
+    <Property Name="financeId3_password" Type="varchar" MaxLength="20" />
+    <Property Name="financeid4_user" Type="varchar" MaxLength="20" />
+    <Property Name="financeid4_password" Type="varchar" MaxLength="20" />
+    <Property Name="financeid5_user" Type="varchar" MaxLength="20" />
+    <Property Name="financeid5_password" Type="varchar" MaxLength="20" />
+    <Property Name="visit_freq" Type="int" />
+    <Property Name="Last_visit" Type="datetime" />
+    <Property Name="Next_visit" Type="datetime" />
+    <Property Name="IsADealerMerchant" Type="int" />
+    <Property Name="IsPlanC" Type="int" />
+    <Property Name="IsSplit" Type="int" />
+    <Property Name="usbStatusUpdated" Type="datetime" />
+    <Property Name="mer_intercompany" Type="int" />
+    <Property Name="recplan" Type="int" />
+    <Property Name="recplanpercent" Type="float" />
+    <Property Name="mer_couldbemarket" Type="bit" />
+    <Property Name="mer_isCorporate" Type="bit" />
+    <Property Name="mer_isServiceFeeOnly" Type="bit" />
+    <Property Name="mer_CorporateDiscount" Type="int" />
+    <Property Name="PRTid" Type="int" />
+    <Property Name="BalanceMC" Type="money" />
+    <Property Name="CreditLimitMC" Type="money" />
+    <Property Name="BlueProgram" Type="int" />
+    <Property Name="IprepayID" Type="int" />
+    <Property Name="liability" Type="int" />
+    <Property Name="MS_ID" Type="int" />
+    <Property Name="freqfee" Type="int" />
+    <Property Name="byPassMid" Type="varchar" MaxLength="50" />
+    <Property Name="closedate" Type="datetime" />
+    <Property Name="ACECenter" Type="int" />
+    <Property Name="mer_overwriteCost" Type="int" />
+    <Property Name="mspercent" Type="money" />
+    <Property Name="check_product_profile_on_sale" Type="bit" />
+    <Property Name="isOR" Type="int" />
+    <Property Name="isFuji" Type="int" />
+    <Property Name="Fuji_RollCounter" Type="int" />
+    <Property Name="Fuji_LastRollStatus" Type="int" />
+    <Property Name="Fuji_RollsBox" Type="int" />
+    <Property Name="Fuji_paperBox" Type="int" />
+    <Property Name="mer_promotion" Type="bit" />
+    <Property Name="noreconreport" Type="int" />
+    <Property Name="tnbcom_sales_tax" Type="float" />
+    <Property Name="IsPrepaidDist" Type="int" />
+    <Property Name="ipphost" Type="varchar" MaxLength="50" />
+    <Property Name="MserviceRef2Name" Type="varchar" MaxLength="50" />
+    <Property Name="MserviceRef2Per" Type="float" />
+    <Property Name="MserviceRef2" Type="int" />
+    <Property Name="creditsOnReport" Type="bit" />
+    <Property Name="IsDtvPP" Type="int" />
+    <Property Name="PRMethod" Type="varchar" MaxLength="50" />
+    <Property Name="AchPrflag" Type="int" />
+    <Property Name="IppTrial" Type="int" />
+    <Property Name="SunPassAgentId" Type="int" />
+    <Property Name="SunPassAgent" Type="varchar" MaxLength="50" />
+    <Property Name="IsSpg" Type="int" />
+    <Property Name="SpgTerminal" Type="int" />
+    <Property Name="MonitorForFraud" Type="bit" />
+    <Property Name="Iphone" Type="int" />
+    <Property Name="isEzPassType" Type="int" />
+    <Property Name="SpgDate" Type="datetime" />
+    <Property Name="ReceiptType" Type="int" />
+    <Property Name="isMeteleUSA" Type="int" />
+    <Property Name="MservicePlatform" Type="varchar" MaxLength="20" />
+    <Property Name="MserviceRisk" Type="varchar" MaxLength="20" />
+    <Property Name="TmAgentId" Type="int" />
+    <Property Name="PaidTm" Type="int" />
+    <Property Name="isEcommerce" Type="int" />
+    <Property Name="TmAgentTBid" Type="int" />
+    <Property Name="TmAgentBPid" Type="int" />
+    <Property Name="PaidTmBP" Type="int" />
+    <Property Name="merchantBalance" Type="money" />
+    <Property Name="isFastTrack" Type="int" />
+    <Property Name="onlineMerchant" Type="bit" />
+    <Property Name="onlineVerified" Type="bit" />
+    <Property Name="onlineVerifiedDate" Type="datetime" />
+    <Property Name="onlineVerifiedBy" Type="int" />
+    <Property Name="checkserial" Type="int" />
+    <Property Name="OnePointDisposition" Type="varchar" MaxLength="2" />
+    <Property Name="OnePointDispositionDate" Type="datetime" />
+    <Property Name="OnePointAmexSEN" Type="varchar" MaxLength="10" />
+    <Property Name="onBsGateway" Type="int" />
+    <Property Name="isTaxable" Type="int" />
+    <Property Name="isTCA" Type="int" />
+    <Property Name="IsMobileMerchant" Type="int" />
+    <Property Name="fromUnlimitedPINs" Type="bit" />
+    <Property Name="tnb_tax" Type="float" />
+    <Property Name="isNextCala360" Type="int" />
+    <Property Name="GatewayType" Type="varchar" MaxLength="50" />
+    <Property Name="OtherMobileMerchants" Type="varchar" MaxLength="50" />
+    <Property Name="paidMeteleSpiff" Type="int" />
+    <Property Name="paidMeteleBonus" Type="int" />
+    <Property Name="excludeFromBoosting" Type="int" />
+    <Property Name="wasFuji" Type="int" />
+    <Property Name="catalogVersion" Type="varchar" MaxLength="50" />
+    <Property Name="isKaching" Type="int" />
+    <Property Name="isMassDOT" Type="int" />
+  </EntityType>
+  <EntityType Name="Posterminal">
+    <Key>
+      <PropertyRef Name="terminal_pk" />
+    </Key>
+    <Property Name="terminal_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_fk" Type="int" />
+    <Property Name="merchant_StoreNo" Type="int" />
+    <Property Name="custno_fk" Type="varchar" MaxLength="20" />
+    <Property Name="terminal_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ter_location" Type="varchar" MaxLength="115" />
+    <Property Name="ter_datein" Type="varchar" MaxLength="100" />
+    <Property Name="ter_dateout" Type="datetime" />
+    <Property Name="ter_timestamp" Type="datetime" />
+    <Property Name="ter_useradder" Type="varchar" MaxLength="4" />
+    <Property Name="ter_dateadded" Type="datetime" />
+    <Property Name="ter_usereditor" Type="varchar" MaxLength="4" />
+    <Property Name="ter_dateeditor" Type="datetime" />
+    <Property Name="EPICNETZ_status" Type="smallint" Nullable="false" />
+    <Property Name="EPICNETZ_date" Type="datetime" />
+    <Property Name="USBSettleTime" Type="varchar" MaxLength="4" />
+    <Property Name="Programload" Type="bit" Nullable="false" />
+    <Property Name="ReInit" Type="bit" Nullable="false" />
+    <Property Name="ReloadTime" Type="char" MaxLength="12" />
+    <Property Name="LastEvent" Type="char" MaxLength="1" />
+    <Property Name="LastEventDate" Type="datetime" />
+    <Property Name="SerialNo" Type="varchar" MaxLength="16" />
+    <Property Name="Stran" Type="int" Nullable="false" />
+    <Property Name="Alert" Type="varchar" MaxLength="200" />
+    <Property Name="AlertDate" Type="datetime" />
+    <Property Name="serial_verified" Type="bit" />
+    <Property Name="serial_verified_date" Type="datetime" />
+    <Property Name="deployed" Type="bit" />
+    <Property Name="ANI" Type="varchar" MaxLength="16" />
+    <Property Name="DEMO" Type="bit" />
+    <Property Name="TAX" Type="real" />
+    <Property Name="ReInitType" Type="char" MaxLength="2" />
+    <Property Name="AdditionalTableCode" Type="varchar" MaxLength="2" />
+    <Property Name="cashierId" Type="varchar" MaxLength="10" />
+    <Property Name="cashierStatus" Type="smallint" />
+    <Property Name="closing" Type="bit" />
+    <Property Name="closingTimeout" Type="datetime" />
+    <Property Name="closedate" Type="datetime" />
+    <Property Name="closeoutActive" Type="bit" />
+    <Property Name="changeSerialNo" Type="bit" />
+  </EntityType>
+  <Function Name="SerialVerificationDisactivation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="merchantId" Type="int" Mode="In" />
+    <Parameter Name="terminalId" Type="int" Mode="In" />
+    <Parameter Name="serialNumber" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="pin_dataModelStoreContainer">
+    <EntitySet Name="posinvoicedetail" EntityType="Self.posinvoicedetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="posinvoiceheader" EntityType="Self.posinvoiceheader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosmerchantHeader" EntityType="Self.PosmerchantHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posterminal" EntityType="Self.Posterminal" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

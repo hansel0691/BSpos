@@ -1,0 +1,25 @@
+<!-- _keypad-numeric.html -->
+
+<div class="button-wrapper">
+	<button class="btn btn-default btn-keypad" title="1" data-ng-key="1" ng-click="setKey(1)">1</button>
+	<button class="btn btn-default btn-keypad" title="2" data-ng-key="2" ng-click="setKey(2)">2</button>
+	<button class="btn btn-default btn-keypad" title="3" data-ng-key="3" ng-click="setKey(3)">3</button>
+	<button class="btn btn-default btn-keypad" title="4" data-ng-key="4" ng-click="setKey(4)">4</button>
+	<button class="btn btn-default btn-keypad" title="5" data-ng-key="5" ng-click="setKey(5)">5</button>
+	<button class="btn btn-default btn-keypad" title="6" data-ng-key="6" ng-click="setKey(6)">6</button>
+	<button class="btn btn-default btn-keypad" title="7" data-ng-key="7" ng-click="setKey(7)">7</button>
+	<button class="btn btn-default btn-keypad" title="8" data-ng-key="8" ng-click="setKey(8)">8</button>
+	<button class="btn btn-default btn-keypad" title="9" data-ng-key="9" ng-click="setKey(9)">9</button>
+
+	<button class="btn btn-default btn-keypad" title="dot" ng-click="setKey('.')">&nbsp;.&nbsp;</button>
+	<button class="btn btn-default btn-keypad" title="0" ng-click="setKey(0)">0</button>
+	<button class="btn btn-default btn-keypad" title="dash" ng-click="backKey()"><i class="fa fa-reply"></i></button>
+
+	<button class="btn btn-default " ng-disabled="true" title="Null">&nbsp;</button>
+	<button class="btn btn-default btn-keypad btn-default" title="Clear" ng-click="clearKey()" class="smaller">
+		<i class="fa fa-times"></i>
+	</button>
+	<button class="btn btn-default " title="null">&nbsp;</button>
+
+	<!-- <button class="btn btn-default btn-keypad" title="Next" data-ng-key="[NEXT]" ng-click="focusInput($event)"><i class="fa fa-arrow-right"></i></button> -->
+</div>

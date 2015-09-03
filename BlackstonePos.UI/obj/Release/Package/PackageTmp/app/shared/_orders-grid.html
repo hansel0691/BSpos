@@ -1,0 +1,29 @@
+
+<div class="" id="ordersgrid">
+	<div class="form-group">
+		<label for="searchbox" class="control-label">Search</label>
+		<input type="search" ng-model="search.$" class="form-control" placeholder="Search for order by: id, amount, code or date" />
+	</div>
+
+	<table class="table table-condensed">
+		<thead>
+			<th>Product</th>
+			<th>Amount</th>
+			<th>Cashier</th>
+			<th>Transaction ID</th>
+			<th>Pin Number</th>
+			<th>Date</th>
+		</thead>
+		
+		<tbody>
+			<tr ng-repeat="order in orders | filter:search:strict">
+				<td class="order-id">{{ order.ProductName }}</td>
+				<td class="order-amount">{{ order.Amount | currency }}</td>
+				<td class="order-code">{{ order.OperatorName}}</td>
+				<td class="order-code">{{ order.TransactionID}}</td>
+				<td class="order-code">{{ order.PinNumber}}</td>
+				<td class="order-date">{{ order.TimeStamp | date }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

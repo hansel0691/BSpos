@@ -1,0 +1,33 @@
+<!-- pos products -->
+<div class="row grid-view" id="indexCategory">
+	<div class="sub-nav">
+		<div class="col-xs-2 col-sm-1 col-md-1">
+			<a class="btn btn-default pull-left" id="" href="#" ng-click='back()' title="Go Back" target="_self"><i class="fa fa-arrow-left"></i></a>
+		</div>
+
+		<div class="col-xs-8 col-sm-10 col-md-10">
+			<h3 class="category">{{items[0].Type | capitalize}}</h3>
+			<p class="caption">Select Product</p>
+		</div>
+
+		<div class="col-xs-2 col-sm-1 col-md-1">
+			<!-- <a class="btn btn-default pull-right" id="" href="#/pos/{{item.typeField | makeSlug}}/all" title=" " target="_self"><i class="fa fa-th"></i> View All</a> -->
+		</div>
+		<div class="clearfix"></div>
+		<hr/>
+	</div>
+
+	<div>
+		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+	</div>
+
+	<div ng-repeat="item in items" class="col-xs-4 col-sm-2 col-md-2 col">
+	<!-- | filter: items.category | limitTo: items.limit | orderBy: orderItems -->
+			<figure >
+				<a href="#/pos/{{item.MainCategory}}/{{item.Code}}" class="">
+					<img class="img-responsive thumbnail" ng-src="{{item.ImageUrl}}" alt="{{item.Name}}"/>
+				</a>
+			</figure>
+		</div>
+	</div>
+</div> <!-- .row -->

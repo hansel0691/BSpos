@@ -1,0 +1,33 @@
+<!-- _index-countries.html -->
+
+<div class="list-view" id="indexCountries">
+
+	<div class="inner-nav" ng-show="!loadingTracker.active()">
+		<div inner-nav-filters></div>
+	</div>
+
+	<div class="text-center alpha" ng-if="useAcronym" ng-show="showAcronym" ng-show="!loadingTracker.active()">
+		<hr/ ng-show="!loadingTracker.active()">
+		<button class="btn btn-default repeated-item" ng-repeat="item in alpha | orderBy:'Char'" ng-click="setFilter(item.Char)" ng-class="activeClass(item.Char)" ng-disabled="item.Enable ? '': 'disabled'">{{item.Char}}</button>
+		<input class="" id="" ng-model="letter" type="hidden">
+		<hr/ ng-show="!loadingTracker.active()">
+	</div>
+
+	<div>
+		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+	</div>
+
+	<div class="row">
+		<div ng-repeat="item in items | firstLetter:letter" class="col-xs-6 col-sm-4 col-md-4 repeated-item">
+			<figure class="btn">
+				<a href="#/pos/category/{{category}}/country/{{item.CountryCode}}" class="">
+					<div class="f32">
+						<span class="flag" ng-class="item.ShortCountryCode" country-cc="item.CountryCode"></span>
+						<span class="text">{{item.Name}}</span>
+					</div>
+				</a>
+			</figure>
+		</div>
+	</div>
+
+</div>

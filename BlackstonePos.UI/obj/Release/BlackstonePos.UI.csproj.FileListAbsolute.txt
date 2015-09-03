@@ -1,0 +1,7 @@
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\bin\BlackstonePos.UI.dll.config
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\bin\BlackstonePos.UI.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\bin\BlackstonePos.UI.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\obj\Release\BlackstonePos.UI.csprojResolveAssemblyReference.cache
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\obj\Release\BlackstonePos.UI.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\obj\Release\BlackstonePos.UI.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\bin\bin\AutoMapper.Net4.dll

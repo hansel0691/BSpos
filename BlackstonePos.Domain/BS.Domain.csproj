@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F6AAFDD-DD5E-43B5-A2D7-30256ED5DFF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlackstonePos.Domain</RootNamespace>
+    <AssemblyName>BlackstonePos.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Metele.common">
+      <HintPath>..\..\MeteleUSA(SourceTree)\Metele.common\bin\Debug\Metele.common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\Repositories\IAchPaymentRepository.cs" />
+    <Compile Include="Contracts\Repositories\IAchTransactionRepository.cs" />
+    <Compile Include="Contracts\Repositories\IApplicantRepository.cs" />
+    <Compile Include="Contracts\Repositories\IAppLogoRepository.cs" />
+    <Compile Include="Contracts\Repositories\IBaseRepository.cs" />
+    <Compile Include="Contracts\Repositories\ICashierRepository.cs" />
+    <Compile Include="Contracts\Repositories\IFullCargaSmsTemplatesRepository.cs" />
+    <Compile Include="Contracts\Repositories\IGuestRepository.cs" />
+    <Compile Include="Contracts\Repositories\ILogRepository.cs" />
+    <Compile Include="Contracts\Repositories\IOrderRepository.cs" />
+    <Compile Include="Contracts\Repositories\IPaxTerminalPosRepository.cs" />
+    <Compile Include="Contracts\Repositories\IPosMerchantHeader.cs" />
+    <Compile Include="Contracts\Repositories\IPromotionsRepository.cs" />
+    <Compile Include="Contracts\Repositories\ISettingRepository.cs" />
+    <Compile Include="Contracts\Services\IBlackstonePosService.cs" />
+    <Compile Include="Models\DenominationsConfig.cs" />
+    <Compile Include="Exceptions\CustomExceptions.cs" />
+    <Compile Include="Exceptions\UnAuthorizedException.cs" />
+    <Compile Include="Models\AchPayment.cs" />
+    <Compile Include="Models\AchTransaction.cs" />
+    <Compile Include="Models\ApiClient.cs" />
+    <Compile Include="Models\Applicant.cs" />
+    <Compile Include="Models\AppLogoUrl.cs" />
+    <Compile Include="Models\Comparers\CashierComparer.cs" />
+    <Compile Include="Models\Comparers\InitialComparer.cs" />
+    <Compile Include="Models\DomainCommonValues.cs" />
+    <Compile Include="Models\Comparers\CarrierComparer.cs" />
+    <Compile Include="Models\Comparers\CountryComparer.cs" />
+    <Compile Include="Models\Comparers\ProductItemComparer.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\FullCargaSmsTemplate.cs" />
+    <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\Initial.cs" />
+    <Compile Include="Models\OrderRequest.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
+    <Compile Include="Models\PosBillPaymentRequest.cs" />
+    <Compile Include="Models\PosCategory.cs" />
+    <Compile Include="Models\PosCredentials.cs" />
+    <Compile Include="Models\PosLoginRequest.cs" />
+    <Compile Include="Models\PosMerchantHeader.cs" />
+    <Compile Include="Models\PosProductRequest.cs" />
+    <Compile Include="Models\PosRequest.cs" />
+    <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Models\BrokerResponse.cs" />
+    <Compile Include="Models\Cashier.cs" />
+    <Compile Include="Models\PosTransactionType.cs" />
+    <Compile Include="Models\ProductItem.cs" />
+    <Compile Include="Models\DataResponse.cs" />
+    <Compile Include="Models\DocumentsInquiryRequest.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Promotion.cs" />
+    <Compile Include="Models\ReceiptResponse.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\SunpassReplenishmentRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,46 @@
+<!-- pos products -->
+<div class="column-view" id="indexCountries">
+	<div class="inner-nav">
+		<ul class="nav nav-pills">
+			<li role="presentation" class="" ng-class="isMostPopular ? 'disabled' : ''">
+				<a href="#/pos/category/{{category}}">Most Popular</a>
+			</li>
+			<li role="presentation" class="pull-right">
+				<ul class="nav nav-pills">
+					<li role="presentation" class="disabled">
+						<a class="" id="" title="Select Country" target="_self">Select Country</a>
+					</li>
+					<li role="presentation" class="">
+						<a class="" id="" title="Go Back" target="_self" ng-click="showFilter()">Filter Countries</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<div>
+		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+	</div>
+
+	<div class="text-center alpha" ng-show="showAcronymFilter">
+		<hr/>
+		<a class="btn btn-default" ng-repeat="(index, value) in alpha | orderBy:value" class="" ng-click="setFilter(value)" ng-class="activeClass(value)">{{value | capitalize}}</a>
+		<!-- <a class="btn btn-primary" ng-click="setFilter('')" ng-class="activeClass('')"><i class="fa fa-times"></i></a> -->
+		<input class="" id="" ng-model="letter" type="hidden">
+		<hr/>
+	</div>
+
+	<div class="row">
+		<div ng-repeat="item in items | firstLetter:letter" class="col-xs-6 col-sm-4 col-md-4 item">
+	<!-- | filter: items.category | limitTo: items.limit | orderBy: orderItems -->
+			<figure class="btn">
+				<a href="#/pos/category/longdistance/country/{{item.Name}}" class="">
+					<div class="f32">
+						<span class="flag" ng-class="item.CountryCode" country-cc="item.CountryCode"></span>
+						<span class="text">{{item.Name}}</span>
+					</div>
+				</a>
+			</figure>
+		</div> <!-- .row -->
+	</div>
+</div>

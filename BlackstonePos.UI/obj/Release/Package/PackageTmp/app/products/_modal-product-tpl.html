@@ -1,0 +1,32 @@
+<!-- modal -->
+<div class="modal-footer" pull-right>
+	<div class="form-inline" >
+		<input type="text" class="form-control" placeholder="Search term" ng-model="searchText">
+		<button class="btn btn-default"
+			data-ng-click="close();"><i class="fa fa-times"></i> {{modalOptions.closeButtonText}}
+		</button>
+	</div>
+
+	<!-- <h3>{{modalOptions.headerText}}</h3> -->
+</div>
+
+<div class="modal-body">
+	<div >
+		<table class="table">
+			<thead>
+				<tr>
+					<th ng-repeat="(key, value) in items[0]">{{key | ordinal}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items | filter:searchText">
+					<td ng-repeat="(key, value) in item">{{value}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- {{item | json}} -->
+</div>
+<div class="modal-footer" >
+</div>

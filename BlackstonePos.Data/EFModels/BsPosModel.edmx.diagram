@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e64d781293d04705b68fe968da8e1347" Name="Diagram1">
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.AchPayment" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.AchTransaction" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.Applicant" Width="1.5" PointX="0.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.Cashier" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.Guest" Width="1.5" PointX="4.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.Log" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.Order" Width="1.5" PointX="6.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.PaxPosOrderRequest" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.PaxPosOrderResult" Width="1.5" PointX="0.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.PaxPosPendingOrder" Width="1.5" PointX="2.375" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.Product_ActionMapping" Width="1.5" PointX="8.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.Setting" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.cashiers_backup" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.pos_mainproducts" Width="1.5" PointX="4.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.view_cashiers" Width="1.5" PointX="4.5" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="BlackstonePos_NewModel.FK_AchTransactions_AchTransactions" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.AppLogoUrl" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BlackstonePos_NewModel.FullCargaSmsTemplate" Width="1.5" PointX="9.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

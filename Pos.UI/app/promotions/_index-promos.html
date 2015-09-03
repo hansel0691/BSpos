@@ -1,0 +1,20 @@
+<!-- _index-promotions.html -->
+
+<div class="" id="showProductView">
+
+	<!-- {{items | json}} -->
+
+	<div>
+		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+	</div>
+
+	<div class="row grid-view" id="indexCategory">
+		<div ng-repeat="item in items" class="col-xs-4 col-sm-4 col-md-4 col">
+		<!-- | firstLetter:letter -->
+			<a href="#/pos/category/{{item.MainCategory}}/product/{{ item.Code }}" class="">
+				<img class="img-responsive" ng-src="{{item.ImageUrl}}" alt="{{item.ImageText}}"/>
+			</a>
+				<p class="title text-center">{{item.ImageText | limitTo: 10}} <a class="label label-promo" id="" href="" tooltip="{{item.ImageText}}">Read More</a></p>
+		</div>
+	</div> <!-- .row -->
+</div>

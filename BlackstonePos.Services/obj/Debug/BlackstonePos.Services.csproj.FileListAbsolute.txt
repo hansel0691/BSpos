@@ -1,0 +1,5 @@
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\BlackstonePos.Services\bin\Debug\BlackstonePos.Services.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\BlackstonePos.Services\bin\Debug\BlackstonePos.Services.pdb
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\BlackstonePos.Services\obj\Debug\BlackstonePos.Services.csprojResolveAssemblyReference.cache
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\BlackstonePos.Services\obj\Debug\BlackstonePos.Services.dll
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.UI\BlackstonePos.Services\obj\Debug\BlackstonePos.Services.pdb

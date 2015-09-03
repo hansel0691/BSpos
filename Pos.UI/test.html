@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="posApp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="Virtual Office | My Account">
+		<link rel="shortcut icon" href="Images/src/favicon.png">
+
+		<title>Blackstone POS | Home </title>
+
+		<!-- Custom CSS-->
+		<link href="Content/styles.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!-- [if lt IE 9]>
+			<script src="Scripts/html5shiv.js"></script>
+		<![endif] -->
+
+		<!-- IE10 Mobile for Windows 8 or Windows Phone 8 -->
+		<script>
+			if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+				var msViewportStyle = document.createElement("style")
+				msViewportStyle.appendChild(
+					document.createTextNode(
+							"@-ms-viewport{width:auto!important}"
+						 )
+					)
+					document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+			}
+		</script>
+	</head>
+
+<body class="ng-cloak" id="" ng-controller="MainCtrl" ng-cloak>
+	<!-- info nav -->
+	<div class="container hidden-print" ng-if="showNav">
+		<div class="top-nav-var" class="">
+			<ul class="nav nav-pills">
+				<li role="presentation" class="show-home" ng-show="showHome" ng-class="isCurrentPath('/')">
+					<a href="#/">Home</a>
+				</li>
+				<li role="presentation" class="" ng-if="showHome">
+					<a ng-click='back()' title="Go Back" target="_self"><i class="fa fa-arrow-left"></i></a>
+				</li>
+
+				<li role="presentation" ng-show="viewInfo.show" class="show-info">
+					<div class="title">
+						<strong>{{viewInfo.title | uppercase}}<span ng-if="country"> : {{country}}</span></strong>
+					</div>
+					<div class="caption" ng-if="viewInfo.instruction">{{viewInfo.instruction}}</div>
+				</li>
+
+				<li role="presentation" class="pull-right">
+					<ul class="nav nav-pills">
+						<li role="presentation">
+						    <a  class="nav-icon" snap-toggle="right" ng-click="openAccountModal()" ng-show="!isOpenAdmin"><i class="fa fa-user" ng-class="isOpenSnap ? 'fa-times' : 'fa-user'"></i> My Account</a>
+                            <strong>Customer Service:</strong> {{merchant.userInfo.CustomerService}}
+						</li>
+
+					</ul>
+				</li>
+			</ul>
+			<hr class="">
+		</div>
+	</div>
+
+	<section class="" id="main" style="height:90%;">
+		<!-- loading spin -->
+		<div class="loading-box" ng-show="loadingTracker.active()">
+			<div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation ng-hide" ng-show="loadingTracker.active()"></div>
+			<div ng-include src="'./app/shared/_angular-busy-spin-tpl.html'"></div>
+		</div>
+
+		<!-- main partial view -->
+		<div class="container ng-cloak view-animation" ng-view ng-cloak> </div>
+	</section>
+
+
+	<!-- Angular -->
+	<!-- // <script src="Scripts/scripts.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="packages-ui/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="packages-ui/angular-animate/angular-animate.js" type="text/javascript" charset="utf-8"></script>
+	<script src="packages-ui/angular-bootstrap/ui-bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<script src="packages-ui/angular-bootstrap/ui-bootstrap-tpls.js" type="text/javascript" charset="utf-8"></script>
+	<script src="packages-ui/angular-resource/angular-resource.js" type="text/javascript" charset="utf-8"></script>
+	<script src="packages-ui/angular-route/angular-route.js" type="text/javascript" charset="utf-8"></script>
+	<!-- <script src="packages-ui/angular-sanitize/angular-sanitize.min.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="packages-ui/angular-local-storage/dist/angular-local-storage.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- snaps -->
+	<!-- <script src="packages-ui/angular-snap/angular-snap.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- <script src="packages-ui/snapjs/snap.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- ng-pageslide -->
+	<!-- <script src="packages-ui/ng-pageslide/dist/angular-pageslide-directive.js" type="text/javascript" charset="utf-8"></script> -->
+
+	<!-- promise tracker -->
+	<script src="packages-ui/angular-promise-tracker/promise-tracker.js" type="text/javascript" charset="utf-8"></script>
+	<script src="packages-ui/angular-promise-tracker/promise-tracker-http-interceptor.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- Application -->
+	<script src="app/app.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/admin/adminCtrl.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/login/loginCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/login/loginServices.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/home/homeCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/products/showProductCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/products/showTermsCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/products/indexByCategoryCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/products/IndexByCategoryByCountryCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/products/IndexByCategoryByCarrierCtrl.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/products/IndexCountriesByCategoryCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/products/indexWirelessCarriersCtrl.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/products/productsServices.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/promotions/promosCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/promotions/promosServices.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/shared/sharedCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/shared/sharedDirectives.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/shared/sharedFilters.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/shared/sharedServices.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/shared/sharedFunctions.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- SunPass -->
+	<script src="app/sunpass/sunpassCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/sunpass/sunpassServices.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- DirectTv -->
+	<script src="app/directtv/directTvCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/directtv/directTvServices.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- Others -->
+	<script src="app/others/othersCtrl.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="app/billpayment/indexByCategoryBillPaymentCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/billpayment/indexCategoriesBillPaymentCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/billpayment/indexByPopularBillPaymentCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/billpayment/showBillPaymentCtrl.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/billpayment/billPaymentServices.js" type="text/javascript" charset="utf-8"></script>
+
+
+	<!--script to measure viewport to match media queries-->
+	<script>
+		function viewport() {
+			var e = window, a = 'inner';
+			if (!('innerWidth' in window )) {
+				a = 'client';
+				e = document.documentElement || document.body;
+			}
+			return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+		}
+	</script>
+	</body>
+</html>

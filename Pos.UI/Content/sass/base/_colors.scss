@@ -1,0 +1,42 @@
+// Custom colors
+// -------------------------
+$blue:						#0655A5;
+$light-bg:					#ffffff;
+$white: 					#ffffff;
+$dark: 						#1C2339;
+$black: 						#000;
+
+$brand-secundary:               #ce0004;
+
+$brand-primary-light:           lighten($brand-primary, 25%);
+$brand-primary-lighter:         lighten($brand-primary, 35%);
+
+$btn-lang-color: 			$brand-secundary;
+$btn-lang-bg: 				lighten($brand-secundary, 55%);
+$btn-lang-border: 			darken($btn-lang-bg, 10%);
+
+$btn-close-color: 			$brand-secundary;
+$btn-close-bg: 				transparent;
+$btn-close-border: 			transparent;
+
+$btn-secundary-color: 			$brand-secundary;
+$btn-secundary-bg: 				lighten($brand-secundary, 55%);
+$btn-secundary-border: 			darken($btn-secundary-bg, 10%);
+
+$panel-secundary-border:		lighten($brand-secundary, 55%);
+$panel-secundary-text:			$white;
+$panel-secundary-heading-bg:	lighten($brand-secundary, 25%);;
+
+// alert danger alias
+$alert-error-bg: $alert-danger-bg;
+$alert-error-border: $alert-danger-border;
+$alert-error-text: $alert-danger-text;
+
+$brand-1: #8900D0;
+$brand-2: #27B3AD;
+$brand-3: #CD3244;
+$brand-4: #E97517;
+$brand-5: #0E83E5;
+$brand-6: #DA197C;
+$brand-7: #8FCA5C;
+$brand-8: #6666FF;

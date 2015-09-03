@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlackstonePos_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="AchPayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantId" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoutingNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Saved" Type="bit" />
+  </EntityType>
+  <EntityType Name="AchTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeSpan" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Applicants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cashiers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MerchantId" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="IsMerchant" Type="bit" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Thread" Type="nvarchar(max)" />
+    <Property Name="Level" Type="nvarchar(max)" />
+    <Property Name="Logger" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="Exception" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantId" Type="int" />
+    <Property Name="ProductId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductMainCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="TransactionID" Type="int" />
+    <Property Name="PinID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PinNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="ControlNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuthorizationCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ErrorMessage" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="MerchantId" />
+    </Key>
+    <Property Name="MerchantId" Type="int" Nullable="false" />
+    <Property Name="ConfirmPhone" Type="bit" />
+    <Property Name="Tax" Type="money" />
+    <Property Name="SmallReceipt" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'BlackstonePos_New.dbo.Promotions' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Promotions">
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="SmallImageText" Type="nvarchar(max)" />
+        </EntityType>-->
+  <Association Name="FK_AchTransactions_AchTransactions">
+    <End Role="AchPayments" Type="Self.AchPayments" Multiplicity="0..1" />
+    <End Role="AchTransactions" Type="Self.AchTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AchPayments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AchTransactions">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BlackstonePos_ModelStoreContainer">
+    <EntitySet Name="AchPayments" EntityType="Self.AchPayments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AchTransactions" EntityType="Self.AchTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cashiers" EntityType="Self.Cashiers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AchTransactions_AchTransactions" Association="Self.FK_AchTransactions_AchTransactions">
+      <End Role="AchPayments" EntitySet="AchPayments" />
+      <End Role="AchTransactions" EntitySet="AchTransactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

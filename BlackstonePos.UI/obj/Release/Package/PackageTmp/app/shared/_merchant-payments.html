@@ -1,0 +1,85 @@
+	<div id="makePayment">
+                              
+		                        <div id="newPaymentForm">
+		                         <alert ng-repeat="alert in paymentAlerts" type="{{alert.type}}" close="closePaymentAlerts()">
+		                         	{{ alert.msg}}</alert>
+		                        	<h5>Make a Payment</h5>
+
+								<div class="alert alert-danger" ng-show="addFunds.$invalid && !addFunds.$pristine">
+									<div ng-if="addFunds.account.$error.required || addFunds.account.$error.pattern && !addFunds.account.$pristine">Check Account Number input!</div>
+									<div ng-if="addFunds.routing.$error.required || addFunds.routing.$error.pattern && !addFunds.routing.$pristine">Check Amount Routing input!</div>
+									<div ng-if="addFunds.amount.$error.required || addFunds.amount.$error.pattern && !addFunds.amount.$pristine">Check Amount input!</div>
+								</div>
+
+
+								<form name="addFunds" ng-submit="submitForm(addFunds.$valid)" role="form" id="addFunds" class="form-inline" novalidate>
+									<div class="form-group" ng-class="{'has-error' : submitted && addFunds.account.$error.required || addFunds.account.$error.pattern}">
+										<!-- <label for="account">Account Number</label> -->
+										<input type="text" class="form-control" id="account" name="account" placeholder="Account Number"
+											ng-model="payment.AccountNumber"
+											ng-minlength="8"
+											ng-maxlength="9"
+											pattern="^[-\d]+$"
+											ng-required="true">
+										<!-- <span class="error" ng-show="addFunds.account.$error.required">Required!</span> -->
+									</div>
+
+									<div class="form-group" ng-class="{'has-error' : submitted && addFunds.routing.$error.required || addFunds.routing.$error.pattern}">
+										<!-- <label for="routing">Routing Number</label> -->
+										<input type="text" class="form-control" id="routing" name="routing" placeholder="Routing Number"
+											ng-model="payment.RoutingNumber"
+											ng-minlength="8"
+											ng-maxlength="9"
+											pattern="^[-\d]+$"
+											ng-required="true">
+										<!-- <span class="error" ng-show="addFunds.routing.$error.required">Required!</span> -->
+									</div>
+
+									<div class="form-group" ng-class="{'has-error' : submitted && addFunds.amount.$error.required || addFunds.amount.$error.pattern}">
+										<!-- <label for="amount">Amount</label> -->
+										<input type="text" class="form-control" id="amount" name="amount" placeholder="Amount"
+											ng-model="payment.Amount"
+											ng-minlength="1"
+											ng-maxlength="3"
+											pattern="^[-\d]+$"
+											ng-required="true">
+										<!-- <span class="error" ng-show="addFunds.amount.$error.required">Required!</span> -->
+									</div>
+
+									<div class="checkbox" id="save">
+										<label>
+											<input type="checkbox"
+												ng-model="payment.SaveAccount"> Save
+										</label>
+									</div>
+
+									<button type="submit" class="btn btn-primary text-right"
+										ng-disabled="addFunds.$invalid"
+										ng-click="addAchFunds()"> Pay
+									</button>
+								</form>
+		                         <div class="padd" id="achs">
+								<h5>Select Saved Account</h5>
+								<table class="table table-condensed">
+									<thead>
+										<tr>
+											<th>Account Number</th>
+											<th>Routing Number</th>
+											<th>Saved On</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="ach in achs" id="ach.Id" ng-click = "setSelectedPayment()">
+											<td>{{ach.AccountNumber}}</td>
+											<td>{{ach.RoutingNumber}}</td>
+											<td>{{ach.TimeStamp | date}}</td>
+										</tr>
+									</tbody>
+								</table>
+	                            </div>
+
+							
+							</div>
+
+							<hr>
+							</div>

@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlackstonePos_NewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="AchPayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantId" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoutingNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Saved" Type="bit" />
+  </EntityType>
+  <EntityType Name="AchTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeSpan" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Applicants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AppLogoUrls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandKey" Type="nvarchar(max)" />
+    <Property Name="BrandAppLogoUrl" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Cashiers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MerchantId" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="IsMerchant" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BlackstonePos_New.dbo.cashiers_backup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="cashiers_backup">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="MerchantId" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MerchantId" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="IsMerchant" Type="bit" />
+  </EntityType>
+  <EntityType Name="FullCargaSmsTemplates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="SmsTemplate" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Guests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Thread" Type="nvarchar(max)" />
+    <Property Name="Level" Type="nvarchar(max)" />
+    <Property Name="Logger" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="Exception" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantId" Type="int" />
+    <Property Name="TerminalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductMainCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="TransactionID" Type="int" />
+    <Property Name="PinID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PinNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="ControlNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuthorizationCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="BillerId" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comission" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Source" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmationPhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmationMessage" Type="nvarchar(max)" />
+    <Property Name="Refunded" Type="bit" />
+  </EntityType>
+  <EntityType Name="PaxPosOrderRequests">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="CashierId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="int" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorId" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="AltAccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddInfo1" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddInfo2" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SenderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LicensePlate" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalAmount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorPaymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="VendorRemitTimming" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fee" Type="float" />
+    <Property Name="PurchaseId" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentKeyWord" Type="nvarchar" MaxLength="10" />
+    <Property Name="OrderStatus" Type="bit" />
+    <Property Name="HasAccessNumbers" Type="bit" />
+    <Property Name="HasSunPassDocuments" Type="bit" />
+  </EntityType>
+  <EntityType Name="PaxPosOrderResults">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Ticket" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PaxPosPendingOrders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantId" Type="int" />
+    <Property Name="TerminalId" Type="int" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="OrderStatus" Type="bit" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" />
+    <Property Name="OrderExpirationDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Product_ActionMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaxTerminalExecution" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="MerchantId" />
+    </Key>
+    <Property Name="MerchantId" Type="int" Nullable="false" />
+    <Property Name="ConfirmPhone" Type="bit" />
+    <Property Name="Tax" Type="money" />
+    <Property Name="SmallReceipt" Type="bit" />
+    <Property Name="PaxTerminalAsPrinter" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BlackstonePos_New.dbo.pos_mainproducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="pos_mainproducts">
+    <Key>
+      <PropertyRef Name="merchant_pk" />
+      <PropertyRef Name="prdDescription" />
+      <PropertyRef Name="prdActive" />
+    </Key>
+    <Property Name="merchant_pk" Type="int" Nullable="false" />
+    <Property Name="prdDescription" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="prdActive" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BlackstonePos_New.dbo.view_cashiers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_cashiers">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="MerchantId" />
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="MerchantTerminalID" />
+      <PropertyRef Name="TodaySales" />
+      <PropertyRef Name="DailyCreditLimit" />
+      <PropertyRef Name="WeeklyCreditLimit" />
+      <PropertyRef Name="MerchantBusinessName" />
+      <PropertyRef Name="MerchantBusinessAddress" />
+      <PropertyRef Name="MerchantBusinessPhone" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="MerchantId" Type="int" Nullable="false" />
+    <Property Name="MerchantPassword" Type="varchar" MaxLength="20" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="IsMerchant" Type="bit" />
+    <Property Name="MerchantTerminalID" Type="int" Nullable="false" />
+    <Property Name="MerchantProfileID" Type="int" />
+    <Property Name="TodaySales" Type="decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DailyCreditLimit" Type="money" Nullable="false" />
+    <Property Name="WeeklyCreditLimit" Type="money" Nullable="false" />
+    <Property Name="DaylyBalance" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="WeeklyBalance" Type="money" />
+    <Property Name="MerchantBusinessName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MerchantBusinessAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MerchantBusinessPhone" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="isFullcarga" Type="int" />
+  </EntityType>
+  <Association Name="FK_AchTransactions_AchTransactions">
+    <End Role="AchPayments" Type="Self.AchPayments" Multiplicity="0..1" />
+    <End Role="AchTransactions" Type="Self.AchTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AchPayments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AchTransactions">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="getPromotios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_get_merchant_commission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="merchant_fk" Type="int" Mode="In" />
+    <Parameter Name="product_sbt" Type="varchar" Mode="In" />
+    <Parameter Name="pro_amount" Type="money" Mode="In" />
+    <Parameter Name="pro_fee" Type="money" Mode="In" />
+  </Function>
+  <EntityContainer Name="BlackstonePos_NewModelStoreContainer">
+    <EntitySet Name="AchPayments" EntityType="Self.AchPayments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AchTransactions" EntityType="Self.AchTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppLogoUrls" EntityType="Self.AppLogoUrls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cashiers" EntityType="Self.Cashiers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FullCargaSmsTemplates" EntityType="Self.FullCargaSmsTemplates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guests" EntityType="Self.Guests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaxPosOrderRequests" EntityType="Self.PaxPosOrderRequests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaxPosOrderResults" EntityType="Self.PaxPosOrderResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaxPosPendingOrders" EntityType="Self.PaxPosPendingOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_ActionMapping" EntityType="Self.Product_ActionMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cashiers_backup" EntityType="Self.cashiers_backup" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[cashiers_backup].[Id] AS [Id], 
+[cashiers_backup].[Name] AS [Name], 
+[cashiers_backup].[Password] AS [Password], 
+[cashiers_backup].[MerchantId] AS [MerchantId], 
+[cashiers_backup].[TimeStamp] AS [TimeStamp], 
+[cashiers_backup].[Status] AS [Status], 
+[cashiers_backup].[IsMerchant] AS [IsMerchant]
+FROM [dbo].[cashiers_backup] AS [cashiers_backup]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="pos_mainproducts" EntityType="Self.pos_mainproducts" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[pos_mainproducts].[merchant_pk] AS [merchant_pk], 
+[pos_mainproducts].[prdDescription] AS [prdDescription], 
+[pos_mainproducts].[prdActive] AS [prdActive]
+FROM [dbo].[pos_mainproducts] AS [pos_mainproducts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_cashiers" EntityType="Self.view_cashiers" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[view_cashiers].[Id] AS [Id], 
+[view_cashiers].[Name] AS [Name], 
+[view_cashiers].[Password] AS [Password], 
+[view_cashiers].[MerchantId] AS [MerchantId], 
+[view_cashiers].[MerchantPassword] AS [MerchantPassword], 
+[view_cashiers].[TimeStamp] AS [TimeStamp], 
+[view_cashiers].[Status] AS [Status], 
+[view_cashiers].[IsMerchant] AS [IsMerchant], 
+[view_cashiers].[MerchantTerminalID] AS [MerchantTerminalID], 
+[view_cashiers].[MerchantProfileID] AS [MerchantProfileID], 
+[view_cashiers].[TodaySales] AS [TodaySales], 
+[view_cashiers].[DailyCreditLimit] AS [DailyCreditLimit], 
+[view_cashiers].[WeeklyCreditLimit] AS [WeeklyCreditLimit], 
+[view_cashiers].[DaylyBalance] AS [DaylyBalance], 
+[view_cashiers].[WeeklyBalance] AS [WeeklyBalance], 
+[view_cashiers].[MerchantBusinessName] AS [MerchantBusinessName], 
+[view_cashiers].[MerchantBusinessAddress] AS [MerchantBusinessAddress], 
+[view_cashiers].[MerchantBusinessPhone] AS [MerchantBusinessPhone], 
+[view_cashiers].[isFullcarga] AS [isFullcarga]
+FROM [dbo].[view_cashiers] AS [view_cashiers]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AchTransactions_AchTransactions" Association="Self.FK_AchTransactions_AchTransactions">
+      <End Role="AchPayments" EntitySet="AchPayments" />
+      <End Role="AchTransactions" EntitySet="AchTransactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

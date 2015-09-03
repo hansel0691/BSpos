@@ -1,0 +1,164 @@
+<!-- <div class="row">
+	<div class="col-xs-12 col-sm-4 col-md-4" id="">
+		<div class="logo">
+			<img class="img-responsive" src="Images/src/pos-logo.png" alt="">
+		</div>
+	</div>
+	<div class="col-xs-6 col-sm-8 col-md-8" id=""></div>
+</div> -->
+
+<p class="hidden-xs">&nbsp;</p>
+
+<div class="row">
+	<div class="col-xs-12 " id="">
+		<div class="apply-today">
+			<span class="lead">Become a Retailer!</span>&nbsp;&nbsp;
+			<a class="text-secundary toggle-application" href="" title="APPLY TODAY" ng-click="toggleApplication()">
+				<span class="h2"><span class="title" ng-show="isApplying == true"><i class="fa fa-sign-in"></i> LOGIN</span>
+				<span class="title" ng-hide="isApplying == true">APPLY TODAY <i class="fa fa-bolt"></i></span></span>
+			</a>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-push-8">
+
+		<div class="" id="login">
+			<div class="panel-heading">
+				<h3 ng-hide="isApplying == true">Login</h3>
+				<h3 ng-show="isApplying == true">Apply</h3>
+			</div>
+
+			<div class="panel-body">
+				<div>
+					<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+				</div>
+
+				<!-- login form -->
+				<form name="loginForm" ng-submit="submitForm(userForm.$valid)" role="form" id="form" novalidate ng-hide="isApplying == true">
+					<div class="form-group" ng-class="{'has-error' : submitted && loginForm.password.$error.required}">
+						<label for="user">User ID</label>
+						<span class="label label-danger" data-ng-show="submitted && loginForm.user.$error.required">Required!</span>
+						<input type="text" class="form-control" id="userField" name="user" placeholder="User ID"
+							ng-model="name"
+							ng-required="true"
+							required >
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && loginForm.password.$error.required}">
+						<label for="exampleInputPassword1">Password</label>
+						<span class="label label-danger" data-ng-show="submitted && loginForm.password.$error.required">Required!</span>
+						<input type="password" class="form-control" id="passField" name="password" placeholder="Password"
+							ng-model="password"
+							ng-minlength="3"
+							ng-maxlength="8"
+							ng-required="true"
+							required >
+					</div>
+					<button data-ng-disabled="progress.active()" data-ng-click="submitLogin(loginForm)" class="btn btn-primary"></i> Log In</button>
+				</form>
+
+
+				<!-- Application form -->
+				<form name="applicationForm" ng-submit="submitForm(applicationForm.$valid)" role="form" id="form" novalidate ng-show="isApplying">
+
+					<div class="form-group">
+						<strong><p class="form-control-static">Start selling products and services that will take your business to another level</p></strong>
+						<p class="">Please complete the information below</p>
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.password.$error.required}">
+						<label for="user">User Name</label>
+						<span class="label label-danger" data-ng-show="submitted && applicationForm.user.$error.required">Required!</span>
+						<input type="text" class="form-control" id="userField" name="user" placeholder="Your Full Name"
+							ng-model="newuser.name"
+							ng-required="true"
+							ng-pattern="/^[a-zA-Z ]+$/"
+							required >
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.phone.$error.required || applicationForm.phone.$error.phoneFormat}">
+						<label for="phone">Telephone</label>
+						<span class="label label-danger" data-ng-show="submitted && applicationForm.phone.$error.required">Required!</span>
+						<input type="phone" class="form-control" id="phone" name="phone" placeholder="Your Phone Number"
+							ng-model="newuser.phone"
+							ng-required="true"
+							ng-pattern="/^[0-9]{10}$/"
+							required >
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.email.$error.required}">
+						<label for="email">Email</label>
+						<span class="label label-danger" data-ng-show="submitted && applicationForm.email.$error.required">Required!</span>
+						<input type="email" class="form-control" id="email" name="email" placeholder="Your Email"
+							ng-model="newuser.email"
+							ng-required="true"
+							ng-pattern="/^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/"
+							required >
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.address.$error.required}">
+						<label for="address">Address</label>
+						<span class="label label-danger" data-ng-show="submitted && applicationForm.address.$error.required">Required!</span>
+						<input type="address" class="form-control" id="address" name="address" placeholder="Your Address"
+							ng-model="newuser.address"
+							ng-required="true"
+							required >
+					</div>
+
+					<div class="form-horizontal">
+						<div class="col-sm-6">
+							<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.state.$error.required}">
+								<label for="state" class="">State</label>
+								<span class="label label-danger" data-ng-show="submitted && applicationForm.state.$error.required">Required!</span>
+								<select class="form-control" id="state" name="state"
+									ng-options="state.abb as state.name for state in states"
+									ng-model="newuser.state"
+									required>
+									<option value="">Select</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="form-group" ng-class="{'has-error' : submitted && applicationForm.zip.$error.required}">
+								<label for="zip" class="">Zip</label>
+								<span class="label label-danger" data-ng-show="submitted && applicationForm.zip.$error.required">Required!</span>
+								<input type="zip" class="form-control" id="zip" name="zip" placeholder="Zip Code"
+									ng-model="newuser.zip"
+									ng-required="true"
+									ng-pattern="/^[0-9]{5}(?:-[0-9]{4})?$/"
+									required >
+							</div>
+						</div>
+					</div>
+
+					<button data-ng-disabled="progress.active()" data-ng-click="applicantSubmit(applicationForm)" class="btn btn-primary">Apply Now</button>
+
+					<p class="form-control-static">All fields are required.</p>
+				</form>
+
+			</div> <!-- .body -->
+		</div> <!-- #login -->
+	</div> <!-- .col- -->
+
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-pull-4">
+		<p>Whether you have a retail location or an e-business, we provide you with the PC and Internet Solutions you need to process payments at virtually any location. Our latest PC and Internet technology solutions can help you stay ahead of the competition with secure online transactions, and turn your existing computer equipment into an income source.<br/></p>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6 repeated-item" id="" ng-repeat="demo in demoAcccess">
+				<div class="demo-access">
+					<!-- loginDemo(demo.category) -->
+					<a class="" ng-click="open(demo.category)" href="#"><img ng-src="{{demo.imageUrl}}" alt="demo.categoryName"></a>
+					<div class="title">{{demo.categoryName}}</div>
+					<div class="caption">
+						<p>{{demo.caption}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

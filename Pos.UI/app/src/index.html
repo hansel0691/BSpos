@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="posApp" ng-controller="MainCtrl">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="Blackstone POS">
+		<link rel="shortcut icon" href="./Images/src/{{comInfo.favicon}}" ng-cloak>
+
+		<title>{{comInfo.title}}</title>
+
+		<!-- Basic CSS-->
+		<!-- inject:css -->
+		<!-- endinject -->
+
+		<!-- [if lt IE 9]><script src="Scripts/html5shiv.js"></script><![endif] -->
+	</head>
+
+	<body class="ng-cloak" id="" ng-class="{ 'fc': isFullCarga }" ng-cloak>
+
+		<div ng-include src="'./app/shared/_header-info-tpl.html'"></div>
+
+		<!-- ng-view content -->
+		<section class="" id="main" style="height:90%;">
+
+			<div class="loading-box" ng-show="loadingTracker.active()">
+				<div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation ng-hide" ng-show="loadingTracker.active()"></div>
+				<div ng-include src="'./app/shared/_angular-busy-spin-tpl.html'"></div>
+			</div>
+
+			<!-- main partial view -->
+			<div class="container ng-cloak view-animation" ng-view ng-cloak> </div>
+		</section>
+
+	<!-- inject:js -->
+	<!-- endinject -->
+	</body>
+</html>

@@ -1,0 +1,14 @@
+<div id='paymentForm'>
+	<form>
+		<label>Checking Number: </label>
+		<input type = 'text' placeholder='Enter Checking Number' ng-model='cashier.name'/>
+		<br>
+		<br>
+		<label>Cashier Password: </label>
+		<input type = 'password' placeholder='Enter Cashier Password' ng-model='cashier.password'/>
+
+		<button class='btn btn-primary' ng-click='saveCashier()'> Submit </button>
+		<button class='btn btn-primary' ng-click='newCashier = !newCashier'> Cancel </button>
+	</form>
+
+</div>

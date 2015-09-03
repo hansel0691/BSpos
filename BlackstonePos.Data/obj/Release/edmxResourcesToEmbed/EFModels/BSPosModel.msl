@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BlackstonePos_NewModelStoreContainer" CdmEntityContainer="BlackstonePos_NewEntities">
+    <EntitySetMapping Name="AchPayments">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.AchPayment">
+        <MappingFragment StoreEntitySet="AchPayments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="RoutingNumber" ColumnName="RoutingNumber" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Saved" ColumnName="Saved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AchTransactions">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.AchTransaction">
+        <MappingFragment StoreEntitySet="AchTransactions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="TimeSpan" ColumnName="TimeSpan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicants">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cashiers">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.Cashier">
+        <MappingFragment StoreEntitySet="Cashiers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsMerchant" ColumnName="IsMerchant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guests">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.Guest">
+        <MappingFragment StoreEntitySet="Guests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Logger" ColumnName="Logger" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="ProductMainCode" ColumnName="ProductMainCode" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="PinID" ColumnName="PinID" />
+          <ScalarProperty Name="PinNumber" ColumnName="PinNumber" />
+          <ScalarProperty Name="ControlNumber" ColumnName="ControlNumber" />
+          <ScalarProperty Name="AuthorizationCode" ColumnName="AuthorizationCode" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="BillerId" ColumnName="BillerId" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Comission" ColumnName="Comission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaxPosOrderRequests">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.PaxPosOrderRequest">
+        <MappingFragment StoreEntitySet="PaxPosOrderRequests">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="CashierId" ColumnName="CashierId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="AltAccountNumber" ColumnName="AltAccountNumber" />
+          <ScalarProperty Name="AddInfo1" ColumnName="AddInfo1" />
+          <ScalarProperty Name="AddInfo2" ColumnName="AddInfo2" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="VendorPaymentType" ColumnName="VendorPaymentType" />
+          <ScalarProperty Name="VendorRemitTimming" ColumnName="VendorRemitTimming" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="PaymentKeyWord" ColumnName="PaymentKeyWord" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="HasAccessNumbers" ColumnName="HasAccessNumbers" />
+          <ScalarProperty Name="HasSunPassDocuments" ColumnName="HasSunPassDocuments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaxPosOrderResults">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.PaxPosOrderResult">
+        <MappingFragment StoreEntitySet="PaxPosOrderResults">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaxPosPendingOrders">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.PaxPosPendingOrder">
+        <MappingFragment StoreEntitySet="PaxPosPendingOrders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderExpirationDate" ColumnName="OrderExpirationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_ActionMapping">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.Product_ActionMapping">
+        <MappingFragment StoreEntitySet="Product_ActionMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="PaxTerminalExecution" ColumnName="PaxTerminalExecution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.Setting">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="ConfirmPhone" ColumnName="ConfirmPhone" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="SmallReceipt" ColumnName="SmallReceipt" />
+          <ScalarProperty Name="PaxTerminalAsPrinter" ColumnName="PaxTerminalAsPrinter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cashiers_backup">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.cashiers_backup">
+        <MappingFragment StoreEntitySet="cashiers_backup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsMerchant" ColumnName="IsMerchant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pos_mainproducts">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.pos_mainproducts">
+        <MappingFragment StoreEntitySet="pos_mainproducts">
+          <ScalarProperty Name="merchant_pk" ColumnName="merchant_pk" />
+          <ScalarProperty Name="prdDescription" ColumnName="prdDescription" />
+          <ScalarProperty Name="prdActive" ColumnName="prdActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_cashiers">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.view_cashiers">
+        <MappingFragment StoreEntitySet="view_cashiers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="MerchantPassword" ColumnName="MerchantPassword" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsMerchant" ColumnName="IsMerchant" />
+          <ScalarProperty Name="MerchantTerminalID" ColumnName="MerchantTerminalID" />
+          <ScalarProperty Name="MerchantProfileID" ColumnName="MerchantProfileID" />
+          <ScalarProperty Name="TodaySales" ColumnName="TodaySales" />
+          <ScalarProperty Name="DailyCreditLimit" ColumnName="DailyCreditLimit" />
+          <ScalarProperty Name="WeeklyCreditLimit" ColumnName="WeeklyCreditLimit" />
+          <ScalarProperty Name="DaylyBalance" ColumnName="DaylyBalance" />
+          <ScalarProperty Name="WeeklyBalance" ColumnName="WeeklyBalance" />
+          <ScalarProperty Name="MerchantBusinessName" ColumnName="MerchantBusinessName" />
+          <ScalarProperty Name="MerchantBusinessAddress" ColumnName="MerchantBusinessAddress" />
+          <ScalarProperty Name="MerchantBusinessPhone" ColumnName="MerchantBusinessPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getPromotios" FunctionName="BlackstonePos_NewModel.Store.getPromotios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BlackstonePos_NewModel.getPromotios_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="SmallImageText" ColumnName="SmallImageText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_merchant_commission" FunctionName="BlackstonePos_NewModel.Store.sp_get_merchant_commission" />
+  </EntityContainerMapping>
+</Mapping>

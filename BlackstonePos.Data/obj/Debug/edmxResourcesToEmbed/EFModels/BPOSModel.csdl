@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlackstonePos_Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="BlackstonePos_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AchTransactions" EntityType="BlackstonePos_Model.AchTransaction" />
+    <EntitySet Name="Cashiers" EntityType="BlackstonePos_Model.Cashier" />
+    <EntitySet Name="Logs" EntityType="BlackstonePos_Model.Log" />
+    <EntitySet Name="Settings" EntityType="BlackstonePos_Model.Setting" />
+    <EntitySet Name="Orders" EntityType="BlackstonePos_Model.Order" />
+    <EntitySet Name="AchPayments" EntityType="BlackstonePos_Model.AchPayment" />
+    <AssociationSet Name="FK_AchTransactions_AchTransactions" Association="BlackstonePos_Model.FK_AchTransactions_AchTransactions">
+      <End Role="AchPayment" EntitySet="AchPayments" />
+      <End Role="AchTransaction" EntitySet="AchTransactions" />
+    </AssociationSet>
+    <EntitySet Name="Applicants" EntityType="BlackstonePos_Model.Applicant" />
+  </EntityContainer>
+  <EntityType Name="AchTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="PaymentId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeSpan" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AchPayment" Relationship="BlackstonePos_Model.FK_AchTransactions_AchTransactions" FromRole="AchTransaction" ToRole="AchPayment" />
+  </EntityType>
+  <EntityType Name="Cashier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MerchantId" Type="Int32" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="IsMerchant" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Thread" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Level" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Logger" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="MerchantId" />
+    </Key>
+    <Property Name="MerchantId" Type="Int32" Nullable="false" />
+    <Property Name="ConfirmPhone" Type="Boolean" />
+    <Property Name="Tax" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SmallReceipt" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MerchantId" Type="Int32" />
+    <Property Name="ProductId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductMainCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionID" Type="Int32" />
+    <Property Name="PinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PinNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ControlNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorizationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AchPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MerchantId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoutingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Saved" Type="Boolean" />
+    <NavigationProperty Name="AchTransactions" Relationship="BlackstonePos_Model.FK_AchTransactions_AchTransactions" FromRole="AchPayment" ToRole="AchTransaction" />
+  </EntityType>
+  <Association Name="FK_AchTransactions_AchTransactions">
+    <End Type="BlackstonePos_Model.AchPayment" Role="AchPayment" Multiplicity="0..1" />
+    <End Type="BlackstonePos_Model.AchTransaction" Role="AchTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AchPayment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AchTransaction">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

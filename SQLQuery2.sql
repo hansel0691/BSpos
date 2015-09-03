@@ -1,0 +1,1 @@
+﻿Select * from Orders order by Id desc

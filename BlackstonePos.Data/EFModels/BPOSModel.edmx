@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BlackstonePos_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="AchPayments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantId" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoutingNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="Saved" Type="bit" />
+        </EntityType>
+        <EntityType Name="AchTransactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentId" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeSpan" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Applicants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cashiers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MerchantId" Type="int" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="IsMerchant" Type="bit" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Thread" Type="nvarchar(max)" />
+          <Property Name="Level" Type="nvarchar(max)" />
+          <Property Name="Logger" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Exception" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantId" Type="int" />
+          <Property Name="ProductId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductMainCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransactionID" Type="int" />
+          <Property Name="PinID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PinNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ControlNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuthorizationCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ErrorMessage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="TimeStamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="MerchantId" />
+          </Key>
+          <Property Name="MerchantId" Type="int" Nullable="false" />
+          <Property Name="ConfirmPhone" Type="bit" />
+          <Property Name="Tax" Type="money" />
+          <Property Name="SmallReceipt" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BlackstonePos_New.dbo.Promotions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Promotions">
+          <Key>
+            <PropertyRef Name="PromoId" />
+          </Key>
+          <Property Name="PromoId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="nvarchar(max)" />
+          <Property Name="Bonus" Type="nvarchar(max)" />
+          <Property Name="BonusSpanish" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="datetime2" Precision="7" />
+          <Property Name="EndDate" Type="datetime2" Precision="7" />
+          <Property Name="CreationTimeStamp" Type="datetime2" Precision="7" />
+          <Property Name="ValidRange" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValidRangeSpanish" Type="nvarchar" MaxLength="50" />
+          <Property Name="TermsConditions" Type="nvarchar(max)" />
+          <Property Name="TermsConditionsSpanish" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="PromoType" Type="int" />
+          <Property Name="LastModifiedTimeStamp" Type="datetime" />
+          <Property Name="RemovedTimeStamp" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="LastModifiedBy" Type="nvarchar(max)" />
+          <Property Name="RemovedBy" Type="nvarchar(max)" />
+          <Property Name="CarrierImage" Type="nvarchar(max)" />
+          <Property Name="Trash" Type="int" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="Carrier" Type="nvarchar(max)" />
+          <Property Name="Country" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_AchTransactions_AchTransactions">
+          <End Role="AchPayments" Type="Self.AchPayments" Multiplicity="0..1" />
+          <End Role="AchTransactions" Type="Self.AchTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AchPayments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AchTransactions">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BlackstonePos_ModelStoreContainer">
+          <EntitySet Name="AchPayments" EntityType="Self.AchPayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AchTransactions" EntityType="Self.AchTransactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cashiers" EntityType="Self.Cashiers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotions" EntityType="Self.Promotions" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Promotions].[PromoId] AS [PromoId], 
+[Promotions].[ProductId] AS [ProductId], 
+[Promotions].[Bonus] AS [Bonus], 
+[Promotions].[BonusSpanish] AS [BonusSpanish], 
+[Promotions].[StartDate] AS [StartDate], 
+[Promotions].[EndDate] AS [EndDate], 
+[Promotions].[CreationTimeStamp] AS [CreationTimeStamp], 
+[Promotions].[ValidRange] AS [ValidRange], 
+[Promotions].[ValidRangeSpanish] AS [ValidRangeSpanish], 
+[Promotions].[TermsConditions] AS [TermsConditions], 
+[Promotions].[TermsConditionsSpanish] AS [TermsConditionsSpanish], 
+[Promotions].[Status] AS [Status], 
+[Promotions].[PromoType] AS [PromoType], 
+[Promotions].[LastModifiedTimeStamp] AS [LastModifiedTimeStamp], 
+[Promotions].[RemovedTimeStamp] AS [RemovedTimeStamp], 
+[Promotions].[CreatedBy] AS [CreatedBy], 
+[Promotions].[LastModifiedBy] AS [LastModifiedBy], 
+[Promotions].[RemovedBy] AS [RemovedBy], 
+[Promotions].[CarrierImage] AS [CarrierImage], 
+[Promotions].[Trash] AS [Trash], 
+[Promotions].[ProductName] AS [ProductName], 
+[Promotions].[Carrier] AS [Carrier], 
+[Promotions].[Country] AS [Country]
+FROM [dbo].[Promotions] AS [Promotions]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AchTransactions_AchTransactions" Association="Self.FK_AchTransactions_AchTransactions">
+            <End Role="AchPayments" EntitySet="AchPayments" />
+            <End Role="AchTransactions" EntitySet="AchTransactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BlackstonePos_Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="BlackstonePos_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AchTransactions" EntityType="BlackstonePos_Model.AchTransaction" />
+          <EntitySet Name="Cashiers" EntityType="BlackstonePos_Model.Cashier" />
+          <EntitySet Name="Logs" EntityType="BlackstonePos_Model.Log" />
+          <EntitySet Name="Settings" EntityType="BlackstonePos_Model.Setting" />
+          <EntitySet Name="Orders" EntityType="BlackstonePos_Model.Order" />
+          <EntitySet Name="AchPayments" EntityType="BlackstonePos_Model.AchPayment" />
+          <AssociationSet Name="FK_AchTransactions_AchTransactions" Association="BlackstonePos_Model.FK_AchTransactions_AchTransactions">
+            <End Role="AchPayment" EntitySet="AchPayments" />
+            <End Role="AchTransaction" EntitySet="AchTransactions" />
+          </AssociationSet>
+          <EntitySet Name="Promotions" EntityType="BlackstonePos_Model.Promotion" />
+          <EntitySet Name="Applicants" EntityType="BlackstonePos_Model.Applicant" />
+        </EntityContainer>
+        <EntityType Name="AchTransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PaymentId" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeSpan" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AchPayment" Relationship="BlackstonePos_Model.FK_AchTransactions_AchTransactions" FromRole="AchTransaction" ToRole="AchPayment" />
+        </EntityType>
+        <EntityType Name="Cashier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MerchantId" Type="Int32" Nullable="false" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="IsMerchant" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Thread" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Logger" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="MerchantId" />
+          </Key>
+          <Property Name="MerchantId" Type="Int32" Nullable="false" />
+          <Property Name="ConfirmPhone" Type="Boolean" />
+          <Property Name="Tax" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SmallReceipt" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantId" Type="Int32" />
+          <Property Name="ProductId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductMainCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionID" Type="Int32" />
+          <Property Name="PinID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PinNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ControlNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorizationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AchPayment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoutingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="Saved" Type="Boolean" />
+          <NavigationProperty Name="AchTransactions" Relationship="BlackstonePos_Model.FK_AchTransactions_AchTransactions" FromRole="AchPayment" ToRole="AchTransaction" />
+        </EntityType>
+        <Association Name="FK_AchTransactions_AchTransactions">
+          <End Type="BlackstonePos_Model.AchPayment" Role="AchPayment" Multiplicity="0..1" />
+          <End Type="BlackstonePos_Model.AchTransaction" Role="AchTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AchPayment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AchTransaction">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="PromoId" />
+          </Key>
+          <Property Name="PromoId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bonus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BonusSpanish" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="7" />
+          <Property Name="EndDate" Type="DateTime" Precision="7" />
+          <Property Name="CreationTimeStamp" Type="DateTime" Precision="7" />
+          <Property Name="ValidRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValidRangeSpanish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TermsConditions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TermsConditionsSpanish" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="PromoType" Type="Int32" />
+          <Property Name="LastModifiedTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="RemovedTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RemovedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarrierImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Trash" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Carrier" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Applicant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BlackstonePos_ModelStoreContainer" CdmEntityContainer="BlackstonePos_Entities">
+          <EntitySetMapping Name="AchTransactions">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.AchTransaction">
+              <MappingFragment StoreEntitySet="AchTransactions">
+                <ScalarProperty Name="TimeSpan" ColumnName="TimeSpan" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cashiers">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.Cashier">
+              <MappingFragment StoreEntitySet="Cashiers">
+                <ScalarProperty Name="IsMerchant" ColumnName="IsMerchant" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.Setting">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="SmallReceipt" ColumnName="SmallReceipt" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="ConfirmPhone" ColumnName="ConfirmPhone" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="AuthorizationCode" ColumnName="AuthorizationCode" />
+                <ScalarProperty Name="ControlNumber" ColumnName="ControlNumber" />
+                <ScalarProperty Name="PinNumber" ColumnName="PinNumber" />
+                <ScalarProperty Name="PinID" ColumnName="PinID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductMainCode" ColumnName="ProductMainCode" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AchPayments">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.AchPayment">
+              <MappingFragment StoreEntitySet="AchPayments">
+                <ScalarProperty Name="Saved" ColumnName="Saved" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="RoutingNumber" ColumnName="RoutingNumber" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promotions">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.Promotion">
+              <MappingFragment StoreEntitySet="Promotions">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Trash" ColumnName="Trash" />
+                <ScalarProperty Name="CarrierImage" ColumnName="CarrierImage" />
+                <ScalarProperty Name="RemovedBy" ColumnName="RemovedBy" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RemovedTimeStamp" ColumnName="RemovedTimeStamp" />
+                <ScalarProperty Name="LastModifiedTimeStamp" ColumnName="LastModifiedTimeStamp" />
+                <ScalarProperty Name="PromoType" ColumnName="PromoType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TermsConditionsSpanish" ColumnName="TermsConditionsSpanish" />
+                <ScalarProperty Name="TermsConditions" ColumnName="TermsConditions" />
+                <ScalarProperty Name="ValidRangeSpanish" ColumnName="ValidRangeSpanish" />
+                <ScalarProperty Name="ValidRange" ColumnName="ValidRange" />
+                <ScalarProperty Name="CreationTimeStamp" ColumnName="CreationTimeStamp" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="BonusSpanish" ColumnName="BonusSpanish" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PromoId" ColumnName="PromoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applicants">
+            <EntityTypeMapping TypeName="BlackstonePos_Model.Applicant">
+              <MappingFragment StoreEntitySet="Applicants">
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="true" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams />
+  </edmx:Designer>
+</edmx:Edmx>
