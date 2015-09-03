@@ -152,7 +152,7 @@
                                ng-class="{true: 'active', false: ''}[additionalPhones[n].isFocused]"
                                ng-readonly='isMobile'
                                ng-model='additionalPhones[n].value'
-                               ng-focus="setFocusedInput('phoneNumber')"
+                               ng-focus="setFocusedInput('additionalPhones', n)"
                                ng-blur="blur=true; focus=false;"
                                data-ng-keypad-input="numeric"
                                data-ng-keypad-restrict="^[0-9]{0,3}$"

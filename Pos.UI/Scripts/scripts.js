@@ -3901,7 +3901,7 @@
 	    // $scope.item = { UseFixedDenominations: true};
 
 
-		$scope.additionalPhones = [{ value: null, isFocused: false }, { value: null, isFocused: false }, { value: null, isFocused: false }];
+		$scope.additionalPhones = [{ value: '', isFocused: false }, { value: '', isFocused: false }, { value: '', isFocused: false }];
 
         
 		$scope.additionalPhoneNumbersAmount = function () {
@@ -4063,60 +4063,139 @@
 			});
 		};
 
-		function setKeyConfirmPhoneNumber(key) {
-			void 0;
-			$scope.phoneMatch.value = $scope.phoneMatch.value + key;
-		}
 
-		function setKeyPhoneNumber(key) {
-			$scope.phoneNumber.value = $scope.phoneNumber.value + key;
-		}
 
-		function setKeyAmount(key) {
-			$scope.amount.value = $scope.amount.value + key;
-		}
+		
+        /*change00*/
 
-		function setAmount(keynum) {
-			void 0;
+        function focused() {
+            if ($scope.amount.isFocused)
+                return $scope.amount;
+            else if ($scope.phoneNumber.isFocused)
+                return $scope.phoneNumber;
+            else if ($scope.phoneMatch.isFocused)
+                return $scope.phoneMatch;
+            else {
+                for (var i = 0; i < $scope.additionalPhones.length; i++) {
+                    var phone = $scope.additionalPhones[i];
+                    if (phone.isFocused)
+                        return phone;
+                }
+            }
+            return null;
+        }
 
-			if($scope.amount.isFocused) {
-				setKeyAmount(keynum);
-			} else if ($scope.phoneNumber.isFocused) {
-				setKeyPhoneNumber(keynum);
-			} else {
-				setKeyConfirmPhoneNumber(keynum);
-			}
-		}
+        $scope.setKey = function (value) {
+            initInputs();
+            
+            void 0;
+            var obj = focused();
+            if (!obj.val)
+                obj.val = '';
+            obj.value += value;
+        };
 
-		function backKeyPhoneNumber() {
-			var length = $scope.phoneNumber.value.length;
+	    $scope.backKey = function () {
+		    initInputs();
+		    var obj = focused();
 
-			var value = $scope.phoneNumber.value;
+		    var length = obj.value.length;
+		    var value = obj.value;
 
-			$scope.phoneNumber.value = value.substring(0, length - 1);
-		}
+		    void 0;
+		    void 0;
 
-		function backKeyPhoneMatch() {
-			var length = $scope.phoneMatch.value.length;
+		    obj.value = value.substring(0, length - 1);
+	    };
+		    
+	    $scope.clearKey = function () {
+	        var obj = focused();
+	        obj.value = '';
 
-			var value = $scope.phoneMatch.value;
+	    };
 
-			void 0;
-			void 0;
 
-			$scope.phoneMatch.value = value.substring(0, length - 1);
-		}
+	    $scope.setFocusedInput = function (inputName, additionalPhoneIndex) {
+	        $scope.phoneNumber.isFocused = false;
+	        $scope.phoneMatch.isFocused = false;
+	        $scope.amount.isFocused = false;
+	        for (var i = 0; i < $scope.additionalPhones.length; i++) {
+	            $scope.additionalPhones[i].isFocused = false;
+	        }
 
-		function backKeyAmount() {
-			var length = $scope.amount.value.length;
+	        var obj = (additionalPhoneIndex != null ? $scope[inputName][additionalPhoneIndex] : $scope[inputName]);
+	        obj.isFocused = true;
+	        void 0;
+	    };
 
-			var value = $scope.amount.value;
+        /*change01*/
 
-			void 0;
-			void 0;
 
-			$scope.amount.value = value.substring(0, length - 1);
-		}
+
+		//function setKeyConfirmPhoneNumber(key) {
+		//	void 0;
+		//	$scope.phoneMatch.value = $scope.phoneMatch.value + key;
+		//}
+
+		//function setKeyPhoneNumber(key) {
+		//	$scope.phoneNumber.value = $scope.phoneNumber.value + key;
+		//}
+
+		//function setKeyAmount(key) {
+		//	$scope.amount.value = $scope.amount.value + key;
+		//}
+
+
+		//function backKeyPhoneNumber() {
+		//	var length = $scope.phoneNumber.value.length;
+
+		//	var value = $scope.phoneNumber.value;
+
+		//	$scope.phoneNumber.value = value.substring(0, length - 1);
+		//}
+
+		//function backKeyPhoneMatch() {
+		//	var length = $scope.phoneMatch.value.length;
+
+		//	var value = $scope.phoneMatch.value;
+
+		//	void 0;
+		//	void 0;
+
+		//	$scope.phoneMatch.value = value.substring(0, length - 1);
+		//}
+
+		//function backKeyAmount() {
+		//	var length = $scope.amount.value.length;
+
+		//	var value = $scope.amount.value;
+
+		//	void 0;
+		//	void 0;
+
+		//	$scope.amount.value = value.substring(0, length - 1);
+		//}
+            
+	    //$scope.setFocusedInput = function (inputName) {
+	    //    if (inputName === 'amount') {
+	    //        $scope.accountNumber.isFocused = false;
+	    //        $scope.accountMatch.isFocused = false;
+	    //        $scope.amount.isFocused = true;
+	    //        void 0;
+	    //    } else if (inputName === 'accountNumber') {
+	    //        $scope.accountMatch.isFocused = false;
+	    //        $scope.accountNumber.isFocused = true;
+	    //        $scope.amount.isFocused = false;
+	    //        void 0;
+	    //    } else if (inputName === 'accountMatch') {
+	    //        $scope.accountNumber.isFocused = false;
+	    //        $scope.accountMatch.isFocused = true;
+	    //        $scope.amount.isFocused = false;
+	    //        void 0;
+	    //    }
+	    //};
+		
+        
 
 		$scope.editing = null;
 		$scope.editItem = function(item) {
@@ -4128,41 +4207,6 @@
 			$event.target.select();
 		};
 
-		$scope.setKey = function(value) {
-			initInputs();
-			setAmount(value);
-		};
-
-		$scope.clearKey = function() {
-			if ($scope.phoneNumber.isFocused) {
-				$scope.phoneNumber.value = '';
-			} else {
-				$scope.amount.value = '';
-			}
-		};
-
-		$scope.backKey = function() {
-			initInputs();
-
-			if ($scope.phoneNumber.isFocused) {
-				backKeyPhoneNumber();
-			} else if ($scope.amount.isFocused) {
-				backKeyAmount();
-			} else {
-				backKeyPhoneMatch();
-			}
-		};
-
-		$scope.setFocusedInput = function(inputName) {
-		    $scope.phoneNumber.isFocused = false;
-		    $scope.phoneMatch.isFocused = false;
-		    $scope.amount.isFocused = false;
-
-		    $scope[inputName].isFocused = true;
-            void 0;
-			
-		    
-		};
 
 		$scope.leaveInputsFocus = function() {
 			$scope.amount.isFocused = false;

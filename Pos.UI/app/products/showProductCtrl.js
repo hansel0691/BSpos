@@ -72,8 +72,6 @@
 		
 
 
-        
-
 		// $scope.item = { UseFixedDenominations: true};
 
 
