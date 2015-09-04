@@ -426,8 +426,8 @@ namespace OrdersGateway.Controllers
             posRequest.CountryCode = productInfo.DialCountryCode;
 
             DataResponse posResponse = productInfo.IsTopUp 
-                ? (productInfo.AcceptAdditionalPhones 
-                    ? null 
+                ? (productInfo.AcceptAdditionalPhones
+                    ? _blackstonePosService.DoTopUp(posRequest) 
                     : _blackstonePosService.DoTopUp(posRequest)) 
                 : _blackstonePosService.GetSinglePin(posRequest);
 
