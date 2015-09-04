@@ -1,5 +1,7 @@
 ﻿
 
+using System.Collections.Generic;
+
 namespace BlackstonePos.Domain.Models
 {
     public class PosRequest: PosCredentials
@@ -13,6 +15,9 @@ namespace BlackstonePos.Domain.Models
         public string OriginRequest { get; set; }
         public string CountryCode { get; set; }
         public string PhoneNumber { get; set; }
+        
+        
+        public List<string> AdditionalPhones { get; set; }
 
     }
 }

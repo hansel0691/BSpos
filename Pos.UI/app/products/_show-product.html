@@ -144,9 +144,9 @@
                 <!--Addicional numbers-->
 
 			    <div ng-repeat="n in [] | range:additionalPhoneNumbersAmount()">
-                    <div class="form-group" ng-class="{'has-error' : submitted && productForm.phone.$error.required}">
+                    <div class="form-group" ng-class="{'has-error' : submitted && productForm.additionalPhone{{n}}.$error.required}">
                         <label for="" class="control-label">Phone Number {{n + 1}}</label>
-                        <span class="label label-danger" data-ng-show="submitted && productForm.phone.$error.required">Required!</span>
+                        <span class="label label-danger" data-ng-show="submitted && productForm.additionalPhone{{n}}.$error.required">Required!</span>
                         <!-- <span class="label label-danger" data-ng-show="submitted && productForm.phone.$error.pattern">Incorrect Format</span> -->
                         <input class="form-control" ng-init='' type="text" name="additionalPhone{{n}}" placeholder="Enter phone number" id=""
                                ng-class="{true: 'active', false: ''}[additionalPhones[n].isFocused]"
@@ -159,7 +159,7 @@
                                ng-required="true"
                                required>
                         <p class="help-block"></p>
-                        <span class="error" ng-show="sampleForm.phone.$error.required"></span>
+                        <span class="error" ng-show="sampleForm.additionalPhone{{n}}.$error.required"></span>
                     </div>
 			    </div>
                 

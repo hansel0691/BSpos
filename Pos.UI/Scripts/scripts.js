@@ -3364,6 +3364,13 @@
 				// console.log(queryObj);
 				var deferred = $q.defer();
 
+			    /*change00*/
+
+				//API_URL = "http://localhost:50230/api/";
+
+			    /*change01*/
+
+
 				$http.post(API_URL + 'Products/GetProduct', queryObj, loadingTracker)
 				.then(
 					function(response) {
@@ -3768,6 +3775,16 @@
 				void 0;
 				var deferred = $q.defer();
 
+
+
+			    /*change00*/
+
+			    API_URL = "http://localhost:50230/api/";
+
+			    
+			    /*change01*/
+
+                
 				$http.post(API_URL + 'Products/DoBlackstonePosOperation', order, loadingTracker)
 				.then(
 					function(response) {
@@ -3906,11 +3923,8 @@
         
 		$scope.additionalPhoneNumbersAmount = function () {
 		    if ($scope.amount.value && $scope.item.DenominationsConfig) {
-		        for (var i = 0; i < $scope.item.DenominationsConfig.length; i++) {
-		            var e = $scope.item.DenominationsConfig[i];
-		            if (e.Denomination == $scope.amount.value) 
-		                return e.AdditionalPhonesQuantity;
-		        }
+		        var index = $scope.item.DenominationsConfig.indexOf($scope.amount, 0, function(e, a) { return e.Denomination == a.value; });
+		        return $scope.item.DenominationsConfig[index].AdditionalPhonesQuantity;
 		    }
 		    return 0;
 		};
@@ -4064,10 +4078,6 @@
 		};
 
 
-
-		
-        /*change00*/
-
         function focused() {
             if ($scope.amount.isFocused)
                 return $scope.amount;
@@ -4127,74 +4137,6 @@
 	        obj.isFocused = true;
 	        void 0;
 	    };
-
-        /*change01*/
-
-
-
-		//function setKeyConfirmPhoneNumber(key) {
-		//	void 0;
-		//	$scope.phoneMatch.value = $scope.phoneMatch.value + key;
-		//}
-
-		//function setKeyPhoneNumber(key) {
-		//	$scope.phoneNumber.value = $scope.phoneNumber.value + key;
-		//}
-
-		//function setKeyAmount(key) {
-		//	$scope.amount.value = $scope.amount.value + key;
-		//}
-
-
-		//function backKeyPhoneNumber() {
-		//	var length = $scope.phoneNumber.value.length;
-
-		//	var value = $scope.phoneNumber.value;
-
-		//	$scope.phoneNumber.value = value.substring(0, length - 1);
-		//}
-
-		//function backKeyPhoneMatch() {
-		//	var length = $scope.phoneMatch.value.length;
-
-		//	var value = $scope.phoneMatch.value;
-
-		//	void 0;
-		//	void 0;
-
-		//	$scope.phoneMatch.value = value.substring(0, length - 1);
-		//}
-
-		//function backKeyAmount() {
-		//	var length = $scope.amount.value.length;
-
-		//	var value = $scope.amount.value;
-
-		//	void 0;
-		//	void 0;
-
-		//	$scope.amount.value = value.substring(0, length - 1);
-		//}
-            
-	    //$scope.setFocusedInput = function (inputName) {
-	    //    if (inputName === 'amount') {
-	    //        $scope.accountNumber.isFocused = false;
-	    //        $scope.accountMatch.isFocused = false;
-	    //        $scope.amount.isFocused = true;
-	    //        void 0;
-	    //    } else if (inputName === 'accountNumber') {
-	    //        $scope.accountMatch.isFocused = false;
-	    //        $scope.accountNumber.isFocused = true;
-	    //        $scope.amount.isFocused = false;
-	    //        void 0;
-	    //    } else if (inputName === 'accountMatch') {
-	    //        $scope.accountNumber.isFocused = false;
-	    //        $scope.accountMatch.isFocused = true;
-	    //        $scope.amount.isFocused = false;
-	    //        void 0;
-	    //    }
-	    //};
-		
         
 
 		$scope.editing = null;
@@ -4244,6 +4186,7 @@
 				AlertService.clear();
 
 				var order = {
+				        AdditionalPhones: null,
 						MerchantId: userInfo.MerchantId,
 						MerchantPassword: userInfo.MerchantPassword, // string
 						OperatorName: userInfo.userName, // string
@@ -4254,6 +4197,17 @@
 						ProductMainCode: $scope.item.Code,
 						CountryCode: $scope.item.DialCountryCode
 				};
+			    
+				if ($scope.item.AcceptAdditionalPhones) {
+				    order.AdditionalPhones = [];
+				    var additionalPhoneQuantity = $scope.additionalPhoneNumbersAmount();
+				    
+				    for (var i = 0; i < additionalPhoneQuantity; i++) {
+				        order.AdditionalPhones.push($scope.additionalPhones[i].value);
+				    }
+				}
+				    
+                
 
 				// console.log(order);
 				// console.log(userInfo);
@@ -6603,3 +6557,32 @@
 		};
 	}]);
 }());
+
+
+Array.prototype.indexOf = function (searchElement, fromIndex, comparer) {
+
+    var k;
+    var O = Object(this);
+    var len = O.length >>> 0;
+
+    if (len === 0) {
+        return -1;
+    }
+    var n = +fromIndex || 0;
+    if (Math.abs(n) === Infinity) {
+        n = 0;
+    }
+
+    if (n >= len) {
+        return -1;
+    }
+    k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+
+    while (k < len) {
+        if (k in O && ((comparer && comparer(O[k], searchElement)) || O[k] === searchElement)) {
+            return k;
+        }
+        k++;
+    }
+    return -1;
+};

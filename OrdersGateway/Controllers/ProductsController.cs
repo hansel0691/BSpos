@@ -414,6 +414,8 @@ namespace OrdersGateway.Controllers
         [ApiResponseDescriptor(typeof(ReceiptResponse))]
         public DataResponse DoBlackstonePosOperation([FromBody] PosRequest posRequest)
         {
+
+            //var posRequest = bsOperationRequest.PosRequest;
             posRequest.OriginRequest = Request.RequestUri.AbsoluteUri;
 
             var productInfo = GetProductInfo(posRequest);
@@ -423,7 +425,11 @@ namespace OrdersGateway.Controllers
 
             posRequest.CountryCode = productInfo.DialCountryCode;
 
-            var posResponse = productInfo.IsTopUp?_blackstonePosService.DoTopUp(posRequest): _blackstonePosService.GetSinglePin(posRequest);
+            DataResponse posResponse = productInfo.IsTopUp 
+                ? (productInfo.AcceptAdditionalPhones 
+                    ? null 
+                    : _blackstonePosService.DoTopUp(posRequest)) 
+                : _blackstonePosService.GetSinglePin(posRequest);
 
             return new DataResponse
             {
