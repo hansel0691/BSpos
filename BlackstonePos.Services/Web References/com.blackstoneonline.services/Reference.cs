@@ -32,8 +32,8 @@ namespace BS.Services.com.blackstoneonline.services {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccessPhone))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReconciliationDetail))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TCAResponse))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Denomination))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Product))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Denomination))]
     public partial class Broker : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback GetSinglePINOperationCompleted;
@@ -52,7 +52,11 @@ namespace BS.Services.com.blackstoneonline.services {
         
         private System.Threading.SendOrPostCallback DoTopUpFeeOperationCompleted;
         
+        private System.Threading.SendOrPostCallback DoTopUpFeeWithAdditionalPhonesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback DoTopUpFeeSerialOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DoTopUpFeeSerialWithAdditionalPhonesOperationCompleted;
         
         private System.Threading.SendOrPostCallback DoDailyReconciliationOperationCompleted;
         
@@ -249,7 +253,13 @@ namespace BS.Services.com.blackstoneonline.services {
         public event DoTopUpFeeCompletedEventHandler DoTopUpFeeCompleted;
         
         /// <remarks/>
+        public event DoTopUpFeeWithAdditionalPhonesCompletedEventHandler DoTopUpFeeWithAdditionalPhonesCompleted;
+        
+        /// <remarks/>
         public event DoTopUpFeeSerialCompletedEventHandler DoTopUpFeeSerialCompleted;
+        
+        /// <remarks/>
+        public event DoTopUpFeeSerialWithAdditionalPhonesCompletedEventHandler DoTopUpFeeSerialWithAdditionalPhonesCompleted;
         
         /// <remarks/>
         public event DoDailyReconciliationCompletedEventHandler DoDailyReconciliationCompleted;
@@ -833,6 +843,60 @@ namespace BS.Services.com.blackstoneonline.services {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://services.blackstoneonline.com/TransactionBroker/Broker/DoTopUpFeeWithAddi" +
+            "tionalPhones", RequestNamespace="https://services.blackstoneonline.com/TransactionBroker/Broker", ResponseNamespace="https://services.blackstoneonline.com/TransactionBroker/Broker", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public PIN DoTopUpFeeWithAdditionalPhones(string MID, string TID, string Password, string Cashier, string ProductMaincode, string TopUpAmount, string PhoneNumber, string CountryCode, int OrderID, int ProfileID, string TransactionMode, double TransactionFee, AdditionalPhonesData AdditionalPhones) {
+            object[] results = this.Invoke("DoTopUpFeeWithAdditionalPhones", new object[] {
+                        MID,
+                        TID,
+                        Password,
+                        Cashier,
+                        ProductMaincode,
+                        TopUpAmount,
+                        PhoneNumber,
+                        CountryCode,
+                        OrderID,
+                        ProfileID,
+                        TransactionMode,
+                        TransactionFee,
+                        AdditionalPhones});
+            return ((PIN)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DoTopUpFeeWithAdditionalPhonesAsync(string MID, string TID, string Password, string Cashier, string ProductMaincode, string TopUpAmount, string PhoneNumber, string CountryCode, int OrderID, int ProfileID, string TransactionMode, double TransactionFee, AdditionalPhonesData AdditionalPhones) {
+            this.DoTopUpFeeWithAdditionalPhonesAsync(MID, TID, Password, Cashier, ProductMaincode, TopUpAmount, PhoneNumber, CountryCode, OrderID, ProfileID, TransactionMode, TransactionFee, AdditionalPhones, null);
+        }
+        
+        /// <remarks/>
+        public void DoTopUpFeeWithAdditionalPhonesAsync(string MID, string TID, string Password, string Cashier, string ProductMaincode, string TopUpAmount, string PhoneNumber, string CountryCode, int OrderID, int ProfileID, string TransactionMode, double TransactionFee, AdditionalPhonesData AdditionalPhones, object userState) {
+            if ((this.DoTopUpFeeWithAdditionalPhonesOperationCompleted == null)) {
+                this.DoTopUpFeeWithAdditionalPhonesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDoTopUpFeeWithAdditionalPhonesOperationCompleted);
+            }
+            this.InvokeAsync("DoTopUpFeeWithAdditionalPhones", new object[] {
+                        MID,
+                        TID,
+                        Password,
+                        Cashier,
+                        ProductMaincode,
+                        TopUpAmount,
+                        PhoneNumber,
+                        CountryCode,
+                        OrderID,
+                        ProfileID,
+                        TransactionMode,
+                        TransactionFee,
+                        AdditionalPhones}, this.DoTopUpFeeWithAdditionalPhonesOperationCompleted, userState);
+        }
+        
+        private void OnDoTopUpFeeWithAdditionalPhonesOperationCompleted(object arg) {
+            if ((this.DoTopUpFeeWithAdditionalPhonesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DoTopUpFeeWithAdditionalPhonesCompleted(this, new DoTopUpFeeWithAdditionalPhonesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://services.blackstoneonline.com/TransactionBroker/Broker/DoTopUpFeeSerial", RequestNamespace="https://services.blackstoneonline.com/TransactionBroker/Broker", ResponseNamespace="https://services.blackstoneonline.com/TransactionBroker/Broker", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public PIN DoTopUpFeeSerial(string MID, string TID, string Password, string Cashier, string ProductMaincode, string TopUpAmount, string PhoneNumber, string CountryCode, int OrderID, int ProfileID, string TransactionMode, double TransactionFee, string TerminalSerialNumber) {
             object[] results = this.Invoke("DoTopUpFeeSerial", new object[] {
@@ -882,6 +946,62 @@ namespace BS.Services.com.blackstoneonline.services {
             if ((this.DoTopUpFeeSerialCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DoTopUpFeeSerialCompleted(this, new DoTopUpFeeSerialCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://services.blackstoneonline.com/TransactionBroker/Broker/DoTopUpFeeSerialWi" +
+            "thAdditionalPhones", RequestNamespace="https://services.blackstoneonline.com/TransactionBroker/Broker", ResponseNamespace="https://services.blackstoneonline.com/TransactionBroker/Broker", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public PIN DoTopUpFeeSerialWithAdditionalPhones(string MID, string TID, string Password, string Cashier, string ProductMaincode, string TopUpAmount, string PhoneNumber, string CountryCode, int OrderID, int ProfileID, string TransactionMode, double TransactionFee, string TerminalSerialNumber, AdditionalPhonesData AdditionalPhones) {
+            object[] results = this.Invoke("DoTopUpFeeSerialWithAdditionalPhones", new object[] {
+                        MID,
+                        TID,
+                        Password,
+                        Cashier,
+                        ProductMaincode,
+                        TopUpAmount,
+                        PhoneNumber,
+                        CountryCode,
+                        OrderID,
+                        ProfileID,
+                        TransactionMode,
+                        TransactionFee,
+                        TerminalSerialNumber,
+                        AdditionalPhones});
+            return ((PIN)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DoTopUpFeeSerialWithAdditionalPhonesAsync(string MID, string TID, string Password, string Cashier, string ProductMaincode, string TopUpAmount, string PhoneNumber, string CountryCode, int OrderID, int ProfileID, string TransactionMode, double TransactionFee, string TerminalSerialNumber, AdditionalPhonesData AdditionalPhones) {
+            this.DoTopUpFeeSerialWithAdditionalPhonesAsync(MID, TID, Password, Cashier, ProductMaincode, TopUpAmount, PhoneNumber, CountryCode, OrderID, ProfileID, TransactionMode, TransactionFee, TerminalSerialNumber, AdditionalPhones, null);
+        }
+        
+        /// <remarks/>
+        public void DoTopUpFeeSerialWithAdditionalPhonesAsync(string MID, string TID, string Password, string Cashier, string ProductMaincode, string TopUpAmount, string PhoneNumber, string CountryCode, int OrderID, int ProfileID, string TransactionMode, double TransactionFee, string TerminalSerialNumber, AdditionalPhonesData AdditionalPhones, object userState) {
+            if ((this.DoTopUpFeeSerialWithAdditionalPhonesOperationCompleted == null)) {
+                this.DoTopUpFeeSerialWithAdditionalPhonesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDoTopUpFeeSerialWithAdditionalPhonesOperationCompleted);
+            }
+            this.InvokeAsync("DoTopUpFeeSerialWithAdditionalPhones", new object[] {
+                        MID,
+                        TID,
+                        Password,
+                        Cashier,
+                        ProductMaincode,
+                        TopUpAmount,
+                        PhoneNumber,
+                        CountryCode,
+                        OrderID,
+                        ProfileID,
+                        TransactionMode,
+                        TransactionFee,
+                        TerminalSerialNumber,
+                        AdditionalPhones}, this.DoTopUpFeeSerialWithAdditionalPhonesOperationCompleted, userState);
+        }
+        
+        private void OnDoTopUpFeeSerialWithAdditionalPhonesOperationCompleted(object arg) {
+            if ((this.DoTopUpFeeSerialWithAdditionalPhonesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DoTopUpFeeSerialWithAdditionalPhonesCompleted(this, new DoTopUpFeeSerialWithAdditionalPhonesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -5069,8 +5189,8 @@ namespace BS.Services.com.blackstoneonline.services {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentInquiryResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentPaymentResponse))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentInquiryResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReplenishmentResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BalanceResponse))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
@@ -5125,6 +5245,72 @@ namespace BS.Services.com.blackstoneonline.services {
             }
             set {
                 this.referenceNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DocumentPaymentResponse : Response1 {
+        
+        private Document[] paidDocumentListField;
+        
+        private double updatedBalanceField;
+        
+        /// <remarks/>
+        public Document[] PaidDocumentList {
+            get {
+                return this.paidDocumentListField;
+            }
+            set {
+                this.paidDocumentListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double UpdatedBalance {
+            get {
+                return this.updatedBalanceField;
+            }
+            set {
+                this.updatedBalanceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Document {
+        
+        private string documentIdField;
+        
+        private double documentPaymentAmountField;
+        
+        /// <remarks/>
+        public string DocumentId {
+            get {
+                return this.documentIdField;
+            }
+            set {
+                this.documentIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double DocumentPaymentAmount {
+            get {
+                return this.documentPaymentAmountField;
+            }
+            set {
+                this.documentPaymentAmountField = value;
             }
         }
     }
@@ -5204,72 +5390,6 @@ namespace BS.Services.com.blackstoneonline.services {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Document {
-        
-        private string documentIdField;
-        
-        private double documentPaymentAmountField;
-        
-        /// <remarks/>
-        public string DocumentId {
-            get {
-                return this.documentIdField;
-            }
-            set {
-                this.documentIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double DocumentPaymentAmount {
-            get {
-                return this.documentPaymentAmountField;
-            }
-            set {
-                this.documentPaymentAmountField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DocumentPaymentResponse : Response1 {
-        
-        private Document[] paidDocumentListField;
-        
-        private double updatedBalanceField;
-        
-        /// <remarks/>
-        public Document[] PaidDocumentList {
-            get {
-                return this.paidDocumentListField;
-            }
-            set {
-                this.paidDocumentListField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double UpdatedBalance {
-            get {
-                return this.updatedBalanceField;
-            }
-            set {
-                this.updatedBalanceField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ReplenishmentResponse : Response1 {
         
         private string updatedBalanceField;
@@ -5331,12 +5451,12 @@ namespace BS.Services.com.blackstoneonline.services {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTDocumentPaymentResponse1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTBalanceResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTOneTimeTollInquiryResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTOneTimeTollPaymentResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTReplenishmentResponse))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTDocumentPaymentResponse1))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTDocumentInquiryResponse1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FTBalanceResponse))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5389,117 +5509,6 @@ namespace BS.Services.com.blackstoneonline.services {
             }
             set {
                 this.referenceNumberField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class FTOneTimeTollInquiryResponse : FTResponse {
-        
-        private string purchaseIdField;
-        
-        private double amountToBeChargedField;
-        
-        /// <remarks/>
-        public string PurchaseId {
-            get {
-                return this.purchaseIdField;
-            }
-            set {
-                this.purchaseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double AmountToBeCharged {
-            get {
-                return this.amountToBeChargedField;
-            }
-            set {
-                this.amountToBeChargedField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class FTOneTimeTollPaymentResponse : FTResponse {
-        
-        private string purchaseIdField;
-        
-        private string processedDateTimeField;
-        
-        private string requestDateTimeField;
-        
-        private string receivedAmountField;
-        
-        /// <remarks/>
-        public string PurchaseId {
-            get {
-                return this.purchaseIdField;
-            }
-            set {
-                this.purchaseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProcessedDateTime {
-            get {
-                return this.processedDateTimeField;
-            }
-            set {
-                this.processedDateTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string RequestDateTime {
-            get {
-                return this.requestDateTimeField;
-            }
-            set {
-                this.requestDateTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ReceivedAmount {
-            get {
-                return this.receivedAmountField;
-            }
-            set {
-                this.receivedAmountField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class FTReplenishmentResponse : FTResponse {
-        
-        private string updatedBalanceField;
-        
-        /// <remarks/>
-        public string UpdatedBalance {
-            get {
-                return this.updatedBalanceField;
-            }
-            set {
-                this.updatedBalanceField = value;
             }
         }
     }
@@ -5566,75 +5575,6 @@ namespace BS.Services.com.blackstoneonline.services {
             }
             set {
                 this.documentPaymentAmountField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="FTDocumentInquiryResponse", Namespace="http://tempuri.org/")]
-    public partial class FTDocumentInquiryResponse1 : FTResponse {
-        
-        private string purchaseIdField;
-        
-        private FTDocument requestedDocumentField;
-        
-        private FTDocument[] unpaidDocumentListField;
-        
-        private double unpaidDocumentListAmountField;
-        
-        private string responseMessageField;
-        
-        /// <remarks/>
-        public string PurchaseId {
-            get {
-                return this.purchaseIdField;
-            }
-            set {
-                this.purchaseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public FTDocument RequestedDocument {
-            get {
-                return this.requestedDocumentField;
-            }
-            set {
-                this.requestedDocumentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public FTDocument[] UnpaidDocumentList {
-            get {
-                return this.unpaidDocumentListField;
-            }
-            set {
-                this.unpaidDocumentListField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double UnpaidDocumentListAmount {
-            get {
-                return this.unpaidDocumentListAmountField;
-            }
-            set {
-                this.unpaidDocumentListAmountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ResponseMessage {
-            get {
-                return this.responseMessageField;
-            }
-            set {
-                this.responseMessageField = value;
             }
         }
     }
@@ -5788,6 +5728,186 @@ namespace BS.Services.com.blackstoneonline.services {
             }
             set {
                 this.zipField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class FTOneTimeTollInquiryResponse : FTResponse {
+        
+        private string purchaseIdField;
+        
+        private double amountToBeChargedField;
+        
+        /// <remarks/>
+        public string PurchaseId {
+            get {
+                return this.purchaseIdField;
+            }
+            set {
+                this.purchaseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double AmountToBeCharged {
+            get {
+                return this.amountToBeChargedField;
+            }
+            set {
+                this.amountToBeChargedField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class FTOneTimeTollPaymentResponse : FTResponse {
+        
+        private string purchaseIdField;
+        
+        private string processedDateTimeField;
+        
+        private string requestDateTimeField;
+        
+        private string receivedAmountField;
+        
+        /// <remarks/>
+        public string PurchaseId {
+            get {
+                return this.purchaseIdField;
+            }
+            set {
+                this.purchaseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProcessedDateTime {
+            get {
+                return this.processedDateTimeField;
+            }
+            set {
+                this.processedDateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string RequestDateTime {
+            get {
+                return this.requestDateTimeField;
+            }
+            set {
+                this.requestDateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ReceivedAmount {
+            get {
+                return this.receivedAmountField;
+            }
+            set {
+                this.receivedAmountField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class FTReplenishmentResponse : FTResponse {
+        
+        private string updatedBalanceField;
+        
+        /// <remarks/>
+        public string UpdatedBalance {
+            get {
+                return this.updatedBalanceField;
+            }
+            set {
+                this.updatedBalanceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="FTDocumentInquiryResponse", Namespace="http://tempuri.org/")]
+    public partial class FTDocumentInquiryResponse1 : FTResponse {
+        
+        private string purchaseIdField;
+        
+        private FTDocument requestedDocumentField;
+        
+        private FTDocument[] unpaidDocumentListField;
+        
+        private double unpaidDocumentListAmountField;
+        
+        private string responseMessageField;
+        
+        /// <remarks/>
+        public string PurchaseId {
+            get {
+                return this.purchaseIdField;
+            }
+            set {
+                this.purchaseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FTDocument RequestedDocument {
+            get {
+                return this.requestedDocumentField;
+            }
+            set {
+                this.requestedDocumentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FTDocument[] UnpaidDocumentList {
+            get {
+                return this.unpaidDocumentListField;
+            }
+            set {
+                this.unpaidDocumentListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double UnpaidDocumentListAmount {
+            get {
+                return this.unpaidDocumentListAmountField;
+            }
+            set {
+                this.unpaidDocumentListAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ResponseMessage {
+            get {
+                return this.responseMessageField;
+            }
+            set {
+                this.responseMessageField = value;
             }
         }
     }
@@ -8157,6 +8277,63 @@ namespace BS.Services.com.blackstoneonline.services {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
+    public partial class ReconciliationDetail {
+        
+        private string trackingNumberField;
+        
+        private string referenceNumberField;
+        
+        private double paymentAmountField;
+        
+        private double feeShareField;
+        
+        /// <remarks/>
+        public string TrackingNumber {
+            get {
+                return this.trackingNumberField;
+            }
+            set {
+                this.trackingNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ReferenceNumber {
+            get {
+                return this.referenceNumberField;
+            }
+            set {
+                this.referenceNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double PaymentAmount {
+            get {
+                return this.paymentAmountField;
+            }
+            set {
+                this.paymentAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double FeeShare {
+            get {
+                return this.feeShareField;
+            }
+            set {
+                this.feeShareField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
     public partial class ReconciliationResponse {
         
         private long resultIdField;
@@ -8276,63 +8453,6 @@ namespace BS.Services.com.blackstoneonline.services {
             }
             set {
                 this.reconciliationDetailField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
-    public partial class ReconciliationDetail {
-        
-        private string trackingNumberField;
-        
-        private string referenceNumberField;
-        
-        private double paymentAmountField;
-        
-        private double feeShareField;
-        
-        /// <remarks/>
-        public string TrackingNumber {
-            get {
-                return this.trackingNumberField;
-            }
-            set {
-                this.trackingNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ReferenceNumber {
-            get {
-                return this.referenceNumberField;
-            }
-            set {
-                this.referenceNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double PaymentAmount {
-            get {
-                return this.paymentAmountField;
-            }
-            set {
-                this.paymentAmountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double FeeShare {
-            get {
-                return this.feeShareField;
-            }
-            set {
-                this.feeShareField = value;
             }
         }
     }
@@ -8963,192 +9083,6 @@ namespace BS.Services.com.blackstoneonline.services {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
-    public partial class Catalog {
-        
-        private string errorCodeField;
-        
-        private string errorMessageField;
-        
-        private int profileIDField;
-        
-        private string profileNameField;
-        
-        private string profileDescriptionField;
-        
-        private string profileRegionField;
-        
-        private string profileStateField;
-        
-        private string profileTypeField;
-        
-        private string profileTypeDescField;
-        
-        private object[] productListField;
-        
-        /// <remarks/>
-        public string ErrorCode {
-            get {
-                return this.errorCodeField;
-            }
-            set {
-                this.errorCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ErrorMessage {
-            get {
-                return this.errorMessageField;
-            }
-            set {
-                this.errorMessageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ProfileID {
-            get {
-                return this.profileIDField;
-            }
-            set {
-                this.profileIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProfileName {
-            get {
-                return this.profileNameField;
-            }
-            set {
-                this.profileNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProfileDescription {
-            get {
-                return this.profileDescriptionField;
-            }
-            set {
-                this.profileDescriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProfileRegion {
-            get {
-                return this.profileRegionField;
-            }
-            set {
-                this.profileRegionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProfileState {
-            get {
-                return this.profileStateField;
-            }
-            set {
-                this.profileStateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProfileType {
-            get {
-                return this.profileTypeField;
-            }
-            set {
-                this.profileTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ProfileTypeDesc {
-            get {
-                return this.profileTypeDescField;
-            }
-            set {
-                this.profileTypeDescField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public object[] ProductList {
-            get {
-                return this.productListField;
-            }
-            set {
-                this.productListField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
-    public partial class Denomination {
-        
-        private string denominationIDField;
-        
-        private string denominationCodeField;
-        
-        private string denominationValueField;
-        
-        private string denominationBarcodeField;
-        
-        /// <remarks/>
-        public string DenominationID {
-            get {
-                return this.denominationIDField;
-            }
-            set {
-                this.denominationIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DenominationCode {
-            get {
-                return this.denominationCodeField;
-            }
-            set {
-                this.denominationCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DenominationValue {
-            get {
-                return this.denominationValueField;
-            }
-            set {
-                this.denominationValueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DenominationBarcode {
-            get {
-                return this.denominationBarcodeField;
-            }
-            set {
-                this.denominationBarcodeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
     public partial class Product {
         
         private string cardIDField;
@@ -9400,6 +9334,192 @@ namespace BS.Services.com.blackstoneonline.services {
             }
             set {
                 this.topUpMaxAmountField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
+    public partial class Catalog {
+        
+        private string errorCodeField;
+        
+        private string errorMessageField;
+        
+        private int profileIDField;
+        
+        private string profileNameField;
+        
+        private string profileDescriptionField;
+        
+        private string profileRegionField;
+        
+        private string profileStateField;
+        
+        private string profileTypeField;
+        
+        private string profileTypeDescField;
+        
+        private object[] productListField;
+        
+        /// <remarks/>
+        public string ErrorCode {
+            get {
+                return this.errorCodeField;
+            }
+            set {
+                this.errorCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ErrorMessage {
+            get {
+                return this.errorMessageField;
+            }
+            set {
+                this.errorMessageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ProfileID {
+            get {
+                return this.profileIDField;
+            }
+            set {
+                this.profileIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProfileName {
+            get {
+                return this.profileNameField;
+            }
+            set {
+                this.profileNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProfileDescription {
+            get {
+                return this.profileDescriptionField;
+            }
+            set {
+                this.profileDescriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProfileRegion {
+            get {
+                return this.profileRegionField;
+            }
+            set {
+                this.profileRegionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProfileState {
+            get {
+                return this.profileStateField;
+            }
+            set {
+                this.profileStateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProfileType {
+            get {
+                return this.profileTypeField;
+            }
+            set {
+                this.profileTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ProfileTypeDesc {
+            get {
+                return this.profileTypeDescField;
+            }
+            set {
+                this.profileTypeDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public object[] ProductList {
+            get {
+                return this.productListField;
+            }
+            set {
+                this.productListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://services.blackstoneonline.com/TransactionBroker/Broker")]
+    public partial class Denomination {
+        
+        private string denominationIDField;
+        
+        private string denominationCodeField;
+        
+        private string denominationValueField;
+        
+        private string denominationBarcodeField;
+        
+        /// <remarks/>
+        public string DenominationID {
+            get {
+                return this.denominationIDField;
+            }
+            set {
+                this.denominationIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DenominationCode {
+            get {
+                return this.denominationCodeField;
+            }
+            set {
+                this.denominationCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DenominationValue {
+            get {
+                return this.denominationValueField;
+            }
+            set {
+                this.denominationValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DenominationBarcode {
+            get {
+                return this.denominationBarcodeField;
+            }
+            set {
+                this.denominationBarcodeField = value;
             }
         }
     }
@@ -9813,6 +9933,32 @@ namespace BS.Services.com.blackstoneonline.services {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void DoTopUpFeeWithAdditionalPhonesCompletedEventHandler(object sender, DoTopUpFeeWithAdditionalPhonesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DoTopUpFeeWithAdditionalPhonesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DoTopUpFeeWithAdditionalPhonesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public PIN Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((PIN)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
     public delegate void DoTopUpFeeSerialCompletedEventHandler(object sender, DoTopUpFeeSerialCompletedEventArgs e);
     
     /// <remarks/>
@@ -9824,6 +9970,32 @@ namespace BS.Services.com.blackstoneonline.services {
         private object[] results;
         
         internal DoTopUpFeeSerialCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public PIN Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((PIN)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void DoTopUpFeeSerialWithAdditionalPhonesCompletedEventHandler(object sender, DoTopUpFeeSerialWithAdditionalPhonesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DoTopUpFeeSerialWithAdditionalPhonesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DoTopUpFeeSerialWithAdditionalPhonesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

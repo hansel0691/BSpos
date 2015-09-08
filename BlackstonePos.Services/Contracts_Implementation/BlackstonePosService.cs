@@ -613,7 +613,7 @@ namespace BS.Services.Contracts_Implementation
                 }
             }
 
-            return LazyDoTopUpWithFee(new PaxTerminalTransactionRequest { OrderId = order.Id});
+            return LazyDoTopUpWithFee(new PaxTerminalTransactionRequest { OrderId = order.Id, ProductId = product.Code}, topUpRequest.AdditionalPhones);
         }
 
         public DataResponse GetProducts(int merchantId, string terminalId, string password, string operatorName)
@@ -2020,7 +2020,7 @@ namespace BS.Services.Contracts_Implementation
             }
         }
 
-        private DataResponse LazyDoTopUpWithFee(PaxTerminalTransactionRequest transactionRequest)
+        private DataResponse LazyDoTopUpWithFee(PaxTerminalTransactionRequest transactionRequest, List<string> additionalPhones = null)
         {
             var order = _orderRepository.Get(transactionRequest.OrderId);
             var merchantInfo = _posMerchantHeader.FindGlobalMerchant(order.MerchantId);
@@ -2033,13 +2033,38 @@ namespace BS.Services.Contracts_Implementation
 
             var fee = product!= null ? product.Fee: 0;
 
+
             try
             {
-                var pin = !string.IsNullOrEmpty(transactionRequest.SerialNumber) ? _broker.DoTopUpFeeSerial(merchantInfo.MerchantId.ToString(), terminalId,
-                      merchantInfo.MerchantPassword,merchantInfo.Name, order.ProductMainCode, order.Amount.Value.ToString(),order.PhoneNumber, order.CountryCode,
-                      order.Id, merchantInfo.MerchantProfileID.Value, _transactionMode, fee, transactionRequest.SerialNumber) : _broker.DoTopUpFee(merchantInfo.MerchantId.ToString(), terminalId,
-                      merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode, order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode,
-                      order.Id, merchantInfo.MerchantProfileID.Value, _transactionMode, fee);
+                PIN pin = null;
+                if (product.AcceptAdditionalPhones)
+                {
+                    var additionalPhonesData = this.GetAdditionalPhonesData(additionalPhones);
+                    pin = !string.IsNullOrEmpty(transactionRequest.SerialNumber)
+                        ? _broker.DoTopUpFeeSerialWithAdditionalPhones(merchantInfo.MerchantId.ToString(), terminalId,
+                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode, order.Id,
+                            merchantInfo.MerchantProfileID.Value, _transactionMode, fee, transactionRequest.SerialNumber,
+                            additionalPhonesData)
+                        : _broker.DoTopUpFeeWithAdditionalPhones(merchantInfo.MerchantId.ToString(), terminalId,
+                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode, order.Id,
+                            merchantInfo.MerchantProfileID.Value, _transactionMode, fee, additionalPhonesData);
+                }
+                else
+                {
+                    pin = !string.IsNullOrEmpty(transactionRequest.SerialNumber)
+                        ? _broker.DoTopUpFeeSerial(merchantInfo.MerchantId.ToString(), terminalId,
+                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode,
+                            order.Id, merchantInfo.MerchantProfileID.Value, _transactionMode, fee,
+                            transactionRequest.SerialNumber)
+                        : _broker.DoTopUpFee(merchantInfo.MerchantId.ToString(), terminalId,
+                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode,
+                            order.Id, merchantInfo.MerchantProfileID.Value, _transactionMode, fee);
+                }
+                
 
                 var brokerPinResult = pin.MapTo<PIN, BrokerResponse>();
 
@@ -2920,6 +2945,14 @@ namespace BS.Services.Contracts_Implementation
         //}
 
         //#endregion
+
+        private AdditionalPhonesData GetAdditionalPhonesData(IEnumerable<string> phonesList)
+        {
+            if (phonesList == null)
+                return null;
+            var additionalPhones = phonesList.Select(p => new AdditionalPhone() {PhoneNumber = p});
+            return new AdditionalPhonesData(){AdditionalPhones = additionalPhones.ToArray()};
+        }
     }
    
     //static class MonetraHeleper
