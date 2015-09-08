@@ -3918,7 +3918,9 @@
 	    // $scope.item = { UseFixedDenominations: true};
 
 
-		$scope.additionalPhones = [{ value: '', isFocused: false }, { value: '', isFocused: false }, { value: '', isFocused: false }];
+		//this statement need to be changed when other merchant add additional phones to its product. Till now is ok cuz there is only one, "Siempre Cerca" and the extention 
+		//of the additional phones is only 502 - Guatemala 
+		$scope.additionalPhones = [{ value: '502', isFocused: false }, { value: '502', isFocused: false }, { value: '502', isFocused: false }];
 
         
 		$scope.additionalPhoneNumbersAmount = function () {
