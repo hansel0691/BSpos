@@ -1,0 +1,19 @@
+<!-- custom directive balance-details.html -->
+<div class="" id="balanceDetails">
+	<table class="table table-condensed">
+		<tbody>
+			<tr>
+				<td class="title">Current:</td>
+				<td class="amount"><span class="currency">{{merchant.balanceDetails.current }}</span></td>
+			</tr>
+			<tr>
+				<td class="title">Next ACH:</td>
+				<td class="amount"><span class="currency">{{merchant.balanceDetails.current }}</span></td>
+			</tr>
+			<tr>
+				<td class="title">Next ACH Date:</td>
+				<td class="amount"><span class="currency">{{merchant.balanceDetails.nextAchDate | date}}</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

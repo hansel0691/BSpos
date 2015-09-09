@@ -1,0 +1,19 @@
+<ul class="list-inline clearfix">
+	<li role="presentation" class="" ng-class="" ng-if="useMostPopular">
+		<a class="btn btn-default" ng-show="!isMostPopular" href="#/{{type}}/{{mostpopular}}"><span class="hidden-xs">Most</span> Popular</a>
+		<div class="h4" ng-show="isMostPopular">Most Popular</div>
+	</li>
+	<li role="presentation" class="pull-right">
+		<ul class="list-inline">
+			<li role="presentation" class="" ng-show="useConfig">
+				<a class="btn btn-default" title="Select {{configDisplay}}" href="#/{{type}}/{{configPath}}">Select {{configDisplay | capitalize}}</a>
+			</li>
+			<li role="presentation" class="" ng-if="useAcronym" >
+				<div class="btn-group" role="group" aria-label="...">
+					<button class="btn btn-default" id="" title="Clear Filter" ng-disabled="clearDisabled" ng-click="clearFilter()">Clear</button>
+					<button class="btn btn-default" id="" title="Filter items" ng-disabled="acronymDisabled" ng-click="showFilter()">{{acronymText}}</button>
+				</div>
+			</li>
+		</ul>
+	</li>
+</ul>

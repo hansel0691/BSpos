@@ -1,0 +1,9 @@
+<!-- custom directive tmp -->
+<figcaption>
+	<div class="title">{{item.title}}</div>
+	<div class="f16">
+		<span class="flag {{item.countryCode}}" data-cc="{{item.countryCode}}" data-country_name="{{item.countryName}}"></span> <span class="">{{item.countryCode | uppercase}}</span> - <span class="currency">{{item.rate | currency}}</span>
+	</div>
+
+	<div class="att3">{{item.category | capitalize}}</div>
+</figcaption>

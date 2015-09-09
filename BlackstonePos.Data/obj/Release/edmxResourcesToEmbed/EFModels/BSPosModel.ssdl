@@ -35,6 +35,14 @@
     <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
     <Property Name="TimeStamp" Type="datetime" />
   </EntityType>
+  <EntityType Name="AppLogoUrls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandKey" Type="nvarchar(max)" />
+    <Property Name="BrandAppLogoUrl" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="Cashiers">
     <Key>
       <PropertyRef Name="Id" />
@@ -66,6 +74,14 @@ warning 6002: The table/view 'BlackstonePos_New.dbo.cashiers_backup' does not ha
     <Property Name="Status" Type="bit" Nullable="false" />
     <Property Name="IsMerchant" Type="bit" />
   </EntityType>
+  <EntityType Name="FullCargaSmsTemplates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="SmsTemplate" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="Guests">
     <Key>
       <PropertyRef Name="Id" />
@@ -95,6 +111,7 @@ warning 6002: The table/view 'BlackstonePos_New.dbo.cashiers_backup' does not ha
     <Property Name="MerchantId" Type="int" />
     <Property Name="TerminalId" Type="nvarchar" MaxLength="50" />
     <Property Name="ProductMainCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductCategory" Type="nvarchar" MaxLength="50" />
     <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
     <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
     <Property Name="OperatorName" Type="nvarchar" MaxLength="50" />
@@ -112,6 +129,9 @@ warning 6002: The table/view 'BlackstonePos_New.dbo.cashiers_backup' does not ha
     <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="Comission" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Source" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmationPhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmationMessage" Type="nvarchar(max)" />
+    <Property Name="Refunded" Type="bit" />
   </EntityType>
   <EntityType Name="PaxPosOrderRequests">
     <Key>
@@ -188,7 +208,7 @@ warning 6002: The table/view 'BlackstonePos_New.dbo.pos_mainproducts' does not h
       <PropertyRef Name="prdActive" />
     </Key>
     <Property Name="merchant_pk" Type="int" Nullable="false" />
-    <Property Name="prdDescription" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="prdDescription" Type="varchar" MaxLength="14" Nullable="false" />
     <Property Name="prdActive" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -225,6 +245,7 @@ warning 6002: The table/view 'BlackstonePos_New.dbo.view_cashiers' does not have
     <Property Name="MerchantBusinessName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="MerchantBusinessAddress" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="MerchantBusinessPhone" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="isFullcarga" Type="int" />
   </EntityType>
   <Association Name="FK_AchTransactions_AchTransactions">
     <End Role="AchPayments" Type="Self.AchPayments" Multiplicity="0..1" />
@@ -249,7 +270,9 @@ warning 6002: The table/view 'BlackstonePos_New.dbo.view_cashiers' does not have
     <EntitySet Name="AchPayments" EntityType="Self.AchPayments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AchTransactions" EntityType="Self.AchTransactions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppLogoUrls" EntityType="Self.AppLogoUrls" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cashiers" EntityType="Self.Cashiers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FullCargaSmsTemplates" EntityType="Self.FullCargaSmsTemplates" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Guests" EntityType="Self.Guests" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
@@ -295,7 +318,8 @@ FROM [dbo].[pos_mainproducts] AS [pos_mainproducts]</DefiningQuery>
 [view_cashiers].[WeeklyBalance] AS [WeeklyBalance], 
 [view_cashiers].[MerchantBusinessName] AS [MerchantBusinessName], 
 [view_cashiers].[MerchantBusinessAddress] AS [MerchantBusinessAddress], 
-[view_cashiers].[MerchantBusinessPhone] AS [MerchantBusinessPhone]
+[view_cashiers].[MerchantBusinessPhone] AS [MerchantBusinessPhone], 
+[view_cashiers].[isFullcarga] AS [isFullcarga]
 FROM [dbo].[view_cashiers] AS [view_cashiers]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_AchTransactions_AchTransactions" Association="Self.FK_AchTransactions_AchTransactions">

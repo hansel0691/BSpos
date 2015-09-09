@@ -1,0 +1,40 @@
+// Carousel
+// -------------------------
+.carousel-caption{
+	bottom: 10px;
+	padding-bottom: 10px;
+	left: 10%;
+	right: 10%;
+	color: $brand-primary;
+	text-shadow: none;
+
+	h4{
+		font-size: $font-size-large * 1.5;
+		color: $brand-primary;
+	}
+	a{
+		color: $brand-secundary;
+	}
+	@include breakpoint(xs) {
+		position: relative;
+		text-align: center;
+		width: 80%;
+		margin: 0 auto;
+		right: 0;
+		left: 0;
+	}
+}
+.carousel-indicators {
+	bottom: 0;
+}
+.carousel-control.left, .carousel-control.right{
+	background-color: none;
+	background-image: none;
+}
+.carousel-control{
+	.glyphicon{
+		color: $brand-primary;
+		opacity: 1;
+	}
+}
+

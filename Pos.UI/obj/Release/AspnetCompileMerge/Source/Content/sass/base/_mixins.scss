@@ -1,0 +1,122 @@
+// mixins
+// -------------------------
+// @mixin respond-to($media) {
+// 	// Small devices
+// 	@if $media == ps {
+// 		@media only screen and (max-width: $screen-ps) { @content; }
+// 		// 20em ~= 320px
+// 		// @media all and (max-width: 20em){ @content; }
+// 	}
+// 	// Small screen / tablet
+// 	@else if $media == xs {
+// 		@media all and (min-width: $screen-ps) and (max-width: $screen-xs){ @content; }
+// 		// 20em ~= 320px / 42.5em ~= 480px
+// 		// @media all and (min-width: 20em) and (max-width: 42.5em){ @content; }
+// 	}
+// 	// Small screen / tablet
+// 	@else if $media == sm {
+// 		@media all and (min-width: $screen-sm) and (max-width: $screen-md) { @content; }
+// 		// 48em ~=768px / 64em ~= 1024px
+// 		// @media all and (min-width: 48em) and (max-width: 64em) { @content; }
+// 	}
+// 	// Medium screen / desktop
+// 	@else if $media == md {
+// 		@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) { @content; }
+// 		// 48em ~=768px / 64em ~= 1024px
+// 		// @media all and (min-width: 48em) and (max-width: 64em) {@content; }
+// 	}
+// 	// Large screen / wide desktop
+// 	@else if $media == lg {
+// 		@media only screen and (min-width: $screen-lg-min) { @content; }
+// 		// 90em ~= 1440px && 98.87em ~= 1550px
+// 		// @media all and (min-width: 90em ) { @content; }
+// 	}
+// }
+
+// Mixins
+// http://css-tricks.com/media-queries-sass-3-2-and-codekit/
+@mixin breakpoint($point) {
+	@if $point == lg {
+		// 64em ~= 1024px
+		@media screen and (max-width: $screen-lg) { @content; }
+	}
+	@else if $point == md {
+		// 48em ~=992px
+		@media screen and (max-width: $screen-md) { @content; }
+	}
+	@else if $point == sm {
+		// 48em ~=768px
+		@media screen and (max-width: $screen-sm)  { @content; }
+	}
+	@else if $point == xs {
+		@media screen and (max-width: $screen-xs)  { @content; }
+	}
+	@else if $point == ps {
+		@media screen and (max-width: $screen-ps)  { @content; }
+	}
+}
+
+// http://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+@mixin orientation($position) {
+	@if $position == landscape {
+		@media only screen and (orientation : landscape) { @content; }
+	}
+	@else if $position == portrait {
+		@media only screen and (orientation : portrait) { @content; }
+	}
+}
+
+// @each $social in facebook, gplus, instagram {
+//  .#{$social}-background {
+//    background: url("../img/social-#{$social}-icon.png") no-repeat;
+//  }
+// }
+
+@mixin custom-button($color, $background, $border) {
+	color: $color;
+	background-color: $background;
+	border-color: $border;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		color: $color;
+		background-color: $background;// darken($border, 10%)
+		border-color: $border;//darken($border, 12%)
+	}
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			background-color: $background;
+					border-color: $border;
+		}
+	}
+
+	.badge {
+		color: $background;
+		background-color: $color;
+	}
+}
+
+@mixin label-variant($color) {
+	background-color: $color;
+
+	&[href] {
+		&:hover,
+		&:focus {
+			background-color: darken($color, 10%);
+		}
+	}
+}

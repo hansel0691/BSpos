@@ -25,3 +25,4 @@ D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Ninject.Ex
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Ninject.Extensions.Logging.xml
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Ninject.pdb
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Ninject.xml
+D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\ExcelLibrary.dll

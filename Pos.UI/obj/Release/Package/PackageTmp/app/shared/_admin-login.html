@@ -1,0 +1,18 @@
+<div class="form-area">
+	<div>
+	<alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
+</div>
+	<h5>Admin Login</h5>
+								<!--admin login area-->
+		<div class="" id="adminLoginArea">
+			<div id="adminLoginFormSummary"></div>
+
+			<form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
+				<div class="form-group">
+					<label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
+					<input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
+				</div>
+				<button type="button" ng-click= "loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
+			</form>
+		</div>
+	</div> <!-- #adminLoginArea -->

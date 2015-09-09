@@ -3779,7 +3779,7 @@
 
 			    /*change00*/
 
-			    API_URL = "http://localhost:50230/api/";
+			    //API_URL = "http://localhost:50230/api/";
 
 			    
 			    /*change01*/
@@ -3924,7 +3924,7 @@
 
         
 		$scope.additionalPhoneNumbersAmount = function () {
-		    if ($scope.amount.value && $scope.item.DenominationsConfig) {
+		    if ($scope.item && $scope.item.AcceptAdditionalPhones && $scope.amount.value && $scope.item.DenominationsConfig) {
 		        var index = $scope.item.DenominationsConfig.indexOf($scope.amount, 0, function(e, a) { return e.Denomination == a.value; });
 		        return $scope.item.DenominationsConfig[index].AdditionalPhonesQuantity;
 		    }
@@ -5716,7 +5716,7 @@
 
 			    /*change00*/
 
-				//API_URL = "http://localhost:50230/api/";
+				API_URL = "http://localhost:50230/api/";
 
 			    /*change01*/
 

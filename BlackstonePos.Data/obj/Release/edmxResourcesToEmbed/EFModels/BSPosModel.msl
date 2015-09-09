@@ -78,6 +78,10 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="BlackstonePos_NewModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="ConfirmationMessage" ColumnName="ConfirmationMessage" />
+          <ScalarProperty Name="Refunded" ColumnName="Refunded" />
+          <ScalarProperty Name="ConfirmationPhoneNumber" ColumnName="ConfirmationPhoneNumber" />
           <ScalarProperty Name="Source" ColumnName="Source" />
           <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -198,6 +202,7 @@
     <EntitySetMapping Name="view_cashiers">
       <EntityTypeMapping TypeName="BlackstonePos_NewModel.view_cashiers">
         <MappingFragment StoreEntitySet="view_cashiers">
+          <ScalarProperty Name="isFullcarga" ColumnName="isFullcarga" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -229,5 +234,23 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_get_merchant_commission" FunctionName="BlackstonePos_NewModel.Store.sp_get_merchant_commission" />
+    <EntitySetMapping Name="AppLogoUrls">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.AppLogoUrl">
+        <MappingFragment StoreEntitySet="AppLogoUrls">
+          <ScalarProperty Name="BrandAppLogoUrl" ColumnName="BrandAppLogoUrl" />
+          <ScalarProperty Name="BrandKey" ColumnName="BrandKey" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FullCargaSmsTemplates">
+      <EntityTypeMapping TypeName="BlackstonePos_NewModel.FullCargaSmsTemplate">
+        <MappingFragment StoreEntitySet="FullCargaSmsTemplates">
+          <ScalarProperty Name="SmsTemplate" ColumnName="SmsTemplate" />
+          <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

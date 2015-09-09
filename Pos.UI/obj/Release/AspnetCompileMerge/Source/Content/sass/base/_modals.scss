@@ -1,0 +1,36 @@
+// Customize Modal
+// -------------------------
+.modal-header{
+	padding: 0px;
+	padding-bottom: 5px;
+}
+.modal-title{
+	color: $white;
+}
+.modal-content{
+	// border-radius: 0;
+	border-width: 0;
+	padding: 10px;
+	box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.3);
+	border-radius: 3px;
+	// color: $gray-darker;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 12px 0 0 0;
+	}
+}
+.modal-dialog{
+	margin-top: 5px;
+	top: 70px;
+	@include breakpoint(xs) {
+		top: 10px;
+	}
+}
+.demo-modal{
+	.modal-dialog{
+		top: 70px;
+		@include breakpoint(xs) {
+			top: 10px;
+		}
+	}
+}

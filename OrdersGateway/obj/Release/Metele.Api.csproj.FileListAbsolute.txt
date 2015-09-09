@@ -106,7 +106,6 @@ C:\Users\crgarcia\Documents\Projects\OrdersGateway\OrdersGateway\obj\Release\Ord
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\AutoMapper.Net4.dll
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\OrdersGateway.dll.config
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\OrdersGateway.dll
-D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\OrdersGateway.XmlSerializers.dll
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\OrdersGateway.pdb
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\Antlr3.Runtime.dll
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\AutoMapper.dll
@@ -214,4 +213,4 @@ D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\BlackstonePos.Services.XmlS
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\obj\Release\Metele.Api.csprojResolveAssemblyReference.cache
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\obj\Release\OrdersGateway.dll
 D:\Projects\BlackstonePOSAngularJs\OrdersGateway\obj\Release\OrdersGateway.pdb
-D:\Projects\BlackstonePOSAngularJs\OrdersGateway\obj\Release\OrdersGateway.XmlSerializers.dll
+D:\Projects\BlackstonePOSAngularJs\OrdersGateway\bin\Mvc.Mailer.dll

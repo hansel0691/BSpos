@@ -1,0 +1,68 @@
+// ICONS
+// -------------------------------------------------------
+.icon {
+	display: inline-block;
+	vertical-align: middle;
+	background-position: 50% 50%;
+	background-repeat:no-repeat;
+	background-size: contain;
+	// border-radius: 50%;
+	border-radius: $border-radius-base;
+	// background-color: $brand-primary;
+}
+.panel-default, {
+	.icon{
+		border: 2px solid lighten($brand-secundary, 50%);
+		background-color: lighten($brand-secundary, 10%);
+	}
+}
+.panel-primary, {
+	.icon{
+		border: 2px solid lighten($brand-primary, 50%);
+		background-color: darken($brand-primary, 10%);
+	}
+}
+.form-group{
+	.icon{
+		border: 2px solid lighten($brand-secundary, 80%);
+		background-color: lighten($brand-secundary, 30%);
+	}
+}
+// icons size
+.icon16 {width:16px; height: 16px;}
+.icon18 {width:18px; height: 18px;}
+.icon20 {width:20px; height: 20px;}
+.icon24 {width:24px; height: 24px;}
+.icon28 {width:28px; height: 28px;}
+.icon32 {width:32px; height: 32px;}
+.icon48 {width:48px; height: 48px;}
+.icon60 {width:60px; height: 60px;}
+.icon80 {width:80px; height: 80px;}
+
+// icons bill payments
+.icon-fin {background-image:url('../Images/src/financial.svg');}
+.icon-ot {background-image:url('../Images/src/other.svg');}
+.icon-hom {background-image:url('../Images/src/phones.svg');}
+.icon-tv {background-image:url('../Images/src/tv.svg');}
+.icon-pow {background-image:url('../Images/src/utilities.svg');}
+.icon-wir {background-image:url('../Images/src/wireless.svg');}
+.icon-cb {background-image:url('../Images/src/other.svg');}
+.icon-pre {background-image:url('../Images/src/other.svg');}
+// language icons
+.es-ES {background-image: url('../Images/src/es-ES.svg'); }
+.en-US {background-image: url('../Images/src/en-US.svg'); }
+
+// .DirectvBasic, .DirectTvBasicPremium, .DirectTvPayPerView, .DirectTvComboBasic, .DirectTvComboPremium, .DirectTvReconexion, .DirectTvInstall, .DirectTvInstallCombo, .DirectTvKitInstall, .DirectTvKitInstallCombo{ background-color: #c0c0c0; }
+
+// icons drecttv
+.icon-DirectvBasic{background-image: url('../Images/src/directtv/recharge-direct-tv.svg');}
+.icon-DirectTvBasicPremium{background-image: url('../Images/src/directtv/recharge-direct-tv.svg');}
+.icon-DirectTvPayPerView{background-image: url('../Images/src/directtv/payper-view.svg');}
+.icon-DirectTvComboBasic{background-image: url('../Images/src/directtv/recharge-direct-tv.svg');}
+.icon-DirectTvComboPremium{background-image: url('../Images/src/directtv/recharge-direct-tv.svg');}
+.icon-DirectTvReconexion{background-image: url('../Images/src/directtv/recharge-direct-tv.svg');}
+.icon-DirectTvInstall{background-image: url('../Images/src/directtv/instalation.svg');}
+.icon-DirectTvInstallCombo{background-image: url('../Images/src/directtv/combo-1.svg');}
+.icon-DirectTvKitInstall{background-image: url('../Images/src/directtv/recharge-direct-tv.svg');}
+.icon-DirectTvKitInstallCombo{background-image: url('../Images/src/directtv/combo-2.svg');}
+.icon-PrepaidCards{background-image: url('../Images/src/directtv/prepaid-card.svg');}

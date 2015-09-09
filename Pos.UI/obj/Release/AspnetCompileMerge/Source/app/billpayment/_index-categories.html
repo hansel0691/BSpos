@@ -1,0 +1,18 @@
+<!-- _index-categories.html -->
+<div class="" id="billpaymentCategories">
+	<div class="inner-nav" ng-show="!loadingTracker.active()">
+		<div inner-nav-filters></div>
+	</div>
+
+	<div flash-message="5000" ></div>
+
+	<div class="row grid-view" id="indexBillPaymentCategories">
+		<div ng-repeat="item in items" class="col-xs-6 col-sm-{{thumbWidth}} col-md-{{thumbWidth}} repeated-item">
+			<a href="#/billpayment/category/{{item.Id | lowercase}}" class="thumbnail {{item.Id | lowercase}}">
+				<div class="category-icon"><span class="icon icon60 icon-{{item.Id | lowercase}}">&nbsp;</span></div>
+				<span class="title text-center">{{item.Description}}</span>
+			</a>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,32 @@
+<!-- _home.html -->
+<div class="row grid-view" id="home">
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+	</div>
+	<!-- {{items|json}} -->
+
+		<!-- <div class="col-xs-6 col-sm-4 col-md-4">
+			<a href="{{activationShopUrl}}" target="_blank">
+				<div class="thumbnail">
+					<span class="title text-center">Activation Shop</span>
+				</div>
+			</a>
+		</div> -->
+
+
+	<div ng-repeat="item in items | orderBy:'position':asc" class="col-xs-6 col-sm-4 col-md-4 repeated-item">
+		<!-- | filter: items.category | limitTo: items.limit | orderBy: orderItems -->
+		<a href="{{item.url}}" ng-click="selectProduct(item)" title="item.title">
+			<div class="thumbnail">
+				<span class="title text-center"><i class="fa fa-{{item.icon}}" ng-if="item.icon"></i> {{item.title}}</span>
+			</div>
+		</a>
+	</div>
+
+	<!-- <div class="col-xs-6 col-sm-4 col-md-4">
+		<a class="thumbnail" href="#/directtv/categories"><span class="title text-center">Direct TV</span></a>
+	</div> -->
+	<!-- <div class="col-xs-6 col-sm-4 col-md-4">
+		<a class="thumbnail" href="{{vonageUrl}}" target="_blank"><span class="title text-center">Vonage</span></a>
+	</div> -->
+</div> <!-- .row -->

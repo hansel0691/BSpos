@@ -1,12 +1,12 @@
+D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\System.Net.Http.Formatting.xml
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\Pos.UI.dll.config
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\Pos.UI.dll
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\Pos.UI.pdb
-D:\Projects\BlackstonePOSAngularJs\Pos.UI\obj\Debug\Pos.UI.csprojResolveAssemblyReference.cache
-D:\Projects\BlackstonePOSAngularJs\Pos.UI\obj\Debug\Pos.UI.dll
-D:\Projects\BlackstonePOSAngularJs\Pos.UI\obj\Debug\Pos.UI.pdb
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\Newtonsoft.Json.dll
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\System.Net.Http.Formatting.dll
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\System.Web.Http.dll
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\Newtonsoft.Json.xml
-D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\System.Net.Http.Formatting.xml
 D:\Projects\BlackstonePOSAngularJs\Pos.UI\bin\System.Web.Http.xml
+D:\Projects\BlackstonePOSAngularJs\Pos.UI\obj\Debug\Pos.UI.csprojResolveAssemblyReference.cache
+D:\Projects\BlackstonePOSAngularJs\Pos.UI\obj\Debug\Pos.UI.dll
+D:\Projects\BlackstonePOSAngularJs\Pos.UI\obj\Debug\Pos.UI.pdb

@@ -1,0 +1,123 @@
+// FORMS OVERRIDES
+// -------------------------
+
+// Form
+$theme-color: blue;
+
+.form-control{
+	background-color: desaturate(lighten($brand-primary, 43%), 3%);
+}
+
+input, textarea, select {
+	// border: 1px solid $gray-lighter;
+	// padding: 0.5em;
+	// font-size: 15px;
+	// line-height: 1.2em;
+	// width: 80%;
+}
+.radio label, .checkbox label{
+	padding-left: 20px;
+	font-size: floor($font-size-base * 0.9);
+}
+
+.checkbox {
+	& + .checkbox{
+		margin-top: 3px;
+	}
+}
+input[type=radio]{
+	display: none;
+}
+input[type=checkbox] {
+	// , input[type=radio]
+	display: inline-block;
+	font-size: 15px;
+	line-height: 1em;
+	margin: -2px 3px 0 0;
+	padding: 0;
+	width: 24px;
+	height: 24px;
+	vertical-align: text-top;
+	background: url(img/#{$theme-color}.png) no-repeat;
+	background-repeat: no-repeat;
+	-webkit-appearance: none;
+}
+
+// CHECKBOXES
+
+input[type=checkbox] {
+	// border-radius: 5px;
+	border-radius: 0;
+
+	&:hover{
+		background-position: -24px 0;
+	}
+	&:checked{
+		background-position: -48px 0;
+		// -webkit-background-size: 28px 28px; /* shrink high resolution background */
+	}
+	&:disabled{
+		background-position: -96px 0;
+	}
+	&:disabled:hover{
+		background-position: -72px 0;
+	}
+}
+
+// RADIO BUTTONS
+
+input[type=radio] {
+	// border-radius: 50%;
+	background-position: -120px 0;
+
+	&:disabled{
+		background-position: -216px 0;
+		// cursor: default;
+	}
+	&:hover{
+		background-position: -144px 0;
+	}
+	&:checked {
+		background-position: -168px 0;
+		background-color: $brand-primary;
+	}
+	&:disabled:hover{
+		background-position: -192px 0;
+	}
+}
+#makePayment{
+	#account, #routing{
+		max-width: 200px;
+	}
+	#amount{
+		max-width: 100px;
+	}
+}
+
+.form-group{
+	margin-bottom: 7px;
+}
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+	.icheckbox_square,
+	.iradio_square {
+		background-image: url(img/#{$theme-color}@2x.png) no-repeat;
+		background-size: 240px 24px;
+	}
+}
+
+
+.form-control[readonly].active{
+	border: 1px solid $brand-primary;
+	background-color: desaturate(lighten($brand-primary, 65%), 30%);
+}
+
+// disable chrome datepicker
+input::-webkit-calendar-picker-indicator{
+	display: none;
+}
+// And to hide the prompt:
+input[type="date"]::-webkit-input-placeholder{
+	visibility: hidden !important;
+}

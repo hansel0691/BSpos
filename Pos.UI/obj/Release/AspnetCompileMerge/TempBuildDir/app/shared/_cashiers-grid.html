@@ -1,0 +1,104 @@
+<!-- _cachier-grid.html -->
+<div>
+	<alert ng-repeat="alert in cashierAlerts" type="{{alert.type}}" close="closeCashierAlerts()">{{ alert.msg }}</alert>
+</div>
+
+<div id="addCashier">
+	<h5>Add Cashier</h5>
+
+	<form name="addCashier" ng-submit="submitForm(addFunds.$valid)" role="form" id="addCashier" class="form-inline" novalidate>
+		<div class="form-group" ng-class="{'has-error' : submitted && addCashier.account.$error.required || addCashier.name.$error.pattern}">
+			<!-- <label for="name">name Number</label> -->
+			<input type="text" ng-model ="cashier.name" class="form-control" id="name" name="name" placeholder="Enter Name"
+				ng-model="name"
+				ng-required="true">
+			<!-- <span class="error" ng-show="addCashier.name.$error.required">Required!</span> -->
+		</div>
+
+		<div class="form-group" ng-class="{'has-error' : submitted && addCashier.password.$error.required || addCashier.password.$error.pattern}">
+			<!-- <label for="password">password Number</label> -->
+			<input type="text"  ng-model ="cashier.password" class="form-control" id="password" name="password" placeholder="Enter Password"
+				ng-model="password"
+				ng-minlength="4"
+				ng-maxlength="8"
+				ng-required="true">
+			<!-- <span class="error" ng-show="addCashier.routing.$error.required">Required!</span> -->
+		</div>
+
+		<button type="submit" class="btn btn-primary text-right"
+			ng-disabled="addCashier.$invalid"
+			ng-click="saveCashier()"> Add Cashier
+		</button>
+	</form>
+
+	<hr>
+</div>
+
+<div id="editCashier" ng-show="editMode">
+	<h5>Edit Cashier</h5>
+
+	<form name="editCashier" ng-submit="submitForm(updateCashier.$valid)" role="form" id="editCashier" class="form-inline" novalidate>
+		<div class="form-group" ng-class="{'has-error' : submitted && editCashier.account.$error.required || editCashier.name.$error.pattern}">
+			<!-- <label for="name">name Number</label> -->
+			<input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
+				ng-model="editcashier.name"
+				ng-required="true">
+			<!-- <span class="error" ng-show="editCashier.name.$error.required">Required!</span> -->
+		</div>
+
+		<div class="form-group" ng-class="{'has-error' : submitted && editCashier.password.$error.required || editCashier.password.$error.pattern}">
+			<!-- <label for="password">password Number</label> -->
+			<input type="text" class="form-control" id="password" name="password" placeholder="Enter Password"
+				ng-model ="editcashier.password"
+				ng-minlength="4"
+				ng-maxlength="8"
+				ng-required="true">
+			<!-- <span class="error" ng-show="editCashier.routing.$error.required">Required!</span> -->
+		</div>
+
+		<button type="button" class="btn btn-primary text-right"
+			ng-disabled="editCashier.$invalid"
+			ng-click="updateCashier()"> Edit Cashier
+		</button>
+	</form>
+
+	<hr>
+</div>
+
+<div id="listCashiers">
+	<h5>Cashiers</h5>
+
+	<div class="form-horizontal" id="">
+		<!-- <div class="form-group">
+			<label for="search" class="control-label col-sm-3">Search</label>
+			<div class="col-sm-9">
+				<input type="search" ng-model="searchCashier" class="form-control " placeholder="Search for cashier by: id, name or date" />
+			</div>
+		</div> -->
+
+		<table class="table table-condensed">
+			<thead>
+				<th>Name</th>
+				<th>Password</th>
+				<th>Date created</th>
+				<th class="info text-center">Edit</th>
+				<th class="danger text-center">Delete</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="cashier in cashiers | filter:searchCashier">
+					<!-- {{cashiers |json}} -->
+					<td class="cashier-name">{{ cashier.Name || 'cashier name' }}</td>
+					<td class="cashier-cachier">{{ cashier.Password || 'password'}}</td>
+					<td class="cashier-date">{{ cashier.TimeStamp | date}}</td>
+					<td class="cashier-edit text-center">
+						<a class="btn btn-info btn-xs" id="" href="" title=" " target="_self" ng-click="setSelectedCashier()">
+							&nbsp;<i class="fa fa-pencil-square-o"></i></i> Edit</a>
+					</td>
+					<td class="cashier-delete text-center">
+						<a class="btn btn-danger btn-xs" id="" href="" title=" " target="_self" ng-click="deleteCashier(cashier.Id)" ng-alert-confirm="Sure you want to delete a Cashier?">
+							&nbsp;<i class="fa fa-times"></i> Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

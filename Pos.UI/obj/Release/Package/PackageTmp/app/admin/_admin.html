@@ -1,0 +1,564 @@
+
+<div flash-message="5000" ></div>
+
+<!-- tabs -->
+<tabset justified="false" id="adminTabs">
+	<!-- Payments -->
+	<!-- <tab heading="Make Payments">
+		<div ng-hide="adminLogged">
+			<div class="form-area">
+				<div>
+					<alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
+				</div>
+				<h5>Admin Login</h5>
+				<div class="" id="adminLoginArea">
+					<div id="adminLoginFormSummary"></div>
+
+					<form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
+						<div class="form-group">
+								<label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
+								<input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
+						</div>
+						<button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="adminLogged">
+			<div id="makePayment">
+
+				<div id="newPaymentForm">
+					<alert ng-repeat="alert in paymentAlerts" type="{{alert.type}}" close="closePaymentAlerts()">
+						{{ alert.msg}}
+					</alert>
+					<h5>Make a Payment</h5>
+
+					<div class="alert alert-danger" ng-show="addFunds.$invalid && !addFunds.$pristine">
+						<div ng-if="addFunds.account.$error.required || addFunds.account.$error.pattern && !addFunds.account.$pristine">Check Account Number input!</div>
+						<div ng-if="addFunds.routing.$error.required || addFunds.routing.$error.pattern && !addFunds.routing.$pristine">Check Amount Routing input!</div>
+						<div ng-if="addFunds.amount.$error.required || addFunds.amount.$error.pattern && !addFunds.amount.$pristine">Check Amount input!</div>
+					</div>
+
+
+					<form name="addFunds" ng-submit="submitForm(addFunds.$valid)" role="form" id="addFunds" class="form-inline" novalidate>
+						<div class="form-group" ng-class="{'has-error' : submitted && addFunds.account.$error.required || addFunds.account.$error.pattern}">
+							<input type="text" class="form-control" id="account" name="account" placeholder="Account Number"
+								ng-model="payment.AccountNumber"
+								ng-minlength="8"
+								ng-maxlength="9"
+								pattern="^[-\d]+$"
+								ng-required="true">
+							<span class="error" ng-show="addFunds.account.$error.required">Required!</span>
+						</div>
+
+						<div class="form-group" ng-class="{'has-error' : submitted && addFunds.routing.$error.required || addFunds.routing.$error.pattern}">
+							<input type="text" class="form-control" id="routing" name="routing" placeholder="Routing Number"
+								ng-model="payment.RoutingNumber"
+								ng-minlength="8"
+								ng-maxlength="9"
+								pattern="^[-\d]+$"
+								ng-required="true">
+							<span class="error" ng-show="addFunds.routing.$error.required">Required!</span>
+						</div>
+
+						<div class="form-group" ng-class="{'has-error' : submitted && addFunds.amount.$error.required || addFunds.amount.$error.pattern}">
+							<input type="text" class="form-control" id="amount" name="amount" placeholder="Amount"
+								ng-model="payment.Amount"
+								ng-minlength="1"
+								ng-maxlength="3"
+								pattern="^[-\d]+$"
+								ng-required="true">
+							<span class="error" ng-show="addFunds.amount.$error.required">Required!</span>
+						</div>
+
+						<div class="checkbox" id="save">
+							<label>
+								<input type="checkbox"
+									ng-model="payment.SaveAccount"> Save
+							</label>
+						</div>
+
+						<button type="submit" class="btn btn-primary text-right"
+							ng-disabled="addFunds.$invalid"
+							ng-click="addAchFunds()">Pay
+						</button>
+					</form>
+
+					<div class="padd" id="achs">
+						<h5>Select Saved Account</h5>
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th>Account Number</th>
+									<th>Routing Number</th>
+									<th>Saved On</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="ach in achs" id="ach.Id" ng-click="setSelectedPayment()">
+									<td>{{ach.AccountNumber}}</td>
+									<td>{{ach.RoutingNumber}}</td>
+									<td>{{ach.TimeStamp | date}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<hr>
+			</div>
+		</div>
+	</tab> -->
+
+	<!-- Cashiers -->
+	<tab select="saveState('0')" active="tabs[0].active" heading="{{tabs[0].title}}">
+		<!-- if admin not logged -->
+		<div ng-hide="adminLogged">
+			<div class="form-area">
+				<div>
+					<alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
+				</div>
+				<h5>Admin Login</h5>
+
+				<!--admin login area-->
+				<div class="" id="adminLoginArea">
+					<div id="adminLoginFormSummary"></div>
+					<form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
+						<div class="form-group">
+							<label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
+							<input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
+						</div>
+						<button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
+					</form>
+				</div>
+			</div> <!-- #adminLoginArea -->
+		</div>
+
+		<div ng-if="adminLogged">
+			<!-- _cachier-grid.html -->
+			<div>
+				<alert ng-repeat="alert in cashierAlerts" type="{{alert.type}}" close="closeCashierAlerts()">{{ alert.msg }}</alert>
+			</div>
+
+			<div id="addCashier">
+				<h5>Add Cashier</h5>
+
+				<form name="addCashier" ng-submit="submitForm(addFunds.$valid)" role="form" id="addCashier" class="form-inline" novalidate>
+					<div class="form-group" ng-class="{'has-error' : submitted && addCashier.account.$error.required || addCashier.name.$error.pattern}">
+						<!-- <label for="name">name Number</label> -->
+						<input type="text" ng-model="cashier.name" class="form-control" id="name" name="name" placeholder="Name" style="width: 250px;"
+							ng-model="name"
+							ng-required="true">
+						<!-- <span class="error" ng-show="addCashier.name.$error.required">Required!</span> -->
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && addCashier.password.$error.required || addCashier.password.$error.pattern}">
+						<!-- <label for="password">password Number</label> -->
+						<input type="text" ng-model="cashier.password" class="form-control" id="password" name="password" placeholder="Password" style="width: 250px;"
+							ng-model="password"
+							ng-minlength="4"
+							ng-maxlength="8"
+							ng-required="true">
+						<!-- <span class="error" ng-show="addCashier.routing.$error.required">Required!</span> -->
+					</div>
+
+					<button type="submit" class="btn btn-primary text-right"
+							ng-disabled="addCashier.$invalid"
+							ng-click="saveCashier()">
+						Add
+					</button>
+				</form>
+
+				<hr>
+			</div>
+
+			<div id="editCashier" ng-show="editMode">
+				<h5>Edit Cashier</h5>
+
+				<form name="editCashier" ng-submit="submitForm(updateCashier.$valid)" role="form" id="editCashier" class="form-inline" novalidate>
+					<div class="form-group" ng-class="{'has-error' : submitted && editCashier.account.$error.required || editCashier.name.$error.pattern}">
+						<!-- <label for="name">name Number</label> -->
+						<input type="text" class="form-control" id="name" name="name" style="width: 250px;"placeholder="Enter Name"
+							ng-model="editcashier.name"
+							ng-required="true">
+						<!-- <span class="error" ng-show="editCashier.name.$error.required">Required!</span> -->
+					</div>
+
+					<div class="form-group" ng-class="{'has-error' : submitted && editCashier.password.$error.required || editCashier.password.$error.pattern}">
+						<!-- <label for="password">password Number</label> -->
+						<input type="text" class="form-control" id="password" name="password" placeholder="Enter Password" style="width: 250px;"
+							ng-model="editcashier.password"
+							ng-minlength="4"
+							ng-maxlength="8"
+							ng-required="true">
+						<!-- <span class="error" ng-show="editCashier.routing.$error.required">Required!</span> -->
+					</div>
+
+				    <button type="button" class="btn btn-primary text-right"
+				            ng-disabled="editCashier.$invalid"
+				            ng-click="updateCashier()">
+				        Edit Cashier
+				    </button>
+                    <button class="btn btn-danger" ng-click="cancelEditCashier()">
+                        &nbsp;<i class="fa fa-times"></i> Cancel
+                    </button>
+				</form>
+
+				<hr>
+			</div>
+
+			<div id="listCashiers">
+				<h5>Cashiers</h5>
+
+				<div class="form-horizontal" id="">
+					<table class="table table-condensed">
+						<thead>
+						<th>Name</th>
+						<th>Password</th>
+						<th>Date created</th>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+						<!-- <th class="info text-center">Edit</th>
+						<th class="danger text-center">Delete</th> -->
+						</thead>
+						<tbody>
+							<tr ng-repeat="cashier in cashiers | filter:searchCashier">
+								<!-- {{cashiers |json}} -->
+								<td class="cashier-name">{{ cashier.Name || 'cashier name' }}</td>
+								<td class="cashier-cachier">{{ cashier.Password || 'password'}}</td>
+								<td class="cashier-date">{{ cashier.TimeStamp | date}}</td>
+								<td class="cashier-edit text-center">
+									<a class="btn btn-primary btn-xs" id="" href="" title=" " target="_self" ng-click="setSelectedCashier()">
+										&nbsp;<i class="fa fa-pencil-square-o"></i></i> Edit
+									</a>
+								</td>
+								<td class="cashier-delete text-center">
+									<a class="btn btn-danger btn-xs" id="" href="" title=" " target="_self" ng-click="deleteCashier(cashier.Id)">
+										&nbsp;<i class="fa fa-times"></i> Delete
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</tab>
+
+	<!-- Settings -->
+	<tab select="saveState('1')" active="tabs[1].active" heading="{{tabs[1].title}}" id="printerSettings">
+		<div ng-hide="adminLogged">
+			<div class="form-area">
+				<div>
+					<alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
+				</div>
+				<h5>Admin Login</h5>
+				<!--admin login area-->
+				<div class="" id="adminLoginArea">
+					<div id="adminLoginFormSummary"></div>
+
+					<form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
+						<div class="form-group">
+							<label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
+							<input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
+						</div>
+						<button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
+					</form>
+				</div>
+			</div> <!-- #adminLoginArea -->
+		</div>
+
+		<div ng-if="adminLogged">
+			<!-- _merchant.settings.html -->
+			<div id='merchantSettings'>
+				<div>
+					<alert ng-repeat="alert in settingsAlerts" type="{{alert.type}}" close="closeSettingsAlerts()">{{ alert.msg }}</alert>
+				</div>
+
+				<!-- <hr> -->
+				<form class="" role="form" name="settingsForm">
+
+					<h5> Printer </h5>
+					<div class="settingsMessage"></div>
+					<label>
+						<input type="checkbox" name="smallReceiptCheck"
+							ng-model="settings.SmallReceipt">
+						Small receipt
+					</label>
+
+					<hr class="divider">
+
+					<!-- merchant tax settings -->
+					<h5>Merchant Tax</h5>
+					<div class="merchantTaxSettingsMessage"></div>
+					<div class="form-group row">
+						<label for="taxAmount" class="col-sm-2">Sales Tax</label>
+						<div class="col-sm-10">
+							<input type="number" class="form-control col-sm-2" id="taxAmount" name="taxAmount" placeholder="Tax"
+								ng-model="settings.Tax"
+								ng-pattern="/^[0-9]{1,2}$/"
+								ng-max="15"
+								style="width: 80px;">
+						</div>
+					</div>
+
+					<hr class="divider">
+
+					<!-- confirm telephone number settings -->
+					<h5>Confirm Telephone Number</h5>
+					<div class="confirmTelSettingsMessage"></div>
+					<label>
+						<input type="checkbox" name="confirmTelCheck"
+							ng-model="settings.ConfirmPhone">
+						Confirm telephone
+					</label>
+
+					<hr class="divider">
+
+					<!-- confirm telephone number settings -->
+					<h5> Pax Terminal as Printer </h5>
+					<div class="confirmTelSettingsMessage"></div>
+					<label>
+						<input type="checkbox" name="paxTerminalAsPrinterCheck"
+							ng-model="settings.PaxTerminalAsPrinter">
+						Set Pax Terminal as Printer
+					</label>
+
+					<hr class="divider">
+
+					<button type="button" class="btn btn-danger" ng-click="updateSettings(settingsForm)">
+						Save Settings
+					</button>
+				</form>
+
+				<!-- <div class="panel panel-default">
+
+					<div class="panel-body">
+
+					</div>
+				</div> -->
+
+
+				<!-- <div class="panel panel-default">
+					<div class="panel-heading"> Merchant Tax </div>
+
+					<div class="panel-body">
+						<div class="merchantTaxSettingsMessage"></div>
+
+						<form class="padd" role="form">
+							<div class="form-group">
+								<label for="taxAmount">Sales Tax</label>
+								<input type="number" class="form-control" id="taxAmount" name="taxAmount" placeholder="Enter tax amount"
+									ng-model="settings.Tax"
+									ng-pattern="/^[0-9]{1,2}$/"
+									ng-max="15"
+									>
+							</div>
+						</form>
+					</div>
+				</div> -->
+
+
+				<!-- <div class="panel panel-default">
+					<div class="panel-heading"> Confirm Telephone Number </div>
+
+					<div class="panel-body">
+						<div class="confirmTelSettingsMessage"></div>
+
+						<form class="padd" role="form">
+							<label>
+								<input type="checkbox" name="confirmTelCheck" ng-model="settings.ConfirmPhone">
+								Confirm telephone
+							</label>
+						</form>
+					</div>
+				</div> -->
+
+				<!--confirm telephone number settings-->
+				<!-- <div class="panel panel-default">
+					<div class="panel-heading"> Pax Terminal as Printer </div>
+
+					<div class="panel-body">
+						<div class="confirmTelSettingsMessage"></div>
+
+						<form class="padd" role="form">
+							<label>
+								<input type="checkbox" name="paxTerminalAsPrinterCheck" ng-model="settings.PaxTerminalAsPrinter">
+								Set Pax Terminal as Printer
+							</label>
+						</form>
+					</div>
+				</div> -->
+
+
+			</div>
+
+		</div>
+	</tab>
+
+	<!-- Orders -->
+	<tab select="saveState('2')" active="tabs[2].active" heading="{{tabs[2].title}}">
+		<div>
+			<alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
+		</div>
+
+		<div ng-hide="adminLogged">
+			<div class="form-area">
+				<h5>Admin Login</h5>
+				<!--admin login area-->
+				<div class="" id="adminLoginArea">
+					<div id="adminLoginFormSummary"></div>
+
+					<form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
+						<div class="form-group">
+							<label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
+							<input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
+						</div>
+						<button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
+					</form>
+				</div>
+			</div> <!-- #adminLoginArea -->
+		</div>
+
+		<div ng-if="adminLogged">
+			<!-- <div>
+				<alert ng-repeat="alert in ordersAlerts" type="{{alert.type}}" close="closeOrdersAlerts($index)">{{ alert.msg }}</alert>
+			</div> -->
+
+			<!-- <div class="small">From: <span class="label label-primary">{{start | date : 'shortDate' : '-0500'}}</span> To: <span class="label label-success">{{end | date : 'shortDate' : '-0500'}}</span></div> -->
+
+			<form role="form" novalidate name="ordersByDate" class="" id="datesRange">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12" id="">
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3">
+									<input type="text" class="form-control" name="start"
+									date-time
+									ng-model="start"
+									min-view="date"
+									max-view="date"
+									format="shortDate">
+							</div>
+
+							<div class="col-xs-3 col-sm-3 col-md-3">
+								<input type="text" class="form-control" name="end"
+									date-time
+									ng-model="end"
+									min-view="date"
+									max-view="date"
+									format="shortDate">
+							</div>
+
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<button class="btn-t btn-primary" ng-click="getOrdersByDate(ordersByDate)">
+									<i class="fa fa-refresh"></i>
+									<span class="hidden-xs">Actualizar</span>
+								</button>
+								<!-- <button class="btn-t btn-default" ng-click="clear()"><i class="fa fa-times"></i><span class="hidden-xs"> Reset</span></button> -->
+								<button class="btn-t btn-success" ng-click="today()"><i class="fa fa-bolt"></i><span class="hidden-xs"> Today</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12" id="">
+							<hr />
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12" id="">
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-2">
+								<!-- <button class="btn-t btn-default btn-block" ng-csv="cvs" ng-click="downloadAsCvs(ordersByDate)" filename="{{filename}}.csv"><i class="fa fa-download"></i> <span class="hidden-xs"> Download</span></button> -->
+								<button class="btn-t btn-default btn-block" ng-click="downloadAsCvs(ordersByDate)"><i class="fa fa-download"></i><span class="hidden-xs"> Download</span></button>
+							</div>
+
+							<div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-1 col-md-offset-2">
+								<input type="email" class="form-control" ng-model="email" name="email">
+							</div>
+
+							<div class="col-xs-3 col-sm-2 col-md-2">
+								<button class="btn-t btn-default btn-block" ng-click="sendAsEmail(ordersByDate)"><i class="fa fa-envelope"></i><span class="hidden-xs"> Email</span></button>
+							</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12" id="">
+							<hr />
+						</div>
+					</div>
+				</div>
+			</form>
+
+			<hr>
+
+			<table class="table table-condensed" id="">
+				<tr>
+					<td>Transactions: <span class="label label-primary">{{sumary.Transactions}}</span></td>
+					<!-- <td>Comissions: <span class="label label-info">{{sumary.Comissions}}</span></td> -->
+					<td>TotalSales: <span class="label label-success">{{sumary.TotalSales}}</span></td>
+					<td>Refunds: <span class="label label-danger">{{sumary.Refunds}}</span></td>
+				</tr>
+			</table>
+
+			<hr>
+
+			<div class="table-responsive">
+				<table class="table table-condensed" id="ordersGrid">
+					<thead>
+						<th>Date</th>
+						<th>Order<span class="hidden-xs"> Number</span></th>
+						<th>Phone<span class="hidden-xs"> Number</span></th>
+						<th>Product</th>
+						<!-- <th>Cashier</th> -->
+						<th>Amount</th>
+						<!-- <th>Comission</th> -->
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+					</thead>
+
+					<tbody>
+						<!-- {{orders | json}} -->
+						<tr ng-repeat="order in orders | orderBy:order.TimeStamp" ng-class="order.Refunded == true ? 'text-muted active' : ''">
+							<td class="order-date">{{ order.TimeStamp | date: 'short' }}</td>
+							<td class="order-id">{{ order.Id}}</td>
+							<td class="order-phone-number">{{ order.PhoneNumber}}</td>
+							<td class="order-product-name">{{ order.ProductName }}</td>
+							<!-- <td class="order-code">{{ order.OperatorName}}</td> -->
+							<td class="order-amount">{{ order.Amount | currency }}</td>
+							<!-- <td class="order-amount">{{ order.Comission | currency }}</td> -->
+							<td class="refund-order">
+								<!-- <span ng-if="order.Refunded" class="text-danger"><small>Refunded</small></span> -->
+								<button class="btn btn-danger btn-xs" ng-click="refundOrder(order.Id)" ng-disabled="!order.IsRefundable" form="ordersByDate"> Refund</button>
+							</td>
+							<td class="resend-order-confirmation">
+								<button class="btn btn-success btn-xs" ng-click="reSendOrderConfirmation(order.Id)" ng-disabled="!order.IsResendable">Resend</button>
+							</td>
+							<!--<td class="order-code">{{ order.TransactionID}}</td>
+							<td class="order-code">{{ order.PinNumber}}</td>-->
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row">
+				<!-- <div class="col-xs-3 col-sm-3 col-md-3" id="">
+					<a class="btn" id="" href="" ng-click="updateOrders()">
+						<i class="fa fa-refresh" ng-class="spin ? 'fa-spin' : ''"></i> Update
+					</a>
+				</div> -->
+
+				<div class="col-xs-12 col-sm-12 col-md-12" id="">
+					<div class="text-center">
+						<pagination num-pages="noOfPages" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged(currentPage)" boundary-links="false" rotate="true" max-size="maxSize" class="pagination-md"></pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</tab>
+</tabset>
+
+	<!-- </div> --> <!-- .snap-drawer -->
+<!-- </div> -->

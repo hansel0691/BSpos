@@ -1,0 +1,37 @@
+<div class="modal-body">
+	<div class="modal-header">
+		<div class="row">
+			<div class="col-xs-8">
+				<ul class="list-inline">
+					<li ng-if="items.firstItem"><span class="h6 text-danger">{{items.firstItem}}</span></li>
+					<li ng-if="items.secondItem"><span class="h6 text-primary">{{items.secondItem}}</span> </li>
+					<li ng-if="items.thirdItem"><span class="h6 text-mute">{{items.thirdItem}}</span></li>
+				</ul>
+			</div>
+			<div class="col-xs-4">
+				<button class="btn btn-default pull-right"
+					data-ng-click="close();"><i class="fa fa-times"></i> {{modalOptions.closeButtonText}}
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div >
+		<table class="table">
+			<thead>
+				<tr>
+					<th ng-repeat="(key, value) in items[0]">{{key | ordinal}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items | filter:searchText">
+					<td ng-repeat="(key, value) in item">{{value}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- {{item | json}} -->
+</div>
+<!-- <div class="modal-footer" >
+</div>
+ -->

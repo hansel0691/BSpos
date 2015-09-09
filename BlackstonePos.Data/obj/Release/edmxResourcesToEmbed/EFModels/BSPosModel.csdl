@@ -95,6 +95,10 @@
     <Property Name="Comission" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TerminalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmationPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Refunded" Type="Boolean" />
+    <Property Name="ConfirmationMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="PaxPosOrderRequest">
     <Key>
@@ -186,7 +190,7 @@
       <PropertyRef Name="prdActive" />
     </Key>
     <Property Name="merchant_pk" Type="Int32" Nullable="false" />
-    <Property Name="prdDescription" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prdDescription" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="prdActive" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="view_cashiers">
@@ -221,6 +225,7 @@
     <Property Name="MerchantBusinessName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="MerchantBusinessAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="MerchantBusinessPhone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isFullcarga" Type="Int32" />
   </EntityType>
   <Association Name="FK_AchTransactions_AchTransactions">
     <End Role="AchPayments" Type="Self.AchPayment" Multiplicity="0..1" />
@@ -261,10 +266,28 @@
       <Parameter Name="pro_amount" Mode="In" Type="Decimal" />
       <Parameter Name="pro_fee" Mode="In" Type="Decimal" />
     </FunctionImport>
+    <EntitySet Name="AppLogoUrls" EntityType="BlackstonePos_NewModel.AppLogoUrl" />
+    <EntitySet Name="FullCargaSmsTemplates" EntityType="BlackstonePos_NewModel.FullCargaSmsTemplate" />
   </EntityContainer>
   <ComplexType Name="getPromotios_Result">
     <Property Type="String" Name="Code" Nullable="true" />
     <Property Type="String" Name="ImageUrl" Nullable="true" />
     <Property Type="String" Name="SmallImageText" Nullable="true" />
   </ComplexType>
+  <EntityType Name="AppLogoUrl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BrandAppLogoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FullCargaSmsTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SmsTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

@@ -1,0 +1,300 @@
+<!-- _index-sunpass.html -->
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+</div>
+
+<div class="row sunpass" id="showSunpass" ng-show="!showReceipt">
+	<!-- {{items|json}} -->
+	<div class="col-xs-12 col-sm-5 col-md-5">
+	<h3 class="">{{item.name}}</h3>
+
+	<form name="getInfoForm" role="form" id="getInfoForm" novalidate>
+		<div class="form-group" ng-class="{'has-error' : submittedCheck && getInfoForm.idnumber.$error.required}">
+			<label for="" class="control-label">Document ID </label>
+			<span class="label label-danger" data-ng-show="submittedCheck && getInfoForm.idnumber.$error.required">Required!</span>
+			<input class="form-control" type="text" name="idnumber" placeholder="Enter Document Id" id="idnumber"
+			ng-disabled="isDisableInputs"
+			ng-model="idnumber"
+			ng-required="true">
+			<p class="help-block">Violation document sent by Florida Department of Transportation (FDOT), include letters.</p>
+			<span class="error" ng-show="getInfoForm.idnumber.$error.required"></span>
+		</div>
+
+		<div class="form-group" ng-class="{'has-error' : submittedCheck && getInfoForm.plate.$error.required}">
+			<label for="" class="control-label">License Plate Number </label>
+			<span class="label label-danger" data-ng-show="submittedCheck && getInfoForm.plate.$error.required">Required!</span>
+			<input class="form-control" type="text" name="plate" placeholder="License Plate Number" id="plate"
+				ng-disabled="isDisableInputs"
+				ng-model="plate"
+				ng-required="true">
+			<p class="help-block">As show on invoice violation or citation (exclude hyphens or dashes).</p>
+		</div>
+		<div class="form-group" ng-hide="showDoReplenishment">
+			<button class="btn btn-danger" ng-disabled="getInfoForm.$invalid || isDisableInputs" title="Submit" ng-click="doGetInfo(getInfoForm)" ng-show="showCheck">Check</button> <!-- data-ng-click="nextStep(getInfoForm)" -->
+		</div>
+		</form>
+
+		<div class="" ng-if="showDoDocumentsPayment">
+			<form name="doPayment" role="form" id="doPayment" novalidate>
+			<!-- {{documents|json}} -->
+
+			<div class="form-group" id="" ng-class="{'has-error' : submittedDoPayment && doPayment.paymentType.$error.required}">
+				<label for="" class="control-label">Select Document(s) to Pay</label>
+				<span class="label label-danger" data-ng-show="submittedDoPayment && doPayment.paymentType.value.$error.required">Required!</span>
+
+				<a class="btn btn-default btn-block" id="" title="{{documents.requestedDocumentField.documentIdField}}" target="_self" ng-click="setDocument([documents.requestedDocumentField], 'One')" ng-class="{'active' : (active == true)}" >
+					Pay ONLY the document entered
+				</a>
+
+				<a class="btn btn-default btn-block" id="" title="{{documents.unpaidDocumentListField.documentIdField[0]}}" target="_self" ng-click="setDocument(documents.unpaidDocumentListField, 'All')" ng-class="{'active' : (active == false)}" >
+					Pay ALL outstanding documents
+				</a>
+
+				<input type="hidden" name="paymentType" value="" ng-model="paymentType" ng-required="true">
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-danger" ng-disabled="doPayment.$invalid" title="Submit" ng-click="doDocumentsPayment(doPayment)">Pay Now</button>
+			</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-sm-7 col-md-7">
+		<!-- show fields description to user -->
+		<div class="row" id="details" ng-if="showFieldsDescription">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<!-- <label>&nbsp;</label> -->
+
+				</div>
+			</div>
+
+			<div class="col-sm-12">
+				<div class="form-group">
+					<!-- <label>&nbsp;</label> -->
+
+				</div>
+			</div>
+		</div>
+
+		<!-- show details to user -->
+		<div class="well-lg" id="details" ng-if="showPaymentDetails">
+			<h4>Review Order Details</h4>
+			<div class="well-lg well-w" id="">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th><span class="h5">Document ID</span></th>
+							<th class="text-center"><span class="h5">Amount</span></th>
+						</tr>
+						<tr ng-repeat="unpaidDocument in selectedDocuments" class="repeated-item">
+							<td>{{unpaidDocument.documentIdField}}</td>
+							<td class="text-center"><span>{{unpaidDocument.documentPaymentAmountField | currency}}</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="well well-lg" id="details" ng-if="showPaymentDetails">
+				<table class="table table-condensed">
+				    <tbody>
+				        <tr>
+				            <td><span class="h5">Fee</span></td>
+				            <td class="text-center"><span class="h5">{{fee | currency}}</span></td>
+				        </tr>
+				        <tr>
+				            <td><span class="h5">Total</span></td>
+				            <td class="text-center"><span class="h5">{{total | currency}}</span></td>
+				        </tr>
+				    </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div> <!-- .row -->
+
+<!--Receipt!-->
+<div class="row content" id="receipt" ng-show="showReceipt">
+	<!-- print, send sms, send email -->
+	<div class="col-xs-12 col-sm-3 col-md-3">
+		<div class="hidden-print">
+			<img class="img-responsive thumbnail btn-block" ng-src="{{item.ImageUrl}}" alt="{{item.Name}}"/>
+		</div>
+
+		<div class="view-modal text-mute hidden-print" ng-show="item.accessPhones">
+			<a class="btn btn-default" ng-click="open(item.accessPhones)" id="" title=" " target="_self"><i class="fa fa-plus-circle"></i> Access Numbers</a>
+		</div>
+
+        <div class="well well-ps hidden-print ">
+            <!-- print button -->
+            <!-- <div class="form-group" ng-show="!settings.PaxTerminalAsPrinter">
+                <button class="btn btn-success btn-block" ng-click="printInfo()">
+                    <span class="fa fa-print"></span> Print
+                </button>
+            </div>
+
+            <hr /> -->
+
+            <!-- send sms form -->
+            <form name="smsForm" class="margin-t-10" role="form" id="smsForm" novalidate>
+                <div id="phoneNumbers">
+                    <div class="form-group" ng-class="{'has-error' : submittedSms && smsForm.phoneToSend.$error.required || smsForm.phoneToSend.$error.phone}">
+                        <span class="label label-danger" data-ng-show="submittedSms && smsForm.phoneToSend.$error.required">Required!</span>
+                        <span class="label label-danger" data-ng-show="submittedSms && smsForm.phoneToSend.$error.minlength">At least 10 digit</span>
+                        <span class="label label-danger" data-ng-show="submittedSms && smsForm.phoneToSend.$error.maxlength">Max 10 digit</span>
+                        <input class="form-control" type="text" name="phoneToSend" placeholder="Enter phone recipient" id="phoneToSend"
+                               ng-model='phoneToSend'
+                               ng-minlength="10"
+                               ng-maxlength="10"
+                               ng-required="true">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info btn-block" ng-disabled="smsForm.$invalid" ng-click="sendSms(smsForm)">
+                        <span class="fa fa-mobile"></span> Send as SMS
+                    </button>
+                </div>
+            </form>
+            <!-- end send sms form -->
+
+            <hr />
+
+            <!-- send email form -->
+            <form name="emailForm" class="margin-t-10" role="form" id="emailForm" novalidate>
+                <div id="phoneNumbers">
+                    <div class="form-group" ng-class="{'has-error' : submittedEmail && emailForm.emailToSend.$error || smsForm.phoneToSend.$error.email}">
+                        <span class="label label-danger" data-ng-show="submittedEmail && emailForm.emailToSend.$error.required">Required!</span>
+                        <span class="label label-danger" data-ng-show="submittedEmail && emailForm.emailToSend.$error.email">Incorrect Format</span>
+                        <input class="form-control" type="email" name="emailToSend" placeholder="Enter email recipient" id="emailToSend"
+                               ng-model='emailToSend'
+                               ng-required="true">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info btn-block" ng-disabled="emailForm.$invalid" ng-click="sendEmail(emailForm)">
+                        <span class="fa fa-envelope-o"></span> Send as Email
+                    </button>
+                </div>
+            </form>
+            <!-- end send email form -->
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-9 col-md-9">
+		<table class="table-condensed" id="receipt">
+			<tbody>
+				<tr ng-if="receipt.ProductName">
+					<td>Product Name:</td>
+					<td>{{receipt.ProductName}}</td>
+				</tr>
+
+				<tr ng-if="receipt.ProductCountry">
+					<td>Country:</td>
+					<td>{{receipt.ProductCountry}}</td>
+				</tr>
+
+				<tr ng-if="receipt.PhoneNumber">
+					<td>Phone Number:</td>
+					<td>{{receipt.PhoneNumber}}</td>
+				</tr>
+
+				<tr ng-if="receipt.CarrierName">
+					<td>Carrier:</td>
+					<td>{{receipt.CarrierName}}</td>
+				</tr>
+
+				<tr ng-if="item.Instructions">
+					<td>Instructions:</td>
+					<!-- <td class="small">{{receipt.ProductInstructions}}</td> -->
+					<td class="">{{item.Instructions}}</td>
+				</tr>
+
+				<tr ng-if="receipt.ProductInstructions">
+					<td>Terms and Conditions:</td>
+					<!-- <td class="small">{{receipt.ProductInstructions}}</td> -->
+					<td class="">http://terms.blackstonepos.com</td>
+				</tr>
+
+				<tr class=""><td colspan="2"><div class="divider"></div></td></tr>
+
+				<tr ng-if="receipt.Amount">
+					<td>Amount:</td>
+					<td>{{receipt.Amount | currency}}</td>
+				</tr>
+
+				<tr ng-if="receipt.Fee">
+					<td>Fee:</td>
+					<td>{{receipt.Fee | currency}}</td>
+				</tr>
+
+				<tr ng-if="receipt.Tax">
+					<td>Tax:</td>
+					<td>{{receipt.Tax | currency}}</td>
+				</tr>
+
+				<tr ng-if="receipt.Total">
+					<td>Total:</td>
+					<td>{{receipt.Total | currency}}</td>
+				</tr>
+
+				<tr><td colspan="2"><div class="divider"></div></td></tr>
+
+				<tr ng-if="receipt.PinNumber">
+					<td>Pin Number:</td>
+					<td>{{receipt.PinNumber}}</td>
+				</tr>
+
+				<tr ng-if="receipt.ControlNumber">
+					<td>Control Number:</td>
+					<td>{{receipt.ControlNumber}}</td>
+				</tr>
+
+				<tr ng-if="receipt.OrderNumber">
+					<td>Order Number:</td>
+					<td>{{receipt.OrderNumber}}</td>
+				</tr>
+
+				<tr ng-if="receipt.TransactionId">
+					<td>Transaction Id:</td>
+					<td>{{receipt.TransactionId}}</td>
+				</tr>
+				<tr><td colspan="2"><div class="divider"></div></td></tr>
+
+				<tr ng-if="receipt.MerchantName">
+					<td>Merchant Name:</td>
+					<td>{{receipt.MerchantName}}</td>
+				</tr>
+
+				<tr ng-if="receipt.CashierName">
+					<td>Cashier Name:</td>
+					<td>{{receipt.CashierName}}</td>
+				</tr>
+
+				<tr ng-if="receipt.MerchantAddress">
+					<td>Address:</td>
+					<td>{{receipt.MerchantAddress}}</td>
+				</tr>
+				<tr ng-if="receipt.MerchantPhoneNumber">
+					<td>Merchant Phone:</td>
+					<td>{{receipt.MerchantPhoneNumber}}</td>
+				</tr>
+
+				<tr ng-if="receipt.OrderDate">
+					<td>Transaction Date:</td>
+					<td>{{receipt.OrderDate| date}}</td>
+				</tr>
+
+				<tr><td colspan="2"><div class="divider"></div></td></tr>
+
+				<tr ng-if="receipt.Disclaimer">
+					<td>Disclaimer:</td>
+					<td>{{receipt.Disclaimer}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

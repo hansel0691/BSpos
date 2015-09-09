@@ -1,0 +1,30 @@
+﻿@using System.Activities.Expressions
+@using OrdersGateway.Infrastructure
+@{
+    Layout = null;
+    var source = ViewBag.LogoUrl;
+    var company = ViewBag.Company;
+    var excludeItems = new[] {"LogoUrl", "Company"};
+}
+<img width="150" height="120" src="@source" style="margin: 0 0 0 15px" />
+<h1>@company</h1>
+<h2>Thank you for using our services, we appreciate your business!</h2>
+<p class="lead">Below you will find some details about the transaction you just completed.</p>
+
+<table>
+    @foreach (var data in ViewData)
+    {
+        if (data.Value is string && !excludeItems.Contains(data.Key))
+        {
+            <tr>
+                <td>
+                   <b> @data.Key.DisplayPropertyName():</b>
+                </td>
+                <td>
+                    @data.Value
+                </td>
+            </tr>
+        }
+    }
+</table>
+

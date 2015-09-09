@@ -1,0 +1,34 @@
+<div class="container hidden-print top-nav-var" ng-if="showNav">
+    <div class="row">
+        <div class="col-xs-5 col-sm-3 col-md-2" id="">
+            <span class="app-logo" ng-if="comInfo">
+                <a href="#/">
+                    <img class="" ng-src="{{comInfo.logo}}" alt="App Logo">
+                </a>
+            </span>
+            <span role="presentation" class="" ng-if="showHome">
+                <button class="btn-t btn-default" ng-click='back()' title="Go Back" target="_self"><i class="fa fa-arrow-left"></i></button>
+            </span>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-6" id="">
+            <span role="presentation" ng-show="viewInfo.show" class="show-info">
+                <div class="title"> <strong>{{viewInfo.title | uppercase}}<span ng-if="country"> : {{country}}</span></strong> </div>
+                <div class="caption" ng-if="viewInfo.instruction">{{viewInfo.instruction}}</div>
+            </span>
+
+        </div>
+        <div class="col-xs-2 col-sm-4 col-md-4" id="">
+            <span role="presentation" class="pull-right">
+                <button class="btn-t btn-default" ng-click="openAccountModal()">
+                    <i class="fa fa-user"></i>
+                    <span class="hidden-xs">My Account</span>
+                </button>
+                <br>
+                <strong>{{userInfo.CustomerService}}</strong>
+            </span>
+        </div>
+
+    </div>
+    <hr class="">
+</div>
+
