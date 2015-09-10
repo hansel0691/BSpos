@@ -83,6 +83,8 @@ namespace BlackstonePos.Domain.Contracts.Services
 
         DataResponse GetActiveMainProducts(int merchantId);
 
+        ReceiptResponse GetReceiptResponse(PaxTerminalTransactionRequest request, BrokerResponse brokerResponse);
+
         #region Bill Payment
 
         //DataResponse GetBillPaymentCategories(PosBillPaymentRequest posCredentials);

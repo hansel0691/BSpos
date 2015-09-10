@@ -70,6 +70,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\admin\_modal-resend-order.html" />
+    <Content Include="app\products\_product-receipt.html" />
     <Content Include="Content\flags\basic.scss" />
     <Content Include="Content\flags\flags32.scss" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />

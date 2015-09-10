@@ -4,10 +4,10 @@
 	var app = angular.module('posApp', ['ngRoute', 'ngAnimate', 'ngResource', 'ui.bootstrap', 'loginServices', 'adminServices', 'sharedServices', 'prodsServices', 'LocalStorageModule', 'appFilters', 'customFunctions', 'promosServices', 'billPaymentServices', 'sunpassServices', 'directTvServices', 'ajoslin.promise-tracker', 'datePicker', 'flash']);
 // 720kb.datepicker
 	// api url constant
-	app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
+//	app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
 	app.constant('SITE_URL', 'http://mobile.blackstonepos.com/');
 	//app.constant('SITE_URL', 'file:///D:/Projects/BlackstonePOSAngularJs/Pos.UI/index.html#');
-	// app.constant('API_URL', 'http://localhost:50230/api/');
+     app.constant('API_URL', 'http://localhost:50230/api/');
 
 	// Routes config
 	app.config(['$routeProvider',
@@ -709,23 +709,40 @@
 				}
 			);
 		};
-		$scope.reSendOrderConfirmation = function(orderId){
-			void 0;
-			OrderFactory.reSendOrderConfirmation(orderId, userInfo).then(
-				function(response){
-					// console.log(response);
-					if (response.Status === 200){
-						Flash.create('success', response.ErrorMessage, '');
-					} else {
-						Flash.create('danger', response.ErrorMessage, '');
-					}
-				},
-				function(err){
-					Flash.create('danger', err.ErrorMessage, '');
-					void 0;
-				}
-			);
+
+		$scope.openResendModal = function (orderId) {
+		    OrderFactory.reSendOrderConfirmation(orderId, userInfo).then(function(data) {
+		        $modal.open({
+		            templateUrl: './app/admin/_modal-resend-order.html',
+		            controller: 'ModalResendCtrl',
+		            size: 'lg',
+		            windowClass: 'product-modal',
+		            resolve: {
+		                item: function (){
+		                    return data;
+		                }
+		            }
+		        });
+		    });
 		};
+
+//		$scope.reSendOrderConfirmation = function (orderId) {
+//			void 0;
+//			OrderFactory.reSendOrderConfirmation(orderId, userInfo).then(
+//				function(response){
+//					// console.log(response);
+//					if (response.Status === 200){
+//						Flash.create('success', response.ErrorMessage, '');
+//					} else {
+//						Flash.create('danger', response.ErrorMessage, '');
+//					}
+//				},
+//				function(err){
+//					Flash.create('danger', err.ErrorMessage, '');
+//					void 0;
+//				}
+//			);
+//		};
 
 		// download as CSV.
 		$scope.downloadAsCvs = function(ordersByDate){
@@ -1199,9 +1216,9 @@
 
 					$http.post(API_URL + 'admin/ReSendOrderConfirmation', params, loadingTracker).then(
 						function(response) {
-							var orders = response.data;
+							var order = response.data.Data;
 							// console.log(response.data.Data)
-							deferred.resolve(orders);
+							deferred.resolve(order);
 						},
 						function(response) {
 							deferred.reject(response);
@@ -3364,11 +3381,7 @@
 				// console.log(queryObj);
 				var deferred = $q.defer();
 
-			    /*change00*/
-
-				//API_URL = "http://localhost:50230/api/";
-
-			    /*change01*/
+			 
 
 
 				$http.post(API_URL + 'Products/GetProduct', queryObj, loadingTracker)
@@ -3775,16 +3788,6 @@
 				void 0;
 				var deferred = $q.defer();
 
-
-
-			    /*change00*/
-
-			    //API_URL = "http://localhost:50230/api/";
-
-			    
-			    /*change01*/
-
-                
 				$http.post(API_URL + 'Products/DoBlackstonePosOperation', order, loadingTracker)
 				.then(
 					function(response) {
@@ -4486,6 +4489,115 @@
 			$modalInstance.dismiss('cancel');
 		};
 	}])
+    .controller('ModalResendCtrl', ['$scope', '$modalInstance', 'item', '$location', 'localStorageService', 'ProdsFactory', 'AlertService', 'ConfirmationFactory', function ($scope, $modalInstance, item, $location, localStorageService, ProdsFactory, AlertService, ConfirmationFactory) {
+        $scope.showReceipt = true;
+        $scope.receipt = item;
+        $scope.phoneToSend = '7862906830';
+        $scope.emailToSend = 'hansel0691@gmail.com';
+        $scope.item = null;
+
+
+        var userInfo = localStorageService.get('userInfo');
+
+        ProdsFactory.getProduct(item.ProductMainCode, userInfo).then(
+            function(data) {
+                $scope.item = data;
+                //console.log($scope.item);
+            },
+            function(error) {
+                console.log(error);
+            });
+
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+
+        $scope.sendSms = function (form) {
+
+            // Trigger validation flag.
+            $scope.submittedSms = true;
+
+            // If form is invalid, return and let AngularJS show validation errors.
+            if (form.$invalid) {
+                
+                AlertService.clear();
+                AlertService.add('error', 'Check form errors');
+                return false;
+
+            } else {
+
+                // remove any previous alert
+                AlertService.clear();
+
+                var receipt = $scope.receipt;
+                var phone = $scope.phoneToSend;
+
+                ConfirmationFactory.sendConfirmationSms(receipt, phone).then(
+					function (response) {
+
+					    AlertService.clear();
+					    $scope.submittedSms = false;
+
+					    if (response.Status === 200) {
+					        AlertService.add('success', 'The Receipt has been sent as sms successfully!');
+					    } else {
+					        AlertService.add('error', 'Sorry, an error has happened. Please, try again.');
+					    }
+					    console.log(response);
+					},
+					function (response) {
+					    AlertService.add('error', response.ErrorMessage);
+					    console.log(response);
+					}
+				);
+            }
+        };
+
+        // SEND RECEIPT AS EMAIL
+        $scope.sendEmail = function (form) {
+
+            // Trigger validation flag.
+            $scope.submittedEmail = true;
+
+            // If form is invalid, return and let AngularJS show validation errors.
+            if (form.$invalid) {
+
+                AlertService.clear();
+                AlertService.add('error', 'Check form errors');
+                return false;
+
+            } else {
+
+                // remove any previous alert
+                AlertService.clear();
+
+                var receipt = $scope.receipt;
+                var email = $scope.emailToSend;
+
+                ConfirmationFactory.sendConfirmationEmail(receipt, email).then(
+					function (response) {
+
+					    AlertService.clear();
+					    $scope.submittedEmail = false;
+
+					    if (response.Status === 200) {
+					        AlertService.add('success', 'The Receipt has been sent as email successfully!');
+					    } else {
+					        AlertService.add('error', 'Sorry, an error has happened. Please, try again.');
+					    }
+					    console.log(response);
+					},
+					function (response) {
+					    AlertService.add('error', response.ErrorMessage);
+					    console.log(response);
+					}
+				);
+            }
+        };
+
+
+    }])
 	.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'item', function ($scope, $modalInstance, item) {
 
 		$scope.items = item;
@@ -5712,13 +5824,6 @@
 				// console.log(queryObj);
 
 				var deferred = $q.defer();
-
-
-			    /*change00*/
-
-				API_URL = "http://localhost:50230/api/";
-
-			    /*change01*/
 
 
 				$http.post(API_URL + 'ReceiptServices/SendConfirmationEmail', queryObj, loadingTracker)

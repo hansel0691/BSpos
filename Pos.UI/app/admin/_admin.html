@@ -230,7 +230,7 @@
 								<td class="cashier-date">{{ cashier.TimeStamp | date}}</td>
 								<td class="cashier-edit text-center">
 									<a class="btn btn-primary btn-xs" id="" href="" title=" " target="_self" ng-click="setSelectedCashier()">
-										&nbsp;<i class="fa fa-pencil-square-o"></i></i> Edit
+										&nbsp;<i class="fa fa-pencil-square-o"></i> Edit
 									</a>
 								</td>
 								<td class="cashier-delete text-center">
@@ -489,7 +489,8 @@
 						</div>
 					</div>
 				</div>
-			</form>
+			    </div>
+            </form>
 
 			<hr>
 
@@ -533,7 +534,7 @@
 								<button class="btn btn-danger btn-xs" ng-click="refundOrder(order.Id)" ng-disabled="!order.IsRefundable" form="ordersByDate"> Refund</button>
 							</td>
 							<td class="resend-order-confirmation">
-								<button class="btn btn-success btn-xs" ng-click="reSendOrderConfirmation(order.Id)" ng-disabled="!order.IsResendable">Resend</button>
+                                <button class="btn btn-success btn-xs" ng-click="openResendModal(order.Id)" ng-disabled="!order.IsResendable">Resend</button> <!--ng-click="reSendOrderConfirmation(order.Id)"-->
 							</td>
 							<!--<td class="order-code">{{ order.TransactionID}}</td>
 							<td class="order-code">{{ order.PinNumber}}</td>-->

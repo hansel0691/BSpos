@@ -440,23 +440,46 @@
 				}
 			);
 		};
-		$scope.reSendOrderConfirmation = function(orderId){
-			console.log(orderId);
-			OrderFactory.reSendOrderConfirmation(orderId, userInfo).then(
-				function(response){
-					// console.log(response);
-					if (response.Status === 200){
-						Flash.create('success', response.ErrorMessage, '');
-					} else {
-						Flash.create('danger', response.ErrorMessage, '');
-					}
-				},
-				function(err){
-					Flash.create('danger', err.ErrorMessage, '');
-					console.log(err);
-				}
-			);
+
+
+
+		$scope.openResendModal = function (orderId) {
+		    console.log(orderId);
+		    OrderFactory.reSendOrderConfirmation(orderId, userInfo).then(
+		    	function(response){
+		    		// console.log(response);
+		    		if (response.Status === 200){
+		    			Flash.create('success', response.ErrorMessage, '');
+		    		} else {
+		    			Flash.create('danger', response.ErrorMessage, '');
+		    		}
+		    	},
+		    	function(err){
+		    		Flash.create('danger', err.ErrorMessage, '');
+		    		console.log(err);
+		    	}
+		    );
 		};
+
+
+
+//		$scope.reSendOrderConfirmation = function (orderId) {
+//			console.log(orderId);
+//			OrderFactory.reSendOrderConfirmation(orderId, userInfo).then(
+//				function(response){
+//					// console.log(response);
+//					if (response.Status === 200){
+//						Flash.create('success', response.ErrorMessage, '');
+//					} else {
+//						Flash.create('danger', response.ErrorMessage, '');
+//					}
+//				},
+//				function(err){
+//					Flash.create('danger', err.ErrorMessage, '');
+//					console.log(err);
+//				}
+//			);
+//		};
 
 		// download as CSV.
 		$scope.downloadAsCvs = function(ordersByDate){

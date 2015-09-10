@@ -10,6 +10,7 @@ using BlackstonePos.Domain.Models;
 using BlackstonePos.Domain.Models.Comparers;
 using Metele.common.Contracts.Services;
 using Metele.common.Models;
+using Metele.common.Models.PaxTerminal;
 using Microsoft.Ajax.Utilities;
 using OrdersGateway.Filters;
 using OrdersGateway.Infrastructure;
@@ -273,11 +274,19 @@ namespace OrdersGateway.Controllers
         }
 
         [HttpPost]
-        public BaseResponse ReSendOrderConfirmation(OrderActionRequest refundRequest)
+        public DataResponse ReSendOrderConfirmation(OrderActionRequest refundRequest)
         {
-            var refundResponse = _blackstonePosService.ResendConfirmationMessage(refundRequest.OrderId);
+            var order = _blackstonePosService.GetReceiptResponse(new PaxTerminalTransactionRequest(){OrderId = refundRequest.OrderId},new BrokerResponse() );
+            var errorMessage = "";
 
-            return refundResponse;
+            //var refundResponse = _blackstonePosService.ResendConfirmationMessage(refundRequest.OrderId);
+
+            return new DataResponse()
+            {
+                Data = order,
+                ErrorMessage = string.IsNullOrEmpty(errorMessage) ? "Confirmation Number successfully re-sent" : errorMessage,
+                Status = string.IsNullOrEmpty(errorMessage) ? 200 : 201
+            }; 
         }
 
         #endregion
