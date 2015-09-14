@@ -3364,11 +3364,7 @@
 				// console.log(queryObj);
 				var deferred = $q.defer();
 
-			    /*change00*/
-
-				//API_URL = "http://localhost:50230/api/";
-
-			    /*change01*/
+			  
 
 
 				$http.post(API_URL + 'Products/GetProduct', queryObj, loadingTracker)
@@ -3777,12 +3773,6 @@
 
 
 
-			    /*change00*/
-
-			    //API_URL = "http://localhost:50230/api/";
-
-			    
-			    /*change01*/
 
                 
 				$http.post(API_URL + 'Products/DoBlackstonePosOperation', order, loadingTracker)
@@ -5714,11 +5704,7 @@
 				var deferred = $q.defer();
 
 
-			    /*change00*/
-
-				API_URL = "http://localhost:50230/api/";
-
-			    /*change01*/
+			  
 
 
 				$http.post(API_URL + 'ReceiptServices/SendConfirmationEmail', queryObj, loadingTracker)
