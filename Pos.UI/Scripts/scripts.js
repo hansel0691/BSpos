@@ -7,7 +7,7 @@
 	app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
 	app.constant('SITE_URL', 'http://mobile.blackstonepos.com/');
 	//app.constant('SITE_URL', 'file:///D:/Projects/BlackstonePOSAngularJs/Pos.UI/index.html#');
-	// app.constant('API_URL', 'http://localhost:50230/api/');
+//	 app.constant('API_URL', 'http://localhost:50230/api/');
 
 	// Routes config
 	app.config(['$routeProvider',
@@ -3364,12 +3364,6 @@
 				// console.log(queryObj);
 				var deferred = $q.defer();
 
-			    /*change00*/
-
-				//API_URL = "http://localhost:50230/api/";
-
-			    /*change01*/
-
 
 				$http.post(API_URL + 'Products/GetProduct', queryObj, loadingTracker)
 				.then(
@@ -3774,15 +3768,6 @@
 			doBlackstonePosOperation: function(order){
 				void 0;
 				var deferred = $q.defer();
-
-
-
-			    /*change00*/
-
-			    //API_URL = "http://localhost:50230/api/";
-
-			    
-			    /*change01*/
 
                 
 				$http.post(API_URL + 'Products/DoBlackstonePosOperation', order, loadingTracker)
@@ -5714,12 +5699,7 @@
 				var deferred = $q.defer();
 
 
-			    /*change00*/
-
-				API_URL = "http://localhost:50230/api/";
-
-			    /*change01*/
-
+			  
 
 				$http.post(API_URL + 'ReceiptServices/SendConfirmationEmail', queryObj, loadingTracker)
 					.then(

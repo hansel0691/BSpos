@@ -7,7 +7,7 @@
 	app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
 	app.constant('SITE_URL', 'http://mobile.blackstonepos.com/');
 	//app.constant('SITE_URL', 'file:///D:/Projects/BlackstonePOSAngularJs/Pos.UI/index.html#');
-	// app.constant('API_URL', 'http://localhost:50230/api/');
+//	 app.constant('API_URL', 'http://localhost:50230/api/');
 
 	// Routes config
 	app.config(['$routeProvider',
@@ -3779,7 +3779,7 @@
 
 			    /*change00*/
 
-			    API_URL = "http://localhost:50230/api/";
+			    //API_URL = "http://localhost:50230/api/";
 
 			    
 			    /*change01*/

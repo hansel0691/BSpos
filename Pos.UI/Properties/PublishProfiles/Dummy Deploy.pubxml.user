@@ -6,20 +6,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\hgarcia\Desktop\New deploy\UI</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\hgarcia\Desktop\deploy\mobile.blackstonepos.com</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="app/admin/adminCtrl.js">
-      <publishTime>08/10/2015 11:09:52</publishTime>
+      <publishTime>09/14/2015 07:15:05</publishTime>
     </File>
     <File Include="app/admin/_admin.html">
-      <publishTime>08/10/2015 08:34:45</publishTime>
+      <publishTime>09/14/2015 07:15:05</publishTime>
     </File>
     <File Include="app/admin/_modal-account-tpl.html">
       <publishTime>08/10/2015 10:52:19</publishTime>
     </File>
     <File Include="app/app.js">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>09/14/2015 07:19:13</publishTime>
     </File>
     <File Include="app/billpayment/billPaymentServices.js">
       <publishTime>07/28/2015 15:24:42</publishTime>
@@ -103,7 +103,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/06/2015 13:22:40</publishTime>
     </File>
     <File Include="app/products/showProductCtrl.js">
-      <publishTime>09/04/2015 08:37:39</publishTime>
+      <publishTime>09/10/2015 08:51:08</publishTime>
     </File>
     <File Include="app/products/showTermsCtrl.js">
       <publishTime>07/31/2015 15:41:53</publishTime>
@@ -121,7 +121,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2015 15:24:42</publishTime>
     </File>
     <File Include="app/products/_show-product.html">
-      <publishTime>09/04/2015 08:26:00</publishTime>
+      <publishTime>09/14/2015 07:15:05</publishTime>
     </File>
     <File Include="app/products/_show-terms.html">
       <publishTime>07/07/2015 13:03:02</publishTime>
@@ -211,16 +211,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2015 13:25:26</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>09/09/2015 05:58:16</publishTime>
+      <publishTime>09/14/2015 07:05:59</publishTime>
     </File>
     <File Include="bin/Pos.UI.dll">
-      <publishTime>09/09/2015 06:09:10</publishTime>
+      <publishTime>09/14/2015 07:28:26</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>09/09/2015 05:58:16</publishTime>
+      <publishTime>09/14/2015 07:05:59</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>09/09/2015 05:58:16</publishTime>
+      <publishTime>09/14/2015 07:05:59</publishTime>
     </File>
     <File Include="Content/flags/basic.scss">
       <publishTime>04/10/2015 11:35:47</publishTime>
@@ -574,7 +574,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/05/2015 11:35:20</publishTime>
     </File>
     <File Include="Scripts/scripts.js">
-      <publishTime>09/09/2015 06:04:58</publishTime>
+      <publishTime>09/14/2015 07:25:58</publishTime>
     </File>
     <File Include="Scripts/scripts.min.js">
       <publishTime>08/28/2015 09:10:17</publishTime>
@@ -589,7 +589,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2015 08:42:13</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/08/2015 13:11:42</publishTime>
+      <publishTime>09/14/2015 07:28:27</publishTime>
     </File>
   </ItemGroup>
 </Project>
