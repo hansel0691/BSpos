@@ -1,0 +1,1466 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonetraApiConnector</name>
+    </assembly>
+    <members>
+        <member name="T:MonetraApiConnector.Models.SaleRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.Request">
+            <summary>
+            Base of all requests.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.Password">
+            <summary>
+            Password of the client on the host.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.UserName">
+            <summary>
+            User credential of the client on the host.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.mid">
+            <summary>
+            Merchant id on the client on blackstone system.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.cid">
+            <summary>
+            This field is use to have subclient of a merchant and it is optional.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.AppKey">
+            <summary>
+            Application key provided by blackstone system.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.AppType">
+            <summary>
+            Application type provided by blackstone.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.HostUserName">
+            <summary>
+            User credential to process transactions.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Request.HostPassword">
+            <summary>
+            Password needed to process transactions.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.Amount">
+            <summary>
+            Transaction Amount.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.ZipCode">
+            <summary>
+            Card holder zip code. Optional if using swipe and sending credit card track data.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.CVN">
+            <summary>
+            Credit card security code. Optional if using swipe and sending credit card track data.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.CardNumber">
+            <summary>
+            Credit card number. Optional if using swipe and sending credit card track data.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.ExpDate">
+            <summary>
+            Credit card experation date. Optional if using swipe and sending credit card track data.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.NameOnCard">
+            <summary>
+            Card holder name. Optional if using swipe and sending credit card track data.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.Track2">
+            <summary>
+            Credit card track data. Optional if using no swipe method.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.UserTransactionNumber">
+            <summary>
+            The transaction identifier. Only for reference purpose
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.reversalid">
+            <summary>
+            Deprecated
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleRequest.TransactionType">
+            <summary>
+            Transaction type <see cref="T:MonetraApiConnector.Models.TransactionTypes"/>
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Visa">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.MasterCard">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.AmericanExpress">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Discover">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Diners">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.CarteBlanche">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Jcb">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Switch">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.BillMeLater">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Check">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Gift">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Other">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.VisaDebit">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.McDebit">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.OtherDebit">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.AllCredit">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.AllDebit">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.AllGift">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.AllEbt">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.All">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.Ebt">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.VisaDs">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.CardTypes.UNKNOWN">
+            <remarks/>
+        </member>
+        <member name="T:MonetraApiConnector.Models.Response">
+            <summary>
+            Base response 
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Response.ResponseCode">
+            <summary>
+            Refers to the message from blackstone system. IMPORTANT: 200 represent OK.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.Response.Msg">
+            <summary>
+            Additional messages when transaction fails (ResponseCode is not 200)
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.A">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.AE">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.AF">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.E">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.F">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.FE">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.G">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.GE">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.H">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.M">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.R">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.IndustryCode.RS">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Mode.AUTH">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Mode.SETTLE">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Mode.BOTH">
+            <remarks/>
+        </member>
+        <member name="T:MonetraApiConnector.CheckProcessor.WEB.CheckResponse">
+            <summary>
+            Response of a check transaction from the host
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckResponse.ResponseType">
+            <summary>
+            Check Processor ResponseType field, ONLY FOR REFERENCE <seealso cref="P:MonetraApiConnector.Models.Response.ResponseCode"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckResponse.ResponseTypeText">
+            <summary>
+            Check Processor ResponseTypeText field, ONLY FOR REFERENCE <seealso cref="P:MonetraApiConnector.Models.Response.ResponseCode"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckResponse.ResultCode">
+            <summary>
+            Check Processor ResultCode field, ONLY FOR REFERENCE <seealso cref="P:MonetraApiConnector.Models.Response.ResponseCode"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckResponse.TypeCode">
+            <summary>
+            Check Processor TypeCode field, ONLY FOR REFERENCE <seealso cref="P:MonetraApiConnector.Models.Response.ResponseCode"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckResponse.Code">
+            <summary>
+            Check Processor Code field, ONLY FOR REFERENCE <seealso cref="P:MonetraApiConnector.Models.Response.ResponseCode"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckResponse.Message">
+            <summary>
+            Check Processor Message field, ONLY FOR REFERENCE <seealso cref="P:MonetraApiConnector.Models.Response.ResponseCode"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckResponse.TransactionInfo">
+            <summary>
+            Transaction information <see cref="T:MonetraApiConnector.CheckProcessor.WEB.CheckTransactionInfo"/>
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.CheckProcessor.WEB.CheckTransactionInfo">
+            <summary>
+            Transactio information that should be store for future references
+            </summary>
+        </member>
+        <member name="M:MonetraApiConnector.CheckProcessor.WEB.CheckWebConnector.ProcessCheck(MonetraApiConnector.CheckProcessor.WEB.CheckRequest,System.String)">
+            <summary>
+            Process a check
+            </summary>
+            <param name="request">Contains the information required for the transaction</param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns><see cref="T:MonetraApiConnector.CheckProcessor.WEB.CheckResponse"/></returns>
+        </member>
+        <member name="M:MonetraApiConnector.CheckProcessor.WEB.CheckWebConnector.VoidCheckTransaction(MonetraApiConnector.CheckProcessor.WEB.CheckRequest,System.String)">
+            <summary>
+            Void a processed check
+            </summary>
+            <param name="request">Contains the information required for the void</param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns><see cref="T:MonetraApiConnector.CheckProcessor.WEB.CheckResponse"/></returns>
+        </member>
+        <member name="T:MonetraApiConnector.CheckProcessor.WEB.CheckRequest">
+            <summary>
+            Check Transactio Request
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.TerminalID">
+            <summary>
+            Identify the device which is doing the transaction.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.PacketIdentifier">
+            <summary>
+            <see cref="T:MonetraApiConnector.CheckProcessor.WEB.PacketIndetifier"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.ROUTING_NUMBER">
+            <summary>
+            Check routing number
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.ACCOUNT_NUMBER">
+            <summary>
+            Check account number
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.CHECK_NUMBER">
+            <summary>
+            Check number
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.ACCOUNT_TYPE">
+            <summary>
+            Account Type <see cref="T:MonetraApiConnector.CheckProcessor.WEB.AccountType"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.FIRST_NAME">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.CheckProcessor.WEB.CheckRequest.Method">
+            <summary>
+            <see cref="T:MonetraApiConnector.CheckProcessor.WEB.MethodType"/>
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.CheckNoVerificationDLOptional">
+            <summary>
+            Using this method: DL is not required, Check Verification is not processed, ID verification is not processed.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.CheckNoVerificationDLRequired">
+            <summary>
+            Using this method: DL is required, Check Verification is not processed, ID verification is not processed.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.CheckVerificationIdentityVerificationDLOptional">
+            <summary>
+            Using this method: DL is not required, Check Verification is processed, ID verification is processed.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.CheckVerificationIdentityVerificationDLRequired">
+            <summary>
+            Using this method: DL is required, Check Verification is processed, ID verification is processed.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.CheckVerificationOnlyDLOptional">
+            <summary>
+            Using this method: DL is not required, Check Verification is processed, ID verification is not processed.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.CheckVerificationOnlyDLRequired">
+            <summary>
+            Using this method: DL is required, Check Verification is processed, ID verification is not processed.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.IdentityVerificationOnlyDLOptional">
+            <summary>
+             Using this method: DL is not required, Check Verification is not processed, ID verification is processed.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.MethodType.IdentityVerificationOnlyDLRequired">
+            <summary>
+            Using this method: DL is required, Check Verification is not processed, ID verification is processed.
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.CheckProcessor.WEB.PacketIndetifier">
+            <summary>
+            Packet identifier and Operation Descriptions
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.PacketIndetifier.A">
+            <summary>
+            This is used in schemas for ARC, BOC, POP, TEL, WEB, and Check 21 to indicate that an authorization is requested for the XML Data Packet being sent.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.PacketIndetifier.V">
+            <summary>
+            This is used in schemas for ARC, BOC, POP, TEL, WEB, and Check 21 to void a previously authorized transaction. However, it should be noted that transactions can only be voided on the same calendar day they were authorized.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.PacketIndetifier.O">
+            <summary>
+            This is used in schemas for ARC, BOC, POP, TEL, WEB, and Check 21 when the host system receives a manager needed message to void the previous transaction and input a new transaction in its place.
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.AB">
+            <summary>
+            Alberta
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.AK">
+            <summary>
+            Alaska
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.AL">
+            <summary>
+            Alabama
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.AR">
+            <summary>
+            Arkansas
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.AS">
+            <summary>
+            American Samoa
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.AZ">
+            <summary>
+            Arizona
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.BC">
+            <summary>
+            British Columbia
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.CA">
+            <summary>
+            California
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.CO">
+            <summary>
+            Colorado
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.CT">
+            <summary>
+            Connecticut
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.DC">
+            <summary>
+            District of Columbia
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.DE">
+            <summary>
+            Delaware
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.FL">
+            <summary>
+            Florida
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.GA">
+            <summary>
+            Georgia
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.GU">
+            <summary>
+            Guam
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.HI">
+            <summary>
+            Hawaii
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.IA">
+            <summary>
+            Iowa
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.ID">
+            <summary>
+            Idaho
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.IL">
+            <summary>
+            Illinois
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.IN">
+            <summary>
+            Indiana
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.KS">
+            <summary>
+            Kansas
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.KY">
+            <summary>
+            Kentucky
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.LA">
+            <summary>
+            Louisiana
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MA">
+            <summary>
+            Massachusetts
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MB">
+            <summary>
+            Manitoba
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MD">
+            <summary>
+            Maryland
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.ME">
+            <summary>
+            Maine
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MI">
+            <summary>
+            Michigan
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MN">
+            <summary>
+            Minnesota
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MO">
+            <summary>
+            Missouri
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MS">
+            <summary>
+            Mississippi
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.MT">
+            <summary>
+            Montana
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NB">
+            <summary>
+            New Brunswick
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NC">
+            <summary>
+            North Carolina
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.ND">
+            <summary>
+            North Dakota
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NE">
+            <summary>
+            Nebraska
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NF">
+            <summary>
+            Newfoundland
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NH">
+            <summary>
+            New Hampshire
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NJ">
+            <summary>
+            New Jersey
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NM">
+            <summary>
+            New Mexico
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NS">
+            <summary>
+            Nova Scotia
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NT">
+            <summary>
+            Northwest Territories
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NU">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NV">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.NY">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.OH">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.OK">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.ON">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.OR">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.PA">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.PE">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.PR">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.QC">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.RI">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.SC">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.SD">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.SK">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.TN">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.TX">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.UT">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.VA">
+            <remarks></remarks>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.VI">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.VT">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.WA">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.WI">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.WV">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.WY">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.CheckProcessor.WEB.StatesAndProvinces.YT">
+            <remarks/>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.Sale(MonetraApiConnector.Models.SaleRequest,System.String)">
+            <summary>
+            Process a credit card transaction
+            </summary>
+            <param name="request">Contains the information required for the transaction</param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.SaleWithToken(MonetraApiConnector.Models.SaleWithTokenRequest,System.String)">
+            <summary>
+            Process a credit card transaction using a preauthorized token
+            </summary>
+            <param name="request">Contains the information required for the transaction</param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.Refund(MonetraApiConnector.Models.RefundRequest,System.String)">
+            <summary>
+            Process a refund. Won't process a refund if the transaction was refunded or voided before
+            </summary>
+            <param name="request">Contains the information required for the transaction</param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.RefundFull(MonetraApiConnector.Models.RefundRequest,System.String)">
+            <summary>
+            Process a refund. Won't process a refund if the transaction was refunded or voided before
+            </summary>
+            <param name="request">Contains the information required for the transaction</param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.Settlement(MonetraApiConnector.Models.Settlement.SettlementRequest,System.String)">
+            <summary>
+            Process the settlement of all open transaction for the merchant. If important to notice that all transaction of the merchant will be closed, not only of the transactions of the user
+            </summary>
+            <param name="request">Contains the information required for the transaction</param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.Void(MonetraApiConnector.Models.VoidRequest,System.String)">
+            <summary>
+            Process a void. Won't process a refund if the transaction was refunded or voided before
+            </summary>
+            <param name="request">Contains the information required for the transaction></param>
+            <param name="baseUrl">The url where the API is running</param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.GetUnsettledTransactions(MonetraApiConnector.Models.Request,System.String)">
+            <summary>
+            Get all transactions that are still open on the gateway
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.AddMonetraUser(MonetraApiConnector.Models.MonetraUserRequest,System.String)">
+            <summary>
+            This method is used to add a user to monetra
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl">The url where the web api is running</param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.ChangeMonetraDataWireId(MonetraApiConnector.Models.MonetraChangeDataWireIdRequest,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.DoesUserExist(MonetraApiConnector.Models.Request,System.String)">
+            <summary>
+            Verify if an user exist on the system
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.GetTokenForCard(MonetraApiConnector.Models.GetTokenForCardRequest,System.String)">
+            <summary>
+            Get a token for a credit card that can be used after for process the same card
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.AddFraudAutoDenyOptions(MonetraApiConnector.Models.FraudAutoDenyOptionsRequest,System.String)">
+            <summary>
+            Administration Method.
+            Add options to detect fraud.
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.RemoveFraudAutodenyOptions(MonetraApiConnector.Models.FraudAutoDenyOptionsRequest,System.String)">
+            <summary>
+             Administration Method.
+             Remove options to detect fraud.
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.GetUserAutodenyOptions(MonetraApiConnector.Models.Request,System.String)">
+            <summary>
+             Administration Method.
+             Get Fraud options by user
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.ProcessPreauth(MonetraApiConnector.Models.ProcessPreauthRequest,System.String)">
+            <summary>
+            Process an preauthorization
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MonetraApiConnector.Connector.Reversal(MonetraApiConnector.Models.ReversalRequest,System.String)">
+            <summary>
+            Invoke a reversal of a transaction. Not all transactions are up to do a reversal.
+            This method should be invoke when a the user did not get an answer from the system.
+            </summary>
+            <param name="request"></param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="F:MonetraApiConnector.Models.FraudAutodenyOption.DenyNever">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.FraudAutodenyOption.DenyAvsZip">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.FraudAutodenyOption.DenyAvsStreet">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.FraudAutodenyOption.DenyCv">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.FraudAutodenyOption.DenyNoAuto">
+            <remarks/>
+        </member>
+        <member name="T:MonetraApiConnector.Models.GetTokenForCardRequest">
+            <summary>
+            Information of the card that want to be tokenized.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.Account">
+            <summary>
+            Card Number
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.expDate">
+            <summary>
+            Expiration date of the card
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.NameOnCard">
+            <summary>
+            Cardholder's name as appear on the card.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.Street">
+            <summary>
+            Cardholder' mail address
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.zipCode">
+            <summary>
+            Cardholder zip code
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.cv">
+            <summary>
+            Card security code
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.clientRef">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.GetTokenForCardRequest.description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.ReversalRequest">
+            <summary>
+            Reversal Request
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ReversalRequest.UserTransactionNumber">
+            <summary>
+            The user transaction number that was sent at the moment of the transaction by the client.
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.TransactionTypes">
+            <summary>
+            Supported transaction types
+            </summary>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FirstDataOmaha">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FirsDataGift">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FirstDataSouth">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FirstDataNashville">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.AmexAuth">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.AmexPIP">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.BuyPass">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.CardNet">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Certegy">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.CertegyEcc">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.CertegyImgRepo">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.ChochStone">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Echk">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Elavon">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.ElavonDirectnet">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.ElavonClearingFile">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FifthThirdBank510">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FifthThirdBank610">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Gers">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Givex">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.GlobalPaymentsEast">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.GlobalPaymentsBigBatch">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Heartland">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Litle">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Loopback">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Mercury">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.MonetraGift">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Nova">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.BankOfAmerica">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.ChaseTampa">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.RBSLynk">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.ChaseSalem">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.SecureNet">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Svs">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FirstDataTelecheck">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.FirstDataTelecheckImgRepo">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Valutec">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.Vital">
+            <remarks/>
+        </member>
+        <member name="F:MonetraApiConnector.Models.Processor.IntuitImgRepo">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AGENTID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.ALTMERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.ALTTERMID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AMEXDIVDEFAULT">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AMEXL2">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AMEXSE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AMOUNTCHECKS">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AUDDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AUTHPASS">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.AUTHUSER">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.BANKID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.BIGBATCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.BINRANGE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.BMLMERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CADAUTHPASS">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CADDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CADPROFILEID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CADSELLERPROFILEID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CBSE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CHAINID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CHECKREADERCODE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CHFDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CLIENTNUM">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CLOSETYPE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.COPDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.COUNTRY">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.COUNTRYCODE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CUSTOMECHO">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.CUSTOMERKEY">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DATAWIREID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DEBITDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DEFAULTNSF">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DESTID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DEVICEID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DINERSSE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DISCSE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DIVNUM">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DKKDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DLCMERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DLCMERCHIDBIZ">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.DOMAIN">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.ECCMERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.EMAILBANNER">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.EURDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.FCSID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.FM1MERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.FM2MERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.FM2MERCHIDBIZ">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.FTPAPPID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.FTPUSERID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.GBPDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.GIFTBANKID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.GIFTBINRANGE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.GIFTTERMID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.HKDDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.IIASDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.ILSDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.INDCODE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.INRDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.JCBSE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.JPYDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.LEVEL2">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.LKRDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MERCHABA">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MERCHCAT">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MerchID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MERCHLOC">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MERCHSETTLE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MERNAME">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MVV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.MXNDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.NETWORKID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.NOKDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.NZDDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.PID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.PIDPWD">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.PPROPERTY">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.PROCESSMODE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.REIMBATTR">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.RFIDCAPABLE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.ROUTINGID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SEKDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SENUMBER">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SERVICEPHONE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SETTLEDELAY">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SETTLESPEC">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SGDDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SHARINGGROUP">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SMID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.SMIDPWD">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.STATECODE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.STOREID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.STOREKEY">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.TAXID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.TERMID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.TERMTYPE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.TIMEZONE">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.UAT">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.USDAUTHPASS">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.USDDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.USDPROFILEID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.USDSELLERPROFILEID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.VFYMERCHID">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.VNUMBER">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.ZARDIV">
+            <remarks/>
+        </member>
+        <member name="P:MonetraApiConnector.Models.ProcessorExtraFields.ZIPCODE">
+            <remarks/>
+        </member>
+        <member name="T:MonetraApiConnector.Models.RefundRequest">
+            <summary>
+            Refund request. 
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.RefundRequest.Amount">
+            <summary>
+            Amount to refund.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.RefundRequest.ExpDate">
+            <summary>
+            Credit card experation date.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.RefundRequest.Account">
+            <summary>
+            Credit card number. Optional if using swipe and sending credit card track data.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.RefundRequest.TrackData">
+            <summary>
+            Credit card data. Optional if using not swipe method.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.RefundRequest.UserTransactionNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.RefundRequest.ServiceTransactionNumber">
+            <summary>
+            The transaction identifier provided by blackstone system at the time of the transaction.
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.SaleResponse">
+            <summary>
+            Host Sale Response.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleResponse.avs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleResponse.ServiceReferenceNumber">
+            <summary>
+            Indetifier of the transactio on blackstone system
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleResponse.PaymentPlanInfo">
+            <summary>
+            Reference to the mechant plan that is being used, and related rates.
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.SaleWithTokenRequest">
+            <summary>
+            Used on transaction with token
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleWithTokenRequest.clientRef">
+            <summary>
+            Client reference, optional 
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleWithTokenRequest.Token">
+            <summary>
+            Token which identifiers the credit card information 
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleWithTokenRequest.Amount">
+            <summary>
+            Amount
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleWithTokenRequest.UserTransactionNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleWithTokenRequest.TransactionType">
+            <summary>
+            Transaction Type <see cref="T:MonetraApiConnector.Models.TransactionTypes"/>
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.SaleWithTokenRequest.Comments">
+            <summary>
+            Any comments that want to be added to the transaction
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.UnsettledTransaction">
+            <summary>
+            Unsettled transactions.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.UnsettledTransaction.mid">
+            <summary>
+            Merchant id
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.UnsettledTransaction.cid">
+            <summary>
+            Sub merchant account
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.UnsettledTransaction.batch_number">
+            <summary>
+            Transaction batch number
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.UnsettledTransactionResponse">
+            <summary>
+            Report of unsettled transactions.
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.UnsettledTransactionResponse.UnsettledTransactions">
+            <summary>
+            Unsettled transactions.
+            </summary>
+        </member>
+        <member name="T:MonetraApiConnector.Models.VoidRequest">
+            <summary>
+            Void Request
+            </summary>
+        </member>
+        <member name="P:MonetraApiConnector.Models.VoidRequest.UserTransactionNumber">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

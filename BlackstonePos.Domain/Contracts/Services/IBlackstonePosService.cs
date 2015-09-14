@@ -125,5 +125,8 @@ namespace BlackstonePos.Domain.Contracts.Services
         IEnumerable<Order> GetAllValidOrders(int merchantId, DateTime startDate, DateTime endDate);
 
         string FullcargaAccessNumberTest(int merchantId, string productMainCode);
+
+
+        ReceiptResponse GetReceiptResponse(PaxTerminalTransactionRequest request, BrokerResponse brokerResponse);
     } 
 }

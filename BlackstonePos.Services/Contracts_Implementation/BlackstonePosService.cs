@@ -1390,7 +1390,7 @@ namespace BS.Services.Contracts_Implementation
 
         #region Receipt Responses
 
-        private ReceiptResponse GetReceiptResponse(PaxTerminalTransactionRequest request, BrokerResponse brokerResponse)
+        public ReceiptResponse GetReceiptResponse(PaxTerminalTransactionRequest request, BrokerResponse brokerResponse)
         {
             var order = _orderRepository.Get(request.OrderId);
 
@@ -1413,13 +1413,17 @@ namespace BS.Services.Contracts_Implementation
                 CarrierName = productInfo.CarrierName,
                 Amount = amount,
                 PhoneNumber = order.PhoneNumber,
-                ControlNumber = brokerResponse.ControlNumber,
-                TransactionId = brokerResponse.TransactionID,
+                //ControlNumber = brokerResponse.ControlNumber,
+                //TransactionId = brokerResponse.TransactionID,
+                ControlNumber = order.ControlNumber,
+                TransactionId = order.PinID,
                 CashierName = merchantInfo.Name,
                 Tax = tax,
                 OrderDate = DateTime.Now,
-                OrderNumber = brokerResponse.OrderNumber,
-                PinNumber = brokerResponse.PinNumber,
+                //OrderNumber = brokerResponse.OrderNumber,
+                //PinNumber = brokerResponse.PinNumber,
+                OrderNumber = order.Id,
+                PinNumber = order.PinNumber,
                 MerchantName = merchantInfo.MerchantBusinessName,
                 MerchantAddress = merchantInfo.MerchantBusinessAddress,
                 MerchantPhoneNumber = merchantInfo.MerchantBusinessPhone,
@@ -1427,6 +1431,8 @@ namespace BS.Services.Contracts_Implementation
                 ExpirationDate = brokerResponse.ExpirationDate,
                 CustomerService = brokerResponse.CustomerService
             };
+
+            
 
             return receiptResponse;
         }

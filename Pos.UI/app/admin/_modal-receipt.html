@@ -1,0 +1,209 @@
+<!-- _modal-account-tpl -->
+<div class="modal-header">
+	<ul class="nav nav-pills">
+		<li class="pull-right">
+			<button class="btn btn-default" ng-click="close()">Close <i class="fa fa-close"></i></button>
+		</li>
+	</ul>
+</div>
+
+<div class="modal-body" id="merchantDetails">
+	
+    <div class="alert alert-info alert-dismissable hidden">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+
+    <div class="hidden-print">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{ alert.msg }}</alert>
+    </div>
+
+    <!--Receipt!-->
+    <div class="row content" id="receipt" ng-show="showReceipt">
+        <div class="col-xs-12 col-sm-3 col-md-3">
+            <div class="hidden-print">
+                <img class="img-responsive thumbnail btn-block" ng-src="{{item.ImageUrl}}" alt="{{item.Name}}" />
+            </div>
+
+            <div class="view-modal text-mute hidden-print" ng-show="item.accessPhones">
+                <a class="btn btn-default" ng-click="open(item.accessPhones)" id="" title=" " target="_self"><i class="fa fa-plus-circle"></i> Access Numbers</a>
+            </div>
+
+            <div class="well well-ps hidden-print">
+                
+                <!-- send sms form -->
+                <form name="smsForm" class="margin-t-10" role="form" id="smsForm" novalidate>
+                    <div id="phoneNumbers">
+                        <div class="form-group" ng-class="{'has-error' : submittedSms && smsForm.phoneToSend.$error.required || smsForm.phoneToSend.$error.phone}">
+                            <span class="label label-danger" data-ng-show="submittedSms && smsForm.phoneToSend.$error.required">Required!</span>
+                            <span class="label label-danger" data-ng-show="submittedSms && smsForm.phoneToSend.$error.minlength">At least 10 digit</span>
+                            <span class="label label-danger" data-ng-show="submittedSms && smsForm.phoneToSend.$error.maxlength">Max 10 digit</span>
+                            <input class="form-control" type="text" name="phoneToSend" placeholder="Enter phone recipient" id="phoneToSend"
+                                   ng-model='phoneToSend'
+                                   ng-minlength="10"
+                                   ng-maxlength="10"
+                                   ng-required="true">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-info btn-block" ng-disabled="smsForm.$invalid" ng-click="sendSms(smsForm)">
+                            <span class="fa fa-mobile"></span> Send as SMS
+                        </button>
+                    </div>
+                </form>
+                <!-- end send sms form -->
+
+                <hr />
+
+                <!-- send email form -->
+                <form name="emailForm" class="margin-t-10" role="form" id="emailForm" novalidate>
+                    <div id="phoneNumbers">
+                        <div class="form-group" ng-class="{'has-error' : submittedEmail && emailForm.emailToSend.$error || smsForm.phoneToSend.$error.email}">
+                            <span class="label label-danger" data-ng-show="submittedEmail && emailForm.emailToSend.$error.required">Required!</span>
+                            <span class="label label-danger" data-ng-show="submittedEmail && emailForm.emailToSend.$error.email">Incorrect Format</span>
+                            <input class="form-control" type="email" name="emailToSend" placeholder="Enter email recipient" id="emailToSend"
+                                   ng-model='emailToSend'
+                                   ng-required="true">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-info btn-block" ng-disabled="emailForm.$invalid" ng-click="sendEmail(emailForm)">
+                            <span class="fa fa-envelope-o"></span> Send as Email
+                        </button>
+
+                        <hr />
+                        <span class="" id="aceptTerms">
+                            <label>
+                                <input type="checkbox"
+                                       ng-checked="true"
+                                       ng-required="true"> <a class="" ng-click="openTerms([{'termsAndConditions':termsOfPersonalData},{'':''}])" id="" title="Terms and Conditions" target="_self"><strong> Accept Terms </strong></a>
+                            </label>
+                        </span>
+                    </div>
+                </form>
+                <!-- end send email form -->
+
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-9 col-md-9">
+            <h3>Receipt</h3>
+            <table class="table-condensed" id="receipt">
+                <tbody>
+                    <tr ng-if="receipt.ProductName">
+                        <td>Product Name:</td>
+                        <td>{{receipt.ProductName}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.ProductCountry">
+                        <td>Country:</td>
+                        <td>{{receipt.ProductCountry}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.PhoneNumber">
+                        <td>Phone Number:</td>
+                        <td>{{receipt.PhoneNumber}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.CarrierName">
+                        <td>Carrier:</td>
+                        <td>{{receipt.CarrierName}}</td>
+                    </tr>
+
+                    <tr ng-if="item.Instructions">
+                        <td>Instructions:</td>
+                        <!-- <td class="small">{{receipt.ProductInstructions}}</td> -->
+                        <td class="">{{item.Instructions}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.ProductInstructions">
+                        <td>Terms and Conditions:</td>
+                        <!-- <td class="small">{{receipt.ProductInstructions}}</td> -->
+                        <td class="">http://terms.blackstonepos.com</td>
+                    </tr>
+
+                    <tr class=""><td colspan="2"><div class="divider"></div></td></tr>
+
+                    <tr ng-if="receipt.Amount">
+                        <td>Amount:</td>
+                        <td>{{receipt.Amount | currency}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.Fee">
+                        <td>Fee:</td>
+                        <td>{{receipt.Fee | currency}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.Tax">
+                        <td>Tax:</td>
+                        <td>{{receipt.Tax | currency}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.Total">
+                        <td>Total:</td>
+                        <td>{{receipt.Total | currency}}</td>
+                    </tr>
+
+                    <tr><td colspan="2"><div class="divider"></div></td></tr>
+
+                    <tr ng-if="receipt.PinNumber">
+                        <td>Pin Number:</td>
+                        <td>{{receipt.PinNumber}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.ControlNumber">
+                        <td>Control Number:</td>
+                        <td>{{receipt.ControlNumber}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.OrderNumber">
+                        <td>Order Number:</td>
+                        <td>{{receipt.OrderNumber}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.TransactionId">
+                        <td>Transaction Id:</td>
+                        <td>{{receipt.TransactionId}}</td>
+                    </tr>
+                    <tr><td colspan="2"><div class="divider"></div></td></tr>
+
+                    <tr ng-if="receipt.MerchantName">
+                        <td>Merchant Name:</td>
+                        <td>{{receipt.MerchantName}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.CashierName">
+                        <td>Cashier Name:</td>
+                        <td>{{receipt.CashierName}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.MerchantAddress">
+                        <td>Address:</td>
+                        <td>{{receipt.MerchantAddress}}</td>
+                    </tr>
+                    <tr ng-if="receipt.MerchantPhoneNumber">
+                        <td>Merchant Phone:</td>
+                        <td>{{receipt.MerchantPhoneNumber}}</td>
+                    </tr>
+
+                    <tr ng-if="receipt.OrderDate">
+                        <td>Transaction Date:</td>
+                        <td>{{receipt.OrderDate| date}}</td>
+                    </tr>
+
+                    <tr><td colspan="2"><div class="divider"></div></td></tr>
+
+                    <tr ng-if="receipt.Disclaimer">
+                        <td>Disclaimer:</td>
+                        <td>{{receipt.Disclaimer}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer" >
+</div>
+
