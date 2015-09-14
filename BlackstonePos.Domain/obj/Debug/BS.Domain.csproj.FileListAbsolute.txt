@@ -11,3 +11,8 @@ D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Debug\Ninject.xml
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\obj\Debug\BS.Domain.csprojResolveAssemblyReference.cache
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\obj\Debug\BlackstonePos.Domain.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\obj\Debug\BlackstonePos.Domain.pdb
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Domain\bin\Debug\BlackstonePos.Domain.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Domain\bin\Debug\BlackstonePos.Domain.pdb
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Domain\obj\Debug\BS.Domain.csprojResolveAssemblyReference.cache
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Domain\obj\Debug\BlackstonePos.Domain.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Domain\obj\Debug\BlackstonePos.Domain.pdb

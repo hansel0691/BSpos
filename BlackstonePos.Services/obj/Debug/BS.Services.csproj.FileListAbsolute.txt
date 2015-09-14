@@ -35,3 +35,15 @@ D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\Ninject.xml
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\obj\Debug\BS.Services.csprojResolveAssemblyReference.cache
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\obj\Debug\BlackstonePos.Services.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\obj\Debug\BlackstonePos.Services.pdb
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\AutoMapper.Net4.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\BlackstonePos.Services.dll.config
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\BlackstonePos.Services.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\BlackstonePos.Services.pdb
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\AutoMapper.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\BlackstonePos.Domain.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\ExcelLibrary.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\BlackstonePos.Domain.pdb
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\bin\Debug\AutoMapper.xml
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\obj\Debug\BS.Services.csprojResolveAssemblyReference.cache
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\obj\Debug\BlackstonePos.Services.dll
+\\Mac\Home\Desktop\BSpos\BlackstonePos.Services\obj\Debug\BlackstonePos.Services.pdb
