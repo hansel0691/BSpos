@@ -142,7 +142,7 @@
 
 
                 <!--Addicional numbers-->
-
+                <span data-ng-if="item.AcceptAdditionalPhones && amount.value" style="color: #ce0004">Destination phone number must be  only from Claro/Tigo Network</span>
 			    <div ng-repeat="n in [] | range:additionalPhoneNumbersAmount()">
                     <div class="form-group" ng-class="{'has-error' : submitted && productForm.additionalPhone{{n}}.$error.required}">
                         <label for="" class="control-label">Phone Number {{n + 1}}</label>

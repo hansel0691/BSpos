@@ -299,24 +299,6 @@
 			}
 		};
 
-
-
-		// function myKeyPress(e){
-		// 	initInputs();
-
-		// 	var keynum;
-
-		// 	if (window.event){ // IE
-		// 		keynum = e.keyCode;
-		// 	} else {
-		// 		if(e.which){ // Netscape/Firefox/Opera
-		// 			keynum = e.which;
-		// 		}
-		// 	}
-		// 	setAmount(keynum);
-		// }
-
-
 		$scope.backKey = function() {
 			initInputs();
 
