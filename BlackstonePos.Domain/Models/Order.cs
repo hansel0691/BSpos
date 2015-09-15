@@ -40,8 +40,8 @@ namespace BlackstonePos.Domain.Models
         {
             get
             {
-                //esta linea de abajo tiene que ser pin en lugar de pinless pero no se que categoria los son.
-//                return ((!Refunded.HasValue || !Refunded.Value) && !string.IsNullOrEmpty(ProductCategory) && ProductCategory == PosCategory.pinless.ToString());
+//                esta linea de abajo tiene que ser pin en lugar de pinless pero no se que categoria los son.
+//                return ((!Refunded.HasValue || !Refunded.Value) && !string.IsNullOrEmpty(ProductCategory) && ProductCategory == PosCategory.longdistance.ToString());
                 return !Refunded.HasValue || !Refunded.Value;
 
             }

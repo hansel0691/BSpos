@@ -50,7 +50,11 @@ namespace OrdersGateway.Controllers
             }
             ).ToList();
 
-            var promotionsResult = GetDistinctPromotions(promotionsProducts);
+            //var promotionsResult = GetDistinctPromotions(promotionsProducts);
+            /*change00*/
+            var promotionsResult = promotionsProducts;
+            
+            /*change01*/
 
             return new DataResponse()
             {

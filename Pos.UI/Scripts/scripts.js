@@ -4,9 +4,9 @@
     var app = angular.module('posApp', ['ngRoute', 'ngAnimate', 'ngResource', 'ui.bootstrap', 'loginServices', 'adminServices', 'sharedServices', 'prodsServices', 'LocalStorageModule', 'appFilters', 'customFunctions', 'promosServices', 'billPaymentServices', 'sunpassServices', 'directTvServices', 'ajoslin.promise-tracker', 'datePicker', 'flash']);
     // 720kb.datepicker
     // api url constant
-    //app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
+//    app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
     app.constant('SITE_URL', 'http://mobile.blackstonepos.com/');
-    //app.constant('SITE_URL', 'file:///D:/Projects/BlackstonePOSAngularJs/Pos.UI/index.html#');
+//    app.constant('SITE_URL', 'file:///D:/Projects/BlackstonePOSAngularJs/Pos.UI/index.html#');
     app.constant('API_URL', 'http://localhost:50230/api/');
 
     // Routes config
@@ -2533,7 +2533,7 @@
 			{ categoryName: 'longdistance', title: 'Long Distance', url: '#/pos/category/longdistance/countries', position: 3, icon: '' },
 			{ categoryName: 'wireless', title: 'Wireless Recharge', url: '#/pos/category/wireless/carriers', position: 6, icon: '' },
 			{ categoryName: 'sunPass', title: 'SunPass', url: '#/sunpass', position: 5, icon: '' },
-			{ categoryName: 'promotions', title: 'Specials', url: '#/pos/category/promotions', position: 8, icon: 'star' },
+			{ categoryName: 'promotions', title: 'Promotions', url: '#/pos/category/promotions', position: 8, icon: 'star' },
 			{ categoryName: 'directtv', title: 'Direct TV', url: '#/directtv/categories', position: 9, icon: '' }
 			// {categoryName: 'MySmsCuba', title: 'MySmsCuba', url: '#/mysmscuba', position: 10, icon: ''}
 			// {categoryName: 'activationShop', title: 'Activation Shop', url: '#/activationshop', position: 11, icon: ''}
