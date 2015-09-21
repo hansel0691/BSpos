@@ -71,7 +71,8 @@ namespace BlackstonePos.Domain.Models
         public bool AcceptAdditionalPhones { get; set; }
         public int AdditionalPhonesQuantity { get; set; }
         public double Fee { get; set; }
-        
+
+        public IEnumerable<TimeDenomination> TimeDenominations { get; set; }
     }
 
     public enum ProductType

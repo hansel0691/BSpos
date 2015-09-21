@@ -35,11 +35,17 @@ namespace OrdersGateway.Controllers
         {
             var promotions = _blackstonePosService.GetAllPromotions(productRequest.MerchantId);
 
+            //var temp = promotions.ToList();
+
+
             var merchantInfo = _blackstonePosService.FindMerchant(productRequest.MerchantId);
 
             var productsResponse = _blackstonePosService.GetProducts(productRequest.MerchantId, merchantInfo.MerchantTerminalID.ToString(), merchantInfo.MerchantPassword, merchantInfo.Name);
 
             var products = (productsResponse.Data as IEnumerable<ProductItem>);
+
+
+            //var temp = products.FirstOrDefault(p => p.Code == "320485");
 
             var promotionsProducts = promotions.Join(products, promo => promo.Code, product => product.Code, (a, b) => new Promotion()
             {
@@ -53,7 +59,6 @@ namespace OrdersGateway.Controllers
             //var promotionsResult = GetDistinctPromotions(promotionsProducts);
             /*change00*/
             var promotionsResult = promotionsProducts;
-            
             /*change01*/
 
             return new DataResponse()

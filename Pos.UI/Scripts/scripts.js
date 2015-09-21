@@ -3935,7 +3935,10 @@
 		        return 0;
 		    };
 
-
+		    $scope.timeRates = function(value) {
+		        var index = $scope.item.TimeDenominations.indexOf(value, 0, function (e, a) { return e.Denomination == a; });
+		        return $scope.item.TimeDenominations[index].Time;
+		    };
 
 		    // Modal (ui.bootstrap.modal). In Docs (item) pass modal size, here pass the single item object
 		    $scope.open = function (items) {

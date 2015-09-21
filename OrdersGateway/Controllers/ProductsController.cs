@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Mvc;
@@ -8,6 +9,9 @@ using BlackstonePos.Domain.Contracts.Services;
 using BlackstonePos.Domain.Models;
 using BlackstonePos.Domain.Models.Comparers;
 using Metele.common.Models;
+using Metele.data.Helpers;
+using Metele.services.Helpers;
+using Ninject.Infrastructure.Language;
 using OrdersGateway.com.blackstoneonline.services;
 using OrdersGateway.Filters;
 using OrdersGateway.Infrastructure;
@@ -23,6 +27,7 @@ namespace OrdersGateway.Controllers
     {
         private readonly IMeteleService _meteleService;
         private readonly IBlackstonePosService _blackstonePosService;
+        private readonly Dictionary<double, double> _agogoTimeRate = new Dictionary<double, double>(){{27.4, 125}, {62.9, 300}, {97.5, 500}};
 
         public ProductsController(IMeteleService aService, IBlackstonePosService blackstonePosService)
         {
@@ -75,7 +80,11 @@ namespace OrdersGateway.Controllers
 
             var productResponse = _blackstonePosService.GetProduct(productRequest.MerchantId, merchantInfo.MerchantTerminalID.ToString(), merchantInfo.MerchantPassword, 
                                                                    merchantInfo.Name, productRequest.ProductMainCode);
-
+            if (productResponse.Data.Code == "320964" && productResponse.Data.Denominations != null)
+            {
+                productResponse.Data.TimeDenominations =
+                    ((IEnumerable<double>)productResponse.Data.Denominations).Select(x => new TimeDenomination() { Denomination = x, Time = this._agogoTimeRate[x] });
+            }
             return productResponse;
         }
 
@@ -426,6 +435,8 @@ namespace OrdersGateway.Controllers
             posRequest.CountryCode = productInfo.DialCountryCode;
 
             DataResponse posResponse = productInfo.IsTopUp ? _blackstonePosService.DoTopUp(posRequest) : _blackstonePosService.GetSinglePin(posRequest);
+
+            
 
             return new DataResponse
             {
