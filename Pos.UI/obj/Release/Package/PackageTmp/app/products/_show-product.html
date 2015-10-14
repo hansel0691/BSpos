@@ -111,12 +111,16 @@
 					<label class="label-control" for="">Select Amount</label>
 					<span class="label label-danger" data-ng-show="submitted && productForm.amount.$error.required">Required!</span>
 					<div class="form-group" id="amounts" ng-class="{'has-error' : submitted && productForm.amount.$error.required}">
-						<label class="btn btn-default" ng-repeat="value in item.Denominations" ng-class="{ 'active' : ($parent.amount.value == value) }">
-							<input type="radio" class="" name="amount"
-								ng-value="value"
-								ng-model="amount.value"
-								ng-required="!amount.value">{{value | currency}}
-						</label>
+                        <div ng-repeat="value in item.Denominations" style="display: inline-block; text-align: center">
+                            <label class="btn btn-default" ng-class="{ 'active' : ($parent.amount.value == value) }">
+                                <input type="radio" class="" name="amount"
+                                       ng-value="value"
+                                       ng-model="amount.value"
+                                       ng-required="!amount.value">{{value | currency}}
+                            </label>
+                            <br/>
+                            <span data-ng-if="item.TimeDenominations">{{timeRates(value)}} mins</span>
+                        </div>
 					</div>
 					<span class="error" ng-show="sampleForm.amount.$error.required"></span>
 				</div>
@@ -176,7 +180,7 @@
                         <a class="" ng-click="open([{'termsAndConditions':item.TermsAndConditions},{'':''}])" id="" title="Terms and Conditions" target="_self"><strong> Accept Terms </strong></a>
                     </label>
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label>
                         <input type="checkbox" ng-checked="true">
                         <a class="" title="Full Carga/Provider Promotion">
@@ -191,7 +195,7 @@
                             <strong> I Would Like To Receive other information or communications from Full Carga/Provider </strong>
                         </a>
                     </label>
-                </div>
+                </div>-->
 
                     <!-- <span class="view-modal text-mute" ng-if="item.ShowTerms">
             <a class="btn" ng-click="open([{'termsAndConditions':item.TermsAndConditions},{'':''}])" id="" title="Terms and Conditions" target="_self"> Terms</a>

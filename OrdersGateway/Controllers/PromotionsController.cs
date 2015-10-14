@@ -47,6 +47,7 @@ namespace OrdersGateway.Controllers
 
             //var temp = products.FirstOrDefault(p => p.Code == "320485");
 
+
             var promotionsProducts = promotions.Join(products, promo => promo.Code, product => product.Code, (a, b) => new Promotion()
             {
                 Code = a.Code,
@@ -55,6 +56,7 @@ namespace OrdersGateway.Controllers
                 MainCategory = b.MainCategory 
             }
             ).ToList();
+
 
             //var promotionsResult = GetDistinctPromotions(promotionsProducts);
             /*change00*/

@@ -10,589 +10,589 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="app/admin/adminCtrl.js">
-      <publishTime>09/14/2015 07:51:08</publishTime>
+      <publishTime>09/23/2015 04:11:11</publishTime>
     </File>
     <File Include="app/admin/_admin.html">
-      <publishTime>09/14/2015 07:51:08</publishTime>
+      <publishTime>10/09/2015 09:13:23</publishTime>
     </File>
     <File Include="app/admin/_modal-account-tpl.html">
-      <publishTime>08/10/2015 10:52:19</publishTime>
+      <publishTime>08/11/2015 07:52:19</publishTime>
     </File>
     <File Include="app/admin/_modal-receipt.html">
-      <publishTime>09/15/2015 06:25:02</publishTime>
+      <publishTime>09/16/2015 03:25:02</publishTime>
     </File>
     <File Include="app/app.js">
-      <publishTime>09/14/2015 08:00:22</publishTime>
+      <publishTime>09/15/2015 05:00:22</publishTime>
     </File>
     <File Include="app/billpayment/billPaymentServices.js">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="app/billpayment/IndexByCategoryBillPaymentCtrl.js">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>08/06/2015 08:35:20</publishTime>
     </File>
     <File Include="app/billpayment/indexByPopularBillPaymentCtrl.js">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>08/06/2015 08:35:20</publishTime>
     </File>
     <File Include="app/billpayment/indexCategoriesBillPaymentCtrl.js">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>08/06/2015 08:35:20</publishTime>
     </File>
     <File Include="app/billpayment/showBillPaymentCtrl.js">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>08/06/2015 08:35:20</publishTime>
     </File>
     <File Include="app/billpayment/_index-billers.html">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>08/06/2015 08:35:20</publishTime>
     </File>
     <File Include="app/billpayment/_index-categories.html">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>08/06/2015 08:35:20</publishTime>
     </File>
     <File Include="app/billpayment/_show-biller.html">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>08/06/2015 08:35:20</publishTime>
     </File>
     <File Include="app/directtv/directTvCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/directtv/directTvServices.js">
-      <publishTime>07/01/2015 07:57:14</publishTime>
+      <publishTime>07/02/2015 04:57:14</publishTime>
     </File>
     <File Include="app/directtv/_index-categories-dtv.html">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="app/directtv/_index-dtv.html">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="app/directtv/_show-dtv.html">
-      <publishTime>05/08/2015 13:25:26</publishTime>
+      <publishTime>05/09/2015 10:25:26</publishTime>
     </File>
     <File Include="app/home/homeCtrl.js">
-      <publishTime>08/28/2015 08:56:13</publishTime>
+      <publishTime>08/29/2015 05:56:13</publishTime>
     </File>
     <File Include="app/home/_home.html">
-      <publishTime>07/01/2015 07:57:49</publishTime>
+      <publishTime>07/02/2015 04:57:49</publishTime>
     </File>
     <File Include="app/login/loginCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/login/loginServices.js">
-      <publishTime>07/01/2015 07:57:14</publishTime>
+      <publishTime>07/02/2015 04:57:14</publishTime>
     </File>
     <File Include="app/login/_login.html">
-      <publishTime>07/01/2015 07:57:14</publishTime>
+      <publishTime>07/02/2015 04:57:14</publishTime>
     </File>
     <File Include="app/login/_modal-demo-tpl.html">
-      <publishTime>07/01/2015 07:57:14</publishTime>
+      <publishTime>07/02/2015 04:57:14</publishTime>
     </File>
     <File Include="app/others/othersCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/others/_index-others.html">
-      <publishTime>12/09/2014 07:08:55</publishTime>
+      <publishTime>12/10/2014 05:08:55</publishTime>
     </File>
     <File Include="app/products/IndexByCategoryByCarrierCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/products/IndexByCategoryByCountryCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/products/indexByCategoryCtrl.js">
-      <publishTime>08/06/2015 14:30:15</publishTime>
+      <publishTime>08/07/2015 11:30:15</publishTime>
     </File>
     <File Include="app/products/indexCountriesByCategoryCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/products/indexWirelessCarriersCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/products/productsServices.js">
-      <publishTime>08/06/2015 13:22:40</publishTime>
+      <publishTime>08/07/2015 10:22:40</publishTime>
     </File>
     <File Include="app/products/showProductCtrl.js">
-      <publishTime>09/14/2015 11:43:36</publishTime>
+      <publishTime>09/15/2015 08:43:36</publishTime>
     </File>
     <File Include="app/products/showTermsCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/products/_index-carriers.html">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="app/products/_index-countries.html">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="app/products/_index-products.html">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="app/products/_modal-product-tpl.html">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="app/products/_show-product.html">
-      <publishTime>09/14/2015 14:08:24</publishTime>
+      <publishTime>10/09/2015 09:15:08</publishTime>
     </File>
     <File Include="app/products/_show-terms.html">
-      <publishTime>07/07/2015 13:03:02</publishTime>
+      <publishTime>07/08/2015 10:03:02</publishTime>
     </File>
     <File Include="app/promotions/promosCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>09/16/2015 05:26:45</publishTime>
     </File>
     <File Include="app/promotions/promosServices.js">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="app/promotions/_index-promos.html">
-      <publishTime>07/07/2015 13:03:02</publishTime>
+      <publishTime>09/16/2015 05:26:37</publishTime>
     </File>
     <File Include="app/shared/sharedCtrl.js">
-      <publishTime>08/07/2015 13:55:49</publishTime>
+      <publishTime>08/08/2015 10:55:49</publishTime>
     </File>
     <File Include="app/shared/sharedDirectives.js">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="app/shared/sharedFilters.js">
-      <publishTime>04/09/2015 11:07:22</publishTime>
+      <publishTime>04/10/2015 08:07:22</publishTime>
     </File>
     <File Include="app/shared/sharedFunctions.js">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="app/shared/sharedServices.js">
-      <publishTime>09/02/2015 08:34:55</publishTime>
+      <publishTime>09/03/2015 05:34:55</publishTime>
     </File>
     <File Include="app/shared/_admin-login.html">
-      <publishTime>12/09/2014 07:08:55</publishTime>
+      <publishTime>12/10/2014 05:08:55</publishTime>
     </File>
     <File Include="app/shared/_angular-busy-spin-tpl.html">
-      <publishTime>12/29/2014 11:53:23</publishTime>
+      <publishTime>12/30/2014 09:53:23</publishTime>
     </File>
     <File Include="app/shared/_balance-details.html">
-      <publishTime>11/21/2014 13:50:58</publishTime>
+      <publishTime>11/22/2014 11:50:58</publishTime>
     </File>
     <File Include="app/shared/_cashiers-grid.html">
-      <publishTime>11/28/2014 08:40:33</publishTime>
+      <publishTime>11/29/2014 06:40:33</publishTime>
     </File>
     <File Include="app/shared/_header-info-tpl.html">
-      <publishTime>08/28/2015 09:08:09</publishTime>
+      <publishTime>08/29/2015 06:08:09</publishTime>
     </File>
     <File Include="app/shared/_inner-nav.html">
-      <publishTime>07/01/2015 07:57:14</publishTime>
+      <publishTime>07/02/2015 04:57:14</publishTime>
     </File>
     <File Include="app/shared/_keypad-numeric.html">
-      <publishTime>03/06/2015 08:45:08</publishTime>
+      <publishTime>03/07/2015 06:45:08</publishTime>
     </File>
     <File Include="app/shared/_make-Payments.html">
-      <publishTime>11/26/2014 07:28:27</publishTime>
+      <publishTime>11/27/2014 05:28:27</publishTime>
     </File>
     <File Include="app/shared/_merchant-payments.html">
-      <publishTime>11/26/2014 06:31:39</publishTime>
+      <publishTime>11/27/2014 04:31:39</publishTime>
     </File>
     <File Include="app/shared/_merchant-settings.html">
-      <publishTime>12/09/2014 07:08:55</publishTime>
+      <publishTime>12/10/2014 05:08:55</publishTime>
     </File>
     <File Include="app/shared/_modal.html">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="app/shared/_orders-grid.html">
-      <publishTime>12/09/2014 07:08:55</publishTime>
+      <publishTime>12/10/2014 05:08:55</publishTime>
     </File>
     <File Include="app/shared/_product-caption-tpl.html">
-      <publishTime>09/15/2014 11:52:19</publishTime>
+      <publishTime>09/16/2014 08:52:19</publishTime>
     </File>
     <File Include="app/shared/_sales-details.html">
-      <publishTime>12/10/2014 09:01:22</publishTime>
+      <publishTime>12/11/2014 07:01:22</publishTime>
     </File>
     <File Include="app/shared/_work-in-progress.html">
-      <publishTime>12/09/2014 07:08:55</publishTime>
+      <publishTime>12/10/2014 05:08:55</publishTime>
     </File>
     <File Include="app/sunpass/sunpassCtrl.js">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="app/sunpass/sunpassServices.js">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="app/sunpass/_documents-sunpass.html">
-      <publishTime>05/08/2015 13:25:26</publishTime>
+      <publishTime>05/09/2015 10:25:26</publishTime>
     </File>
     <File Include="app/sunpass/_index-sunpass.html">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="app/sunpass/_replenish-sunpass.html">
-      <publishTime>05/08/2015 13:25:26</publishTime>
+      <publishTime>05/09/2015 10:25:26</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>09/15/2015 05:55:18</publishTime>
+      <publishTime>10/02/2015 11:25:14</publishTime>
     </File>
     <File Include="bin/Pos.UI.dll">
-      <publishTime>09/15/2015 06:35:20</publishTime>
+      <publishTime>10/09/2015 09:17:16</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>09/15/2015 05:55:18</publishTime>
+      <publishTime>10/02/2015 11:25:14</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>09/15/2015 05:55:18</publishTime>
+      <publishTime>10/02/2015 11:25:14</publishTime>
     </File>
     <File Include="Content/flags/basic.scss">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/flags/flags16.css">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/flags/flags24.css">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/flags/flags32.scss">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/flags/flags48.css">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/flags/flags64.css">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.eot">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.svg">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.ttf">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.woff">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/FontAwesome.otf">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.otf">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS-CONDENSEDLIGHT.eot">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS-CONDENSEDLIGHT.otf">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS-CONDENSEDLIGHT.svg">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS-CONDENSEDLIGHT.TTF">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS-CONDENSEDLIGHT.woff">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS.eot">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS.otf">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS.svg">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS.TTF">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/fonts/Open-Sans/OPENSANS.woff">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/img/aero%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/aero.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/blue%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/blue.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/green%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/green.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/grey%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/grey.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/orange%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/orange.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/pink%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/pink.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/purple%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/purple.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/red%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/red.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/square%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/square.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/yellow%402x.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/img/yellow.png">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_animations.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_buttons.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_carousel.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_colors.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_custom.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_forms.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_icons.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_keypad-numeric.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_loading-spin.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_mixins.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_modals.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_navbar.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_panels.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_typography.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/base/_variables.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/_datepicker.scss">
-      <publishTime>04/10/2015 11:35:47</publishTime>
+      <publishTime>04/11/2015 08:35:47</publishTime>
     </File>
     <File Include="Content/sass/_font-awesome.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/_kendo-custom.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/sass/_loading-spin.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/styles.css">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="Content/styles.min.css">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Content/styles.scss">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Images/flags/flags16.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags16_semi.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags24.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags24_semi.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags32.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags32.psd">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags32_semi.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags48.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags48_semi.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags64.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/flags/flags64_semi.png">
-      <publishTime>11/25/2014 10:06:47</publishTime>
+      <publishTime>11/26/2014 08:06:47</publishTime>
     </File>
     <File Include="Images/landing/01-bkt-POS-landing.png">
-      <publishTime>12/12/2014 08:13:03</publishTime>
+      <publishTime>12/13/2014 06:13:03</publishTime>
     </File>
     <File Include="Images/landing/01a-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/01b-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/02-bkt-POS-landing.png">
-      <publishTime>12/12/2014 08:13:03</publishTime>
+      <publishTime>12/13/2014 06:13:03</publishTime>
     </File>
     <File Include="Images/landing/02a-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/02b-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/03-bkt-POS-landing.png">
-      <publishTime>12/12/2014 08:13:03</publishTime>
+      <publishTime>12/13/2014 06:13:03</publishTime>
     </File>
     <File Include="Images/landing/03a-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/03b-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/04-bkt-POS-landing.png">
-      <publishTime>12/12/2014 08:13:03</publishTime>
+      <publishTime>12/13/2014 06:13:03</publishTime>
     </File>
     <File Include="Images/landing/04a-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/04b-bkt-POS-landing.png">
-      <publishTime>12/10/2014 07:24:52</publishTime>
+      <publishTime>12/11/2014 05:24:52</publishTime>
     </File>
     <File Include="Images/landing/pinless.png">
-      <publishTime>12/19/2014 13:47:24</publishTime>
+      <publishTime>12/20/2014 11:47:24</publishTime>
     </File>
     <File Include="Images/src/billpay.svg">
-      <publishTime>01/02/2015 12:25:28</publishTime>
+      <publishTime>01/03/2015 10:25:28</publishTime>
     </File>
     <File Include="Images/src/directtv/combo-1.svg">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="Images/src/directtv/combo-2.svg">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="Images/src/directtv/instalation.svg">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="Images/src/directtv/payper-view.svg">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="Images/src/directtv/prepaid-card.svg">
-      <publishTime>07/01/2015 07:57:14</publishTime>
+      <publishTime>07/02/2015 04:57:14</publishTime>
     </File>
     <File Include="Images/src/directtv/recharge-direct-tv.svg">
-      <publishTime>04/08/2015 09:39:41</publishTime>
+      <publishTime>04/09/2015 06:39:41</publishTime>
     </File>
     <File Include="Images/src/en-US.svg">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Images/src/es-ES.svg">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Images/src/financial.svg">
-      <publishTime>01/02/2015 12:25:28</publishTime>
+      <publishTime>01/03/2015 10:25:28</publishTime>
     </File>
     <File Include="Images/src/home.svg">
-      <publishTime>03/19/2014 11:08:21</publishTime>
+      <publishTime>03/20/2014 08:08:21</publishTime>
     </File>
     <File Include="Images/src/logo-blackstone.svg">
-      <publishTime>04/04/2014 12:35:21</publishTime>
+      <publishTime>04/05/2014 09:35:21</publishTime>
     </File>
     <File Include="Images/src/logout.svg">
-      <publishTime>03/19/2014 11:08:02</publishTime>
+      <publishTime>03/20/2014 08:08:02</publishTime>
     </File>
     <File Include="Images/src/other.svg">
-      <publishTime>01/02/2015 12:25:28</publishTime>
+      <publishTime>01/03/2015 10:25:28</publishTime>
     </File>
     <File Include="Images/src/password.svg">
-      <publishTime>03/19/2014 11:06:09</publishTime>
+      <publishTime>03/20/2014 08:06:09</publishTime>
     </File>
     <File Include="Images/src/phones.svg">
-      <publishTime>01/02/2015 12:25:28</publishTime>
+      <publishTime>01/03/2015 10:25:28</publishTime>
     </File>
     <File Include="Images/src/pinless.svg">
-      <publishTime>03/19/2014 11:05:31</publishTime>
+      <publishTime>03/20/2014 08:05:31</publishTime>
     </File>
     <File Include="Images/src/tv.svg">
-      <publishTime>01/02/2015 12:25:28</publishTime>
+      <publishTime>01/03/2015 10:25:28</publishTime>
     </File>
     <File Include="Images/src/user.svg">
-      <publishTime>07/28/2015 15:24:42</publishTime>
+      <publishTime>07/29/2015 12:24:42</publishTime>
     </File>
     <File Include="Images/src/utilities.svg">
-      <publishTime>01/02/2015 12:25:28</publishTime>
+      <publishTime>01/03/2015 10:25:28</publishTime>
     </File>
     <File Include="Images/src/wireless.svg">
-      <publishTime>01/02/2015 12:25:28</publishTime>
+      <publishTime>01/03/2015 10:25:28</publishTime>
     </File>
     <File Include="index.html">
-      <publishTime>09/03/2015 13:18:58</publishTime>
+      <publishTime>10/09/2015 09:13:23</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/02/2015 09:46:10</publishTime>
+      <publishTime>09/03/2015 06:46:10</publishTime>
     </File>
     <File Include="Scripts/libs.js">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>10/09/2015 09:13:23</publishTime>
     </File>
     <File Include="Scripts/libs.min.js">
-      <publishTime>08/05/2015 11:35:20</publishTime>
+      <publishTime>10/09/2015 09:13:23</publishTime>
     </File>
     <File Include="Scripts/scripts.js">
-      <publishTime>09/15/2015 06:34:10</publishTime>
+      <publishTime>10/09/2015 09:15:55</publishTime>
     </File>
     <File Include="Scripts/scripts.min.js">
-      <publishTime>08/28/2015 09:10:17</publishTime>
+      <publishTime>08/29/2015 06:10:17</publishTime>
     </File>
     <File Include="Scripts/scripts.min.js.map">
-      <publishTime>08/28/2015 09:10:24</publishTime>
+      <publishTime>08/29/2015 06:10:24</publishTime>
     </File>
     <File Include="terms.html">
-      <publishTime>07/31/2015 15:41:53</publishTime>
+      <publishTime>08/01/2015 12:41:53</publishTime>
     </File>
     <File Include="test.html">
-      <publishTime>08/28/2015 08:42:13</publishTime>
+      <publishTime>08/29/2015 05:42:13</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/14/2015 07:28:27</publishTime>
+      <publishTime>09/15/2015 04:28:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

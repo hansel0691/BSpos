@@ -2533,7 +2533,7 @@
 			{ categoryName: 'longdistance', title: 'Long Distance', url: '#/pos/category/longdistance/countries', position: 3, icon: '' },
 			{ categoryName: 'wireless', title: 'Wireless Recharge', url: '#/pos/category/wireless/carriers', position: 6, icon: '' },
 			{ categoryName: 'sunPass', title: 'SunPass', url: '#/sunpass', position: 5, icon: '' },
-			{ categoryName: 'promotions', title: 'Specials', url: '#/pos/category/promotions', position: 8, icon: 'star' },
+			{ categoryName: 'promotions', title: 'Promotions', url: '#/pos/category/promotions', position: 8, icon: 'star' },
 			{ categoryName: 'directtv', title: 'Direct TV', url: '#/directtv/categories', position: 9, icon: '' }
 			// {categoryName: 'MySmsCuba', title: 'MySmsCuba', url: '#/mysmscuba', position: 10, icon: ''}
 			// {categoryName: 'activationShop', title: 'Activation Shop', url: '#/activationshop', position: 11, icon: ''}
@@ -3935,7 +3935,10 @@
 		        return 0;
 		    };
 
-
+		    $scope.timeRates = function(value) {
+		        var index = $scope.item.TimeDenominations.indexOf(value, 0, function (e, a) { return e.Denomination == a; });
+		        return $scope.item.TimeDenominations[index].Time;
+		    };
 
 		    // Modal (ui.bootstrap.modal). In Docs (item) pass modal size, here pass the single item object
 		    $scope.open = function (items) {

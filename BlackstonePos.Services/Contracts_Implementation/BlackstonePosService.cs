@@ -132,7 +132,6 @@ namespace BS.Services.Contracts_Implementation
         public IEnumerable<BlackstonePos.Domain.Models.Promotion> GetAllPromotions(int merchantId)
         {
             var promotions = _promotionsRepository.GetAllPromotions();
-
             return promotions;
         }
 
@@ -463,6 +462,9 @@ namespace BS.Services.Contracts_Implementation
             if (biller.HasPresentment)
             {
                 BillPaymentResponse response;
+                /*change00*/
+                biller.AccountNumber = posBillPaymentRequest.AccountNumber;
+                /*change00*/
 
                 if (!_meteleService.DoBillPaymentPresentmentPos(cashierInfo, biller, posBillPaymentRequest.PaymentFee, out response))
                 {
