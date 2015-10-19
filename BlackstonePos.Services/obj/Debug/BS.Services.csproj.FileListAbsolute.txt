@@ -16,9 +16,6 @@ D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\BlackstonePo
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\AutoMapper.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\BlackstonePos.Domain.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\ExcelLibrary.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\Metele.common.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\Metele.utils.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\MonetraApiConnector.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\Ninject.Extensions.Logging.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\RestSharp.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Debug\Ninject.dll

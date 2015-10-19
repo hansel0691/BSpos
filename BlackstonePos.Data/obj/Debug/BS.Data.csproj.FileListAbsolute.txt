@@ -5,7 +5,6 @@ D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\BlackstonePos.Da
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\AutoMapper.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\BlackstonePos.Domain.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\EntityFramework.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\Metele.common.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\Ninject.Extensions.Logging.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\Ninject.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Debug\BlackstonePos.Domain.pdb

@@ -300,11 +300,11 @@ namespace OrdersGateway.Controllers
         {
             try
             {
-                var orders = _blackstonePosService.GetOrders(webRequest.MerchantId, webRequest.TerminalId, webRequest.SerialNumber).OrderByDescending(order => order.OrderDate);
+                var orders = _blackstonePosService.GetOrders(webRequest.MerchantId, webRequest.TerminalId, webRequest.SerialNumber).OrderByDescending(order => order.OrderDate).AsEnumerable<PaxTerminalOrder>();
 
                 //Taking the first 100 orders on the queue
                 if (orders.Count() > 100)
-                    orders = (IOrderedEnumerable<PaxTerminalOrder>)orders.Take(100);
+                    orders = orders.Take(100);
 
                 var ordersResult = orders.UIMapTo<IEnumerable<PaxTerminalOrder>, IEnumerable<Order>>();
 
