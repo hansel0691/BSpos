@@ -106,7 +106,7 @@ namespace OrdersGateway.Controllers
         {
             var cashierInfo = _blackstonePosService.FindMerchant(productRequest.MerchantId);
 
-            const int mostPopularAmount = 150;
+            const int mostPopularAmount = 0;
 
             var productsResponse = _blackstonePosService.GetProducts(productRequest.MerchantId, cashierInfo.MerchantTerminalID.Value.ToString(), cashierInfo.MerchantPassword, cashierInfo.Name, productRequest.Category, mostPopularAmount);
 
