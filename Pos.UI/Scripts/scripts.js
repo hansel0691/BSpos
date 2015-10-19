@@ -4207,6 +4207,13 @@
 		                CountryCode: $scope.item.DialCountryCode
 		            };
 
+		            /*change01*/
+		            /*to see the name from the cachier not sure the avobe property exist*/
+		            if (!order.OperatorName)
+		                order.OperatorName = userInfo.Name;
+		            
+		            /*change01*/
+
 		            if ($scope.item.AcceptAdditionalPhones) {
 		                order.AdditionalPhones = [];
 		                var additionalPhoneQuantity = $scope.additionalPhoneNumbersAmount();
@@ -4215,7 +4222,6 @@
 		                    order.AdditionalPhones.push($scope.additionalPhones[i].value);
 		                }
 		            }
-
 
 
 		            // console.log(order);

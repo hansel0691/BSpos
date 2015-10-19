@@ -1981,10 +1981,10 @@ namespace BS.Services.Contracts_Implementation
             try
             {
                 var response = !string.IsNullOrEmpty(transactionRequest.SerialNumber) ? _broker.GetSinglePINSerial(merchantInfo.MerchantId.ToString(), terminalId,
-                      merchantInfo.MerchantPassword,merchantInfo.Name, order.ProductMainCode, order.Amount.Value,
+                      merchantInfo.MerchantPassword, order.OperatorName, order.ProductMainCode, order.Amount.Value,
                       transactionRequest.OrderId, merchantInfo.MerchantProfileID.Value, _transactionMode, transactionRequest.SerialNumber) :
                       _broker.GetSinglePIN(merchantInfo.MerchantId.ToString(), terminalId,
-                      merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode, order.Amount.Value,
+                      merchantInfo.MerchantPassword, order.OperatorName, order.ProductMainCode, order.Amount.Value,
                       order.Id,merchantInfo.MerchantProfileID.Value, _transactionMode);
 
                 var pin = response.FirstOrDefault();
@@ -2050,12 +2050,12 @@ namespace BS.Services.Contracts_Implementation
                     var additionalPhonesData = this.GetAdditionalPhonesData(additionalPhones);
                     pin = !string.IsNullOrEmpty(transactionRequest.SerialNumber)
                         ? _broker.DoTopUpFeeSerialWithAdditionalPhones(merchantInfo.MerchantId.ToString(), terminalId,
-                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            merchantInfo.MerchantPassword, order.OperatorName, order.ProductMainCode,
                             order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode, order.Id,
                             merchantInfo.MerchantProfileID.Value, _transactionMode, fee, transactionRequest.SerialNumber,
                             additionalPhonesData)
                         : _broker.DoTopUpFeeWithAdditionalPhones(merchantInfo.MerchantId.ToString(), terminalId,
-                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            merchantInfo.MerchantPassword, order.OperatorName, order.ProductMainCode,
                             order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode, order.Id,
                             merchantInfo.MerchantProfileID.Value, _transactionMode, fee, additionalPhonesData);
                 }
@@ -2063,12 +2063,12 @@ namespace BS.Services.Contracts_Implementation
                 {
                     pin = !string.IsNullOrEmpty(transactionRequest.SerialNumber)
                         ? _broker.DoTopUpFeeSerial(merchantInfo.MerchantId.ToString(), terminalId,
-                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            merchantInfo.MerchantPassword, order.OperatorName, order.ProductMainCode,
                             order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode,
                             order.Id, merchantInfo.MerchantProfileID.Value, _transactionMode, fee,
                             transactionRequest.SerialNumber)
                         : _broker.DoTopUpFee(merchantInfo.MerchantId.ToString(), terminalId,
-                            merchantInfo.MerchantPassword, merchantInfo.Name, order.ProductMainCode,
+                            merchantInfo.MerchantPassword, order.OperatorName, order.ProductMainCode,
                             order.Amount.Value.ToString(), order.PhoneNumber, order.CountryCode,
                             order.Id, merchantInfo.MerchantProfileID.Value, _transactionMode, fee);
                 }
