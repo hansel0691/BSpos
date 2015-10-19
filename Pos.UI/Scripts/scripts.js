@@ -341,6 +341,7 @@
 		        var adminLogged = userInfo.IsMerchant;
 		        localStorageService.set('adminLogged', adminLogged);
 		        $scope.adminLogged = adminLogged;
+		        $scope.fullcargaLogged = userInfo.IsFullCarga;
 		        // console.log();
 		        // console.log('admin logged: '+ adminLogged);
 		    };

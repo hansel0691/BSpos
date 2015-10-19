@@ -403,160 +403,159 @@
 			<alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
 		</div>
 
-		<div ng-hide="adminLogged">
-			<div class="form-area">
-				<h5>Admin Login</h5>
-				<!--admin login area-->
-				<div class="" id="adminLoginArea">
-					<div id="adminLoginFormSummary"></div>
+        <div ng-hide="adminLogged || fullcargaLogged">
+            <div class="form-area">
+                <h5>Admin Login</h5>
+                <!--admin login area-->
+                <div class="" id="adminLoginArea">
+                    <div id="adminLoginFormSummary"></div>
 
-					<form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
-						<div class="form-group">
-							<label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
-							<input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
-						</div>
-						<button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
-					</form>
-				</div>
-			</div> <!-- #adminLoginArea -->
-		</div>
+                    <form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
+                        <div class="form-group">
+                            <label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
+                            <input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
+                        </div>
+                        <button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
+                    </form>
+                </div>
+            </div> <!-- #adminLoginArea -->
+        </div>
 
-		<div ng-if="adminLogged">
-			<!-- <div>
-				<alert ng-repeat="alert in ordersAlerts" type="{{alert.type}}" close="closeOrdersAlerts($index)">{{ alert.msg }}</alert>
-			</div> -->
+        <div ng-if="adminLogged || fullcargaLogged">
+            <!-- <div>
+            <alert ng-repeat="alert in ordersAlerts" type="{{alert.type}}" close="closeOrdersAlerts($index)">{{ alert.msg }}</alert>
+        </div> -->
+            <!-- <div class="small">From: <span class="label label-primary">{{start | date : 'shortDate' : '-0500'}}</span> To: <span class="label label-success">{{end | date : 'shortDate' : '-0500'}}</span></div> -->
 
-			<!-- <div class="small">From: <span class="label label-primary">{{start | date : 'shortDate' : '-0500'}}</span> To: <span class="label label-success">{{end | date : 'shortDate' : '-0500'}}</span></div> -->
+            <form role="form" novalidate name="ordersByDate" class="" id="datesRange">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <input type="text" class="form-control" name="start"
+                                       date-time
+                                       ng-model="start"
+                                       min-view="date"
+                                       max-view="date"
+                                       format="shortDate">
+                            </div>
 
-			<form role="form" novalidate name="ordersByDate" class="" id="datesRange">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12" id="">
-						<div class="row">
-							<div class="col-xs-3 col-sm-3 col-md-3">
-									<input type="text" class="form-control" name="start"
-									date-time
-									ng-model="start"
-									min-view="date"
-									max-view="date"
-									format="shortDate">
-							</div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <input type="text" class="form-control" name="end"
+                                       date-time
+                                       ng-model="end"
+                                       min-view="date"
+                                       max-view="date"
+                                       format="shortDate">
+                            </div>
 
-							<div class="col-xs-3 col-sm-3 col-md-3">
-								<input type="text" class="form-control" name="end"
-									date-time
-									ng-model="end"
-									min-view="date"
-									max-view="date"
-									format="shortDate">
-							</div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <button class="btn-t btn-primary" ng-click="getOrdersByDate(ordersByDate)">
+                                    <i class="fa fa-refresh"></i>
+                                    <span class="hidden-xs">Actualizar</span>
+                                </button>
+                                <!-- <button class="btn-t btn-default" ng-click="clear()"><i class="fa fa-times"></i><span class="hidden-xs"> Reset</span></button> -->
+                                <button class="btn-t btn-success" ng-click="today()"><i class="fa fa-bolt"></i><span class="hidden-xs"> Today</span></button>
+                            </div>
+                        </div>
+                    </div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<button class="btn-t btn-primary" ng-click="getOrdersByDate(ordersByDate)">
-									<i class="fa fa-refresh"></i>
-									<span class="hidden-xs">Actualizar</span>
-								</button>
-								<!-- <button class="btn-t btn-default" ng-click="clear()"><i class="fa fa-times"></i><span class="hidden-xs"> Reset</span></button> -->
-								<button class="btn-t btn-success" ng-click="today()"><i class="fa fa-bolt"></i><span class="hidden-xs"> Today</span></button>
-							</div>
-						</div>
-					</div>
+                    <div class="row">
+                        <div class="col-xs-12" id="">
+                            <hr />
+                        </div>
+                    </div>
 
-					<div class="row">
-						<div class="col-xs-12" id="">
-							<hr />
-						</div>
-					</div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" id="">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-2">
+                                <!-- <button class="btn-t btn-default btn-block" ng-csv="cvs" ng-click="downloadAsCvs(ordersByDate)" filename="{{filename}}.csv"><i class="fa fa-download"></i> <span class="hidden-xs"> Download</span></button> -->
+                                <button class="btn-t btn-default btn-block" ng-click="downloadAsCvs(ordersByDate)"><i class="fa fa-download"></i><span class="hidden-xs"> Download</span></button>
+                            </div>
 
-					<div class="col-xs-12 col-sm-12 col-md-12" id="">
-						<div class="row">
-							<div class="col-xs-3 col-sm-3 col-md-2">
-								<!-- <button class="btn-t btn-default btn-block" ng-csv="cvs" ng-click="downloadAsCvs(ordersByDate)" filename="{{filename}}.csv"><i class="fa fa-download"></i> <span class="hidden-xs"> Download</span></button> -->
-								<button class="btn-t btn-default btn-block" ng-click="downloadAsCvs(ordersByDate)"><i class="fa fa-download"></i><span class="hidden-xs"> Download</span></button>
-							</div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-1 col-md-offset-2">
+                                <input type="email" class="form-control" ng-model="email" name="email">
+                            </div>
 
-							<div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-1 col-md-offset-2">
-								<input type="email" class="form-control" ng-model="email" name="email">
-							</div>
+                            <div class="col-xs-3 col-sm-2 col-md-2">
+                                <button class="btn-t btn-default btn-block" ng-click="sendAsEmail(ordersByDate)"><i class="fa fa-envelope"></i><span class="hidden-xs"> Email</span></button>
+                            </div>
+                        </div>
 
-							<div class="col-xs-3 col-sm-2 col-md-2">
-								<button class="btn-t btn-default btn-block" ng-click="sendAsEmail(ordersByDate)"><i class="fa fa-envelope"></i><span class="hidden-xs"> Email</span></button>
-							</div>
-					</div>
+                        <div class="row">
+                            <div class="col-xs-12" id="">
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+            </form>
 
-					<div class="row">
-						<div class="col-xs-12" id="">
-							<hr />
-						</div>
-					</div>
-				</div>
-			</form>
+            <hr>
 
-			<hr>
+            <table class="table table-condensed" id="">
+                <tr>
+                    <td>Transactions: <span class="label label-primary">{{sumary.Transactions}}</span></td>
+                    <!-- <td>Comissions: <span class="label label-info">{{sumary.Comissions}}</span></td> -->
+                    <td>TotalSales: <span class="label label-success">{{sumary.TotalSales}}</span></td>
+                    <td>Refunds: <span class="label label-danger">{{sumary.Refunds}}</span></td>
+                </tr>
+            </table>
 
-			<table class="table table-condensed" id="">
-				<tr>
-					<td>Transactions: <span class="label label-primary">{{sumary.Transactions}}</span></td>
-					<!-- <td>Comissions: <span class="label label-info">{{sumary.Comissions}}</span></td> -->
-					<td>TotalSales: <span class="label label-success">{{sumary.TotalSales}}</span></td>
-					<td>Refunds: <span class="label label-danger">{{sumary.Refunds}}</span></td>
-				</tr>
-			</table>
+            <hr>
 
-			<hr>
+            <div class="table-responsive">
+                <table class="table table-condensed" id="ordersGrid">
+                    <thead>
+                    <th>Date</th>
+                    <th>Order<span class="hidden-xs"> Number</span></th>
+                    <th>Phone<span class="hidden-xs"> Number</span></th>
+                    <th>Product</th>
+                    <!-- <th>Cashier</th> -->
+                    <th>Amount</th>
+                    <!-- <th>Comission</th> -->
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    </thead>
 
-			<div class="table-responsive">
-				<table class="table table-condensed" id="ordersGrid">
-					<thead>
-						<th>Date</th>
-						<th>Order<span class="hidden-xs"> Number</span></th>
-						<th>Phone<span class="hidden-xs"> Number</span></th>
-						<th>Product</th>
-						<!-- <th>Cashier</th> -->
-						<th>Amount</th>
-						<!-- <th>Comission</th> -->
-						<th>&nbsp;</th>
-						<th>&nbsp;</th>
-					</thead>
+                    <tbody>
+                        <!-- {{orders | json}} -->
+                        <tr ng-repeat="order in orders | orderBy:order.TimeStamp" ng-class="order.Refunded == true ? 'text-muted active' : ''">
+                            <td class="order-date">{{ order.TimeStamp | date: 'short' }}</td>
+                            <td class="order-id">{{ order.Id}}</td>
+                            <td class="order-phone-number">{{ order.PhoneNumber}}</td>
+                            <td class="order-product-name">{{ order.ProductName }}</td>
+                            <!-- <td class="order-code">{{ order.OperatorName}}</td> -->
+                            <td class="order-amount">{{ order.Amount | currency }}</td>
+                            <!-- <td class="order-amount">{{ order.Comission | currency }}</td> -->
+                            <td class="refund-order">
+                                <!-- <span ng-if="order.Refunded" class="text-danger"><small>Refunded</small></span> -->
+                                <button class="btn btn-danger btn-xs" ng-click="refundOrder(order.Id)" ng-disabled="!order.IsRefundable" form="ordersByDate"> Refund</button>
+                            </td>
+                            <td class="resend-order-confirmation">
+                                <button class="btn btn-success btn-xs" ng-click="reSendOrderConfirmation(order.Id)" ng-disabled="!order.IsResendable">Resend</button>
+                            </td>
+                            <!--<td class="order-code">{{ order.TransactionID}}</td>
+                        <td class="order-code">{{ order.PinNumber}}</td>-->
 
-					<tbody>
-						<!-- {{orders | json}} -->
-						<tr ng-repeat="order in orders | orderBy:order.TimeStamp" ng-class="order.Refunded == true ? 'text-muted active' : ''">
-							<td class="order-date">{{ order.TimeStamp | date: 'short' }}</td>
-							<td class="order-id">{{ order.Id}}</td>
-							<td class="order-phone-number">{{ order.PhoneNumber}}</td>
-							<td class="order-product-name">{{ order.ProductName }}</td>
-							<!-- <td class="order-code">{{ order.OperatorName}}</td> -->
-							<td class="order-amount">{{ order.Amount | currency }}</td>
-							<!-- <td class="order-amount">{{ order.Comission | currency }}</td> -->
-							<td class="refund-order">
-								<!-- <span ng-if="order.Refunded" class="text-danger"><small>Refunded</small></span> -->
-								<button class="btn btn-danger btn-xs" ng-click="refundOrder(order.Id)" ng-disabled="!order.IsRefundable" form="ordersByDate"> Refund</button>
-							</td>
-							<td class="resend-order-confirmation">
-								<button class="btn btn-success btn-xs" ng-click="reSendOrderConfirmation(order.Id)" ng-disabled="!order.IsResendable">Resend</button>
-							</td>
-							<!--<td class="order-code">{{ order.TransactionID}}</td>
-							<td class="order-code">{{ order.PinNumber}}</td>-->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-						</tr>
-					</tbody>
-				</table>
-			</div>
+            <div class="row">
+                <!-- <div class="col-xs-3 col-sm-3 col-md-3" id="">
+                <a class="btn" id="" href="" ng-click="updateOrders()">
+                    <i class="fa fa-refresh" ng-class="spin ? 'fa-spin' : ''"></i> Update
+                </a>
+            </div> -->
 
-			<div class="row">
-				<!-- <div class="col-xs-3 col-sm-3 col-md-3" id="">
-					<a class="btn" id="" href="" ng-click="updateOrders()">
-						<i class="fa fa-refresh" ng-class="spin ? 'fa-spin' : ''"></i> Update
-					</a>
-				</div> -->
-
-				<div class="col-xs-12 col-sm-12 col-md-12" id="">
-					<div class="text-center">
-						<pagination num-pages="noOfPages" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged(currentPage)" boundary-links="false" rotate="true" max-size="maxSize" class="pagination-md"></pagination>
-					</div>
-				</div>
-			</div>
-		</div>
+                <div class="col-xs-12 col-sm-12 col-md-12" id="">
+                    <div class="text-center">
+                        <pagination num-pages="noOfPages" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged(currentPage)" boundary-links="false" rotate="true" max-size="maxSize" class="pagination-md"></pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</tab>
 </tabset>
 
