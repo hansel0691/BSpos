@@ -114,6 +114,21 @@ namespace OrdersGateway.Controllers
             return isMeteleMerchant ? ExecuteOrderForMetele(webRequest) : ExecuteOrderForBlackstonePos(webRequest);
         }
 
+        /*change*/
+        [HttpPost]
+        [SkipAuthentication]
+        public CommitResponse ExecuteOrderTest([FromBody] OrdersWebRequest webRequest)
+        {
+            var a = new OrdersWebRequest{
+                MerchantId = 834,
+                TerminalId = 10000642,
+                SerialNumber = "01234567890ABCDEF",
+                OrderNumber = 1128
+                     };
+            return ExecuteOrder(a);
+        }
+        /*change*/
+
         [HttpPost]
         [SkipAuthentication]
         public CommitResponse ExecuteOrderExt([FromBody] OrdersWebRequest webRequest)

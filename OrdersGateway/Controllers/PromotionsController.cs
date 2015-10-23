@@ -45,6 +45,8 @@ namespace OrdersGateway.Controllers
             var products = (productsResponse.Data as IEnumerable<ProductItem>);
 
 
+            var r = products.Where(p => p.Name.Contains("CUBACEL")).ToList();
+
             //var temp = products.FirstOrDefault(p => p.Code == "320485");
 
 

@@ -3,7 +3,6 @@ D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\BlackstonePos.
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\BlackstonePos.Data.pdb
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\BlackstonePos.Domain.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\EntityFramework.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\Metele.common.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\Ninject.Extensions.Logging.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\Ninject.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Data\bin\Release\BlackstonePos.Domain.pdb

@@ -1,6 +1,5 @@
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Release\BlackstonePos.Domain.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Release\BlackstonePos.Domain.pdb
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Release\Metele.common.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Release\Ninject.Extensions.Logging.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Release\Ninject.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Domain\bin\Release\Metele.common.pdb

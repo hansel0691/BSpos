@@ -341,6 +341,7 @@
 		        var adminLogged = userInfo.IsMerchant;
 		        localStorageService.set('adminLogged', adminLogged);
 		        $scope.adminLogged = adminLogged;
+		        $scope.fullcargaLogged = userInfo.IsFullCarga;
 		        // console.log();
 		        // console.log('admin logged: '+ adminLogged);
 		    };
@@ -2530,7 +2531,7 @@
 			{ categoryName: 'billpayment', title: 'Bill Payment', url: '#/billpayment/categories', position: 1, icon: '' },
 			{ categoryName: 'international', title: 'Int\'l Top Up', url: '#/pos/category/international/countries', position: 2, icon: '' },
 			{ categoryName: 'pinless', title: 'Pinless Recharge', url: '#/pos/category/pinless', position: 4, icon: '' },
-			{ categoryName: 'longdistance', title: 'Long Distance', url: '#/pos/category/longdistance/countries', position: 3, icon: '' },
+			{ categoryName: 'longdistance', title: 'Long Distance', url: '#/pos/category/longdistance', position: 3, icon: '' },
 			{ categoryName: 'wireless', title: 'Wireless Recharge', url: '#/pos/category/wireless/carriers', position: 6, icon: '' },
 			{ categoryName: 'sunPass', title: 'SunPass', url: '#/sunpass', position: 5, icon: '' },
 			{ categoryName: 'promotions', title: 'Promotions', url: '#/pos/category/promotions', position: 8, icon: 'star' },
@@ -3198,7 +3199,7 @@
 		        ProdsFactory.getAllProducts(category, userInfo).then(
                     function (data) {
                         $scope.items = data;
-                        // console.log(data);
+                        console.log(data);
                     },
                     function (error) {
                         void 0;
@@ -4207,6 +4208,13 @@
 		                CountryCode: $scope.item.DialCountryCode
 		            };
 
+		            /*change01*/
+		            /*to see the name from the cachier not sure the avobe property exist*/
+		            if (!order.OperatorName)
+		                order.OperatorName = userInfo.Name;
+		            
+		            /*change01*/
+
 		            if ($scope.item.AcceptAdditionalPhones) {
 		                order.AdditionalPhones = [];
 		                var additionalPhoneQuantity = $scope.additionalPhoneNumbersAmount();
@@ -4215,7 +4223,6 @@
 		                    order.AdditionalPhones.push($scope.additionalPhones[i].value);
 		                }
 		            }
-
 
 
 		            // console.log(order);

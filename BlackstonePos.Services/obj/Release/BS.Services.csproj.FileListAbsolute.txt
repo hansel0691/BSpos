@@ -11,9 +11,6 @@ D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\obj\Release\BS.Service
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\obj\Release\BlackstonePos.Services.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\obj\Release\BlackstonePos.Services.pdb
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\obj\Release\BlackstonePos.Services.XmlSerializers.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Metele.common.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Metele.utils.dll
-D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\MonetraApiConnector.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Ninject.Extensions.Logging.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\RestSharp.dll
 D:\Projects\BlackstonePOSAngularJs\BlackstonePos.Services\bin\Release\Ninject.dll
