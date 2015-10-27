@@ -248,153 +248,148 @@
 
 	<!-- Settings -->
 	<tab select="saveState('1')" active="tabs[1].active" heading="{{tabs[1].title}}" id="printerSettings">
-		<div ng-hide="adminLogged">
-			<div class="form-area">
-				<div>
-					<alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
-				</div>
-				<h5>Admin Login</h5>
-				<!--admin login area-->
-				<div class="" id="adminLoginArea">
-					<div id="adminLoginFormSummary"></div>
+        <div ng-hide="adminLogged || fullcargaLogged">
+            <div class="form-area">
+                <div>
+                    <alert ng-repeat="alert in adminLoginAlerts" type="{{alert.type}}" close="closeAdminLoginAlerts()">{{ alert.msg }}</alert>
+                </div>
+                <h5>Admin Login</h5>
+                <!--admin login area-->
+                <div class="" id="adminLoginArea">
+                    <div id="adminLoginFormSummary"></div>
 
-					<form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
-						<div class="form-group">
-							<label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
-							<input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
-						</div>
-						<button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
-					</form>
-				</div>
-			</div> <!-- #adminLoginArea -->
-		</div>
+                    <form name="adminLogin" ng-submit="submitForm(adminLogin.$valid)" role="form" id="adminLogin" novalidate>
+                        <div class="form-group">
+                            <label for="adminPassword"><span class="icon icon18 icon-password"></span> Password</label>
+                            <input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Admin Password" ng-model="adminPassword">
+                        </div>
+                        <button type="button" ng-click="loginOverSesion(adminPassword)" class="btn btn-danger"> Log In </button>
+                    </form>
+                </div>
+            </div> <!-- #adminLoginArea -->
+        </div>
 
-		<div ng-if="adminLogged">
-			<!-- _merchant.settings.html -->
-			<div id='merchantSettings'>
-				<div>
-					<alert ng-repeat="alert in settingsAlerts" type="{{alert.type}}" close="closeSettingsAlerts()">{{ alert.msg }}</alert>
-				</div>
+        <div ng-if="adminLogged || fullcargaLogged">
+            <!-- _merchant.settings.html -->
+            <div id='merchantSettings'>
+                <div>
+                    <alert ng-repeat="alert in settingsAlerts" type="{{alert.type}}" close="closeSettingsAlerts()">{{ alert.msg }}</alert>
+                </div>
 
-				<!-- <hr> -->
-				<form class="" role="form" name="settingsForm">
+                <!-- <hr> -->
+                <form class="" role="form" name="settingsForm">
 
-					<h5> Printer </h5>
-					<div class="settingsMessage"></div>
-					<label>
-						<input type="checkbox" name="smallReceiptCheck"
-							ng-model="settings.SmallReceipt">
-						Small receipt
-					</label>
+                    <h5> Printer </h5>
+                    <div class="settingsMessage"></div>
+                    <label>
+                        <input type="checkbox" name="smallReceiptCheck"
+                               ng-model="settings.SmallReceipt">
+                        Small receipt
+                    </label>
 
-					<hr class="divider">
+                    <hr class="divider">
 
-					<!-- merchant tax settings -->
-					<h5>Merchant Tax</h5>
-					<div class="merchantTaxSettingsMessage"></div>
-					<div class="form-group row">
-						<label for="taxAmount" class="col-sm-2">Sales Tax</label>
-						<div class="col-sm-10">
-							<input type="number" class="form-control col-sm-2" id="taxAmount" name="taxAmount" placeholder="Tax"
-								ng-model="settings.Tax"
-								ng-pattern="/^[0-9]{1,2}$/"
-								ng-max="15"
-								style="width: 80px;">
-						</div>
-					</div>
+                    <!-- merchant tax settings -->
+                    <h5>Merchant Tax</h5>
+                    <div class="merchantTaxSettingsMessage"></div>
+                    <div class="form-group row">
+                        <label for="taxAmount" class="col-sm-2">Sales Tax</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control col-sm-2" id="taxAmount" name="taxAmount" placeholder="Tax"
+                                   ng-model="settings.Tax"
+                                   ng-pattern="/^[0-9]{1,2}$/"
+                                   ng-max="15"
+                                   style="width: 80px;">
+                        </div>
+                    </div>
 
-					<hr class="divider">
+                    <hr class="divider">
 
-					<!-- confirm telephone number settings -->
-					<h5>Confirm Telephone Number</h5>
-					<div class="confirmTelSettingsMessage"></div>
-					<label>
-						<input type="checkbox" name="confirmTelCheck"
-							ng-model="settings.ConfirmPhone">
-						Confirm telephone
-					</label>
+                    <!-- confirm telephone number settings -->
+                    <h5>Confirm Telephone Number</h5>
+                    <div class="confirmTelSettingsMessage"></div>
+                    <label>
+                        <input type="checkbox" name="confirmTelCheck"
+                               ng-model="settings.ConfirmPhone">
+                        Confirm telephone
+                    </label>
 
-					<hr class="divider">
+                    <hr class="divider">
 
-					<!-- confirm telephone number settings -->
-					<h5> Pax Terminal as Printer </h5>
-					<div class="confirmTelSettingsMessage"></div>
-					<label>
-						<input type="checkbox" name="paxTerminalAsPrinterCheck"
-							ng-model="settings.PaxTerminalAsPrinter">
-						Set Pax Terminal as Printer
-					</label>
+                    <!-- confirm telephone number settings -->
+                    <h5> Pax Terminal as Printer </h5>
+                    <div class="confirmTelSettingsMessage"></div>
+                    <label>
+                        <input type="checkbox" name="paxTerminalAsPrinterCheck"
+                               ng-model="settings.PaxTerminalAsPrinter">
+                        Set Pax Terminal as Printer
+                    </label>
 
-					<hr class="divider">
+                    <hr class="divider">
 
-					<button type="button" class="btn btn-danger" ng-click="updateSettings(settingsForm)">
-						Save Settings
-					</button>
-				</form>
+                    <button type="button" class="btn btn-danger" ng-click="updateSettings(settingsForm)">
+                        Save Settings
+                    </button>
+                </form>
 
-				<!-- <div class="panel panel-default">
+                <!-- <div class="panel panel-default">
 
-					<div class="panel-body">
+                <div class="panel-body">
 
-					</div>
-				</div> -->
+                </div>
+            </div> -->
+                <!-- <div class="panel panel-default">
+                <div class="panel-heading"> Merchant Tax </div>
 
+                <div class="panel-body">
+                    <div class="merchantTaxSettingsMessage"></div>
 
-				<!-- <div class="panel panel-default">
-					<div class="panel-heading"> Merchant Tax </div>
+                    <form class="padd" role="form">
+                        <div class="form-group">
+                            <label for="taxAmount">Sales Tax</label>
+                            <input type="number" class="form-control" id="taxAmount" name="taxAmount" placeholder="Enter tax amount"
+                                ng-model="settings.Tax"
+                                ng-pattern="/^[0-9]{1,2}$/"
+                                ng-max="15"
+                                >
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+                <!-- <div class="panel panel-default">
+                <div class="panel-heading"> Confirm Telephone Number </div>
 
-					<div class="panel-body">
-						<div class="merchantTaxSettingsMessage"></div>
+                <div class="panel-body">
+                    <div class="confirmTelSettingsMessage"></div>
 
-						<form class="padd" role="form">
-							<div class="form-group">
-								<label for="taxAmount">Sales Tax</label>
-								<input type="number" class="form-control" id="taxAmount" name="taxAmount" placeholder="Enter tax amount"
-									ng-model="settings.Tax"
-									ng-pattern="/^[0-9]{1,2}$/"
-									ng-max="15"
-									>
-							</div>
-						</form>
-					</div>
-				</div> -->
+                    <form class="padd" role="form">
+                        <label>
+                            <input type="checkbox" name="confirmTelCheck" ng-model="settings.ConfirmPhone">
+                            Confirm telephone
+                        </label>
+                    </form>
+                </div>
+            </div> -->
+                <!--confirm telephone number settings-->
+                <!-- <div class="panel panel-default">
+                <div class="panel-heading"> Pax Terminal as Printer </div>
 
+                <div class="panel-body">
+                    <div class="confirmTelSettingsMessage"></div>
 
-				<!-- <div class="panel panel-default">
-					<div class="panel-heading"> Confirm Telephone Number </div>
-
-					<div class="panel-body">
-						<div class="confirmTelSettingsMessage"></div>
-
-						<form class="padd" role="form">
-							<label>
-								<input type="checkbox" name="confirmTelCheck" ng-model="settings.ConfirmPhone">
-								Confirm telephone
-							</label>
-						</form>
-					</div>
-				</div> -->
-
-				<!--confirm telephone number settings-->
-				<!-- <div class="panel panel-default">
-					<div class="panel-heading"> Pax Terminal as Printer </div>
-
-					<div class="panel-body">
-						<div class="confirmTelSettingsMessage"></div>
-
-						<form class="padd" role="form">
-							<label>
-								<input type="checkbox" name="paxTerminalAsPrinterCheck" ng-model="settings.PaxTerminalAsPrinter">
-								Set Pax Terminal as Printer
-							</label>
-						</form>
-					</div>
-				</div> -->
+                    <form class="padd" role="form">
+                        <label>
+                            <input type="checkbox" name="paxTerminalAsPrinterCheck" ng-model="settings.PaxTerminalAsPrinter">
+                            Set Pax Terminal as Printer
+                        </label>
+                    </form>
+                </div>
+            </div> -->
 
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 	</tab>
 
 	<!-- Orders -->
@@ -510,7 +505,7 @@
                     <th>Order<span class="hidden-xs"> Number</span></th>
                     <th>Phone<span class="hidden-xs"> Number</span></th>
                     <th>Product</th>
-                    <!-- <th>Cashier</th> -->
+                     <th>Cashier</th> 
                     <th>Amount</th>
                     <!-- <th>Comission</th> -->
                     <th>&nbsp;</th>
@@ -524,7 +519,7 @@
                             <td class="order-id">{{ order.Id}}</td>
                             <td class="order-phone-number">{{ order.PhoneNumber}}</td>
                             <td class="order-product-name">{{ order.ProductName }}</td>
-                            <!-- <td class="order-code">{{ order.OperatorName}}</td> -->
+                             <td class="order-code">{{ order.OperatorName}}</td> 
                             <td class="order-amount">{{ order.Amount | currency }}</td>
                             <!-- <td class="order-amount">{{ order.Comission | currency }}</td> -->
                             <td class="refund-order">

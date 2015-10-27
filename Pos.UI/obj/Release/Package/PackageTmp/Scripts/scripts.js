@@ -4,10 +4,10 @@
     var app = angular.module('posApp', ['ngRoute', 'ngAnimate', 'ngResource', 'ui.bootstrap', 'loginServices', 'adminServices', 'sharedServices', 'prodsServices', 'LocalStorageModule', 'appFilters', 'customFunctions', 'promosServices', 'billPaymentServices', 'sunpassServices', 'directTvServices', 'ajoslin.promise-tracker', 'datePicker', 'flash']);
     // 720kb.datepicker
     // api url constant
-    app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
+    //app.constant('API_URL', 'http://bsapi.pinserve.com/api/');
     app.constant('SITE_URL', 'http://mobile.blackstonepos.com/');
 //    app.constant('SITE_URL', 'file:///D:/Projects/BlackstonePOSAngularJs/Pos.UI/index.html#');
-//    app.constant('API_URL', 'http://localhost:50230/api/');
+    app.constant('API_URL', 'http://localhost:50230/api/');
 
     // Routes config
     app.config(['$routeProvider',
